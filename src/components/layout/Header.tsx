@@ -9,6 +9,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [language, setLanguage] = useState("en"); // Default language is English
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +40,13 @@ const Header = () => {
     { name: "Contact", href: "/contact" },
   ];
 
+  const switchLanguage = (lang: string) => {
+    setLanguage(lang);
+    // In a real app, this would trigger language change throughout the app
+    console.log(`Switching language to: ${lang}`);
+    // You would typically use i18n functionality here
+  };
+
   return (
     <header
       className={cn(
@@ -55,11 +63,8 @@ const Header = () => {
             <img 
               src="/public/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
               alt="RSS Kumru Automotive Logo" 
-              className="h-10 mr-2"
+              className="h-12 mr-2" // Increased logo size
             />
-            <span className="font-montserrat font-bold text-2xl text-kumru-black">
-              RSS Kumru <span className="text-kumru-navy">Automotive</span>
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -106,8 +111,33 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Language Toggle and CTA Button */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* Language Toggle */}
+            <div className="flex items-center space-x-2 mr-2">
+              <button 
+                className={`w-8 h-5 rounded overflow-hidden border ${language === 'en' ? 'border-kumru-navy' : 'border-gray-300'}`}
+                onClick={() => switchLanguage('en')}
+              >
+                <img 
+                  src="https://flagcdn.com/w20/us.png" 
+                  alt="English"
+                  className="w-full h-full object-cover"
+                />
+              </button>
+              <button 
+                className={`w-8 h-5 rounded overflow-hidden border ${language === 'tr' ? 'border-kumru-navy' : 'border-gray-300'}`}
+                onClick={() => switchLanguage('tr')}
+              >
+                <img 
+                  src="https://flagcdn.com/w20/tr.png" 
+                  alt="Turkish" 
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            </div>
+
+            {/* CTA Button */}
             <Button 
               className="bg-kumru-yellow text-kumru-black hover:bg-kumru-yellow/90"
               asChild
@@ -117,12 +147,39 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-kumru-black focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="lg:hidden flex items-center space-x-4">
+            {/* Mobile Language Toggle */}
+            <div className="flex items-center space-x-1">
+              <button 
+                className={`w-6 h-4 rounded overflow-hidden border ${language === 'en' ? 'border-kumru-navy' : 'border-gray-300'}`}
+                onClick={() => switchLanguage('en')}
+              >
+                <img 
+                  src="https://flagcdn.com/w20/us.png" 
+                  alt="English"
+                  className="w-full h-full object-cover"
+                />
+              </button>
+              <button 
+                className={`w-6 h-4 rounded overflow-hidden border ${language === 'tr' ? 'border-kumru-navy' : 'border-gray-300'}`}
+                onClick={() => switchLanguage('tr')}
+              >
+                <img 
+                  src="https://flagcdn.com/w20/tr.png" 
+                  alt="Turkish" 
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button
+              className="text-kumru-black focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 

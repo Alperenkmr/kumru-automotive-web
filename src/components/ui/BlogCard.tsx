@@ -1,13 +1,13 @@
 
 import React from "react";
-import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 interface BlogCardProps {
   title: string;
   date: string;
   imageSrc: string;
   author?: string;
-  className?: string;
+  href?: string;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
@@ -15,36 +15,34 @@ const BlogCard: React.FC<BlogCardProps> = ({
   date,
   imageSrc,
   author,
-  className,
+  href = "#"
 }) => {
   return (
-    <div
-      className={cn(
-        "bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group",
-        className
-      )}
+    <Link 
+      to={href} 
+      className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
     >
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={imageSrc}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute bottom-0 left-0 bg-kumru-yellow text-kumru-black py-1 px-3 rounded-tr-lg text-sm font-medium">
-          {date}
+      <div
+        className="h-48 bg-gray-200"
+        style={{
+          backgroundImage: `url(${imageSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2 line-clamp-2">{title}</h3>
+        <div className="flex items-center text-gray-600 text-sm mb-3">
+          <span>{date}</span>
+          {author && (
+            <>
+              <span className="mx-2">•</span>
+              <span>{author}</span>
+            </>
+          )}
         </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 group-hover:text-kumru-navy transition-colors duration-200">
-          {title}
-        </h3>
-        {author && (
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500">By {author}</span>
-          </div>
-        )}
-      </div>
-    </div>
+    </Link>
   );
 };
 

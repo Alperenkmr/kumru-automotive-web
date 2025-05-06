@@ -12,7 +12,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   return (
     <section
       className={cn(
-        "min-h-[80vh] relative flex items-center bg-white",
+        "min-h-[80vh] relative flex items-center bg-white py-20",  // Added vertical padding
         className
       )}
     >
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             Precision Hydraulic Systems <br />&amp; Custom-Engineered Lines
           </h1>
           <p className="text-xl md:text-2xl mb-10 text-gray-600">
-            Welcome to RSS Kumru Automotive.
+            Discover our capabilities and industry expertise
           </p>
           <Button 
             className="bg-kumru-yellow hover:bg-kumru-yellow/90 text-kumru-black py-6 px-8 rounded-xl text-lg"
@@ -46,7 +46,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         </div>
       </div>
 
-      {/* Robot Illustration */}
+      {/* Robot Illustration - Semi-transparent behind the content */}
       <div className="absolute right-0 bottom-0 z-0 opacity-5 hidden lg:block">
         <img 
           src="public/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
