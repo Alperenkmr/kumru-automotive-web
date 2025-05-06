@@ -1,11 +1,10 @@
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   title: string;
-  description: string;
+  description?: string;
   imageSrc: string;
   price?: string;
   className?: string;
@@ -15,7 +14,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
   title,
   description,
   imageSrc,
-  price,
   className,
 }) => {
   return (
@@ -26,29 +24,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
       )}
     >
       <div
-        className="h-48 bg-gray-200 relative overflow-hidden"
+        className="h-56 bg-gray-200 relative overflow-hidden"
         style={{
           backgroundImage: `url(${imageSrc})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {price && (
-          <div className="absolute top-4 right-4 bg-kumru-orange text-white py-1 px-3 rounded-full font-semibold">
-            {price}
-          </div>
-        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <h3 className="text-xl font-bold p-4 text-white">{title}</h3>
+        </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 text-kumru-charcoal">{title}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <Button
-          variant="outline"
-          className="w-full border-kumru-teal text-kumru-teal hover:bg-kumru-teal hover:text-white transition-colors duration-200"
-        >
-          Learn More
-        </Button>
-      </div>
+      {description && (
+        <div className="p-4">
+          <p className="text-gray-600">{description}</p>
+        </div>
+      )}
     </div>
   );
 };

@@ -4,16 +4,14 @@ import { cn } from "@/lib/utils";
 
 interface BlogCardProps {
   title: string;
-  excerpt: string;
   date: string;
   imageSrc: string;
-  author: string;
+  author?: string;
   className?: string;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({
   title,
-  excerpt,
   date,
   imageSrc,
   author,
@@ -32,19 +30,19 @@ const BlogCard: React.FC<BlogCardProps> = ({
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute bottom-0 left-0 bg-kumru-teal text-white py-1 px-3 rounded-tr-lg text-sm">
+        <div className="absolute bottom-0 left-0 bg-kumru-yellow text-kumru-black py-1 px-3 rounded-tr-lg text-sm font-medium">
           {date}
         </div>
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 group-hover:text-kumru-teal transition-colors duration-200">
+        <h3 className="text-xl font-bold mb-2 group-hover:text-kumru-navy transition-colors duration-200">
           {title}
         </h3>
-        <p className="text-gray-600 mb-4 line-clamp-2">{excerpt}</p>
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-500">By {author}</span>
-          <span className="text-kumru-teal font-medium text-sm">Read More →</span>
-        </div>
+        {author && (
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-500">By {author}</span>
+          </div>
+        )}
       </div>
     </div>
   );

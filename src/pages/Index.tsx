@@ -3,12 +3,11 @@ import React, { useEffect } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import WhatWeDo from "@/components/sections/WhatWeDo";
+import Careers from "@/components/sections/Careers";
 import FeaturedProducts from "@/components/sections/FeaturedProducts";
-import HowItWorks from "@/components/sections/HowItWorks";
-import Testimonials from "@/components/sections/Testimonials";
 import BlogPreview from "@/components/sections/BlogPreview";
-import ContactSection from "@/components/sections/ContactSection";
+import AdPlaceholder from "@/components/ui/AdPlaceholder";
 
 const Index = () => {
   // Animation on scroll effect
@@ -41,12 +40,13 @@ const Index = () => {
       <Header />
       <main className="pt-24"> {/* Padding top to account for fixed header */}
         <Hero />
-        <WhyChooseUs />
+        <WhatWeDo />
+        <Careers />
         <FeaturedProducts />
-        <HowItWorks />
-        <Testimonials />
         <BlogPreview />
-        <ContactSection />
+        <div className="container mx-auto py-16">
+          <AdPlaceholder width={728} height={90} className="mx-auto" />
+        </div>
       </main>
       <Footer />
 

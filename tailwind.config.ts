@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,10 +63,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				kumru: {
-					charcoal: "#333333",
-					teal: "#00BFA6", 
-					white: "#F8F8F8",
-					orange: "#FF6F00"
+					yellow: "#F9C91A", // Bold yellow
+					navy: "#0A2463", // Deep navy
+					black: "#000000",
+					white: "#FFFFFF"
 				}
 			},
 			fontFamily: {

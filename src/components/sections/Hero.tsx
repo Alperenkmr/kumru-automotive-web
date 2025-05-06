@@ -30,17 +30,14 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center text-white animate-fade-in">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-bold mb-6">
-          Precision-Engineered<br />Hydraulic Systems
+          Precision Hydraulic Systems<br />&amp; Custom Engineered Lines
         </h1>
         <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-gray-200">
-          Custom Hoses, Fittings & Complete Lines—Built to Your Specs.
+          Discover our capabilities and industry expertise
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button className="bg-kumru-orange hover:bg-kumru-orange/90 text-white py-6 px-8 rounded-2xl text-lg">
-            Get a Quote
-          </Button>
-          <Button variant="outline" className="bg-transparent border-2 border-white text-white py-6 px-8 rounded-2xl text-lg hover:bg-white/10">
-            View Products
+        <div className="flex justify-center">
+          <Button className="bg-kumru-yellow hover:bg-kumru-yellow/90 text-kumru-black py-6 px-8 rounded-2xl text-lg">
+            Learn More
           </Button>
         </div>
       </div>
