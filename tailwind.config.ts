@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,7 +65,7 @@ export default {
 				},
 				kumru: {
 					yellow: "#F9C91A", // Bold yellow
-					navy: "#0A2463", // Deep navy
+					navy: "#0A1F44", // Deep navy (updated from 0A2463)
 					black: "#000000",
 					white: "#FFFFFF"
 				}

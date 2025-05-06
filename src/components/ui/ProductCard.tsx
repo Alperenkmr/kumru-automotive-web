@@ -8,6 +8,7 @@ interface ProductCardProps {
   imageSrc: string;
   price?: string;
   className?: string;
+  href?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -15,11 +16,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   description,
   imageSrc,
   className,
+  href = "#",
 }) => {
   return (
-    <div
+    <a 
+      href={href}
       className={cn(
-        "bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
+        "block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
         className
       )}
     >
@@ -40,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <p className="text-gray-600">{description}</p>
         </div>
       )}
-    </div>
+    </a>
   );
 };
 

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import AdPlaceholder from "@/components/ui/AdPlaceholder";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,16 +27,16 @@ const Header = () => {
     { name: "Home", href: "/" },
     { 
       name: "About", 
-      href: "#about", 
+      href: "/about", 
       hasSubmenu: true,
       submenu: [
-        { name: "What We Do", href: "#what-we-do" },
-        { name: "Careers", href: "#careers" },
+        { name: "What We Do", href: "/about" },
+        { name: "Team & Values", href: "/about#values" },
       ]
     },
-    { name: "Products", href: "#products" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Products", href: "/products" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -44,18 +44,23 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-kumru-white shadow-md py-2"
-          : "bg-transparent py-4"
+          ? "bg-white shadow-md py-2"
+          : "bg-white py-4"
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/public/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
+              alt="RSS Kumru Automotive Logo" 
+              className="h-10 mr-2"
+            />
             <span className="font-montserrat font-bold text-2xl text-kumru-black">
               RSS Kumru <span className="text-kumru-navy">Automotive</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -71,12 +76,12 @@ const Header = () => {
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 ) : (
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-kumru-black hover:text-kumru-navy transition-colors duration-150 font-montserrat font-medium"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 )}
 
                 {/* About Submenu */}
@@ -87,13 +92,13 @@ const Header = () => {
                     onMouseLeave={() => setAboutMenuOpen(false)}
                   >
                     {link.submenu?.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className="block p-3 text-kumru-black hover:text-kumru-navy hover:bg-gray-50 rounded-md transition-colors duration-150"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -103,8 +108,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button className="bg-kumru-yellow text-kumru-black hover:bg-kumru-yellow/90">
-              Learn More
+            <Button 
+              className="bg-kumru-yellow text-kumru-black hover:bg-kumru-yellow/90"
+              asChild
+            >
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
 
@@ -139,38 +147,36 @@ const Header = () => {
                   {aboutMenuOpen && (
                     <div className="ml-4 mt-1 flex flex-col space-y-2">
                       {link.submenu?.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className="py-2 text-kumru-black hover:text-kumru-navy transition-colors duration-150"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </>
               ) : (
-                <a
-                  href={link.href}
+                <Link
+                  to={link.href}
                   className="text-kumru-black hover:text-kumru-navy py-2 transition-colors duration-150 font-montserrat font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               )}
             </div>
           ))}
-          <Button className="bg-kumru-yellow text-kumru-black mt-4 hover:bg-kumru-yellow/90 w-full">
-            Learn More
+          <Button 
+            className="bg-kumru-yellow text-kumru-black mt-4 hover:bg-kumru-yellow/90 w-full"
+            asChild
+          >
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
           </Button>
         </nav>
-      </div>
-
-      {/* Ad Leaderboard */}
-      <div className="container mx-auto mt-2">
-        <AdPlaceholder width={728} height={90} className="mx-auto" />
       </div>
     </header>
   );
