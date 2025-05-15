@@ -31,7 +31,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center justify-center">
                   <img 
-                    src="/public/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
+                    src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
                     alt="RSS Kumru Robot Mascot" 
                     className="max-h-96 opacity-80"
                   />
@@ -62,7 +62,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center justify-center">
                   <img 
-                    src="/public/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
+                    src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
                     alt="RSS Kumru Robot Mascot" 
                     className="max-h-96 opacity-80"
                   />

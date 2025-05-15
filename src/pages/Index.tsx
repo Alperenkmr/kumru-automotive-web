@@ -9,7 +9,6 @@ import FeaturedProducts from "@/components/sections/FeaturedProducts";
 import BlogPreview from "@/components/sections/BlogPreview";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Check, Award, Globe } from "lucide-react";
 
 const Index = () => {
   const { t } = useLanguage();
