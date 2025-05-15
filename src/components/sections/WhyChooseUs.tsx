@@ -1,12 +1,16 @@
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface WhyChooseUsProps {
   className?: string;
 }
 
 const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
+  const { t } = useLanguage();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
   const benefits = [
     {
       title: "Over 20 Years' Expertise",
@@ -73,25 +77,66 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
     },
   ];
 
+  useEffect(() => {
+    // Intersection Observer to handle visibility
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // If section is visible, mark it as observed
+            entry.target.classList.add("is-visible");
+            
+            // Add animation to children with a stagger effect
+            const cards = entry.target.querySelectorAll('.benefit-card');
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('animated');
+              }, 150 * index);
+            });
+            
+            // Once animation is triggered, disconnect observer
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: null, // viewport
+        rootMargin: "0px",
+        threshold: 0.1, // trigger when 10% of the element is visible
+      }
+    );
+
+    // Observe the section
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section
       id="about"
+      ref={sectionRef}
       className={cn(
-        "section-padding bg-kumru-white",
+        "section-padding bg-kumru-white min-h-[500px]", // Added min height to prevent layout shifts
         className
       )}
     >
       <div className="container mx-auto">
-        <h2 className="section-title">Why RSS Kumru?</h2>
+        <h2 className="section-title">{t('whyChooseUs.title', 'Why RSS Kumru?')}</h2>
         <p className="section-subtitle">
-          We combine decades of expertise with cutting-edge technology to deliver superior hydraulic solutions.
+          {t('whyChooseUs.subtitle', 'We combine decades of expertise with cutting-edge technology to deliver superior hydraulic solutions.')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="benefit-card flex flex-col items-center text-center p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 opacity-0"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="text-kumru-teal mb-4">{benefit.icon}</div>
               <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
