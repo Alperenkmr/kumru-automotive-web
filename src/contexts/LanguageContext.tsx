@@ -1,151 +1,156 @@
+import React, { createContext, useState, useContext } from 'react';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+interface LanguageContextProps {
+  language: string;
+  setLanguage: (language: string) => void;
+  translations: any;
+}
 
-// Define supported languages
-type Language = 'en' | 'tr';
+const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
-// Define context type
-type LanguageContextType = {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
-};
+interface LanguageProviderProps {
+  children: React.ReactNode;
+}
 
-// Create the context
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
+  const [language, setLanguage] = useState('en');
 
-// Extended translations
-const translations = {
-  en: {
-    'nav.home': 'Home',
-    'nav.about': 'About',
-    'nav.products': 'Products',
-    'nav.blog': 'Blog',
-    'nav.contact': 'Contact',
-    'header.contactUs': 'Contact Us',
-    'hero.title': 'Precision Hydraulic Systems & Custom-Engineered Lines',
-    'hero.subtitle': 'Discover our capabilities and industry expertise',
-    'hero.cta': 'Explore Our Solutions',
-    'aboutSubmenu.whatWeDo': 'What We Do',
-    'aboutSubmenu.teamValues': 'Team & Values',
-    'whatWeDo.title': 'What We Do',
-    'whatWeDo.content': "At RSS Kumru, we specialize in producing high-performance hydraulic systems, lines, and fittings tailored to the demands of automotive and agricultural machinery industries. Our advanced manufacturing capabilities, deep technical know-how, and customer-centric approach set us apart. We don't just deliver parts - we deliver trust, durability, and performance.",
-    'teamValues.title': 'Team & Values',
-    'teamValues.content': 'Our team is composed of experienced professionals who are dedicated to excellence and innovation. We value integrity, quality, and customer satisfaction above all else.',
-    'featuredProducts.title': 'Featured Products',
-    'featuredProducts.viewAll': 'View All Products',
-    'products.backToProducts': 'Back to Products',
-    'blog.latestArticles': 'Latest Articles',
-    'blog.viewAll': 'View All Articles',
-    'blog.backToBlog': 'Back to Blog',
-    'contact.title': 'Contact Us',
-    'contact.name': 'Name',
-    'contact.email': 'Email',
-    'contact.message': 'Message',
-    'contact.submit': 'Submit',
-    'contact.success': 'Your message has been sent successfully!',
-    'footer.followUs': 'Follow Us',
-    'footer.location': 'Aksaray, Turkey',
-    'footer.privacyPolicy': 'Privacy Policy',
-    'footer.cookiePolicy': 'Cookie Policy',
-    'whyChooseUs.title': 'Why Choose Us',
-    'whyChooseUs.expertise': "20+ Years' Expertise",
-    'whyChooseUs.expertiseDesc': "Since 2001, we've been building durable, precision-engineered hydraulic systems trusted by industry leaders.",
-    'whyChooseUs.quality': 'ISO-Certified Quality',
-    'whyChooseUs.qualityDesc': 'Every component we produce meets global ISO standards for quality and reliability.',
-    'whyChooseUs.delivery': 'Global Delivery',
-    'whyChooseUs.deliveryDesc': 'We ship internationally with guaranteed delivery times and full logistics support.',
-    'cta.ready': 'Ready to Work With Us?',
-    'cta.description': "Let's discuss your project and build your ideal hydraulic solution.",
-    'cta.button': 'Get in Touch',
-    'about.paragraph1': 'We are a Turkish-based company with over two decades of experience in hydraulic systems manufacturing.',
-    'about.paragraph2': 'From turbo oil lines to custom fuel and injection systems, our catalog is built for precision and endurance.',
-    'about.paragraph3': 'We proudly serve clients in automotive, agricultural, and industrial markets across the globe.',
-    'about.values.excellence': 'Excellence – We strive to deliver best-in-class performance in every product.',
-    'about.values.innovation': 'Innovation – Constantly upgrading our technology and processes.',
-    'about.values.integrity': 'Integrity – Transparent, honest partnerships with our clients.',
-    'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
-    'contact.phone': '+90 382 266 57 90',
-    'contact.email': 'info@rsskumru.com',
-    'contact.hours': 'Hafta içi 08:30 - 18:00'
-  },
-  tr: {
-    'nav.home': 'Ana Sayfa',
-    'nav.about': 'Hakkımızda',
-    'nav.products': 'Ürünler',
-    'nav.blog': 'Blog',
-    'nav.contact': 'İletişim',
-    'header.contactUs': 'Bize Ulaşın',
-    'hero.title': 'Hassas Hidrolik Sistemler ve Özel Mühendislik Hatları',
-    'hero.subtitle': 'Yeteneklerimizi ve sektör uzmanlığımızı keşfedin',
-    'hero.cta': 'Çözümlerimizi Keşfedin',
-    'aboutSubmenu.whatWeDo': 'Ne Yapıyoruz',
-    'aboutSubmenu.teamValues': 'Ekip & Değerler',
-    'whatWeDo.title': 'Ne Yapıyoruz',
-    'whatWeDo.content': "RSS Kumru'da, otomotiv ve tarım makineleri endüstrilerinin taleplerine uygun yüksek performanslı hidrolik sistemler, hatlar ve bağlantı parçaları üretiminde uzmanlaşmış bulunuyoruz. Gelişmiş üretim yeteneklerimiz, derin teknik bilgimiz ve müşteri odaklı yaklaşımımız bizi farklı kılıyor. Sadece parça değil, güven, dayanıklılık ve performans sunuyoruz.",
-    'teamValues.title': 'Ekip & Değerler',
-    'teamValues.content': 'Ekibimiz, mükemmelliğe ve yeniliğe adanmış deneyimli profesyonellerden oluşmaktadır. Her şeyden önce dürüstlük, kalite ve müşteri memnuniyetine değer veriyoruz.',
-    'featuredProducts.title': 'Öne Çıkan Ürünler',
-    'featuredProducts.viewAll': 'Tüm Ürünleri Görüntüle',
-    'products.backToProducts': 'Ürünlere Geri Dön',
-    'blog.latestArticles': 'En Son Makaleler',
-    'blog.viewAll': 'Tüm Makaleleri Görüntüle',
-    'blog.backToBlog': 'Bloga Geri Dön',
-    'contact.title': 'Bize Ulaşın',
-    'contact.name': 'İsim',
-    'contact.email': 'E-posta',
-    'contact.message': 'Mesaj',
-    'contact.submit': 'Gönder',
-    'contact.success': 'Mesajınız başarıyla gönderildi!',
-    'footer.followUs': 'Bizi Takip Edin',
-    'footer.location': 'Aksaray, Türkiye',
-    'footer.privacyPolicy': 'Gizlilik Politikası',
-    'footer.cookiePolicy': 'Çerez Politikası',
-    'whyChooseUs.title': 'Neden Bizi Seçmelisiniz',
-    'whyChooseUs.expertise': '20+ Yıllık Uzmanlık',
-    'whyChooseUs.expertiseDesc': "2001'den beri, sektör liderleri tarafından güvenilen dayanıklı, hassas mühendislikle tasarlanmış hidrolik sistemler üretiyoruz.",
-    'whyChooseUs.quality': 'ISO Sertifikalı Kalite',
-    'whyChooseUs.qualityDesc': 'Ürettiğimiz her bileşen, kalite ve güvenilirlik için global ISO standartlarını karşılamaktadır.',
-    'whyChooseUs.delivery': 'Global Teslimat',
-    'whyChooseUs.deliveryDesc': 'Garantili teslimat süreleri ve tam lojistik desteğiyle uluslararası sevkiyat yapıyoruz.',
-    'cta.ready': 'Bizimle Çalışmaya Hazır mısınız?',
-    'cta.description': 'Projenizi tartışalım ve ideal hidrolik çözümünüzü birlikte oluşturalım.',
-    'cta.button': 'İletişime Geçin',
-    'about.paragraph1': 'Hidrolik sistem üretiminde yirmi yılı aşkın deneyime sahip Türkiye merkezli bir şirketiz.',
-    'about.paragraph2': 'Turbo yağ hatlarından özel yakıt ve enjeksiyon sistemlerine kadar ürün kataloğumuz hassasiyet ve dayanıklılık için tasarlanmıştır.',
-    'about.paragraph3': 'Otomotiv, tarım ve endüstriyel pazarlarda dünya genelindeki müşterilerimize hizmet vermekten gurur duyuyoruz.',
-    'about.values.excellence': 'Mükemmellik - Her üründe en iyi performansı sunmak için çalışıyoruz.',
-    'about.values.innovation': 'İnovasyon - Teknolojimizi ve süreçlerimizi sürekli geliştiriyoruz.',
-    'about.values.integrity': 'Dürüstlük - Müşterilerimizle şeffaf ve dürüst ortaklıklar kuruyoruz.',
-    'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
-    'contact.phone': '+90 382 266 57 90',
-    'contact.email': 'info@rsskumru.com',
-    'contact.hours': 'Hafta içi 08:30 - 18:00'
-  }
-};
+  const translations = {
+    en: {
+      "Index.Welcome": "Welcome",
+      "Index.AboutUs": "About Us",
+      "Index.Products": "Products",
+      "Index.Contact": "Contact",
+      "Index.HeroTitle": "Leading Manufacturer of Hydraulic Solutions",
+      "Index.HeroSubtitle": "High-quality hydraulic hoses, fittings, and systems for various industrial applications.",
+      "Index.LearnMore": "Learn More",
+      "Index.WhyChooseUs": "Why Choose Us?",
+      "Index.Expertise": "Expertise",
+      "Index.ExpertiseDescription": "Decades of experience in hydraulic engineering and manufacturing.",
+      "Index.Quality": "Quality",
+      "Index.QualityDescription": "Premium materials and rigorous testing ensure top-notch product performance.",
+      "Index.Innovation": "Innovation",
+      "Index.InnovationDescription": "Continuous research and development to provide cutting-edge solutions.",
+      "Index.FeaturedProducts": "Our Products",
+      "Index.HydraulicHoses": "Hydraulic Hoses",
+      "Index.HydraulicHosesDescription": "Durable hoses for a wide range of applications.",
+      "Index.HydraulicFittings": "Hydraulic Fittings",
+      "Index.HydraulicFittingsDescription": "Precision fittings for leak-free connections.",
+      "Index.HydraulicSystems": "Hydraulic Systems",
+      "Index.HydraulicSystemsDescription": "Custom-engineered systems for optimal performance.",
+      "About.Title": "About Us",
+      "About.Subtitle": "Learn more about our company and our mission.",
+      "About.OurStory": "Our Story",
+      "About.OurStoryDescription": "Founded in 1985, we have been committed to providing high-quality hydraulic solutions to our customers. With decades of experience, we have grown to become a leading manufacturer in the industry.",
+      "About.OurMission": "Our Mission",
+      "About.OurMissionDescription": "To deliver innovative and reliable hydraulic products that meet the evolving needs of our customers. We strive for excellence in every aspect of our business, from product design to customer service.",
+      "About.OurValues": "Our Values",
+      "About.Value1": "Quality",
+      "About.Value1Description": "We are committed to maintaining the highest standards of quality in our products and services.",
+      "About.Value2": "Innovation",
+      "About.Value2Description": "We continuously invest in research and development to provide cutting-edge solutions.",
+      "About.Value3": "Customer Satisfaction",
+      "About.Value3Description": "We prioritize our customers and strive to exceed their expectations.",
+      "Products.Title": "Our Products",
+      "Products.Subtitle": "Explore our wide range of hydraulic solutions.",
+      "Contact.Title": "Contact Us",
+      "Contact.Subtitle": "Get in touch with us for inquiries and support.",
+      "Contact.FormTitle": "Send us a message",
+      "Contact.Name": "Name",
+      "Contact.Email": "Email",
+      "Contact.Message": "Message",
+      "Contact.Submit": "Submit",
+      "Contact.Address": "Address",
+      "Contact.Phone": "Phone",
+      "Contact.EmailAddress": "Email",
+      "Footer.Copyright": "Copyright © 2024. All rights reserved.",
+      "Footer.Links": "Links",
+      "Footer.Contact": "Contact",
+      "Products.CabinLiftingHose": "Cabin Lifting Hose",
+      "Products.HydraulicHose": "Hydraulic Hose",
+      "Products.PTFELinedHoseAssembly": "PTFE Lined Hose Assembly",
+      "Products.TurboPipeHose": "Turbo Pipe Hose",
+      "Products.InjectionLines": "Injection Lines",
+      "Products.HydraulicSystem": "Hydraulic System",
+    },
+    tr: {
+      "Index.Welcome": "Hoş Geldiniz",
+      "Index.AboutUs": "Hakkımızda",
+      "Index.Products": "Ürünler",
+      "Index.Contact": "İletişim",
+      "Index.HeroTitle": "Önde Gelen Hidrolik Çözümler Üreticisi",
+      "Index.HeroSubtitle": "Çeşitli endüstriyel uygulamalar için yüksek kaliteli hidrolik hortumlar, bağlantı parçaları ve sistemler.",
+      "Index.LearnMore": "Daha Fazla Bilgi",
+      "Index.WhyChooseUs": "Neden Bizi Seçmelisiniz?",
+      "Index.Expertise": "Uzmanlık",
+      "Index.ExpertiseDescription": "Hidrolik mühendisliği ve üretiminde onlarca yıllık deneyim.",
+      "Index.Quality": "Kalite",
+      "Index.QualityDescription": "Üstün malzemeler ve titiz testler, birinci sınıf ürün performansı sağlar.",
+      "Index.Innovation": "Yenilik",
+      "Index.InnovationDescription": "En son çözümleri sunmak için sürekli araştırma ve geliştirme.",
+      "Index.FeaturedProducts": "Öne Çıkan Ürünlerimiz",
+      "Index.HydraulicHoses": "Hidrolik Hortumlar",
+      "Index.HydraulicHosesDescription": "Geniş uygulama yelpazesi için dayanıklı hortumlar.",
+      "Index.HydraulicFittings": "Hidrolik Bağlantı Parçaları",
+      "Index.HydraulicFittingsDescription": "Sızıntısız bağlantılar için hassas bağlantı parçaları.",
+      "Index.HydraulicSystems": "Hidrolik Sistemler",
+      "Index.HydraulicSystemsDescription": "Optimum performans için özel olarak tasarlanmış sistemler.",
+      "About.Title": "Hakkımızda",
+      "About.Subtitle": "Şirketimiz ve misyonumuz hakkında daha fazla bilgi edinin.",
+      "About.OurStory": "Hikayemiz",
+      "About.OurStoryDescription": "1985 yılında kurulan şirketimiz, müşterilerimize yüksek kaliteli hidrolik çözümler sunmaya kendini adamıştır. Onlarca yıllık deneyimle, sektörde önde gelen bir üretici haline geldik.",
+      "About.OurMission": "Misyonumuz",
+      "About.OurMissionDescription": "Müşterilerimizin sürekli değişen ihtiyaçlarını karşılayan yenilikçi ve güvenilir hidrolik ürünler sunmak. İşimizin her alanında, ürün tasarımından müşteri hizmetlerine kadar mükemmelliği hedefliyoruz.",
+      "About.OurValues": "Değerlerimiz",
+      "About.Value1": "Kalite",
+      "About.Value1Description": "Ürün ve hizmetlerimizde en yüksek kalite standartlarını korumaya kararlıyız.",
+      "About.Value2": "Yenilik",
+      "About.Value2Description": "En son çözümleri sunmak için sürekli olarak araştırma ve geliştirmeye yatırım yapıyoruz.",
+      "About.Value3": "Müşteri Memnuniyeti",
+      "About.Value3Description": "Müşterilerimize öncelik veriyor ve beklentilerini aşmaya çalışıyoruz.",
+      "Products.Title": "Ürünlerimiz",
+      "Products.Subtitle": "Geniş hidrolik çözümleri yelpazemizi keşfedin.",
+      "Contact.Title": "Bize Ulaşın",
+      "Contact.Subtitle": "Sorularınız ve destek için bizimle iletişime geçin.",
+      "Contact.FormTitle": "Bize mesaj gönderin",
+      "Contact.Name": "Ad",
+      "Contact.Email": "E-posta",
+      "Contact.Message": "Mesaj",
+      "Contact.Submit": "Gönder",
+      "Contact.Address": "Adres",
+      "Contact.Phone": "Telefon",
+      "Contact.EmailAddress": "E-posta",
+      "Footer.Copyright": "Telif Hakkı © 2024. Tüm hakları saklıdır.",
+      "Footer.Links": "Bağlantılar",
+      "Footer.Contact": "İletişim",
+      "Products.CabinLiftingHose": "Kabin Kaldırma Hortumu",
+      "Products.HydraulicHose": "Hidrolik Hortum",
+      "Products.PTFELinedHoseAssembly": "PTFE Kaplı Hortum Tertibatı",
+      "Products.TurboPipeHose": "Turbo Boru Hortumu",
+      "Products.InjectionLines": "Enjeksiyon Hatları",
+      "Products.HydraulicSystem": "Hidrolik Sistem",
+    },
+  };
 
-// Provider component
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
-
-  // Translation function
-  const t = (key: string): string => {
-    const currentTranslations = translations[language];
-    return currentTranslations[key as keyof typeof currentTranslations] || key;
+  const value: LanguageContextProps = {
+    language,
+    setLanguage,
+    translations,
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-// Hook for using the language context
-export const useLanguage = (): LanguageContextType => {
+const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 };
+
+export { LanguageProvider, useLanguage };
