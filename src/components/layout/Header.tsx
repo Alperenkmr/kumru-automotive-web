@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState("en"); // Default language is English
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,26 +26,24 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: t('nav.home'), href: "/" },
     { 
-      name: "About", 
+      name: t('nav.about'), 
       href: "/about", 
       hasSubmenu: true,
       submenu: [
-        { name: "What We Do", href: "/about" },
-        { name: "Team & Values", href: "/about#values" },
+        { name: t('aboutSubmenu.whatWeDo'), href: "/about" },
+        { name: t('aboutSubmenu.teamValues'), href: "/about#values" },
       ]
     },
-    { name: "Products", href: "/products" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: t('nav.products'), href: "/products" },
+    { name: t('nav.blog'), href: "/blog" },
+    { name: t('nav.contact'), href: "/contact" },
   ];
 
-  const switchLanguage = (lang: string) => {
+  const switchLanguage = (lang) => {
     setLanguage(lang);
-    // In a real app, this would trigger language change throughout the app
     console.log(`Switching language to: ${lang}`);
-    // You would typically use i18n functionality here
   };
 
   return (
@@ -61,9 +60,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/public/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
+              src="/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
               alt="RSS Kumru Automotive Logo" 
-              className="h-16 mr-2" // Increased logo size
+              className="h-20 mr-2" // Increased logo size even more
             />
           </Link>
 
@@ -118,6 +117,7 @@ const Header = () => {
               <button 
                 className={`w-8 h-5 rounded overflow-hidden border ${language === 'en' ? 'border-kumru-navy' : 'border-gray-300'}`}
                 onClick={() => switchLanguage('en')}
+                aria-label="Switch to English"
               >
                 <img 
                   src="https://flagcdn.com/w20/us.png" 
@@ -128,6 +128,7 @@ const Header = () => {
               <button 
                 className={`w-8 h-5 rounded overflow-hidden border ${language === 'tr' ? 'border-kumru-navy' : 'border-gray-300'}`}
                 onClick={() => switchLanguage('tr')}
+                aria-label="Türkçeye geç"
               >
                 <img 
                   src="https://flagcdn.com/w20/tr.png" 
@@ -142,7 +143,7 @@ const Header = () => {
               className="bg-kumru-yellow text-kumru-black hover:bg-kumru-yellow/90"
               asChild
             >
-              <Link to="/contact">Contact Us</Link>
+              <Link to="/contact">{t('header.contactUs')}</Link>
             </Button>
           </div>
 
@@ -153,6 +154,7 @@ const Header = () => {
               <button 
                 className={`w-6 h-4 rounded overflow-hidden border ${language === 'en' ? 'border-kumru-navy' : 'border-gray-300'}`}
                 onClick={() => switchLanguage('en')}
+                aria-label="Switch to English"
               >
                 <img 
                   src="https://flagcdn.com/w20/us.png" 
@@ -163,6 +165,7 @@ const Header = () => {
               <button 
                 className={`w-6 h-4 rounded overflow-hidden border ${language === 'tr' ? 'border-kumru-navy' : 'border-gray-300'}`}
                 onClick={() => switchLanguage('tr')}
+                aria-label="Türkçeye geç"
               >
                 <img 
                   src="https://flagcdn.com/w20/tr.png" 
@@ -231,7 +234,7 @@ const Header = () => {
             className="bg-kumru-yellow text-kumru-black mt-4 hover:bg-kumru-yellow/90 w-full"
             asChild
           >
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>{t('header.contactUs')}</Link>
           </Button>
         </nav>
       </div>
