@@ -23,18 +23,21 @@ const ProductDetail = () => {
       title: "Hydraulic Hose",
       description: "Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.",
       images: [
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+        "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
+        "/lovable-uploads/5c3fa32b-aab5-446d-a9ba-539f21f39547.png",
+        "/lovable-uploads/3f867c1f-5292-4c0b-86d2-8c9a7349577b.png"
       ]
     },
     "hydraulic-system": {
       title: "Hydraulic System",
       description: "Complete hydraulic systems designed for efficiency and reliability. Our systems are custom-engineered to meet specific requirements across various industries and applications.",
       images: [
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+        "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
+        "/lovable-uploads/6e049ebd-b21b-495d-82cf-0fcdaf7e5050.png",
+        "/lovable-uploads/867624b9-6709-490a-83c1-03974aa13c11.png",
+        "/lovable-uploads/dfa28104-5721-4b0c-b195-649f86819784.png",
+        "/lovable-uploads/2b8159e8-7b12-4008-a3eb-eea36a55ac94.png",
+        "/lovable-uploads/d6229e80-8a15-4d6d-b8e3-fb9a52cfaaf5.png"
       ]
     },
     "injection-lines": {
@@ -205,8 +208,10 @@ const ProductDetail = () => {
     );
   }
 
-  // Special layout for cabin lifting hose
+  // Check which layout to use
   const isCabinLiftingHose = productId === 'cabin-lifting-hose';
+  const isHydraulicHose = productId === 'hydraulic-hose';
+  const isHydraulicSystem = productId === 'hydraulic-system';
 
   return (
     <div className="min-h-screen bg-white">
@@ -226,7 +231,8 @@ const ProductDetail = () => {
               <p className="text-lg">{product.description}</p>
             </div>
             
-            {isCabinLiftingHose ? (
+            {/* Cabin Lifting Hose Layout - 2x2 Grid */}
+            {isCabinLiftingHose && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {product.images.map((image, index) => (
                   <div key={index} className="overflow-hidden rounded-lg shadow-md">
@@ -240,7 +246,48 @@ const ProductDetail = () => {
                   </div>
                 ))}
               </div>
-            ) : (
+            )}
+            
+            {/* Hydraulic Hose Layout - Single Row with 3 items (2+1 on mobile) */}
+            {isHydraulicHose && (
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Hydraulic System Layout - 3x2 Grid (2x3 on mobile) */}
+            {isHydraulicSystem && (
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={4/3}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Default Layout for other products */}
+            {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
