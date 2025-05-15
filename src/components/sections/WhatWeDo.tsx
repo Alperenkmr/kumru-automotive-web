@@ -1,12 +1,15 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface WhatWeDoProps {
   className?: string;
 }
 
 const WhatWeDo: React.FC<WhatWeDoProps> = ({ className }) => {
+  const { t } = useLanguage();
+  
   const services = [
     { name: "Hoses", icon: "🔄" },
     { name: "Fittings", icon: "🔩" },
@@ -26,12 +29,9 @@ const WhatWeDo: React.FC<WhatWeDoProps> = ({ className }) => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-kumru-black">What We Do</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-kumru-black">{t('whatWeDo.title')}</h2>
             <p className="text-lg mb-6">
-              RSS Kumru Automotive specializes in precision-engineered hydraulic systems and custom engineered lines for automotive, industrial, and agricultural applications. With decades of experience and a commitment to quality, we deliver reliable solutions that meet the most demanding specifications.
-            </p>
-            <p className="text-lg mb-6">
-              Our team of expert engineers and technicians work closely with clients to develop bespoke solutions that optimize performance and ensure long-term reliability in the most challenging environments.
+              {t('whatWeDo.content')}
             </p>
           </div>
           

@@ -13,9 +13,8 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
   
   const benefits = [
     {
-      title: "Over 20 Years' Expertise",
-      description:
-        "Two decades of industry experience and technical knowledge in hydraulic systems.",
+      title: t('whyChooseUs.expertise'),
+      description: t('whyChooseUs.expertiseDesc'),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +33,8 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
       ),
     },
     {
-      title: "ISO-Certified Quality",
-      description:
-        "Our manufacturing processes meet international quality standards for reliability.",
+      title: t('whyChooseUs.quality'),
+      description: t('whyChooseUs.qualityDesc'),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,9 +53,8 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
       ),
     },
     {
-      title: "Fast Global Shipping",
-      description:
-        "Efficient logistics network ensures quick delivery to any location worldwide.",
+      title: t('whyChooseUs.delivery'),
+      description: t('whyChooseUs.deliveryDesc'),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,9 +100,6 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
     >
       <div className="container mx-auto">
         <h2 className="section-title">{t('whyChooseUs.title')}</h2>
-        <p className="section-subtitle">
-          {t('whyChooseUs.subtitle')}
-        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {benefits.map((benefit, index) => (

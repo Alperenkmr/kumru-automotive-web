@@ -3,7 +3,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import AdPlaceholder from "@/components/ui/AdPlaceholder";
 import { cn } from "@/lib/utils";
 
 interface ContactSectionProps {
@@ -148,8 +147,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ className }) => {
                   <div>
                     <h4 className="font-semibold mb-1">Address</h4>
                     <p className="text-gray-600">
-                      123 Industrial Parkway,<br />
-                      Istanbul, Turkey 34000
+                      2. Organize Sanayi Bölgesi,<br />
+                      68100, Aksaray, Türkiye
                     </p>
                   </div>
                 </div>
@@ -173,7 +172,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ className }) => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone</h4>
-                    <p className="text-gray-600">+90 123 456 7890</p>
+                    <p className="text-gray-600">+90 382 266 57 90</p>
                   </div>
                 </div>
 
@@ -220,9 +219,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ className }) => {
                   <div>
                     <h4 className="font-semibold mb-1">Business Hours</h4>
                     <p className="text-gray-600">
-                      Monday - Friday: 8:30AM - 5:30PM<br />
-                      Saturday: 9:00AM - 1:00PM<br />
-                      Sunday: Closed
+                      Hafta içi 08:30 – 18:00<br />
+                      Saturday - Sunday: Closed
                     </p>
                   </div>
                 </div>
@@ -237,11 +235,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ className }) => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Ad Placement */}
-        <div className="mt-16 flex justify-center">
-          <AdPlaceholder width={300} height={600} />
         </div>
       </div>
     </section>
