@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -12,9 +13,10 @@ const ProductDetail = () => {
       title: "Cabin Lifting Hose",
       description: "Our cabin lifting hoses are designed for heavy-duty applications in construction and mining equipment. Engineered for reliable performance and durability in extreme conditions.",
       images: [
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+        "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
+        "/lovable-uploads/7a469edd-2042-4081-baf6-cd67f6e82085.png",
+        "/lovable-uploads/bb6611a3-ff57-4d6d-abb1-616951928c32.png", 
+        "/lovable-uploads/89d2dd09-faaf-47b0-be0f-b97e4cdd24c5.png"
       ]
     },
     "hydraulic-hose": {
@@ -203,6 +205,9 @@ const ProductDetail = () => {
     );
   }
 
+  // Special layout for cabin lifting hose
+  const isCabinLiftingHose = productId === 'cabin-lifting-hose';
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -221,17 +226,33 @@ const ProductDetail = () => {
               <p className="text-lg">{product.description}</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {product.images.map((image, index) => (
-                <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
-                  <img 
-                    src={image} 
-                    alt={`${product.title} - Image ${index + 1}`} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+            {isCabinLiftingHose ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {product.images.map((image, index) => (
+                  <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                    <AspectRatio ratio={16/9}>
+                      <img 
+                        src={image} 
+                        alt={`${product.title} - Image ${index + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                      />
+                    </AspectRatio>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {product.images.map((image, index) => (
+                  <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
+                    <img 
+                      src={image} 
+                      alt={`${product.title} - Image ${index + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       </main>
