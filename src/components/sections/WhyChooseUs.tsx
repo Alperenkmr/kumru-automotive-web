@@ -126,9 +126,9 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
       )}
     >
       <div className="container mx-auto">
-        <h2 className="section-title">{t('whyChooseUs.title', 'Why RSS Kumru?')}</h2>
+        <h2 className="section-title">{t('whyChooseUs.title')}</h2>
         <p className="section-subtitle">
-          {t('whyChooseUs.subtitle', 'We combine decades of expertise with cutting-edge technology to deliver superior hydraulic solutions.')}
+          {t('whyChooseUs.subtitle')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
