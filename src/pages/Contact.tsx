@@ -1,17 +1,54 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 const Contact = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    file: null as File | null
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFormData(prev => ({ ...prev, file: e.target.files![0] }));
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, this would send the form data to a server
-    console.log("Form submitted");
+    console.log("Form submitted", formData);
+    
+    // Show success message
+    setIsSubmitted(true);
+    toast.success("Your message has been sent successfully!");
+    
+    // Reset form after submission
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+      file: null
+    });
+    
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
   };
 
   return (
@@ -22,6 +59,14 @@ const Contact = () => {
           <div className="container mx-auto">
             <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">Contact Us</h1>
             
+            {/* Success Banner */}
+            {isSubmitted && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6 animate-fade-in" role="alert">
+                <strong className="font-bold">Success!</strong>
+                <span className="block sm:inline"> Your message has been sent. We'll get back to you soon.</span>
+              </div>
+            )}
+            
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div>
@@ -29,12 +74,25 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Your Name</Label>
-                    <Input id="name" placeholder="John Smith" required />
+                    <Input 
+                      id="name" 
+                      placeholder="John Smith" 
+                      value={formData.name}
+                      onChange={handleChange}
+                      required 
+                    />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" type="email" placeholder="john@example.com" required />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="john@example.com" 
+                      value={formData.email}
+                      onChange={handleChange}
+                      required 
+                    />
                   </div>
                   
                   <div className="space-y-2">
@@ -43,13 +101,19 @@ const Contact = () => {
                       id="message" 
                       placeholder="How can we help you?" 
                       className="min-h-[150px]" 
+                      value={formData.message}
+                      onChange={handleChange}
                       required 
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="file">Upload Specifications (optional)</Label>
-                    <Input id="file" type="file" />
+                    <Input 
+                      id="file" 
+                      type="file"
+                      onChange={handleFileChange}
+                    />
                   </div>
                   
                   <Button type="submit" className="bg-kumru-navy hover:bg-kumru-navy/90 text-white w-full py-6">

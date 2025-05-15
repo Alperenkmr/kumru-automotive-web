@@ -52,8 +52,8 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-white py-4"
+          ? "bg-white shadow-md py-4"
+          : "bg-white py-6"
       )}
     >
       <div className="container mx-auto px-4">
@@ -63,7 +63,7 @@ const Header = () => {
             <img 
               src="/public/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
               alt="RSS Kumru Automotive Logo" 
-              className="h-12 mr-2" // Increased logo size
+              className="h-16 mr-2" // Increased logo size
             />
           </Link>
 

@@ -121,8 +121,41 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
-			}
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						color: '#333333',
+						a: {
+							color: '#0A1F44',
+							'&:hover': {
+								color: '#0A1F44',
+								textDecoration: 'underline',
+							},
+						},
+						h1: {
+							color: '#0A1F44',
+						},
+						h2: {
+							color: '#0A1F44',
+						},
+						h3: {
+							color: '#0A1F44',
+						},
+						h4: {
+							color: '#0A1F44',
+						},
+						blockquote: {
+							color: '#0A1F44',
+							borderLeftColor: '#F9C91A',
+						},
+					},
+				},
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require("@tailwindcss/typography"),
+	],
 } satisfies Config;
