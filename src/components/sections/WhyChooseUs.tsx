@@ -78,42 +78,18 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
   ];
 
   useEffect(() => {
-    // Intersection Observer to handle visibility
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // If section is visible, mark it as observed
-            entry.target.classList.add("is-visible");
-            
-            // Add animation to children with a stagger effect
-            const cards = entry.target.querySelectorAll('.benefit-card');
-            cards.forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add('animated');
-              }, 150 * index);
-            });
-            
-            // Once animation is triggered, disconnect observer
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        root: null, // viewport
-        rootMargin: "0px",
-        threshold: 0.1, // trigger when 10% of the element is visible
-      }
-    );
-
-    // Observe the section
+    // Anında görünür olması için bir süre beklemeden tüm kartları animasyon ile göster
+    const cards = document.querySelectorAll('.benefit-card');
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('animated');
+      }, 100 * index); // Küçük bir gecikme ile animasyonları başlat
+    });
+    
+    // Seksiyon görünürken is-visible sınıfını ekle
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      sectionRef.current.classList.add('is-visible');
     }
-
-    return () => {
-      observer.disconnect();
-    };
   }, []);
 
   return (
@@ -121,7 +97,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
       id="about"
       ref={sectionRef}
       className={cn(
-        "section-padding bg-kumru-white min-h-[500px]", // Added min height to prevent layout shifts
+        "section-padding bg-kumru-white min-h-[500px]",
         className
       )}
     >
@@ -135,7 +111,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ className }) => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="benefit-card flex flex-col items-center text-center p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 opacity-0"
+              className="benefit-card flex flex-col items-center text-center p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="text-kumru-teal mb-4">{benefit.icon}</div>

@@ -14,7 +14,7 @@ import { Check, Award, Globe } from "lucide-react";
 const Index = () => {
   const { t } = useLanguage();
 
-  // Animation on scroll effect
+  // Scroll efektini optimize ediyoruz - artık element gözükecek
   useEffect(() => {
     const handleScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');
@@ -31,8 +31,8 @@ const Index = () => {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Trigger once on load
-    setTimeout(handleScroll, 100);
+    // Sayfa yüklendiğinde hemen tetikleme
+    handleScroll();
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -46,7 +46,7 @@ const Index = () => {
         <Hero />
         <WhatWeDo />
         
-        {/* Use the WhyChooseUs component instead of the inline implementation */}
+        {/* WhyChooseUs bileşenini kullan */}
         <WhyChooseUs />
         
         <FeaturedProducts />
