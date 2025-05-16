@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
+import { TranslationKey } from "@/locales/types";
 
 interface BlogPreviewProps {
   className?: string;
@@ -17,7 +18,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
   const blogPosts = [
     {
       id: 1,
-      titleKey: 'blog.post.hydraulicHosePressure.title',
+      titleKey: 'blog.post.hydraulicHosePressure.title' as TranslationKey,
       date: "May 2, 2023",
       imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       author: "John Smith",
@@ -25,7 +26,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
     },
     {
       id: 2,
-      titleKey: 'blog.post.ptfeVsRubber.title',
+      titleKey: 'blog.post.ptfeVsRubber.title' as TranslationKey,
       date: "April 18, 2023",
       imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       author: "Emily Johnson",
@@ -33,7 +34,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
     },
     {
       id: 3,
-      titleKey: 'blog.post.maintenance.title',
+      titleKey: 'blog.post.maintenance.title' as TranslationKey,
       date: "April 5, 2023",
       imageSrc: "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
       author: "Robert Miller",

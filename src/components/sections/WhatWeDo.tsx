@@ -11,11 +11,11 @@ const WhatWeDo: React.FC<WhatWeDoProps> = ({ className }) => {
   const { t } = useLanguage();
   
   const services = [
-    { nameKey: "services.hoses", icon: "🔄" },
-    { nameKey: "services.fittings", icon: "🔩" },
-    { nameKey: "services.ptfeLines", icon: "📊" },
-    { nameKey: "services.turboPipes", icon: "💨" },
-    { nameKey: "services.injectionLines", icon: "💉" },
+    { nameKey: "services.hoses.name", icon: "🔄" },
+    { nameKey: "services.fittings.name", icon: "🔩" },
+    { nameKey: "services.ptfeLines.name", icon: "📊" },
+    { nameKey: "services.turboPipes.name", icon: "💨" },
+    { nameKey: "services.injectionLines.name", icon: "💉" },
   ];
 
   return (

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/locales/types";
 
 const Blog = () => {
   const navigate = useNavigate();
@@ -17,56 +18,56 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
-      titleKey: 'blog.post.hydraulicHosePressure.title',
+      titleKey: 'blog.post.hydraulicHosePressure.title' as TranslationKey,
       date: "May 2, 2023",
       imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       author: "John Smith",
-      excerptKey: 'blog.post.hydraulicHosePressure.excerpt',
+      excerptKey: 'blog.post.hydraulicHosePressure.excerpt' as TranslationKey,
       slug: "hydraulic-hose-pressure-ratings"
     },
     {
       id: 2,
-      titleKey: 'blog.post.ptfeVsRubber.title',
+      titleKey: 'blog.post.ptfeVsRubber.title' as TranslationKey,
       date: "April 18, 2023",
       imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       author: "Emily Johnson",
-      excerptKey: 'blog.post.ptfeVsRubber.excerpt',
+      excerptKey: 'blog.post.ptfeVsRubber.excerpt' as TranslationKey,
       slug: "ptfe-vs-rubber-hoses-comparison"
     },
     {
       id: 3,
-      titleKey: 'blog.post.maintenance.title',
+      titleKey: 'blog.post.maintenance.title' as TranslationKey,
       date: "April 5, 2023",
       imageSrc: "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
       author: "Robert Miller",
-      excerptKey: 'blog.post.maintenance.excerpt',
+      excerptKey: 'blog.post.maintenance.excerpt' as TranslationKey,
       slug: "hydraulic-hose-maintenance-tips"
     },
     {
       id: 4,
-      titleKey: 'blog.post.turboOil.title',
+      titleKey: 'blog.post.turboOil.title' as TranslationKey,
       date: "March 22, 2023",
       imageSrc: "/lovable-uploads/35cc28ff-b5ca-441f-824d-b980213e7a24.png",
       author: "Sarah Wilson",
-      excerptKey: 'blog.post.turboOil.excerpt',
+      excerptKey: 'blog.post.turboOil.excerpt' as TranslationKey,
       slug: "turbo-oil-pipe-innovations"
     },
     {
       id: 5,
-      titleKey: 'blog.post.fittings.title',
+      titleKey: 'blog.post.fittings.title' as TranslationKey,
       date: "March 10, 2023",
       imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
       author: "David Thompson",
-      excerptKey: 'blog.post.fittings.excerpt',
+      excerptKey: 'blog.post.fittings.excerpt' as TranslationKey,
       slug: "selecting-right-fittings"
     },
     {
       id: 6,
-      titleKey: 'blog.post.evHydraulics.title',
+      titleKey: 'blog.post.evHydraulics.title' as TranslationKey,
       date: "February 25, 2023",
       imageSrc: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
       author: "Michael Lee",
-      excerptKey: 'blog.post.evHydraulics.excerpt',
+      excerptKey: 'blog.post.evHydraulics.excerpt' as TranslationKey,
       slug: "hydraulic-systems-electric-vehicles"
     },
   ];

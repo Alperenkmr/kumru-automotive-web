@@ -67,6 +67,12 @@ export const enTranslations = {
   'services.ptfeLines': 'PTFE Lines',
   'services.turboPipes': 'Turbo Pipes',
   'services.injectionLines': 'Injection Lines',
+  // Add individual service name keys
+  'services.hoses.name': 'Hoses',
+  'services.fittings.name': 'Fittings',
+  'services.ptfeLines.name': 'PTFE Lines',
+  'services.turboPipes.name': 'Turbo Pipes',
+  'services.injectionLines.name': 'Injection Lines',
   // Adding product category names
   'products.cabinLiftingHose': 'CABIN LIFTING HOSE',
   'products.hydraulicHose': 'HYDRAULIC HOSE',

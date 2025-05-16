@@ -101,7 +101,13 @@ export type TranslationKey =
   | 'blog.post.fittings.content'
   | 'blog.post.evHydraulics.title'
   | 'blog.post.evHydraulics.excerpt'
-  | 'blog.post.evHydraulics.content';
+  | 'blog.post.evHydraulics.content'
+  // Fix WhatWeDo component service items
+  | 'services.hoses.name'
+  | 'services.fittings.name'
+  | 'services.ptfeLines.name'
+  | 'services.turboPipes.name'
+  | 'services.injectionLines.name';
 
 export type TranslationsType = {
   [key in TranslationKey]: string;
