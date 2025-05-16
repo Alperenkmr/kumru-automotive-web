@@ -67,7 +67,7 @@ export const enTranslations = {
   'services.ptfeLines': 'PTFE Lines',
   'services.turboPipes': 'Turbo Pipes',
   'services.injectionLines': 'Injection Lines',
-  // Add individual service name keys
+  // Add individual service name keys - these were missing
   'services.hoses.name': 'Hoses',
   'services.fittings.name': 'Fittings',
   'services.ptfeLines.name': 'PTFE Lines',

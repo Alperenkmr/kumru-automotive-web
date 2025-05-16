@@ -67,6 +67,12 @@ export const trTranslations = {
   'services.ptfeLines': 'PTFE Hatları',
   'services.turboPipes': 'Turbo Boruları',
   'services.injectionLines': 'Enjeksiyon Hatları',
+  // Add individual service name keys - these were missing
+  'services.hoses.name': 'Hortumlar',
+  'services.fittings.name': 'Bağlantı Parçaları',
+  'services.ptfeLines.name': 'PTFE Hatları',
+  'services.turboPipes.name': 'Turbo Boruları',
+  'services.injectionLines.name': 'Enjeksiyon Hatları',
   // Adding product category names that might have been missed
   'products.cabinLiftingHose': 'KABİN KALDIRMA HORTUMU',
   'products.hydraulicHose': 'HİDROLİK HORTUM',

@@ -2,6 +2,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/locales/types";
 
 interface WhatWeDoProps {
   className?: string;
@@ -11,11 +12,11 @@ const WhatWeDo: React.FC<WhatWeDoProps> = ({ className }) => {
   const { t } = useLanguage();
   
   const services = [
-    { nameKey: "services.hoses.name", icon: "🔄" },
-    { nameKey: "services.fittings.name", icon: "🔩" },
-    { nameKey: "services.ptfeLines.name", icon: "📊" },
-    { nameKey: "services.turboPipes.name", icon: "💨" },
-    { nameKey: "services.injectionLines.name", icon: "💉" },
+    { nameKey: "services.hoses.name" as TranslationKey, icon: "🔄" },
+    { nameKey: "services.fittings.name" as TranslationKey, icon: "🔩" },
+    { nameKey: "services.ptfeLines.name" as TranslationKey, icon: "📊" },
+    { nameKey: "services.turboPipes.name" as TranslationKey, icon: "💨" },
+    { nameKey: "services.injectionLines.name" as TranslationKey, icon: "💉" },
   ];
 
   return (
