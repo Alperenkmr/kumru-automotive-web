@@ -13,6 +13,7 @@ export type TranslationKey =
   | 'hero.cta'
   | 'aboutSubmenu.whatWeDo'
   | 'aboutSubmenu.teamValues'
+  | 'aboutSubmenu.certificates'
   | 'whatWeDo.title'
   | 'whatWeDo.content'
   | 'teamValues.title'

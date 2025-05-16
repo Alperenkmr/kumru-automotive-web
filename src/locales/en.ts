@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   'nav.home': 'Home',
   'nav.about': 'About',
@@ -11,6 +10,7 @@ export const enTranslations = {
   'hero.cta': 'Explore Our Solutions',
   'aboutSubmenu.whatWeDo': 'What We Do',
   'aboutSubmenu.teamValues': 'Team & Values',
+  'aboutSubmenu.certificates': 'Quality Certificates',
   'whatWeDo.title': 'What We Do',
   'whatWeDo.content': "At RSS Kumru, we specialize in producing high-performance hydraulic systems, lines, and fittings tailored to the demands of automotive and agricultural machinery industries. Our advanced manufacturing capabilities, deep technical know-how, and customer-centric approach set us apart. We don't just deliver parts - we deliver trust, durability, and performance.",
   'teamValues.title': 'Team & Values',
@@ -136,7 +136,7 @@ export const enTranslations = {
   'blog.post.ptfeVsRubber.excerpt': 'Examining the key differences, advantages, and applications of PTFE and rubber hoses in industrial settings.',
   'blog.post.ptfeVsRubber.content': `
     <h2>Material Properties: PTFE vs. Rubber</h2>
-    <p>When selecting hoses for industrial applications, understanding the fundamental differences between PTFE (Polytetrafluoroethylene) and rubber hoses is crucial for making the right choice for your specific needs.</p>
+    <p>When selecting hoses for industrial applications, understanding the fundamental differences between PTFE and rubber hoses is crucial for making the right choice for your specific needs.</p>
     
     <h3>PTFE Hose Characteristics</h3>
     <ul>
