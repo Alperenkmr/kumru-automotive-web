@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   const navLinks = [
@@ -72,12 +72,29 @@ const Footer = () => {
             {/* Location and Legal */}
             <div>
               <h3 className="text-xl font-montserrat font-bold mb-4">Location</h3>
-              <p className="text-gray-300 mb-4">
-                123 Industrial Parkway<br />
-                Istanbul, Turkey 34000<br />
-                +90 123 456 7890<br />
-                info@rsskumru.com
-              </p>
+              <div className="flex items-start mb-2">
+                <MapPin className="h-5 w-5 text-kumru-yellow mr-2 mt-1 flex-shrink-0" />
+                <p className="text-gray-300">
+                  Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3<br />
+                  Gebze / KOCAELİ
+                </p>
+              </div>
+              
+              <div className="flex items-start mb-2">
+                <Mail className="h-5 w-5 text-kumru-yellow mr-2 mt-1 flex-shrink-0" />
+                <p className="text-gray-300">
+                  <a href="mailto:info@rsskumru.com" className="hover:text-kumru-yellow">info@rsskumru.com</a><br />
+                  <a href="mailto:alperen@rsskumru.com" className="hover:text-kumru-yellow">alperen@rsskumru.com</a>
+                </p>
+              </div>
+              
+              <div className="flex items-start mb-4">
+                <Phone className="h-5 w-5 text-kumru-yellow mr-2 mt-1 flex-shrink-0" />
+                <p className="text-gray-300">
+                  T. +90(262) 724 88 24-28<br />
+                  F. +90(262) 724 88 29
+                </p>
+              </div>
               
               <h3 className="text-xl font-montserrat font-bold mb-2 mt-6">Legal</h3>
               <ul className="space-y-2">

@@ -35,10 +35,6 @@ const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
     window.open(whatsappUrl, "_blank");
   };
 
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
-
   if (!isVisible) return null;
 
   return (
@@ -60,8 +56,9 @@ const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
 
       {/* WhatsApp button - Even larger size */}
       <button
-        onClick={togglePopup}
-        onDoubleClick={handleWhatsAppClick}
+        onClick={handleWhatsAppClick}
+        onMouseEnter={() => setIsPopupOpen(true)}
+        onMouseLeave={() => setIsPopupOpen(false)}
         className="bg-green-500 hover:bg-green-600 text-white p-5 rounded-full shadow-lg flex items-center justify-center relative group transition-all duration-200 scale-110"
       >
         <div className="flex items-center justify-center">
@@ -72,11 +69,6 @@ const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
             <path d="M14 10a.5.5 0 0 1 1 0v4a.5.5 0 0 1-1 0v-4Z" />
           </svg>
         </div>
-        
-        {/* Quick hint */}
-        <span className="absolute top-0 left-0 -mt-8 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          Çift tıkla
-        </span>
       </button>
     </div>
   );
