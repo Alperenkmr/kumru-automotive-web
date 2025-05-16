@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -85,13 +84,12 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           {/* Right column - Visual elements - Updated with robot mascot */}
           <div className="relative hidden lg:block">
             {/* Main image - Robot mascot */}
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl flex justify-center items-center bg-gradient-to-b from-transparent to-kumru-navy/10 p-6">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl flex justify-center items-center p-6">
               <img 
                 src="/lovable-uploads/a16f851c-ed52-4c30-a67a-e6c59c40e919.png" 
                 alt="RSS Kumru Robot Mascot" 
                 className="w-auto h-[500px] object-contain"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-kumru-navy/30 to-transparent"></div>
             </div>
             
             {/* Decorative element */}
