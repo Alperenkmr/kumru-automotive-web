@@ -11,6 +11,7 @@ export const trTranslations = {
   'hero.cta': 'Çözümlerimizi Keşfedin',
   'aboutSubmenu.whatWeDo': 'Ne Yapıyoruz',
   'aboutSubmenu.teamValues': 'Ekip & Değerler',
+  'aboutSubmenu.certificates': 'Kalite Sertifikaları',
   'whatWeDo.title': 'Ne Yapıyoruz',
   'whatWeDo.content': "RSS Kumru'da, otomotiv ve tarım makineleri endüstrilerinin taleplerine uygun yüksek performanslı hidrolik sistemler, hatlar ve bağlantı parçaları üretiminde uzmanlaşmış bulunuyoruz. Gelişmiş üretim yeteneklerimiz, derin teknik bilgimiz ve müşteri odaklı yaklaşımımız bizi farklı kılıyor. Sadece parça değil, güven, dayanıklılık ve performans sunuyoruz.",
   'teamValues.title': 'Ekip & Değerler',
