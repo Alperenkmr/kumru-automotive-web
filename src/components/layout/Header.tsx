@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Language } from "@/locales";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ const Header = () => {
     { name: t('nav.contact'), href: "/contact" },
   ];
 
-  const switchLanguage = (lang) => {
+  const switchLanguage = (lang: Language) => {
     setLanguage(lang);
     console.log(`Switching language to: ${lang}`);
   };
