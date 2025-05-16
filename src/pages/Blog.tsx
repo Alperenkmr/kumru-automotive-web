@@ -38,7 +38,7 @@ const BlogPage: React.FC = () => {
       <Container>
         <div className="py-12 md:py-20">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-kumru-navy">
-            {t('blog.latestArticles')}
+            {t('blog.latestArticles' as TranslationKey)}
           </h1>
           
           {/* Filters */}
@@ -48,7 +48,7 @@ const BlogPage: React.FC = () => {
               <input
                 type="text"
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-kumru-navy"
-                placeholder={t('blog.searchPlaceholder')}
+                placeholder={t('blog.searchPlaceholder' as TranslationKey)}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />

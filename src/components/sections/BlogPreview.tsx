@@ -58,10 +58,10 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
       
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-kumru-navy">{t('blog.latestArticles')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-kumru-navy">{t('blog.latestArticles' as TranslationKey)}</h2>
           
           <Link to="/blog" className="mt-4 md:mt-0 group flex items-center text-kumru-navy hover:text-kumru-navy/80 transition-colors">
-            <span className="font-medium">{t('blog.viewAll')}</span>
+            <span className="font-medium">{t('blog.viewAll' as TranslationKey)}</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
@@ -82,7 +82,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
 
         <div className="text-center mt-12">
           <Button className="bg-kumru-navy hover:bg-kumru-navy/90 text-white" asChild>
-            <Link to="/blog">{t('blog.viewAll')}</Link>
+            <Link to="/blog">{t('blog.viewAll' as TranslationKey)}</Link>
           </Button>
         </div>
       </div>
