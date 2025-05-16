@@ -4,6 +4,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   Carousel,
   CarouselContent,
@@ -17,6 +18,8 @@ interface FeaturedProductsProps {
 }
 
 const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
+  const { t } = useLanguage();
+  
   // Cabin Lifting Hose gallery images
   const cabinLiftingHoseImages = [
     { id: 1, src: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png", alt: "Cabin Lifting Hose 1" },
@@ -41,11 +44,11 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
       )}
     >
       <div className="container mx-auto">
-        <h2 className="section-title text-kumru-black">Our Products</h2>
+        <h2 className="section-title text-kumru-black">{t('products.ourProducts')}</h2>
 
         {/* CABIN LIFTING HOSE Gallery - 2x2 Grid */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-6 text-kumru-navy">CABIN LIFTING HOSE</h3>
+          <h3 className="text-2xl font-bold mb-6 text-kumru-navy">{t('products.cabinLiftingHose')}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {cabinLiftingHoseImages.map((image) => (
               <div key={image.id} className="overflow-hidden rounded-lg shadow-md">
@@ -63,7 +66,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
 
         {/* HYDRAULIC HOSE Gallery - 3 Images in a row (2+1 on mobile) */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-6 text-kumru-navy">HYDRAULIC HOSE</h3>
+          <h3 className="text-2xl font-bold mb-6 text-kumru-navy">{t('products.hydraulicHose')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {hydraulicHoseImages.map((image) => (
               <div key={image.id} className="overflow-hidden rounded-lg shadow-md">
@@ -85,7 +88,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
             href="/products"
             className="inline-block bg-kumru-yellow hover:bg-kumru-yellow/90 text-kumru-black py-3 px-8 rounded-xl text-lg font-medium transition-colors duration-150 shadow-md"
           >
-            View All Products
+            {t('products.viewAll')}
           </a>
         </div>
       </div>

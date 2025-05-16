@@ -5,7 +5,7 @@ interface LanguageContextProps {
   language: string;
   setLanguage: (language: string) => void;
   translations: any;
-  t: (key: string) => string;  // Added t function property
+  t: (key: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
@@ -44,6 +44,10 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
       "cta.ready": "Ready to Get Started?",
       "cta.description": "Contact our team for custom hydraulic solutions tailored to your specific requirements.",
       "cta.button": "Contact Us Today",
+      "products.ourProducts": "Our Products",
+      "products.cabinLiftingHose": "CABIN LIFTING HOSE",
+      "products.hydraulicHose": "HYDRAULIC HOSE",
+      "products.viewAll": "View All Products",
     },
     tr: {
       "nav.home": "Ana Sayfa",
@@ -71,6 +75,10 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
       "cta.ready": "Başlamaya Hazır mısınız?",
       "cta.description": "Özel gereksinimlerinize göre özel hidrolik çözümler için ekibimizle iletişime geçin.",
       "cta.button": "Bugün İletişime Geçin",
+      "products.ourProducts": "Ürünlerimiz",
+      "products.cabinLiftingHose": "KABİN KALDIRMA HORTUMU",
+      "products.hydraulicHose": "HİDROLİK HORTUM",
+      "products.viewAll": "Tüm Ürünleri Görüntüle",
     },
   };
 
@@ -95,7 +103,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
     language,
     setLanguage,
     translations,
-    t,  // Add t function to the context value
+    t,
   };
 
   return (
