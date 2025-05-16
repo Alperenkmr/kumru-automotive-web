@@ -12,32 +12,32 @@ interface BlogPreviewProps {
 }
 
 const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const blogPosts = [
     {
       id: 1,
-      title: "Understanding Hydraulic Hose Pressure Ratings",
+      titleKey: 'blog.post.hydraulicHosePressure.title',
       date: "May 2, 2023",
       imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       author: "John Smith",
-      href: "/blog/understanding-hydraulic-hose"
+      href: "/blog/hydraulic-hose-pressure-ratings"
     },
     {
       id: 2,
-      title: "PTFE vs. Rubber Hoses: A Comprehensive Comparison",
+      titleKey: 'blog.post.ptfeVsRubber.title',
       date: "April 18, 2023",
       imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       author: "Emily Johnson",
-      href: "/blog/ptfe-vs-rubber"
+      href: "/blog/ptfe-vs-rubber-hoses-comparison"
     },
     {
       id: 3,
-      title: "Maintenance Tips for Extending Hydraulic Hose Life",
+      titleKey: 'blog.post.maintenance.title',
       date: "April 5, 2023",
       imageSrc: "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
       author: "Robert Miller",
-      href: "/blog/maintenance-tips"
+      href: "/blog/hydraulic-hose-maintenance-tips"
     },
   ];
 
@@ -66,10 +66,10 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
+          {blogPosts.map((post) => (
             <BlogCard
               key={post.id}
-              title={post.title}
+              title={t(post.titleKey as any)}
               date={post.date}
               imageSrc={post.imageSrc}
               author={post.author}

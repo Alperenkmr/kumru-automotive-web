@@ -72,7 +72,20 @@ export type TranslationKey =
   | 'products.valveTiming'
   | 'products.vesselLines'
   | 'products.connectors'
-  | 'products.fittings';
+  | 'products.fittings'
+  // Add blog post content translation keys
+  | 'blog.post.hydraulicHosePressure.title'
+  | 'blog.post.hydraulicHosePressure.content'
+  | 'blog.post.ptfeVsRubber.title'
+  | 'blog.post.ptfeVsRubber.content'
+  | 'blog.post.maintenance.title'
+  | 'blog.post.maintenance.content'
+  | 'blog.post.turboOil.title'
+  | 'blog.post.turboOil.content'
+  | 'blog.post.fittings.title'
+  | 'blog.post.fittings.content'
+  | 'blog.post.evHydraulics.title'
+  | 'blog.post.evHydraulics.content';
 
 export type TranslationsType = {
   [key in TranslationKey]: string;

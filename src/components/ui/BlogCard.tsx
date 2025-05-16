@@ -3,6 +3,7 @@ import React from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BlogCardProps {
   title: string;
@@ -11,7 +12,7 @@ interface BlogCardProps {
   author: string;
   excerpt?: string;
   onClick?: () => void;
-  href?: string;  // Add href as an optional prop
+  href?: string;
   className?: string;
 }
 
@@ -25,6 +26,8 @@ const BlogCard: React.FC<BlogCardProps> = ({
   href,
   className,
 }) => {
+  const { t, language } = useLanguage();
+  
   // Determine the wrapper component: Link or div
   const CardWrapper = ({ children }: { children: React.ReactNode }) => {
     if (href) {
@@ -58,7 +61,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
           <div className="text-sm text-gray-500">{date}</div>
         </CardContent>
         <CardFooter className="pt-0 px-6 pb-6">
-          <div className="text-sm text-gray-600">By {author}</div>
+          <div className="text-sm text-gray-600">
+            {language === 'tr' ? t('blog.author') : 'By'} {author}
+          </div>
         </CardFooter>
       </Card>
     </CardWrapper>
