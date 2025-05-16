@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
@@ -185,6 +186,17 @@ const ProductDetail = () => {
         "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
         "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
         "/lovable-uploads/5cce672b-d449-4b9b-b7f7-61a60d320ab1.png",
+        "/lovable-uploads/262c96c5-42a3-42ad-9e4b-a55788f4eb38.png",
+        "/lovable-uploads/934d3952-78e9-432d-9141-bfe6f236fed8.png",
+        "/lovable-uploads/a8af4f60-154a-46f7-b075-c96ee01970e8.png",
+        "/lovable-uploads/4d5f70c8-9786-414f-b7a8-34ef36eb901a.png",
+        "/lovable-uploads/4310f644-cb07-4547-8b6f-20e9ee3ed8b1.png",
+        "/lovable-uploads/43288de8-e0e7-4b11-8ffd-210e0f67a571.png",
+        "/lovable-uploads/3716897e-2811-487b-a2c7-c4ffc7e62bf4.png",
+        "/lovable-uploads/34906f0a-010b-4390-b530-bff11faa75f4.png",
+        "/lovable-uploads/c42d9fdb-64c7-4345-9c1a-6f16b2878860.png",
+        "/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png",
+        "/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png",
       ]
     },
     "vessel-lines": {
@@ -194,51 +206,32 @@ const ProductDetail = () => {
         "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
         "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
         "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
-      ]
-    },
-    "hoses": {
-      title: "Hydraulic Hoses",
-      description: "Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.",
-      images: [
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+        "/lovable-uploads/262c96c5-42a3-42ad-9e4b-a55788f4eb38.png",
+        "/lovable-uploads/934d3952-78e9-432d-9141-bfe6f236fed8.png",
+        "/lovable-uploads/a8af4f60-154a-46f7-b075-c96ee01970e8.png",
+        "/lovable-uploads/4d5f70c8-9786-414f-b7a8-34ef36eb901a.png",
       ]
     },
     "fittings": {
       title: "Precision Fittings",
       description: "Our precision-engineered fittings provide reliable, leak-free connections for hydraulic systems. Available in various materials including steel, stainless steel, and brass to meet your specific requirements.",
       images: [
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1494891848038-7bd202a2afeb",
+        "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
+        "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
+        "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
+        "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
+        "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
+        "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
       ]
     },
-    "ptfe-lines": {
-      title: "PTFE Lines",
-      description: "Our PTFE lines offer superior chemical resistance and exceptional performance at extreme temperatures. Ideal for applications requiring low friction and high purity, these lines are available in various configurations.",
+    "connectors": {
+      title: "Connectors",
+      description: "High-performance connectors designed for reliable fluid system connections across various applications. Our connectors ensure leak-free operation in demanding environments.",
       images: [
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1494891848038-7bd202a2afeb",
-      ]
-    },
-    "turbo-pipes": {
-      title: "Turbo Oil Pipes",
-      description: "Our turbo oil pipes are designed to withstand high temperatures and pressures in turbocharger systems. Engineered for optimal oil flow and cooling, these pipes ensure reliable performance in demanding conditions.",
-      images: [
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1494891848038-7bd202a2afeb",
+        "/lovable-uploads/186b26a1-3a9b-46f8-b16d-db14890ba8a9.png",
+        "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
+        "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
+        "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
       ]
     },
   };
@@ -275,6 +268,8 @@ const ProductDetail = () => {
   const isTurboTimingPipes = productId === 'turbo-timing-pipes';
   const isValveNozzle = productId === 'valve-nozzle';
   const isValveRecord = productId === 'valve-record';
+  const isValveTiming = productId === 'valve-timing';
+  const isVesselLines = productId === 'vessel-lines';
 
   return (
     <div className="min-h-screen bg-white">
@@ -497,6 +492,7 @@ const ProductDetail = () => {
                           src={image} 
                           alt={`${product.title} - Image ${index + 1}`} 
                           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          loading={index > 7 ? "lazy" : "eager"}
                         />
                       </AspectRatio>
                     </div>
@@ -515,7 +511,8 @@ const ProductDetail = () => {
                                 <img 
                                   src={image} 
                                   alt={`${product.title} - Image ${index + 1}`} 
-                                  className="w-full h-full object-cover" 
+                                  className="w-full h-full object-cover"
+                                  loading={index > 3 ? "lazy" : "eager"} 
                                 />
                               </AspectRatio>
                             </div>
@@ -643,11 +640,170 @@ const ProductDetail = () => {
               </div>
             )}
             
+            {/* Valve Timing Layout - 4+4+4+2 Grid on desktop (2-column on mobile) */}
+            {isValveTiming && (
+              <div className="mb-8">
+                {/* Desktop Layout */}
+                <div className="hidden md:block">
+                  {/* First row - 4 images */}
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    {product.images.slice(0, 4).map((image, index) => (
+                      <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={3/4}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 1}`} 
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Second row - 4 images */}
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    {product.images.slice(4, 8).map((image, index) => (
+                      <div key={index + 4} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={3/4}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 5}`} 
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Third row - 4 images */}
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    {product.images.slice(8, 12).map((image, index) => (
+                      <div key={index + 8} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={3/4}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 9}`} 
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Fourth row - 2 images centered */}
+                  <div className="flex justify-center gap-4">
+                    {product.images.slice(12, 14).map((image, index) => (
+                      <div key={index + 12} className="w-1/4 overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={3/4}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 13}`} 
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Mobile Layout - 2-column grid */}
+                <div className="md:hidden grid grid-cols-2 gap-3">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          loading={index > 3 ? "lazy" : "eager"}
+                          className="w-full h-full object-cover" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Vessel Lines Layout - 3+3+1 Grid on desktop (2-column on mobile) */}
+            {isVesselLines && (
+              <div className="mb-8">
+                {/* Desktop Layout */}
+                <div className="hidden md:block">
+                  {/* First row - 3 images */}
+                  <div className="grid grid-cols-3 gap-4 mb-4">
+                    {product.images.slice(0, 3).map((image, index) => (
+                      <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={16/9}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 1}`} 
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Second row - 3 images */}
+                  <div className="grid grid-cols-3 gap-4 mb-4">
+                    {product.images.slice(3, 6).map((image, index) => (
+                      <div key={index + 3} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={16/9}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 4}`} 
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Third row - 1 image centered */}
+                  {product.images.length > 6 && (
+                    <div className="flex justify-center">
+                      <div className="w-1/3 overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={16/9}>
+                          <img 
+                            src={product.images[6]} 
+                            alt={`${product.title} - Image 7`} 
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Mobile Layout - 2-column grid */}
+                <div className="md:hidden grid grid-cols-2 gap-3">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          loading={index > 3 ? "lazy" : "eager"}
+                          className="w-full h-full object-cover" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* Default Layout for other products */}
             {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
              !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && 
              !isSteeringHose && !isTransferPump && !isTurboPipeHose && 
-             !isTurboTimingPipes && !isValveNozzle && !isValveRecord && (
+             !isTurboTimingPipes && !isValveNozzle && !isValveRecord && 
+             !isValveTiming && !isVesselLines && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
@@ -655,6 +811,7 @@ const ProductDetail = () => {
                       src={image} 
                       alt={`${product.title} - Image ${index + 1}`} 
                       className="w-full h-full object-cover"
+                      loading={index > 5 ? "lazy" : "eager"}
                     />
                   </div>
                 ))}
