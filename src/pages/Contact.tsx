@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -57,7 +59,7 @@ const Contact = () => {
       <main className="pt-24">
         <section className="section-padding">
           <div className="container mx-auto">
-            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">{t('contact.title')}</h1>
             
             {/* Success Banner */}
             {isSubmitted && (
@@ -70,10 +72,10 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div>
-                <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('contact.sendMessage')}</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Your Name</Label>
+                    <Label htmlFor="name">{t('contact.name')}</Label>
                     <Input 
                       id="name" 
                       placeholder="John Smith" 
@@ -84,7 +86,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email">{t('contact.email')}</Label>
                     <Input 
                       id="email" 
                       type="email" 
@@ -96,7 +98,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">{t('contact.message')}</Label>
                     <Textarea 
                       id="message" 
                       placeholder="How can we help you?" 
@@ -108,7 +110,7 @@ const Contact = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="file">Upload Specifications (optional)</Label>
+                    <Label htmlFor="file">{t('contact.uploadSpecs')}</Label>
                     <Input 
                       id="file" 
                       type="file"
@@ -117,14 +119,14 @@ const Contact = () => {
                   </div>
                   
                   <Button type="submit" className="bg-kumru-navy hover:bg-kumru-navy/90 text-white w-full py-6">
-                    Send Message
+                    {t('contact.submit')}
                   </Button>
                 </form>
               </div>
               
               {/* Map and Address */}
               <div>
-                <h2 className="text-2xl font-bold mb-6">Find Us</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('contact.findUs')}</h2>
                 
                 {/* Map placeholder */}
                 <div className="bg-gray-200 w-full h-72 mb-6 rounded-xl flex items-center justify-center">
@@ -133,22 +135,22 @@ const Contact = () => {
                 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-bold text-lg">Address</h3>
+                    <h3 className="font-bold text-lg">{t('contact.address')}</h3>
                     <p>123 Industrial Parkway<br />Istanbul, Turkey 34000</p>
                   </div>
                   
                   <div>
-                    <h3 className="font-bold text-lg">Phone</h3>
+                    <h3 className="font-bold text-lg">{t('contact.phone')}</h3>
                     <p>+90 123 456 7890</p>
                   </div>
                   
                   <div>
-                    <h3 className="font-bold text-lg">Email</h3>
+                    <h3 className="font-bold text-lg">{t('contact.email')}</h3>
                     <p>info@rsskumru.com</p>
                   </div>
                   
                   <div>
-                    <h3 className="font-bold text-lg">Business Hours</h3>
+                    <h3 className="font-bold text-lg">{t('contact.hours')}</h3>
                     <p>Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday - Sunday: Closed</p>
                   </div>
                 </div>

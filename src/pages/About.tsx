@@ -3,8 +3,11 @@ import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CollapsibleSection from "@/components/sections/CollapsibleSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -12,10 +15,10 @@ const About = () => {
         {/* Page Title */}
         <section className="section-padding">
           <div className="container mx-auto">
-            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">About RSS Kumru</h1>
+            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">{t('about.title')}</h1>
             
             {/* What We Do - Collapsible Section */}
-            <CollapsibleSection title="What We Do" defaultOpen={true}>
+            <CollapsibleSection title={t('about.whatWeDo')} defaultOpen={true}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="bg-white p-8 rounded-xl shadow-sm relative">
                   <div className="absolute -left-2 top-8 w-4 h-4 bg-white transform rotate-45"></div>
@@ -40,23 +43,23 @@ const About = () => {
             </CollapsibleSection>
             
             {/* Values - Collapsible Section */}
-            <CollapsibleSection title="Team & Values">
+            <CollapsibleSection title={t('about.values')}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div className="bg-white p-8 rounded-xl shadow-sm relative">
                   <div className="absolute -left-2 top-8 w-4 h-4 bg-white transform rotate-45"></div>
-                  <h3 className="text-xl font-bold mb-4 text-kumru-navy">Our Values</h3>
+                  <h3 className="text-xl font-bold mb-4 text-kumru-navy">{t('about.ourValues')}</h3>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-xl font-bold mb-2 text-kumru-navy">Excellence</h4>
-                      <p>We are committed to excellence in every aspect of our business, from product design and manufacturing to customer service and support.</p>
+                      <h4 className="text-xl font-bold mb-2 text-kumru-navy">{t('about.excellence')}</h4>
+                      <p>{t('about.excellenceDesc')}</p>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold mb-2 text-kumru-navy">Innovation</h4>
-                      <p>We continuously invest in research and development to create innovative solutions that address the evolving needs of our clients.</p>
+                      <h4 className="text-xl font-bold mb-2 text-kumru-navy">{t('about.innovation')}</h4>
+                      <p>{t('about.innovationDesc')}</p>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold mb-2 text-kumru-navy">Integrity</h4>
-                      <p>We conduct our business with the highest standards of integrity, maintaining transparent relationships with our clients, partners, and employees.</p>
+                      <h4 className="text-xl font-bold mb-2 text-kumru-navy">{t('about.integrity')}</h4>
+                      <p>{t('about.integrityDesc')}</p>
                     </div>
                   </div>
                 </div>
