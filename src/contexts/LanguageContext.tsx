@@ -1,244 +1,151 @@
 
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-interface LanguageContextProps {
-  language: string;
-  setLanguage: (language: string) => void;
-  translations: any;
+// Define supported languages
+type Language = 'en' | 'tr';
+
+// Define context type
+type LanguageContextType = {
+  language: Language;
+  setLanguage: (lang: Language) => void;
   t: (key: string) => string;
-}
+};
 
-const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
+// Create the context
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-interface LanguageProviderProps {
-  children: React.ReactNode;
-}
+// Extended translations
+const translations = {
+  en: {
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.products': 'Products',
+    'nav.blog': 'Blog',
+    'nav.contact': 'Contact',
+    'header.contactUs': 'Contact Us',
+    'hero.title': 'Precision Hydraulic Systems & Custom-Engineered Lines',
+    'hero.subtitle': 'Discover our capabilities and industry expertise',
+    'hero.cta': 'Explore Our Solutions',
+    'aboutSubmenu.whatWeDo': 'What We Do',
+    'aboutSubmenu.teamValues': 'Team & Values',
+    'whatWeDo.title': 'What We Do',
+    'whatWeDo.content': "At RSS Kumru, we specialize in producing high-performance hydraulic systems, lines, and fittings tailored to the demands of automotive and agricultural machinery industries. Our advanced manufacturing capabilities, deep technical know-how, and customer-centric approach set us apart. We don't just deliver parts - we deliver trust, durability, and performance.",
+    'teamValues.title': 'Team & Values',
+    'teamValues.content': 'Our team is composed of experienced professionals who are dedicated to excellence and innovation. We value integrity, quality, and customer satisfaction above all else.',
+    'featuredProducts.title': 'Featured Products',
+    'featuredProducts.viewAll': 'View All Products',
+    'products.backToProducts': 'Back to Products',
+    'blog.latestArticles': 'Latest Articles',
+    'blog.viewAll': 'View All Articles',
+    'blog.backToBlog': 'Back to Blog',
+    'contact.title': 'Contact Us',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.submit': 'Submit',
+    'contact.success': 'Your message has been sent successfully!',
+    'footer.followUs': 'Follow Us',
+    'footer.location': 'Aksaray, Turkey',
+    'footer.privacyPolicy': 'Privacy Policy',
+    'footer.cookiePolicy': 'Cookie Policy',
+    'whyChooseUs.title': 'Why Choose Us',
+    'whyChooseUs.expertise': "20+ Years' Expertise",
+    'whyChooseUs.expertiseDesc': "Since 2001, we've been building durable, precision-engineered hydraulic systems trusted by industry leaders.",
+    'whyChooseUs.quality': 'ISO-Certified Quality',
+    'whyChooseUs.qualityDesc': 'Every component we produce meets global ISO standards for quality and reliability.',
+    'whyChooseUs.delivery': 'Global Delivery',
+    'whyChooseUs.deliveryDesc': 'We ship internationally with guaranteed delivery times and full logistics support.',
+    'cta.ready': 'Ready to Work With Us?',
+    'cta.description': "Let's discuss your project and build your ideal hydraulic solution.",
+    'cta.button': 'Get in Touch',
+    'about.paragraph1': 'We are a Turkish-based company with over two decades of experience in hydraulic systems manufacturing.',
+    'about.paragraph2': 'From turbo oil lines to custom fuel and injection systems, our catalog is built for precision and endurance.',
+    'about.paragraph3': 'We proudly serve clients in automotive, agricultural, and industrial markets across the globe.',
+    'about.values.excellence': 'Excellence – We strive to deliver best-in-class performance in every product.',
+    'about.values.innovation': 'Innovation – Constantly upgrading our technology and processes.',
+    'about.values.integrity': 'Integrity – Transparent, honest partnerships with our clients.',
+    'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
+    'contact.phone': '+90 382 266 57 90',
+    'contact.email': 'info@rsskumru.com',
+    'contact.hours': 'Hafta içi 08:30 - 18:00'
+  },
+  tr: {
+    'nav.home': 'Ana Sayfa',
+    'nav.about': 'Hakkımızda',
+    'nav.products': 'Ürünler',
+    'nav.blog': 'Blog',
+    'nav.contact': 'İletişim',
+    'header.contactUs': 'Bize Ulaşın',
+    'hero.title': 'Hassas Hidrolik Sistemler ve Özel Mühendislik Hatları',
+    'hero.subtitle': 'Yeteneklerimizi ve sektör uzmanlığımızı keşfedin',
+    'hero.cta': 'Çözümlerimizi Keşfedin',
+    'aboutSubmenu.whatWeDo': 'Ne Yapıyoruz',
+    'aboutSubmenu.teamValues': 'Ekip & Değerler',
+    'whatWeDo.title': 'Ne Yapıyoruz',
+    'whatWeDo.content': "RSS Kumru'da, otomotiv ve tarım makineleri endüstrilerinin taleplerine uygun yüksek performanslı hidrolik sistemler, hatlar ve bağlantı parçaları üretiminde uzmanlaşmış bulunuyoruz. Gelişmiş üretim yeteneklerimiz, derin teknik bilgimiz ve müşteri odaklı yaklaşımımız bizi farklı kılıyor. Sadece parça değil, güven, dayanıklılık ve performans sunuyoruz.",
+    'teamValues.title': 'Ekip & Değerler',
+    'teamValues.content': 'Ekibimiz, mükemmelliğe ve yeniliğe adanmış deneyimli profesyonellerden oluşmaktadır. Her şeyden önce dürüstlük, kalite ve müşteri memnuniyetine değer veriyoruz.',
+    'featuredProducts.title': 'Öne Çıkan Ürünler',
+    'featuredProducts.viewAll': 'Tüm Ürünleri Görüntüle',
+    'products.backToProducts': 'Ürünlere Geri Dön',
+    'blog.latestArticles': 'En Son Makaleler',
+    'blog.viewAll': 'Tüm Makaleleri Görüntüle',
+    'blog.backToBlog': 'Bloga Geri Dön',
+    'contact.title': 'Bize Ulaşın',
+    'contact.name': 'İsim',
+    'contact.email': 'E-posta',
+    'contact.message': 'Mesaj',
+    'contact.submit': 'Gönder',
+    'contact.success': 'Mesajınız başarıyla gönderildi!',
+    'footer.followUs': 'Bizi Takip Edin',
+    'footer.location': 'Aksaray, Türkiye',
+    'footer.privacyPolicy': 'Gizlilik Politikası',
+    'footer.cookiePolicy': 'Çerez Politikası',
+    'whyChooseUs.title': 'Neden Bizi Seçmelisiniz',
+    'whyChooseUs.expertise': '20+ Yıllık Uzmanlık',
+    'whyChooseUs.expertiseDesc': "2001'den beri, sektör liderleri tarafından güvenilen dayanıklı, hassas mühendislikle tasarlanmış hidrolik sistemler üretiyoruz.",
+    'whyChooseUs.quality': 'ISO Sertifikalı Kalite',
+    'whyChooseUs.qualityDesc': 'Ürettiğimiz her bileşen, kalite ve güvenilirlik için global ISO standartlarını karşılamaktadır.',
+    'whyChooseUs.delivery': 'Global Teslimat',
+    'whyChooseUs.deliveryDesc': 'Garantili teslimat süreleri ve tam lojistik desteğiyle uluslararası sevkiyat yapıyoruz.',
+    'cta.ready': 'Bizimle Çalışmaya Hazır mısınız?',
+    'cta.description': 'Projenizi tartışalım ve ideal hidrolik çözümünüzü birlikte oluşturalım.',
+    'cta.button': 'İletişime Geçin',
+    'about.paragraph1': 'Hidrolik sistem üretiminde yirmi yılı aşkın deneyime sahip Türkiye merkezli bir şirketiz.',
+    'about.paragraph2': 'Turbo yağ hatlarından özel yakıt ve enjeksiyon sistemlerine kadar ürün kataloğumuz hassasiyet ve dayanıklılık için tasarlanmıştır.',
+    'about.paragraph3': 'Otomotiv, tarım ve endüstriyel pazarlarda dünya genelindeki müşterilerimize hizmet vermekten gurur duyuyoruz.',
+    'about.values.excellence': 'Mükemmellik - Her üründe en iyi performansı sunmak için çalışıyoruz.',
+    'about.values.innovation': 'İnovasyon - Teknolojimizi ve süreçlerimizi sürekli geliştiriyoruz.',
+    'about.values.integrity': 'Dürüstlük - Müşterilerimizle şeffaf ve dürüst ortaklıklar kuruyoruz.',
+    'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
+    'contact.phone': '+90 382 266 57 90',
+    'contact.email': 'info@rsskumru.com',
+    'contact.hours': 'Hafta içi 08:30 - 18:00'
+  }
+};
 
-const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState('en');
+// Provider component
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('en');
 
-  const translations = {
-    en: {
-      "nav.home": "Home",
-      "nav.about": "About Us",
-      "nav.products": "Products",
-      "nav.blog": "Blog",
-      "nav.contact": "Contact",
-      "header.contactUs": "Contact Us",
-      "aboutSubmenu.whatWeDo": "What We Do",
-      "aboutSubmenu.teamValues": "Team & Values",
-      
-      // Hero section
-      "hero.title": "Leading Manufacturer of Hydraulic Solutions",
-      "hero.subtitle": "High-quality hydraulic hoses, fittings, and systems for various industrial applications.",
-      "hero.cta": "Explore Products",
-      
-      // What We Do section
-      "whatWeDo.title": "What We Do",
-      "whatWeDo.content": "At RSS Kumru Automotive, we specialize in designing and manufacturing high-quality hydraulic and fluid transfer solutions. Our extensive product range is designed to meet the demanding requirements of various industries including automotive, agriculture, construction, and industrial manufacturing.",
-      "whatWeDo.services": "Our Core Services",
-      
-      // Why Choose Us section
-      "whyChooseUs.title": "Why Choose Us",
-      "whyChooseUs.expertise": "Industry Expertise",
-      "whyChooseUs.expertiseDesc": "Over 25 years of specialized experience in hydraulic systems and components.",
-      "whyChooseUs.quality": "Premium Quality",
-      "whyChooseUs.qualityDesc": "ISO-certified manufacturing processes and rigorous quality control standards.",
-      "whyChooseUs.delivery": "Fast Delivery",
-      "whyChooseUs.deliveryDesc": "Global logistics network ensuring quick delivery to customers worldwide.",
-      
-      // Blog section
-      "blog.latestArticles": "Latest Articles",
-      "blog.viewAll": "View All Articles",
-      
-      // Call to Action section
-      "cta.ready": "Ready to Get Started?",
-      "cta.description": "Contact our team for custom hydraulic solutions tailored to your specific requirements.",
-      "cta.button": "Contact Us Today",
-      
-      // Products section
-      "products.ourProducts": "Our Products",
-      "products.cabinLiftingHose": "CABIN LIFTING HOSE",
-      "products.hydraulicHose": "HYDRAULIC HOSE", 
-      "products.hydraulicSystem": "HYDRAULIC SYSTEM",
-      "products.injectionLines": "INJECTION LINES",
-      "products.leakOfFuelPipe": "LEAK OF FUEL PIPE",
-      "products.ptfeTeflonHose": "PTFE TEFLON HOSE",
-      "products.steeringHose": "STEERING HOSE",
-      "products.transferPump": "TRANSFER PUMP",
-      "products.turboPipeHose": "TURBO PIPE HOSE",
-      "products.turboTimingPipes": "TURBO TIMING PIPES AND HOSES",
-      "products.valveNozzle": "VALVE NOZZLE",
-      "products.valveRecord": "VALVE RECORD",
-      "products.valueTiming": "VALVE TIMING",
-      "products.vesselLines": "VESSEL LINES",
-      "products.viewAll": "View All Products",
-      
-      // About page
-      "about.title": "About RSS Kumru",
-      "about.whatWeDo": "What We Do",
-      "about.values": "Team & Values",
-      "about.ourValues": "Our Values",
-      "about.excellence": "Excellence",
-      "about.excellenceDesc": "We are committed to excellence in every aspect of our business, from product design and manufacturing to customer service and support.",
-      "about.innovation": "Innovation",
-      "about.innovationDesc": "We continuously invest in research and development to create innovative solutions that address the evolving needs of our clients.",
-      "about.integrity": "Integrity",
-      "about.integrityDesc": "We conduct our business with the highest standards of integrity, maintaining transparent relationships with our clients, partners, and employees.",
-      
-      // Contact page
-      "contact.title": "Contact Us",
-      "contact.sendMessage": "Send us a message",
-      "contact.name": "Your Name",
-      "contact.emailAddress": "Email Address",
-      "contact.messageText": "Message",
-      "contact.uploadSpecs": "Upload Specifications (optional)",
-      "contact.submit": "Send Message",
-      "contact.findUs": "Find Us",
-      "contact.address": "Address",
-      "contact.phone": "Phone",
-      "contact.emailContact": "Email",
-      "contact.hours": "Business Hours",
-      
-      // Footer
-      "footer.description": "Precision-engineered hydraulic systems customized to your needs. ISO-certified quality with global expertise.",
-      "footer.navigation": "Navigation",
-      "footer.location": "Location",
-      "footer.legal": "Legal",
-      "footer.privacy": "Privacy Policy",
-      "footer.cookies": "Cookie Policy",
-      "footer.rights": "All rights reserved.",
-    },
-    tr: {
-      "nav.home": "Ana Sayfa",
-      "nav.about": "Hakkımızda",
-      "nav.products": "Ürünler",
-      "nav.blog": "Blog",
-      "nav.contact": "İletişim",
-      "header.contactUs": "İletişime Geçin",
-      "aboutSubmenu.whatWeDo": "Ne Yapıyoruz",
-      "aboutSubmenu.teamValues": "Ekip & Değerler",
-      
-      // Hero section
-      "hero.title": "Hidrolik Çözümlerde Lider Üretici",
-      "hero.subtitle": "Çeşitli endüstriyel uygulamalar için yüksek kaliteli hidrolik hortumlar, bağlantı parçaları ve sistemler.",
-      "hero.cta": "Ürünleri Keşfedin",
-      
-      // What We Do section
-      "whatWeDo.title": "Ne Yapıyoruz",
-      "whatWeDo.content": "RSS Kumru Automotive olarak, yüksek kaliteli hidrolik ve sıvı transfer çözümleri tasarlamak ve üretmek konusunda uzmanız. Geniş ürün yelpazemiz, otomotiv, tarım, inşaat ve endüstriyel üretim dahil olmak üzere çeşitli sektörlerin zorlu gereksinimlerini karşılayacak şekilde tasarlanmıştır.",
-      "whatWeDo.services": "Temel Hizmetlerimiz",
-      
-      // Why Choose Us section
-      "whyChooseUs.title": "Neden Bizi Seçmelisiniz",
-      "whyChooseUs.expertise": "Sektör Uzmanlığı",
-      "whyChooseUs.expertiseDesc": "Hidrolik sistemler ve bileşenlerinde 25 yılı aşkın özel deneyim.",
-      "whyChooseUs.quality": "Üstün Kalite",
-      "whyChooseUs.qualityDesc": "ISO sertifikalı üretim süreçleri ve titiz kalite kontrol standartları.",
-      "whyChooseUs.delivery": "Hızlı Teslimat",
-      "whyChooseUs.deliveryDesc": "Dünya çapındaki müşterilere hızlı teslimat sağlayan global lojistik ağı.",
-      
-      // Blog section
-      "blog.latestArticles": "Son Makaleler",
-      "blog.viewAll": "Tüm Makaleleri Görüntüle",
-      
-      // Call to Action section
-      "cta.ready": "Başlamaya Hazır mısınız?",
-      "cta.description": "Özel gereksinimlerinize göre özel hidrolik çözümler için ekibimizle iletişime geçin.",
-      "cta.button": "Bugün İletişime Geçin",
-      
-      // Products section
-      "products.ourProducts": "Ürünlerimiz",
-      "products.cabinLiftingHose": "KABİN KALDIRMA HORTUMU",
-      "products.hydraulicHose": "HİDROLİK HORTUM",
-      "products.hydraulicSystem": "HİDROLİK SİSTEM",
-      "products.injectionLines": "ENJEKSİYON HATLARI",
-      "products.leakOfFuelPipe": "YAKIT SIZINTI BORUSU",
-      "products.ptfeTeflonHose": "PTFE TEFLON HORTUM",
-      "products.steeringHose": "DİREKSİYON HORTUMU",
-      "products.transferPump": "TRANSFER POMPASI",
-      "products.turboPipeHose": "TURBO BORU HORTUMU",
-      "products.turboTimingPipes": "TURBO ZAMANLAMA BORULARI VE HORTUMLARI",
-      "products.valveNozzle": "VALF NOZULU",
-      "products.valveRecord": "VALF KAYDI",
-      "products.valueTiming": "VALF ZAMANLAMASI",
-      "products.vesselLines": "KARGO HATLARI",
-      "products.viewAll": "Tüm Ürünleri Görüntüle",
-      
-      // About page
-      "about.title": "RSS Kumru Hakkında",
-      "about.whatWeDo": "Ne Yapıyoruz",
-      "about.values": "Ekip & Değerler",
-      "about.ourValues": "Değerlerimiz",
-      "about.excellence": "Mükemmeliyet",
-      "about.excellenceDesc": "Ürün tasarımı ve üretiminden müşteri hizmetleri ve desteğine kadar işimizin her yönünde mükemmelliğe bağlıyız.",
-      "about.innovation": "İnovasyon",
-      "about.innovationDesc": "Müşterilerimizin değişen ihtiyaçlarını karşılayan yenilikçi çözümler yaratmak için sürekli olarak araştırma ve geliştirmeye yatırım yapıyoruz.",
-      "about.integrity": "Dürüstlük",
-      "about.integrityDesc": "İşimizi en yüksek dürüstlük standartlarıyla yürütüyor, müşterilerimiz, ortaklarımız ve çalışanlarımızla şeffaf ilişkiler kuruyoruz.",
-      
-      // Contact page
-      "contact.title": "İletişim",
-      "contact.sendMessage": "Bize mesaj gönderin",
-      "contact.name": "Adınız",
-      "contact.emailAddress": "E-posta Adresi",
-      "contact.messageText": "Mesaj",
-      "contact.uploadSpecs": "Teknik Özellikler Yükleyin (isteğe bağlı)",
-      "contact.submit": "Mesaj Gönder",
-      "contact.findUs": "Bizi Bulun",
-      "contact.address": "Adres",
-      "contact.phone": "Telefon",
-      "contact.emailContact": "E-posta",
-      "contact.hours": "Çalışma Saatleri",
-      
-      // Footer
-      "footer.description": "İhtiyaçlarınıza göre özelleştirilmiş hassas mühendislikle üretilmiş hidrolik sistemler. ISO sertifikalı kalite ve global uzmanlık.",
-      "footer.navigation": "Navigasyon",
-      "footer.location": "Konum",
-      "footer.legal": "Yasal",
-      "footer.privacy": "Gizlilik Politikası",
-      "footer.cookies": "Çerez Politikası",
-      "footer.rights": "Tüm hakları saklıdır.",
-    },
-  };
-
-  // Add the translation function to return translated strings
+  // Translation function
   const t = (key: string): string => {
-    const keys = key.split('.');
-    let result = translations[language];
-    
-    for (const k of keys) {
-      if (result && result[k]) {
-        result = result[k];
-      } else {
-        // Return key if translation not found
-        return key;
-      }
-    }
-    
-    return result as string;
-  };
-
-  const value: LanguageContextProps = {
-    language,
-    setLanguage,
-    translations,
-    t,
+    const currentTranslations = translations[language];
+    return currentTranslations[key as keyof typeof currentTranslations] || key;
   };
 
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-const useLanguage = () => {
+// Hook for using the language context
+export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
+    throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
 };
-
-export { LanguageProvider, useLanguage };

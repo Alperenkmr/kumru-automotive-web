@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import ProductImageGallery from "@/components/ui/ProductImageGallery";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -44,34 +44,26 @@ const ProductDetail = () => {
       title: "Injection Lines",
       description: "Our high-precision injection lines are manufactured to exacting standards for fuel systems. These lines provide consistent flow and pressure stability, ensuring optimal engine performance and fuel efficiency.",
       images: [
-        "/lovable-uploads/119f8271-e8c4-45da-9d2c-5e67c9b22103.png",
-        "/lovable-uploads/db898c48-6fb7-48c9-86c0-d0903005310f.png",
-        "/lovable-uploads/b1714be7-5552-4dff-93f2-63b6f713be35.png",
-        "/lovable-uploads/3067d991-6b78-4a33-b661-9e496c75e0d1.png",
-        "/lovable-uploads/a04c2ee5-d5d5-40f5-80bb-ee57288592bd.png",
-        "/lovable-uploads/7f577f9f-378a-46ca-83e5-ec25588776b6.png",
-        "/lovable-uploads/30959692-0935-45c0-9070-bc7d5f69c633.png",
-        "/lovable-uploads/c598e639-61ee-4f26-9865-e860667d5e07.png"
+        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
+        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
+        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
       ]
     },
     "leak-of-fuel-pipe": {
       title: "Leak of Fuel Pipe",
       description: "Specialized fuel pipe solutions designed to prevent leaks and ensure safe fuel transport. Engineered with premium materials for durability and chemical resistance.",
       images: [
-        "/lovable-uploads/67380dcf-b5f1-4771-84bd-ca582dedcfe3.png",
-        "/lovable-uploads/bc73c8ac-88f0-41a4-9bcf-734811cfdfde.png",
-        "/lovable-uploads/22433bb0-37b0-42ca-95b9-adbc7458a5dd.png",
-        "/lovable-uploads/42862ca5-3179-409e-ab9f-779f35ffddf5.png",
-        "/lovable-uploads/3e0e6f4a-7f75-475c-8f0d-e4645e64e31f.png",
-        "/lovable-uploads/907fc852-03d5-4588-a52b-16691afc08c1.png"
+        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
+        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
+        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
       ]
     },
     "ptfe-teflon-hose": {
       title: "PTFE Teflon Hose",
       description: "Our PTFE hoses offer superior chemical resistance and exceptional performance at extreme temperatures. Ideal for applications requiring low friction and high purity, these lines are available in various configurations.",
       images: [
-        "/lovable-uploads/481252b3-3d57-4fe9-ad96-2e92e292421c.png",
-        "/lovable-uploads/23271511-12cb-40de-95a4-dd58f47020f8.png",
+        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
         "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
       ]
     },
@@ -220,8 +212,6 @@ const ProductDetail = () => {
   const isCabinLiftingHose = productId === 'cabin-lifting-hose';
   const isHydraulicHose = productId === 'hydraulic-hose';
   const isHydraulicSystem = productId === 'hydraulic-system';
-  const isInjectionLines = productId === 'injection-lines';
-  const isLeakOfFuelPipe = productId === 'leak-of-fuel-pipe';
 
   return (
     <div className="min-h-screen bg-white">
@@ -243,57 +233,72 @@ const ProductDetail = () => {
             
             {/* Cabin Lifting Hose Layout - 2x2 Grid */}
             {isCabinLiftingHose && (
-              <ProductImageGallery 
-                images={product.images} 
-                title={product.title} 
-                layout="grid-2x2" 
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {product.images.map((image, index) => (
+                  <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                    <AspectRatio ratio={16/9}>
+                      <img 
+                        src={image} 
+                        alt={`${product.title} - Image ${index + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                      />
+                    </AspectRatio>
+                  </div>
+                ))}
+              </div>
             )}
             
             {/* Hydraulic Hose Layout - Single Row with 3 items (2+1 on mobile) */}
             {isHydraulicHose && (
-              <ProductImageGallery 
-                images={product.images} 
-                title={product.title} 
-                layout="grid-3x1" 
-              />
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
             
             {/* Hydraulic System Layout - 3x2 Grid (2x3 on mobile) */}
             {isHydraulicSystem && (
-              <ProductImageGallery 
-                images={product.images} 
-                title={product.title} 
-                layout="grid-3x2" 
-              />
-            )}
-
-            {/* Injection Lines Layout - 4x2 Grid (2x4 on mobile) */}
-            {isInjectionLines && (
-              <ProductImageGallery 
-                images={product.images} 
-                title={product.title} 
-                layout="grid-4x2" 
-              />
-            )}
-
-            {/* Leak of Fuel Pipe Layout - 3x2 Grid (2x3 on mobile) */}
-            {isLeakOfFuelPipe && (
-              <ProductImageGallery 
-                images={product.images} 
-                title={product.title} 
-                layout="grid-3x2" 
-              />
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={4/3}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
             )}
             
             {/* Default Layout for other products */}
-            {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
-              !isInjectionLines && !isLeakOfFuelPipe && (
-              <ProductImageGallery 
-                images={product.images} 
-                title={product.title} 
-                layout="grid-default" 
-              />
+            {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {product.images.map((image, index) => (
+                  <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
+                    <img 
+                      src={image} 
+                      alt={`${product.title} - Image ${index + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </section>
