@@ -62,7 +62,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
         </CardContent>
         <CardFooter className="pt-0 px-6 pb-6">
           <div className="text-sm text-gray-600">
-            {language === 'tr' ? t('blog.author') : 'By'} {author}
+            {t('blog.author')} {author}
           </div>
         </CardFooter>
       </Card>
