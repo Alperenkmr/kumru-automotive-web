@@ -2,15 +2,6 @@
 import React from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
 
 interface FeaturedProductsProps {
   className?: string;
@@ -57,18 +48,6 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     },
   ];
 
-  // Cabin Lifting Hose gallery images (showing just 2 on the homepage)
-  const cabinLiftingHoseImages = [
-    { id: 1, src: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png", alt: "Cabin Lifting Hose 1" },
-    { id: 2, src: "/lovable-uploads/7a469edd-2042-4081-baf6-cd67f6e82085.png", alt: "Cabin Lifting Hose 2" },
-  ];
-  
-  // Hydraulic Hose gallery images (showing just 2 on the homepage)
-  const hydraulicHoseImages = [
-    { id: 1, src: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png", alt: "Hydraulic Hose 1" },
-    { id: 2, src: "/lovable-uploads/5c3fa32b-aab5-446d-a9ba-539f21f39547.png", alt: "Hydraulic Hose 2" },
-  ];
-
   return (
     <section
       id="products"
@@ -79,42 +58,6 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     >
       <div className="container mx-auto">
         <h2 className="section-title text-kumru-black">Our Products</h2>
-
-        {/* CABIN LIFTING HOSE Gallery Sample - 2 Images */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-6 text-kumru-navy">CABIN LIFTING HOSE</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {cabinLiftingHoseImages.map((image) => (
-              <div key={image.id} className="overflow-hidden rounded-lg shadow-md">
-                <AspectRatio ratio={16/9}>
-                  <img 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                  />
-                </AspectRatio>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* HYDRAULIC HOSE Gallery Sample - 2 Images */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-6 text-kumru-navy">HYDRAULIC HOSE</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {hydraulicHoseImages.map((image) => (
-              <div key={image.id} className="overflow-hidden rounded-lg shadow-md">
-                <AspectRatio ratio={16/9}>
-                  <img 
-                    src={image.src} 
-                    alt={image.alt} 
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                  />
-                </AspectRatio>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Featured Products */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
