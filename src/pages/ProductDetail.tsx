@@ -44,27 +44,35 @@ const ProductDetail = () => {
       title: "Injection Lines",
       description: "Our high-precision injection lines are manufactured to exacting standards for fuel systems. These lines provide consistent flow and pressure stability, ensuring optimal engine performance and fuel efficiency.",
       images: [
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+        "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
+        "/lovable-uploads/395071ba-a18c-4d9d-b4e6-aabc0fcf811d.png",
+        "/lovable-uploads/91afff90-ba4d-4b01-a817-bb9f8fa348d4.png",
+        "/lovable-uploads/98d12566-e15e-4399-be6c-fb0854c106df.png", 
+        "/lovable-uploads/4b10759c-eb86-484a-a6d1-695c97c3605f.png",
+        "/lovable-uploads/2b8878a7-ee7b-40c1-8709-f96e04bf7f76.png",
+        "/lovable-uploads/c8e142ce-26b4-4ee2-bbc2-7827ad360884.png",
+        "/lovable-uploads/387ef443-1ad6-45ed-be70-5f73274718d2.png"
       ]
     },
     "leak-of-fuel-pipe": {
       title: "Leak of Fuel Pipe",
       description: "Specialized fuel pipe solutions designed to prevent leaks and ensure safe fuel transport. Engineered with premium materials for durability and chemical resistance.",
       images: [
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
+        "/lovable-uploads/35cc28ff-b5ca-441f-824d-b980213e7a24.png",
+        "/lovable-uploads/04acc924-07a4-4cc4-851f-19cda4219f9c.png",
+        "/lovable-uploads/7534c77e-f1b8-4257-8769-fb95f8923cce.png",
+        "/lovable-uploads/01dedfa7-7055-4fe2-97a4-47818831e1a2.png",
+        "/lovable-uploads/aa75e716-e185-468f-a2bc-23f5233a6027.png",
+        "/lovable-uploads/28f917cf-44b4-4ec5-ad86-5c27137d13a1.png"
       ]
     },
     "ptfe-teflon-hose": {
       title: "PTFE Teflon Hose",
       description: "Our PTFE hoses offer superior chemical resistance and exceptional performance at extreme temperatures. Ideal for applications requiring low friction and high purity, these lines are available in various configurations.",
       images: [
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+        "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
+        "/lovable-uploads/da69821b-9f92-470a-943b-7ef7e6056815.png",
+        "/lovable-uploads/c8e142ce-26b4-4ee2-bbc2-7827ad360884.png",
       ]
     },
     "steering-hose": {
@@ -212,6 +220,8 @@ const ProductDetail = () => {
   const isCabinLiftingHose = productId === 'cabin-lifting-hose';
   const isHydraulicHose = productId === 'hydraulic-hose';
   const isHydraulicSystem = productId === 'hydraulic-system';
+  const isInjectionLines = productId === 'injection-lines';
+  const isLeakOfFuelPipe = productId === 'leak-of-fuel-pipe';
 
   return (
     <div className="min-h-screen bg-white">
@@ -286,8 +296,47 @@ const ProductDetail = () => {
               </div>
             )}
             
+            {/* Injection Lines Layout - 4x2 Grid on desktop (2x4 on mobile) */}
+            {isInjectionLines && (
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Leak of Fuel Pipe Layout - 3x2 Grid on desktop (2x3 on mobile) */}
+            {isLeakOfFuelPipe && (
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* Default Layout for other products */}
-            {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && (
+            {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
+             !isInjectionLines && !isLeakOfFuelPipe && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">

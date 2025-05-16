@@ -9,37 +9,37 @@ const Products = () => {
     {
       id: 1,
       title: "CABIN LIFTING HOSE",
-      imageSrc: "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
+      imageSrc: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
       href: "/products/cabin-lifting-hose"
     },
     {
       id: 2,
       title: "HYDRAULIC HOSE",
-      imageSrc: "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+      imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       href: "/products/hydraulic-hose"
     },
     {
       id: 3,
       title: "HYDRAULIC SYSTEM",
-      imageSrc: "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+      imageSrc: "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
       href: "/products/hydraulic-system"
     },
     {
       id: 4,
       title: "INJECTION LINES",
-      imageSrc: "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
+      imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
       href: "/products/injection-lines"
     },
     {
       id: 5,
       title: "LEAK OF FUEL PIPE",
-      imageSrc: "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
+      imageSrc: "/lovable-uploads/35cc28ff-b5ca-441f-824d-b980213e7a24.png",
       href: "/products/leak-of-fuel-pipe"
     },
     {
       id: 6,
       title: "PTFE TEFLON HOSE",
-      imageSrc: "https://source.unsplash.com/photo-1494891848038-7bd202a2afeb",
+      imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       href: "/products/ptfe-teflon-hose"
     },
     {
