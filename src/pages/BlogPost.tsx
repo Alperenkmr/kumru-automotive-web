@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "@/components/layout/Header";
@@ -6,10 +5,12 @@ import Footer from "@/components/layout/Footer";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const BlogPost = () => {
   const { blogId } = useParams<{ blogId: string }>();
   const navigate = useNavigate();
+  const { t, language } = useLanguage();
   
   // Blog post database
   const blogPosts = {
@@ -456,7 +457,7 @@ const BlogPost = () => {
           <div className="container mx-auto px-4 py-12">
             <h1 className="text-2xl font-bold">Blog post not found</h1>
             <Button onClick={() => navigate('/blog')} variant="outline" className="mt-4">
-              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+              <ArrowLeft className="mr-2 h-4 w-4" /> {t('blog.backToBlog')}
             </Button>
           </div>
         </main>
@@ -477,7 +478,7 @@ const BlogPost = () => {
         {/* Back to Blog link - top */}
         <div className="container mx-auto px-4 mb-4">
           <Button onClick={() => navigate('/blog')} variant="outline" className="flex items-center">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+            <ArrowLeft className="mr-2 h-4 w-4" /> {t('blog.backToBlog')}
           </Button>
         </div>
         
@@ -505,11 +506,13 @@ const BlogPost = () => {
                 <div className="flex flex-wrap items-center text-gray-600 mb-4">
                   <span className="mr-4">{post.date}</span>
                   {post.author && (
-                    <span className="mr-4">By {post.author}</span>
+                    <span className="mr-4">
+                      {language === 'tr' ? 'Yazar: ' : t('blog.author')} {post.author}
+                    </span>
                   )}
                   {post.category && (
                     <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
-                      {post.category}
+                      {language === 'tr' ? t('blog.category') + ': ' : ''}{post.category}
                     </span>
                   )}
                 </div>
@@ -524,14 +527,14 @@ const BlogPost = () => {
               {/* Related Images */}
               {post.relatedImages && post.relatedImages.length > 0 && (
                 <div className="mt-8">
-                  <h3 className="text-xl font-bold mb-4">Related Images</h3>
+                  <h3 className="text-xl font-bold mb-4">{t('blog.relatedImages')}</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {post.relatedImages.map((image, index) => (
                       <div key={index} className="overflow-hidden rounded-lg shadow-md">
                         <AspectRatio ratio={16/9}>
                           <img 
                             src={image} 
-                            alt={`Related image ${index + 1} for ${post.title}`} 
+                            alt={`${language === 'tr' ? 'İlgili görsel' : 'Related image'} ${index + 1} - ${post.title}`} 
                             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
                           />
                         </AspectRatio>
@@ -547,7 +550,7 @@ const BlogPost = () => {
                   onClick={() => navigate('/blog')}
                   className="bg-kumru-navy text-white px-6 py-3 rounded-lg hover:bg-kumru-navy/90 transition-colors"
                 >
-                  <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+                  <ArrowLeft className="mr-2 h-4 w-4" /> {t('blog.backToBlog')}
                 </Button>
               </div>
             </div>

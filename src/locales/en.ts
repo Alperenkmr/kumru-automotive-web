@@ -49,5 +49,28 @@ export const enTranslations = {
   'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
   'contact.phone': '+90 382 266 57 90',
   'contact.emailAddress': 'info@rsskumru.com',
-  'contact.hours': 'Hafta içi 08:30 - 18:00'
+  'contact.hours': 'Weekdays 08:30 - 18:00',
+  // Adding the blog post related translations
+  'blog.category': 'Category',
+  'blog.author': 'By',
+  'blog.date': 'Date',
+  'blog.relatedImages': 'Related Images',
+  'blog.readMore': 'Read More',
+  // Adding product category names
+  'products.cabinLiftingHose': 'CABIN LIFTING HOSE',
+  'products.hydraulicHose': 'HYDRAULIC HOSE',
+  'products.hydraulicSystem': 'HYDRAULIC SYSTEM',
+  'products.injectionLines': 'INJECTION LINES',
+  'products.leakOfFuelPipe': 'LEAK OF FUEL PIPE',
+  'products.ptfeTeflonHose': 'PTFE TEFLON HOSE',
+  'products.steeringHose': 'STEERING HOSE',
+  'products.transferPump': 'TRANSFER PUMP',
+  'products.turboPipeHose': 'TURBO PIPE HOSE',
+  'products.turboTimingPipes': 'TURBO TIMING PIPES',
+  'products.valveNozzle': 'VALVE NOZZLE',
+  'products.valveRecord': 'VALVE RECORD',
+  'products.valveTiming': 'VALVE TIMING',
+  'products.vesselLines': 'VESSEL LINES',
+  'products.connectors': 'CONNECTORS',
+  'products.fittings': 'FITTINGS'
 };

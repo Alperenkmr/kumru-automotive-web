@@ -49,5 +49,28 @@ export const trTranslations = {
   'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
   'contact.phone': '+90 382 266 57 90',
   'contact.emailAddress': 'info@rsskumru.com',
-  'contact.hours': 'Hafta içi 08:30 - 18:00'
+  'contact.hours': 'Hafta içi 08:30 - 18:00',
+  // Adding the blog post related translations
+  'blog.category': 'Kategori',
+  'blog.author': 'Yazar',
+  'blog.date': 'Tarih',
+  'blog.relatedImages': 'İlgili Görseller',
+  'blog.readMore': 'Devamını Oku',
+  // Adding product category names that might have been missed
+  'products.cabinLiftingHose': 'KABİN KALDIRMA HORTUMU',
+  'products.hydraulicHose': 'HİDROLİK HORTUM',
+  'products.hydraulicSystem': 'HİDROLİK SİSTEM',
+  'products.injectionLines': 'ENJEKSİYON HATLARI',
+  'products.leakOfFuelPipe': 'YAKIT SIZINTI HATTI',
+  'products.ptfeTeflonHose': 'PTFE TEFLON HORTUM',
+  'products.steeringHose': 'DİREKSİYON HORTUMU',
+  'products.transferPump': 'TRANSFER POMPASI',
+  'products.turboPipeHose': 'TURBO BORU HORTUMU',
+  'products.turboTimingPipes': 'TURBO ZAMANLAMA BORULARI',
+  'products.valveNozzle': 'VALF NOZUL',
+  'products.valveRecord': 'VALF KAYDI',
+  'products.valveTiming': 'VALF ZAMANLAMA',
+  'products.vesselLines': 'KAZAN HATLARI',
+  'products.connectors': 'BAĞLANTILAR',
+  'products.fittings': 'BAĞLANTI ELEMANLARI'
 };

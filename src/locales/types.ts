@@ -51,7 +51,28 @@ export type TranslationKey =
   | 'contact.address'
   | 'contact.phone'
   | 'contact.emailAddress'
-  | 'contact.hours';
+  | 'contact.hours'
+  | 'blog.category'
+  | 'blog.author'
+  | 'blog.date'
+  | 'blog.relatedImages'
+  | 'blog.readMore'
+  | 'products.cabinLiftingHose'
+  | 'products.hydraulicHose'
+  | 'products.hydraulicSystem'
+  | 'products.injectionLines'
+  | 'products.leakOfFuelPipe'
+  | 'products.ptfeTeflonHose'
+  | 'products.steeringHose'
+  | 'products.transferPump'
+  | 'products.turboPipeHose'
+  | 'products.turboTimingPipes'
+  | 'products.valveNozzle'
+  | 'products.valveRecord'
+  | 'products.valveTiming'
+  | 'products.vesselLines'
+  | 'products.connectors'
+  | 'products.fittings';
 
 export type TranslationsType = {
   [key in TranslationKey]: string;
