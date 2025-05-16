@@ -56,6 +56,17 @@ export const enTranslations = {
   'blog.date': 'Date',
   'blog.relatedImages': 'Related Images',
   'blog.readMore': 'Read More',
+  'blog.searchPlaceholder': 'Search articles',
+  'blog.allCategories': 'All Categories',
+  'blog.latestFirst': 'Latest First',
+  'blog.noPostsFound': 'No blog posts found matching your search.',
+  // Services section
+  'services.title': 'Our Core Services',
+  'services.hoses': 'Hoses',
+  'services.fittings': 'Fittings',
+  'services.ptfeLines': 'PTFE Lines',
+  'services.turboPipes': 'Turbo Pipes',
+  'services.injectionLines': 'Injection Lines',
   // Adding product category names
   'products.cabinLiftingHose': 'CABIN LIFTING HOSE',
   'products.hydraulicHose': 'HYDRAULIC HOSE',
@@ -76,6 +87,7 @@ export const enTranslations = {
 
   // Blog post content translations
   'blog.post.hydraulicHosePressure.title': 'Understanding Hydraulic Hose Pressure Ratings',
+  'blog.post.hydraulicHosePressure.excerpt': 'A comprehensive guide to hydraulic hose pressure ratings and their importance in system design and safety.',
   'blog.post.hydraulicHosePressure.content': `
     <h2>Understanding Pressure Ratings</h2>
     <p>Hydraulic hoses are critical components in fluid power systems, designed to withstand high-pressure fluid transmission between hydraulic components. Understanding their pressure ratings is essential for proper selection and safe operation.</p>
@@ -115,6 +127,7 @@ export const enTranslations = {
   `,
 
   'blog.post.ptfeVsRubber.title': 'PTFE vs. Rubber Hoses: A Comprehensive Comparison',
+  'blog.post.ptfeVsRubber.excerpt': 'Examining the key differences, advantages, and applications of PTFE and rubber hoses in industrial settings.',
   'blog.post.ptfeVsRubber.content': `
     <h2>Material Properties: PTFE vs. Rubber</h2>
     <p>When selecting hoses for industrial applications, understanding the fundamental differences between PTFE (Polytetrafluoroethylene) and rubber hoses is crucial for making the right choice for your specific needs.</p>
@@ -165,6 +178,7 @@ export const enTranslations = {
   `,
 
   'blog.post.maintenance.title': 'Maintenance Tips for Extending Hydraulic Hose Life',
+  'blog.post.maintenance.excerpt': 'Best practices and preventive maintenance strategies to maximize the lifespan of your hydraulic hoses.',
   'blog.post.maintenance.content': `
     <h2>Preventive Maintenance Strategies</h2>
     <p>Proper maintenance of hydraulic hoses is essential for maximizing their service life and preventing costly system failures. Implementing these practices can significantly extend the operational lifespan of your hydraulic hoses:</p>
@@ -225,6 +239,7 @@ export const enTranslations = {
   `,
 
   'blog.post.turboOil.title': 'Innovations in Turbo Oil Pipe Design',
+  'blog.post.turboOil.excerpt': 'Exploring recent advancements in turbo oil pipe technology and how they enhance engine performance.',
   'blog.post.turboOil.content': `
     <h2>Evolution of Turbocharger Oil Delivery Systems</h2>
     <p>Turbochargers operate under extreme conditions, with temperatures often exceeding 1,000°C (1,832°F) and rotational speeds reaching up to 300,000 RPM. The oil delivery system is critical to ensure proper lubrication and cooling of the turbocharger bearings and shaft.</p>
@@ -281,6 +296,7 @@ export const enTranslations = {
   `,
 
   'blog.post.fittings.title': 'How to Select the Right Fittings for Your Application',
+  'blog.post.fittings.excerpt': 'Essential guidelines for choosing appropriate fittings based on pressure, temperature, and compatibility requirements.',
   'blog.post.fittings.content': `
     <h2>Critical Factors in Fitting Selection</h2>
     <p>Selecting the right hydraulic or pneumatic fittings is crucial for system performance, safety, and longevity. An improper fitting choice can lead to leakage, pressure loss, contamination, or even catastrophic failure. This guide outlines the essential considerations for proper fitting selection.</p>
@@ -375,6 +391,7 @@ export const enTranslations = {
   `,
 
   'blog.post.evHydraulics.title': 'The Future of Hydraulic Systems in Electric Vehicles',
+  'blog.post.evHydraulics.excerpt': 'How hydraulic technologies are evolving to meet the unique requirements of electric and hybrid vehicle systems.',
   'blog.post.evHydraulics.content': `
     <h2>Transforming Traditional Hydraulics for the Electric Era</h2>
     <p>As the automotive industry undergoes a fundamental shift toward electrification, hydraulic systems—long established in internal combustion engine (ICE) vehicles—are evolving to meet new challenges and requirements. Rather than disappearing entirely, hydraulic technologies are being reimagined for integration with electric vehicle architectures.</p>

@@ -7,73 +7,75 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Blog = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const { t } = useLanguage();
   
   const blogPosts = [
     {
       id: 1,
-      title: "Understanding Hydraulic Hose Pressure Ratings",
+      titleKey: 'blog.post.hydraulicHosePressure.title',
       date: "May 2, 2023",
       imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       author: "John Smith",
-      excerpt: "A comprehensive guide to hydraulic hose pressure ratings and their importance in system design and safety.",
+      excerptKey: 'blog.post.hydraulicHosePressure.excerpt',
       slug: "hydraulic-hose-pressure-ratings"
     },
     {
       id: 2,
-      title: "PTFE vs. Rubber Hoses: A Comprehensive Comparison",
+      titleKey: 'blog.post.ptfeVsRubber.title',
       date: "April 18, 2023",
       imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       author: "Emily Johnson",
-      excerpt: "Examining the key differences, advantages, and applications of PTFE and rubber hoses in industrial settings.",
+      excerptKey: 'blog.post.ptfeVsRubber.excerpt',
       slug: "ptfe-vs-rubber-hoses-comparison"
     },
     {
       id: 3,
-      title: "Maintenance Tips for Extending Hydraulic Hose Life",
+      titleKey: 'blog.post.maintenance.title',
       date: "April 5, 2023",
       imageSrc: "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
       author: "Robert Miller",
-      excerpt: "Best practices and preventive maintenance strategies to maximize the lifespan of your hydraulic hoses.",
+      excerptKey: 'blog.post.maintenance.excerpt',
       slug: "hydraulic-hose-maintenance-tips"
     },
     {
       id: 4,
-      title: "Innovations in Turbo Oil Pipe Design",
+      titleKey: 'blog.post.turboOil.title',
       date: "March 22, 2023",
       imageSrc: "/lovable-uploads/35cc28ff-b5ca-441f-824d-b980213e7a24.png",
       author: "Sarah Wilson",
-      excerpt: "Exploring recent advancements in turbo oil pipe technology and how they enhance engine performance.",
+      excerptKey: 'blog.post.turboOil.excerpt',
       slug: "turbo-oil-pipe-innovations"
     },
     {
       id: 5,
-      title: "How to Select the Right Fittings for Your Application",
+      titleKey: 'blog.post.fittings.title',
       date: "March 10, 2023",
       imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
       author: "David Thompson",
-      excerpt: "Essential guidelines for choosing appropriate fittings based on pressure, temperature, and compatibility requirements.",
+      excerptKey: 'blog.post.fittings.excerpt',
       slug: "selecting-right-fittings"
     },
     {
       id: 6,
-      title: "The Future of Hydraulic Systems in Electric Vehicles",
+      titleKey: 'blog.post.evHydraulics.title',
       date: "February 25, 2023",
       imageSrc: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
       author: "Michael Lee",
-      excerpt: "How hydraulic technologies are evolving to meet the unique requirements of electric and hybrid vehicle systems.",
+      excerptKey: 'blog.post.evHydraulics.excerpt',
       slug: "hydraulic-systems-electric-vehicles"
     },
   ];
 
   // Filter blogs based on search query
   const filteredBlogs = blogPosts.filter(blog => 
-    blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    t(blog.titleKey).toLowerCase().includes(searchQuery.toLowerCase()) ||
     blog.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+    t(blog.excerptKey).toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleBlogClick = (slug: string) => {
@@ -94,15 +96,15 @@ const Blog = () => {
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                   <Input 
-                    placeholder="Search articles" 
+                    placeholder={t('blog.searchPlaceholder')} 
                     className="pl-10"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" className="whitespace-nowrap">All Categories</Button>
-                  <Button variant="outline" className="whitespace-nowrap">Latest First</Button>
+                  <Button variant="outline" className="whitespace-nowrap">{t('blog.allCategories')}</Button>
+                  <Button variant="outline" className="whitespace-nowrap">{t('blog.latestFirst')}</Button>
                 </div>
               </div>
             </div>
@@ -112,11 +114,11 @@ const Blog = () => {
               {filteredBlogs.map((post) => (
                 <BlogCard
                   key={post.id}
-                  title={post.title}
+                  title={t(post.titleKey)}
                   date={post.date}
                   imageSrc={post.imageSrc}
                   author={post.author}
-                  excerpt={post.excerpt}
+                  excerpt={t(post.excerptKey)}
                   onClick={() => handleBlogClick(post.slug)}
                   className="cursor-pointer"
                 />
@@ -125,7 +127,7 @@ const Blog = () => {
 
             {filteredBlogs.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-xl text-gray-600">No blog posts found matching your search.</p>
+                <p className="text-xl text-gray-600">{t('blog.noPostsFound')}</p>
               </div>
             )}
           </div>

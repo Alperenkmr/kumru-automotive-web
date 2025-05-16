@@ -11,11 +11,11 @@ const WhatWeDo: React.FC<WhatWeDoProps> = ({ className }) => {
   const { t } = useLanguage();
   
   const services = [
-    { name: "Hoses", icon: "🔄" },
-    { name: "Fittings", icon: "🔩" },
-    { name: "PTFE Lines", icon: "📊" },
-    { name: "Turbo Pipes", icon: "💨" },
-    { name: "Injection Lines", icon: "💉" },
+    { nameKey: "services.hoses", icon: "🔄" },
+    { nameKey: "services.fittings", icon: "🔩" },
+    { nameKey: "services.ptfeLines", icon: "📊" },
+    { nameKey: "services.turboPipes", icon: "💨" },
+    { nameKey: "services.injectionLines", icon: "💉" },
   ];
 
   return (
@@ -36,12 +36,12 @@ const WhatWeDo: React.FC<WhatWeDoProps> = ({ className }) => {
           </div>
           
           <div className="bg-kumru-navy rounded-xl p-8 text-white animate-on-scroll">
-            <h3 className="text-2xl font-semibold mb-6">Our Core Services</h3>
+            <h3 className="text-2xl font-semibold mb-6">{t('services.title')}</h3>
             <ul className="space-y-4">
               {services.map((service, index) => (
                 <li key={index} className="flex items-center text-lg">
                   <span className="mr-4 text-2xl">{service.icon}</span>
-                  <span>{service.name}</span>
+                  <span>{t(service.nameKey)}</span>
                 </li>
               ))}
             </ul>

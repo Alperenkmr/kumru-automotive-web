@@ -56,6 +56,17 @@ export const trTranslations = {
   'blog.date': 'Tarih',
   'blog.relatedImages': 'İlgili Görseller',
   'blog.readMore': 'Devamını Oku',
+  'blog.searchPlaceholder': 'Makaleleri ara',
+  'blog.allCategories': 'Tüm Kategoriler',
+  'blog.latestFirst': 'Önce En Yeniler',
+  'blog.noPostsFound': 'Aramanızla eşleşen blog yazısı bulunamadı.',
+  // Services section
+  'services.title': 'Ana Hizmetlerimiz',
+  'services.hoses': 'Hortumlar',
+  'services.fittings': 'Bağlantı Parçaları',
+  'services.ptfeLines': 'PTFE Hatları',
+  'services.turboPipes': 'Turbo Boruları',
+  'services.injectionLines': 'Enjeksiyon Hatları',
   // Adding product category names that might have been missed
   'products.cabinLiftingHose': 'KABİN KALDIRMA HORTUMU',
   'products.hydraulicHose': 'HİDROLİK HORTUM',
@@ -76,6 +87,7 @@ export const trTranslations = {
 
   // Blog post content translations
   'blog.post.hydraulicHosePressure.title': 'Hidrolik Hortum Basınç Değerlerini Anlamak',
+  'blog.post.hydraulicHosePressure.excerpt': 'Hidrolik hortum basınç değerleri ve bunların sistem tasarımı ve güvenliğindeki önemi hakkında kapsamlı bir rehber.',
   'blog.post.hydraulicHosePressure.content': `
     <h2>Basınç Değerlerini Anlamak</h2>
     <p>Hidrolik hortumlar, hidrolik bileşenler arasında yüksek basınçlı sıvı iletimi için tasarlanmış akışkan güç sistemlerinin kritik bileşenleridir. Basınç değerlerini anlamak, doğru seçim ve güvenli çalışma için gereklidir.</p>
@@ -115,6 +127,7 @@ export const trTranslations = {
   `,
 
   'blog.post.ptfeVsRubber.title': 'PTFE ve Kauçuk Hortumlar: Kapsamlı Bir Karşılaştırma',
+  'blog.post.ptfeVsRubber.excerpt': 'Endüstriyel ortamlarda PTFE ve kauçuk hortumların temel farklılıkları, avantajları ve uygulamalarının incelenmesi.',
   'blog.post.ptfeVsRubber.content': `
     <h2>Malzeme Özellikleri: PTFE ve Kauçuk</h2>
     <p>Endüstriyel uygulamalar için hortum seçerken, PTFE (Politetrafloroetilen) ve kauçuk hortumlar arasındaki temel farklılıkları anlamak, özel ihtiyaçlarınız için doğru seçimi yapmak açısından çok önemlidir.</p>
@@ -165,6 +178,7 @@ export const trTranslations = {
   `,
 
   'blog.post.maintenance.title': 'Hidrolik Hortum Ömrünü Uzatmak İçin Bakım İpuçları',
+  'blog.post.maintenance.excerpt': 'Hidrolik hortumlarınızın ömrünü en üst düzeye çıkarmak için en iyi uygulamalar ve önleyici bakım stratejileri.',
   'blog.post.maintenance.content': `
     <h2>Önleyici Bakım Stratejileri</h2>
     <p>Hidrolik hortumların düzgün bakımı, hizmet ömürlerini en üst düzeye çıkarmak ve maliyetli sistem arızalarını önlemek için gereklidir. Bu uygulamaların uygulanması, hidrolik hortumlarınızın operasyonel ömrünü önemli ölçüde uzatabilir:</p>
@@ -225,6 +239,7 @@ export const trTranslations = {
   `,
 
   'blog.post.turboOil.title': 'Turbo Yağ Borusu Tasarımında Yenilikler',
+  'blog.post.turboOil.excerpt': 'Turbo yağ borusu teknolojisindeki son gelişmeler ve bunların motor performansını nasıl artırdığı.',
   'blog.post.turboOil.content': `
     <h2>Turboşarj Yağ Dağıtım Sistemlerinin Evrimi</h2>
     <p>Turboşarjlar, sıcaklıkların genellikle 1.000°C'yi (1.832°F) aştığı ve dönme hızlarının 300.000 RPM'e kadar ulaştığı aşırı koşullar altında çalışır. Yağ dağıtım sistemi, turboşarj yatakları ve şaftının doğru yağlanmasını ve soğutulmasını sağlamak için kritik öneme sahiptir.</p>
@@ -281,6 +296,7 @@ export const trTranslations = {
   `,
 
   'blog.post.fittings.title': 'Uygulamanız İçin Doğru Bağlantı Elemanlarını Seçme',
+  'blog.post.fittings.excerpt': 'Basınç, sıcaklık ve uyumluluk gereksinimlerine dayalı olarak uygun bağlantı elemanlarını seçme konusunda temel kılavuzlar.',
   'blog.post.fittings.content': `
     <h2>Bağlantı Elemanı Seçiminde Kritik Faktörler</h2>
     <p>Doğru hidrolik veya pnömatik bağlantı elemanlarını seçmek, sistem performansı, güvenliği ve uzun ömürlülüğü için çok önemlidir. Yanlış bir bağlantı elemanı seçimi, sızıntıya, basınç kaybına, kontaminasyona veya hatta felaket bir arızaya neden olabilir. Bu kılavuz, uygun bağlantı elemanı seçimi için temel hususları özetlemektedir.</p>
@@ -375,6 +391,7 @@ export const trTranslations = {
   `,
 
   'blog.post.evHydraulics.title': 'Elektrikli Araçlarda Hidrolik Sistemlerin Geleceği',
+  'blog.post.evHydraulics.excerpt': 'Hidrolik teknolojilerin elektrikli ve hibrit araç sistemlerinin benzersiz gereksinimlerini karşılamak için nasıl geliştiği.',
   'blog.post.evHydraulics.content': `
     <h2>Geleneksel Hidrolik Sistemleri Elektrikli Çağ İçin Dönüştürmek</h2>
     <p>Otomotiv endüstrisi elektrifikasyona doğru temel bir değişim geçirirken, içten yanmalı motorlu (ICE) araçlarda uzun süredir kurulu olan hidrolik sistemler, yeni zorluklara ve gereksinimlere uyum sağlamak için evrim geçiriyor. Tamamen ortadan kalkmak yerine, hidrolik teknolojiler elektrikli araç mimarileri ile entegrasyon için yeniden tasarlanıyor.</p>

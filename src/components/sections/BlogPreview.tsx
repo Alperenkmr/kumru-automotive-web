@@ -69,7 +69,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
           {blogPosts.map((post) => (
             <BlogCard
               key={post.id}
-              title={t(post.titleKey as any)}
+              title={t(post.titleKey)}
               date={post.date}
               imageSrc={post.imageSrc}
               author={post.author}
