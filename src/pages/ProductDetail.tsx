@@ -3,6 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -96,27 +103,35 @@ const ProductDetail = () => {
       title: "Transfer Pump",
       description: "Efficient transfer pumps for moving fluids in various applications. Our pumps feature durable construction and reliable performance for industrial and automotive uses.",
       images: [
-        "https://source.unsplash.com/photo-1531297484001-80022131f5a1",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+        "/lovable-uploads/41aa0121-afde-42ec-8f74-a34f6a546d99.png",
+        "/lovable-uploads/0038105a-1864-4a64-b6e5-294c3a91c618.png",
+        "/lovable-uploads/64d98740-1e88-44cc-847e-2a6cc0bafe71.png",
       ]
     },
     "turbo-pipe-hose": {
       title: "Turbo Pipe Hose",
       description: "Specialized hoses for turbocharger applications. Designed to withstand high temperatures and pressure variations for optimal turbo system performance.",
       images: [
-        "https://source.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
+        "/lovable-uploads/275bf039-d45d-41de-a94e-f90172412ef8.png",
+        "/lovable-uploads/0fae216a-6e85-4d9d-998c-2dffc515c268.png",
+        "/lovable-uploads/e049e1b8-e82d-4d4c-8086-af743cc75a6b.png",
+        "/lovable-uploads/ccf3fbe4-fba1-47f3-90e2-e8664a99bd37.png",
+        "/lovable-uploads/3268f846-0731-405a-a8b0-afb7781ddcf9.png",
+        "/lovable-uploads/f153f704-1ed2-43fc-b02b-d9bc04d344aa.png",
+        "/lovable-uploads/46bfa33e-fa51-4b2f-a3e1-14421fb5828d.png",
+        "/lovable-uploads/b256034a-eae5-4658-805e-43f17cbb498f.png",
+        "/lovable-uploads/b54afe8e-d42b-453e-8f87-879ccb901b2d.png",
+        "/lovable-uploads/f212a026-d404-43b5-bcbe-2109daa81bc5.png",
+        "/lovable-uploads/2dba85bd-88e0-4e28-957d-c6ca794a173c.png",
+        "/lovable-uploads/322cb681-c7e7-4de6-8cc8-5ff16f7499a8.png",
       ]
     },
     "turbo-timing-pipes": {
       title: "Turbo Timing Pipes and Hoses",
       description: "Precision-engineered timing pipes and hoses for turbo systems. Our products ensure accurate timing and reliable performance in demanding engine environments.",
       images: [
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
+        "/lovable-uploads/d126f5c5-9d5d-43f1-accc-6038b8d46deb.png",
+        "/lovable-uploads/e2abf0eb-c86d-46ea-b472-1f167e84b96d.png",
       ]
     },
     "valve-nozzle": {
@@ -232,6 +247,9 @@ const ProductDetail = () => {
   const isLeakOfFuelPipe = productId === 'leak-of-fuel-pipe';
   const isPtfeTeflonHose = productId === 'ptfe-teflon-hose';
   const isSteeringHose = productId === 'steering-hose';
+  const isTransferPump = productId === 'transfer-pump';
+  const isTurboPipeHose = productId === 'turbo-pipe-hose';
+  const isTurboTimingPipes = productId === 'turbo-timing-pipes';
 
   return (
     <div className="min-h-screen bg-white">
@@ -423,9 +441,96 @@ const ProductDetail = () => {
               </div>
             )}
             
+            {/* Transfer Pump Layout - 3 images in a row (1x3 on desktop, 1x3 or stacked on mobile) */}
+            {isTransferPump && (
+              <div className="mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Turbo Pipe Hose Layout - 4x3 grid on desktop (slider on mobile) */}
+            {isTurboPipeHose && (
+              <div className="mb-8">
+                {/* Desktop Layout - 4x3 Grid */}
+                <div className="hidden md:grid md:grid-cols-4 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Mobile Layout - Slider */}
+                <div className="md:hidden">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {product.images.map((image, index) => (
+                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                          <div className="p-1">
+                            <div className="overflow-hidden rounded-lg shadow-md">
+                              <AspectRatio ratio={3/4}>
+                                <img 
+                                  src={image} 
+                                  alt={`${product.title} - Image ${index + 1}`} 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </AspectRatio>
+                            </div>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="flex justify-center gap-2 mt-4">
+                      <CarouselPrevious className="static transform-none mx-2" />
+                      <CarouselNext className="static transform-none mx-2" />
+                    </div>
+                  </Carousel>
+                </div>
+              </div>
+            )}
+            
+            {/* Turbo Timing Pipes Layout - 2 images side by side on desktop, vertical on mobile */}
+            {isTurboTimingPipes && (
+              <div className="mb-8">
+                <div className="flex flex-col md:flex-row gap-6">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md md:w-1/2">
+                      <AspectRatio ratio={16/9}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* Default Layout for other products */}
             {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
-             !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && !isSteeringHose && (
+             !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && 
+             !isSteeringHose && !isTransferPump && !isTurboPipeHose && 
+             !isTurboTimingPipes && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
