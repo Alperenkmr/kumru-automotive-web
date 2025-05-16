@@ -68,12 +68,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Updated with new logo and adjusted size */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
+              src="/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" 
               alt="RSS Kumru Automotive Logo" 
-              className="h-20 mr-2"
+              className="h-16 mr-2"
             />
           </Link>
 
