@@ -4,11 +4,14 @@ import { useLocation } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CollapsibleSection from "@/components/sections/CollapsibleSection";
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const About = () => {
   const location = useLocation();
   const whatWeDoRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
+  const certificatesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if there's a hash in the URL and scroll to the corresponding section
@@ -22,6 +25,14 @@ const About = () => {
           if (valuesCollapsible) {
             // This is a hacky way to click the button, but it works
             const button = valuesCollapsible.querySelector('button');
+            if (button) button.click();
+          }
+        } else if (hash === 'certificates' && certificatesRef.current) {
+          certificatesRef.current.scrollIntoView({ behavior: 'smooth' });
+          // Open the certificates section
+          const certificatesCollapsible = document.getElementById('certificates-collapsible');
+          if (certificatesCollapsible) {
+            const button = certificatesCollapsible.querySelector('button');
             if (button) button.click();
           }
         } else if (whatWeDoRef.current) {
@@ -95,6 +106,45 @@ const About = () => {
                       alt="RSS Kumru Robot Mascot" 
                       className="max-h-96 opacity-80"
                     />
+                  </div>
+                </div>
+              </CollapsibleSection>
+            </div>
+            
+            {/* Certificates - New Collapsible Section */}
+            <div ref={certificatesRef} id="certificates-collapsible">
+              <CollapsibleSection title="Quality Certificates">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className="bg-white p-8 rounded-xl shadow-sm relative">
+                    <div className="absolute -left-2 top-8 w-4 h-4 bg-white transform rotate-45"></div>
+                    <h3 className="text-xl font-bold mb-4 text-kumru-navy">Our Certifications</h3>
+                    <p className="text-lg mb-4">
+                      At RSS Kumru Automotive, we maintain the highest standards of quality management across all our operations. Our commitment to excellence is validated by our ISO 9001:2015 certification.
+                    </p>
+                    <p className="text-lg mb-4">
+                      This international standard confirms our ability to consistently provide products and services that meet customer and regulatory requirements. Our certification covers:
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 ml-4 text-lg">
+                      <li>Manufacturing and sales of steel and plastic pipes</li>
+                      <li>Rubber hydraulic hoses</li>
+                      <li>Spare parts for the automotive sector</li>
+                    </ul>
+                    <p className="text-lg mt-4">
+                      Our ISO certification is regularly audited and renewed, ensuring continuous improvement in our quality management systems.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Card className="w-full max-w-md overflow-hidden border-2 border-kumru-navy/20">
+                      <CardContent className="p-1">
+                        <AspectRatio ratio={3/4} className="bg-muted">
+                          <img 
+                            src="/lovable-uploads/64ad2975-7b2b-414d-b67d-56dc0bcc8fab.png" 
+                            alt="RSS Kumru ISO 9001:2015 Certificate" 
+                            className="object-contain h-full w-full"
+                          />
+                        </AspectRatio>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
               </CollapsibleSection>

@@ -45,6 +45,7 @@ const Header = () => {
       submenu: [
         { name: t('aboutSubmenu.whatWeDo'), href: "/about" },
         { name: t('aboutSubmenu.teamValues'), href: "/about#values" },
+        { name: t('aboutSubmenu.certificates'), href: "/about#certificates" },
       ]
     },
     { name: t('nav.products'), href: "/products" },
