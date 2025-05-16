@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
@@ -154,34 +153,47 @@ const ProductDetail = () => {
         "/lovable-uploads/1d407d02-2643-462c-8ce2-1e0d0db81135.png",
         "/lovable-uploads/d38a0c6f-32f2-498e-8dbc-48033c01aa00.png",
         "/lovable-uploads/acce4bd5-6045-435e-91b0-dfd191505c86.png",
-        // Will add more images in another request
+        "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
+        "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
+        "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
+        "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
+        "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
+        "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
+        "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
+        "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
+        "/lovable-uploads/5cce672b-d449-4b9b-b7f7-61a60d320ab1.png",
+        "/lovable-uploads/788351f1-e284-449e-999c-2826bb7c56c8.png",
+        "/lovable-uploads/29ec307d-8b0a-43f2-ab15-53e95b85506c.png", 
       ]
     },
     "valve-record": {
       title: "Valve Record",
       description: "Premium valve record components for industrial and automotive systems. Our products meet strict quality standards for reliable performance in critical applications.",
       images: [
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+        "/lovable-uploads/3ee29511-87e1-4ee4-908e-fc6c2314b152.png", 
+        "/lovable-uploads/20a12b3d-8a64-494e-b7bf-d4971f0d48b9.png",
+        "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
+        "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
+        "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
+        "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
       ]
     },
     "valve-timing": {
       title: "Valve Timing",
       description: "Precision valve timing components for optimal engine performance. Engineered for accuracy and durability to ensure consistent engine operation.",
       images: [
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+        "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
+        "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
+        "/lovable-uploads/5cce672b-d449-4b9b-b7f7-61a60d320ab1.png",
       ]
     },
     "vessel-lines": {
       title: "Vessel Lines",
       description: "Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.",
       images: [
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+        "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
+        "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
+        "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
       ]
     },
     "hoses": {
@@ -191,9 +203,6 @@ const ProductDetail = () => {
         "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
         "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
         "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
-        "https://source.unsplash.com/photo-1494891848038-7bd202a2afeb",
       ]
     },
     "fittings": {
@@ -265,6 +274,7 @@ const ProductDetail = () => {
   const isTurboPipeHose = productId === 'turbo-pipe-hose';
   const isTurboTimingPipes = productId === 'turbo-timing-pipes';
   const isValveNozzle = productId === 'valve-nozzle';
+  const isValveRecord = productId === 'valve-record';
 
   return (
     <div className="min-h-screen bg-white">
@@ -598,11 +608,46 @@ const ProductDetail = () => {
               </div>
             )}
             
+            {/* Valve Record Layout - 3x2 grid on desktop (2x3 on mobile) */}
+            {isValveRecord && (
+              <div className="mb-8">
+                {/* Desktop Layout - 3x2 Grid */}
+                <div className="hidden md:grid grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={4/3}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Mobile Layout - 2x3 Grid */}
+                <div className="md:hidden grid grid-cols-2 gap-3">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* Default Layout for other products */}
             {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
              !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && 
              !isSteeringHose && !isTransferPump && !isTurboPipeHose && 
-             !isTurboTimingPipes && !isValveNozzle && (
+             !isTurboTimingPipes && !isValveNozzle && !isValveRecord && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
@@ -624,4 +669,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-

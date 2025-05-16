@@ -45,49 +45,49 @@ const Products = () => {
     {
       id: 7,
       title: "STEERING HOSE",
-      imageSrc: "https://source.unsplash.com/photo-1518770660439-4636190af475",
+      imageSrc: "/lovable-uploads/fd0c66ec-4343-42ab-92b7-800e73443d4f.png",
       href: "/products/steering-hose"
     },
     {
       id: 8,
       title: "TRANSFER PUMP",
-      imageSrc: "https://source.unsplash.com/photo-1531297484001-80022131f5a1",
+      imageSrc: "/lovable-uploads/41aa0121-afde-42ec-8f74-a34f6a546d99.png",
       href: "/products/transfer-pump"
     },
     {
       id: 9,
       title: "TURBO PIPE HOSE",
-      imageSrc: "https://source.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      imageSrc: "/lovable-uploads/275bf039-d45d-41de-a94e-f90172412ef8.png",
       href: "/products/turbo-pipe-hose"
     },
     {
       id: 10,
       title: "TURBO TIMING PIPES AND HOSES",
-      imageSrc: "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
+      imageSrc: "/lovable-uploads/d126f5c5-9d5d-43f1-accc-6038b8d46deb.png",
       href: "/products/turbo-timing-pipes"
     },
     {
       id: 11,
       title: "VALVE NOZZLE",
-      imageSrc: "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
+      imageSrc: "/lovable-uploads/e3f5f737-9acf-4731-a3ea-b624ef57653b.png",
       href: "/products/valve-nozzle"
     },
     {
       id: 12,
       title: "VALVE RECORD",
-      imageSrc: "https://source.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+      imageSrc: "/lovable-uploads/3ee29511-87e1-4ee4-908e-fc6c2314b152.png",
       href: "/products/valve-record"
     },
     {
       id: 13,
       title: "VALVE TIMING",
-      imageSrc: "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
+      imageSrc: "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
       href: "/products/valve-timing"
     },
     {
       id: 14,
       title: "VESSEL LINES",
-      imageSrc: "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
+      imageSrc: "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
       href: "/products/vessel-lines"
     },
   ];
