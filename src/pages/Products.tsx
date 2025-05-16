@@ -90,6 +90,18 @@ const Products = () => {
       imageSrc: "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
       href: "/products/vessel-lines"
     },
+    {
+      id: 15,
+      title: "FITTINGS",
+      imageSrc: "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
+      href: "/products/fittings"
+    },
+    {
+      id: 16,
+      title: "CONNECTORS",
+      imageSrc: "/lovable-uploads/186b26a1-3a9b-46f8-b16d-db14890ba8a9.png",
+      href: "/products/connectors"
+    }
   ];
 
   return (
