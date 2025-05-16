@@ -106,7 +106,7 @@ const blogPostsData: Record<string, {
 export const getAllBlogPosts = (language: string): BlogPost[] => {
   const posts: BlogPost[] = [];
   
-  // Get translations through a hook-compatible location
+  // Get translations through a hook-compatible function
   const { t } = useLanguage();
   
   // Transform data into BlogPost objects with translations

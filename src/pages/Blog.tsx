@@ -7,6 +7,8 @@ import BlogCard from "@/components/ui/BlogCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/locales/types";
 import { getAllBlogPosts, BlogPost } from "@/services/BlogService";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const BlogPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -34,6 +36,8 @@ const BlogPage: React.FC = () => {
       <Helmet>
         <title>Blog | RSS Kumru</title>
       </Helmet>
+      
+      <Header />
       
       <Container>
         <div className="py-12 md:py-20">
@@ -102,6 +106,8 @@ const BlogPage: React.FC = () => {
           )}
         </div>
       </Container>
+
+      <Footer />
     </>
   );
 };
