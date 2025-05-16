@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Language } from "@/locales";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [aboutMenuOpen, setAboutMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,6 +26,15 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navigateToAbout = (event: React.MouseEvent, section?: string) => {
+    event.preventDefault();
+    setIsMenuOpen(false);
+    setAboutMenuOpen(false);
+    
+    const path = section ? `/about#${section}` : '/about';
+    navigate(path);
+  };
 
   const navLinks = [
     { name: t('nav.home'), href: "/" },
@@ -63,7 +73,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png" 
               alt="RSS Kumru Automotive Logo" 
-              className="h-20 mr-2" // Increased logo size even more
+              className="h-20 mr-2"
             />
           </Link>
 
@@ -76,6 +86,7 @@ const Header = () => {
                     className="flex items-center text-kumru-black hover:text-kumru-navy transition-colors duration-150 font-montserrat font-medium"
                     onMouseEnter={() => setAboutMenuOpen(true)}
                     onMouseLeave={() => setAboutMenuOpen(false)}
+                    onClick={(e) => navigateToAbout(e)}
                   >
                     {link.name}
                     <ChevronDown className="ml-1 h-4 w-4" />
@@ -97,13 +108,13 @@ const Header = () => {
                     onMouseLeave={() => setAboutMenuOpen(false)}
                   >
                     {link.submenu?.map((item) => (
-                      <Link
+                      <button
                         key={item.name}
-                        to={item.href}
-                        className="block p-3 text-kumru-black hover:text-kumru-navy hover:bg-gray-50 rounded-md transition-colors duration-150"
+                        onClick={(e) => navigateToAbout(e, item.href.includes('#') ? item.href.split('#')[1] : undefined)}
+                        className="block w-full text-left p-3 text-kumru-black hover:text-kumru-navy hover:bg-gray-50 rounded-md transition-colors duration-150"
                       >
                         {item.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -208,14 +219,13 @@ const Header = () => {
                   {aboutMenuOpen && (
                     <div className="ml-4 mt-1 flex flex-col space-y-2">
                       {link.submenu?.map((item) => (
-                        <Link
+                        <button
                           key={item.name}
-                          to={item.href}
-                          className="py-2 text-kumru-black hover:text-kumru-navy transition-colors duration-150"
-                          onClick={() => setIsMenuOpen(false)}
+                          className="py-2 text-left text-kumru-black hover:text-kumru-navy transition-colors duration-150"
+                          onClick={(e) => navigateToAbout(e, item.href.includes('#') ? item.href.split('#')[1] : undefined)}
                         >
                           {item.name}
-                        </Link>
+                        </button>
                       ))}
                     </div>
                   )}

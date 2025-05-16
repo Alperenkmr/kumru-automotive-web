@@ -73,15 +73,23 @@ const ProductDetail = () => {
         "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
         "/lovable-uploads/da69821b-9f92-470a-943b-7ef7e6056815.png",
         "/lovable-uploads/c8e142ce-26b4-4ee2-bbc2-7827ad360884.png",
+        "/lovable-uploads/ea78951e-2748-4ebe-b7ee-8f3d5a11e94b.png",
+        "/lovable-uploads/4b853838-ce11-4b64-b18e-2a3d4ffdb6cf.png",
+        "/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
+        "/lovable-uploads/c6197df8-7082-49a2-95bf-4c24d4b7458d.png",
+        "/lovable-uploads/57a851df-003a-4720-990b-5f587c5f1158.png",
+        "/lovable-uploads/478da5c4-268a-456b-99d8-5eeaf9f6804d.png",
+        "/lovable-uploads/31684c35-4b7c-4040-ab9d-8be4aeeaf2e1.png",
+        "/lovable-uploads/32076c81-ec8b-4a67-b691-615053e3d05f.png",
       ]
     },
     "steering-hose": {
       title: "Steering Hose",
       description: "High-quality steering hoses for automotive and heavy equipment applications. Designed for precise control and long service life under variable pressure conditions.",
       images: [
-        "https://source.unsplash.com/photo-1518770660439-4636190af475",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
-        "https://source.unsplash.com/photo-1487958449943-2429e8be8625",
+        "/lovable-uploads/fd0c66ec-4343-42ab-92b7-800e73443d4f.png",
+        "/lovable-uploads/6b0b97d8-3cc9-4580-93d5-de07179e7445.png",
+        "/lovable-uploads/02613e90-5ff2-467c-9227-47c2c4867481.png",
       ]
     },
     "transfer-pump": {
@@ -222,6 +230,8 @@ const ProductDetail = () => {
   const isHydraulicSystem = productId === 'hydraulic-system';
   const isInjectionLines = productId === 'injection-lines';
   const isLeakOfFuelPipe = productId === 'leak-of-fuel-pipe';
+  const isPtfeTeflonHose = productId === 'ptfe-teflon-hose';
+  const isSteeringHose = productId === 'steering-hose';
 
   return (
     <div className="min-h-screen bg-white">
@@ -334,9 +344,88 @@ const ProductDetail = () => {
               </div>
             )}
             
+            {/* PTFE Teflon Hose Layout - 4+4+3 Grid on desktop (2 or 1 column on mobile) */}
+            {isPtfeTeflonHose && (
+              <div className="mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                  {product.images.slice(0, 4).map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                  {product.images.slice(4, 8).map((image, index) => (
+                    <div key={index + 4} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 5}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {product.images.slice(8).map((image, index) => (
+                    <div key={index + 8} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={3/4}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 9}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Steering Hose Layout - Vertical alignment (2+1 on mobile) */}
+            {isSteeringHose && (
+              <div className="mb-8">
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {product.images.slice(0, 2).map((image, index) => (
+                      <div key={index} className="overflow-hidden rounded-lg shadow-md h-full">
+                        <AspectRatio ratio={3/4}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 1}`} 
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="md:w-1/3">
+                    {product.images.slice(2, 3).map((image, index) => (
+                      <div key={index + 2} className="overflow-hidden rounded-lg shadow-md h-full">
+                        <AspectRatio ratio={3/4}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 3}`} 
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+            
             {/* Default Layout for other products */}
             {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
-             !isInjectionLines && !isLeakOfFuelPipe && (
+             !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && !isSteeringHose && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
