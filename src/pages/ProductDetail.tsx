@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
@@ -138,9 +139,22 @@ const ProductDetail = () => {
       title: "Valve Nozzle",
       description: "High-precision valve nozzles for controlled fluid delivery. Engineered for consistent performance and durability across various industrial applications.",
       images: [
-        "https://source.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-        "https://source.unsplash.com/photo-1526374965328-7f61d4dc18c5",
-        "https://source.unsplash.com/photo-1487887235947-a955ef187fcc",
+        "/lovable-uploads/e3f5f737-9acf-4731-a3ea-b624ef57653b.png",
+        "/lovable-uploads/86b1fdf3-13df-4ee9-8282-3c75632621a1.png",
+        "/lovable-uploads/27799ea9-fda8-4a60-bd22-90ac51a7b032.png",
+        "/lovable-uploads/f916fdad-a766-4a6f-bdc0-7c1a1f280825.png",
+        "/lovable-uploads/d830b31e-2b16-4ec2-a9ca-72eb911246eb.png",
+        "/lovable-uploads/4a4a7b86-7a20-4d2c-8303-b06eb2aff639.png",
+        "/lovable-uploads/71700aed-2cc8-4ca8-8b48-846006d57b3d.png",
+        "/lovable-uploads/73eb6aec-4ef2-4a7b-8e6b-912441681058.png",
+        "/lovable-uploads/1015817f-8154-40d8-964f-dbb6e6a83b3d.png",
+        "/lovable-uploads/1e701859-5f0f-4b39-b5ef-ec597da71f98.png",
+        "/lovable-uploads/8d4531a3-cb5a-48ec-a76a-a7d23a5046ec.png",
+        "/lovable-uploads/479924de-3bbb-4739-8124-47695254d888.png",
+        "/lovable-uploads/1d407d02-2643-462c-8ce2-1e0d0db81135.png",
+        "/lovable-uploads/d38a0c6f-32f2-498e-8dbc-48033c01aa00.png",
+        "/lovable-uploads/acce4bd5-6045-435e-91b0-dfd191505c86.png",
+        // Will add more images in another request
       ]
     },
     "valve-record": {
@@ -250,6 +264,7 @@ const ProductDetail = () => {
   const isTransferPump = productId === 'transfer-pump';
   const isTurboPipeHose = productId === 'turbo-pipe-hose';
   const isTurboTimingPipes = productId === 'turbo-timing-pipes';
+  const isValveNozzle = productId === 'valve-nozzle';
 
   return (
     <div className="min-h-screen bg-white">
@@ -525,12 +540,69 @@ const ProductDetail = () => {
                 </div>
               </div>
             )}
+
+            {/* Valve Nozzle Layout - 5x5 grid on desktop (grid or slider on mobile) */}
+            {isValveNozzle && (
+              <div className="mb-8">
+                {/* Desktop Layout - 5x5 Grid + 1 */}
+                <div className="hidden md:block">
+                  {/* First 5 rows (5x5 grid) */}
+                  <div className="grid grid-cols-5 gap-3 mb-3">
+                    {product.images.slice(0, 25).map((image, index) => (
+                      <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={1/1}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 1}`} 
+                            loading={index > 9 ? "lazy" : "eager"} // Lazy load images beyond the first 10
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Last image in its own row centered */}
+                  {product.images.length > 25 && (
+                    <div className="flex justify-center">
+                      <div className="w-1/5 overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={1/1}>
+                          <img 
+                            src={product.images[25]} 
+                            alt={`${product.title} - Image 26`} 
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Mobile Layout - 2-col Grid */}
+                <div className="md:hidden">
+                  <div className="grid grid-cols-2 gap-2">
+                    {product.images.map((image, index) => (
+                      <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                        <AspectRatio ratio={1/1}>
+                          <img 
+                            src={image} 
+                            alt={`${product.title} - Image ${index + 1}`} 
+                            loading={index > 4 ? "lazy" : "eager"} // Only eager load first few images on mobile
+                            className="w-full h-full object-cover" 
+                          />
+                        </AspectRatio>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
             
             {/* Default Layout for other products */}
             {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
              !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && 
              !isSteeringHose && !isTransferPump && !isTurboPipeHose && 
-             !isTurboTimingPipes && (
+             !isTurboTimingPipes && !isValveNozzle && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
                   <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
@@ -552,3 +624,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
