@@ -159,12 +159,6 @@ const ProductDetail = () => {
         "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
         "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
         "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
-        "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
-        "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
-        "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
-        "/lovable-uploads/5cce672b-d449-4b9b-b7f7-61a60d320ab1.png",
-        "/lovable-uploads/788351f1-e284-449e-999c-2826bb7c56c8.png",
-        "/lovable-uploads/29ec307d-8b0a-43f2-ab15-53e95b85506c.png", 
       ]
     },
     "valve-record": {
@@ -204,12 +198,12 @@ const ProductDetail = () => {
       description: "Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.",
       images: [
         "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
-        "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
-        "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
-        "/lovable-uploads/262c96c5-42a3-42ad-9e4b-a55788f4eb38.png",
-        "/lovable-uploads/934d3952-78e9-432d-9141-bfe6f236fed8.png",
-        "/lovable-uploads/a8af4f60-154a-46f7-b075-c96ee01970e8.png",
+        "/lovable-uploads/788351f1-e284-449e-999c-2826bb7c56c8.png",
+        "/lovable-uploads/29ec307d-8b0a-43f2-ab15-53e95b85506c.png", 
         "/lovable-uploads/4d5f70c8-9786-414f-b7a8-34ef36eb901a.png",
+        "/lovable-uploads/a8af4f60-154a-46f7-b075-c96ee01970e8.png",
+        "/lovable-uploads/934d3952-78e9-432d-9141-bfe6f236fed8.png",
+        "/lovable-uploads/262c96c5-42a3-42ad-9e4b-a55788f4eb38.png"
       ]
     },
     "fittings": {
@@ -270,13 +264,15 @@ const ProductDetail = () => {
   const isValveRecord = productId === 'valve-record';
   const isValveTiming = productId === 'valve-timing';
   const isVesselLines = productId === 'vessel-lines';
+  const isFittings = productId === 'fittings';
+  const isConnectors = productId === 'connectors';
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <main className="pt-24">
         <section className="section-padding">
-          <div className="container mx-auto">
+          <div className="container mx-auto px-4">
             <Link to="/products" className="text-kumru-navy hover:underline mb-6 inline-block">
               ← Back to Products
             </Link>
@@ -306,13 +302,13 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Hydraulic Hose Layout - Single Row with 3 items (2+1 on mobile) */}
+            {/* Hydraulic Hose Layout - Single Row with 3 items */}
             {isHydraulicHose && (
               <div className="mb-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {product.images.map((image, index) => (
                     <div key={index} className="overflow-hidden rounded-lg shadow-md">
-                      <AspectRatio ratio={16/9}>
+                      <AspectRatio ratio={4/3}>
                         <img 
                           src={image} 
                           alt={`${product.title} - Image ${index + 1}`} 
@@ -325,7 +321,7 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Hydraulic System Layout - 3x2 Grid (2x3 on mobile) */}
+            {/* Hydraulic System Layout - 3x2 Grid */}
             {isHydraulicSystem && (
               <div className="mb-8">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -344,7 +340,7 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Injection Lines Layout - 4x2 Grid on desktop (2x4 on mobile) */}
+            {/* Injection Lines Layout - 4x2 Grid on desktop */}
             {isInjectionLines && (
               <div className="mb-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -363,7 +359,7 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Leak of Fuel Pipe Layout - 3x2 Grid on desktop (2x3 on mobile) */}
+            {/* Leak of Fuel Pipe Layout - 3x2 Grid on desktop */}
             {isLeakOfFuelPipe && (
               <div className="mb-8">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -382,7 +378,7 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* PTFE Teflon Hose Layout - 4+4+3 Grid on desktop (2 or 1 column on mobile) */}
+            {/* PTFE Teflon Hose Layout - 4+4+3 Grid on desktop */}
             {isPtfeTeflonHose && (
               <div className="mb-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
@@ -427,41 +423,26 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Steering Hose Layout - Vertical alignment (2+1 on mobile) */}
+            {/* Steering Hose Layout - Fixed aspect ratio to prevent size issues */}
             {isSteeringHose && (
               <div className="mb-8">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {product.images.slice(0, 2).map((image, index) => (
-                      <div key={index} className="overflow-hidden rounded-lg shadow-md h-full">
-                        <AspectRatio ratio={3/4}>
-                          <img 
-                            src={image} 
-                            alt={`${product.title} - Image ${index + 1}`} 
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                          />
-                        </AspectRatio>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="md:w-1/3">
-                    {product.images.slice(2, 3).map((image, index) => (
-                      <div key={index + 2} className="overflow-hidden rounded-lg shadow-md h-full">
-                        <AspectRatio ratio={3/4}>
-                          <img 
-                            src={image} 
-                            alt={`${product.title} - Image ${index + 3}`} 
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                          />
-                        </AspectRatio>
-                      </div>
-                    ))}
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md h-full">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
             
-            {/* Transfer Pump Layout - 3 images in a row (1x3 on desktop, 1x3 or stacked on mobile) */}
+            {/* Transfer Pump Layout - 3 images in a row */}
             {isTransferPump && (
               <div className="mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -529,12 +510,12 @@ const ProductDetail = () => {
               </div>
             )}
             
-            {/* Turbo Timing Pipes Layout - 2 images side by side on desktop, vertical on mobile */}
+            {/* Turbo Timing Pipes Layout - 2 images side by side on desktop */}
             {isTurboTimingPipes && (
               <div className="mb-8">
-                <div className="flex flex-col md:flex-row gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {product.images.map((image, index) => (
-                    <div key={index} className="overflow-hidden rounded-lg shadow-md md:w-1/2">
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
                       <AspectRatio ratio={16/9}>
                         <img 
                           src={image} 
@@ -548,71 +529,51 @@ const ProductDetail = () => {
               </div>
             )}
 
-            {/* Valve Nozzle Layout - 5x5 grid on desktop (grid or slider on mobile) */}
+            {/* Valve Nozzle Layout - 5x4 grid on desktop (2-col grid on mobile) */}
             {isValveNozzle && (
               <div className="mb-8">
-                {/* Desktop Layout - 5x5 Grid + 1 */}
-                <div className="hidden md:block">
-                  {/* First 5 rows (5x5 grid) */}
-                  <div className="grid grid-cols-5 gap-3 mb-3">
-                    {product.images.slice(0, 25).map((image, index) => (
-                      <div key={index} className="overflow-hidden rounded-lg shadow-md">
-                        <AspectRatio ratio={1/1}>
-                          <img 
-                            src={image} 
-                            alt={`${product.title} - Image ${index + 1}`} 
-                            loading={index > 9 ? "lazy" : "eager"} // Lazy load images beyond the first 10
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                          />
-                        </AspectRatio>
-                      </div>
-                    ))}
-                  </div>
-                  {/* Last image in its own row centered */}
-                  {product.images.length > 25 && (
-                    <div className="flex justify-center">
-                      <div className="w-1/5 overflow-hidden rounded-lg shadow-md">
-                        <AspectRatio ratio={1/1}>
-                          <img 
-                            src={product.images[25]} 
-                            alt={`${product.title} - Image 26`} 
-                            loading="lazy"
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
-                          />
-                        </AspectRatio>
-                      </div>
+                {/* Desktop Layout - 5x4 Grid */}
+                <div className="hidden md:grid md:grid-cols-5 gap-3">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          loading={index > 9 ? "lazy" : "eager"}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
                     </div>
-                  )}
+                  ))}
                 </div>
                 
                 {/* Mobile Layout - 2-col Grid */}
-                <div className="md:hidden">
-                  <div className="grid grid-cols-2 gap-2">
-                    {product.images.map((image, index) => (
-                      <div key={index} className="overflow-hidden rounded-lg shadow-md">
-                        <AspectRatio ratio={1/1}>
-                          <img 
-                            src={image} 
-                            alt={`${product.title} - Image ${index + 1}`} 
-                            loading={index > 4 ? "lazy" : "eager"} // Only eager load first few images on mobile
-                            className="w-full h-full object-cover" 
-                          />
-                        </AspectRatio>
-                      </div>
-                    ))}
-                  </div>
+                <div className="md:hidden grid grid-cols-2 gap-2">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          loading={index > 4 ? "lazy" : "eager"}
+                          className="w-full h-full object-cover" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
             
-            {/* Valve Record Layout - 3x2 grid on desktop (2x3 on mobile) */}
+            {/* Valve Record Layout - 3x2 grid on desktop (2x3 on mobile) with fixed aspect ratio */}
             {isValveRecord && (
               <div className="mb-8">
                 {/* Desktop Layout - 3x2 Grid */}
                 <div className="hidden md:grid grid-cols-3 gap-4">
                   {product.images.map((image, index) => (
                     <div key={index} className="overflow-hidden rounded-lg shadow-md">
-                      <AspectRatio ratio={4/3}>
+                      <AspectRatio ratio={1/1}>
                         <img 
                           src={image} 
                           alt={`${product.title} - Image ${index + 1}`} 
@@ -627,7 +588,7 @@ const ProductDetail = () => {
                 <div className="md:hidden grid grid-cols-2 gap-3">
                   {product.images.map((image, index) => (
                     <div key={index} className="overflow-hidden rounded-lg shadow-md">
-                      <AspectRatio ratio={3/4}>
+                      <AspectRatio ratio={1/1}>
                         <img 
                           src={image} 
                           alt={`${product.title} - Image ${index + 1}`} 
@@ -798,21 +759,61 @@ const ProductDetail = () => {
               </div>
             )}
             
+            {/* Fittings Layout - 3x2 grid */}
+            {isFittings && (
+              <div className="mb-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Connectors Layout - 2x2 grid */}
+            {isConnectors && (
+              <div className="mb-8">
+                <div className="grid grid-cols-2 gap-4">
+                  {product.images.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                      <AspectRatio ratio={1/1}>
+                        <img 
+                          src={image} 
+                          alt={`${product.title} - Image ${index + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
+                        />
+                      </AspectRatio>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* Default Layout for other products */}
             {!isCabinLiftingHose && !isHydraulicHose && !isHydraulicSystem && 
              !isInjectionLines && !isLeakOfFuelPipe && !isPtfeTeflonHose && 
              !isSteeringHose && !isTransferPump && !isTurboPipeHose && 
              !isTurboTimingPipes && !isValveNozzle && !isValveRecord && 
-             !isValveTiming && !isVesselLines && (
+             !isValveTiming && !isVesselLines && !isFittings && !isConnectors && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {product.images.map((image, index) => (
-                  <div key={index} className="aspect-square rounded-xl overflow-hidden shadow-md">
-                    <img 
-                      src={image} 
-                      alt={`${product.title} - Image ${index + 1}`} 
-                      className="w-full h-full object-cover"
-                      loading={index > 5 ? "lazy" : "eager"}
-                    />
+                  <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                    <AspectRatio ratio={1/1}>
+                      <img 
+                        src={image} 
+                        alt={`${product.title} - Image ${index + 1}`} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        loading={index > 5 ? "lazy" : "eager"}
+                      />
+                    </AspectRatio>
                   </div>
                 ))}
               </div>
