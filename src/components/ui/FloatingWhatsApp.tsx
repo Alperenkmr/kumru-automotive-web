@@ -58,15 +58,15 @@ const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         <div className="w-3 h-3 bg-white rotate-45 absolute bottom-1 right-10 transform translate-y-1/2"></div>
       </div>
 
-      {/* WhatsApp button - Increased size */}
+      {/* WhatsApp button - Even larger size */}
       <button
         onClick={togglePopup}
         onDoubleClick={handleWhatsAppClick}
-        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center relative group transition-all duration-200"
+        className="bg-green-500 hover:bg-green-600 text-white p-5 rounded-full shadow-lg flex items-center justify-center relative group transition-all duration-200 scale-110"
       >
         <div className="flex items-center justify-center">
-          {/* Increased icon size from h-7 w-7 to h-10 w-10 */}
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
+          {/* Further increased icon size from h-10 w-10 to h-12 w-12 */}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12">
             <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
             <path d="M9 10a.5.5 0 0 1 1 0v4a.5.5 0 0 1-1 0v-4Z" />
             <path d="M14 10a.5.5 0 0 1 1 0v4a.5.5 0 0 1-1 0v-4Z" />
