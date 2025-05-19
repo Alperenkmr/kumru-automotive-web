@@ -179,14 +179,14 @@ const productData = {
     title: "Vessel Lines",
     description: "Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.",
     images: [
-      "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png", 
-      "/lovable-uploads/788351f1-e284-449e-999c-2826bb7c56c8.png",
-      "/lovable-uploads/29ec307d-8b0a-43f2-ab15-53e95b85506c.png",
-      "/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
-      "/lovable-uploads/64ad2975-7b2b-414d-b67d-56dc0bcc8fab.png",
-      "/lovable-uploads/a16f851c-ed52-4c30-a67a-e6c59c40e919.png",
-      "/lovable-uploads/3268f846-0731-405a-a8b0-afb7781ddcf9.png",
-      "/lovable-uploads/91afff90-ba4d-4b01-a817-bb9f8fa348d4.png"
+      "/lovable-uploads/74038727-0d72-411d-addb-cbc9d2a2f175.png",
+      "/lovable-uploads/ef893e80-66f5-4c60-a31a-88506cae124d.png",
+      "/lovable-uploads/cf5e5365-5e79-44c5-bb9c-9646ce923be9.png",
+      "/lovable-uploads/72621394-58e5-4a67-a3fe-66b1046d2be7.png",
+      "/lovable-uploads/5f1434c3-21ec-4c02-842d-77ea12196847.png",
+      "/lovable-uploads/459c6236-dc06-487a-a7ec-021aec90a70f.png",
+      "/lovable-uploads/b933cc1b-c157-465d-aba0-7b9c3156f5a5.png",
+      "/lovable-uploads/d9922b5b-6dab-4990-8012-a3836394d65e.png"
     ]
   },
   "fittings": {
