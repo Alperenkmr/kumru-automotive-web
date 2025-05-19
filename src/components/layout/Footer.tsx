@@ -39,7 +39,7 @@ const Footer = () => {
                 ISO-certified quality with global expertise.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-kumru-yellow">
+                <a href="https://www.linkedin.com/in/alperen-kumru-519596307/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-kumru-yellow">
                   <Linkedin className="h-6 w-6" />
                   <span className="sr-only">LinkedIn</span>
                 </a>
