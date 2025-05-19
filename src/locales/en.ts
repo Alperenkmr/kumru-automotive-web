@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   'nav.home': 'Home',
   'nav.about': 'About',
@@ -44,7 +45,7 @@ export const enTranslations = {
   // About page translations
   'about.title': 'About RSS Kumru',
   'about.paragraph1': 'Founded over two decades ago, RSS Kumru Automotive has established itself as a leader in precision hydraulic systems and custom-engineered lines for the automotive and industrial sectors.',
-  'about.paragraph2': 'Our commitment to quality, innovation, and customer satisfaction has made us a trusted partner for manufacturers around the globe. We specialize in designing and producing high-performance hydraulic hoses, fittings, and complete line assemblies tailored to our clients' exact specifications.',
+  'about.paragraph2': "Our commitment to quality, innovation, and customer satisfaction has made us a trusted partner for manufacturers around the globe. We specialize in designing and producing high-performance hydraulic hoses, fittings, and complete line assemblies tailored to our clients' exact specifications.",
   'about.paragraph3': 'With ISO-certified manufacturing processes and a team of dedicated engineers, we deliver solutions that meet the highest standards of durability, reliability, and performance.',
   'about.ourValues': 'Our Values',
   'about.values.excellence': 'Excellence',
