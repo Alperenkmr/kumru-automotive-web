@@ -42,9 +42,9 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     },
     {
       id: 6,
-      title: "HYDRAULIC SYSTEM",
-      imageSrc: "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
-      href: "/products/hydraulic-system"
+      title: "VESSEL LINES",
+      imageSrc: "/lovable-uploads/fd6b619b-9ca8-4db1-85bd-6da26cf6cfae.png",
+      href: "/products/vessel-lines"
     },
   ];
 
