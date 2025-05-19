@@ -31,7 +31,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     {
       id: 4,
       title: "TURBO PIPE HOSE",
-      imageSrc: "https://source.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      imageSrc: "/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
       href: "/products/turbo-pipe-hose"
     },
     {

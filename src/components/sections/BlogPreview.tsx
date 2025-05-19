@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlogCard from "@/components/ui/BlogCard";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import { TranslationKey } from "@/locales/types";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useCallback } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface BlogPreviewProps {
   className?: string;
@@ -14,6 +21,7 @@ interface BlogPreviewProps {
 
 const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
   const { t, language } = useLanguage();
+  const [api, setApi] = useState<any>(null);
   
   const blogPosts = [
     {
@@ -42,6 +50,17 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
     },
   ];
 
+  // Setup autoplay plugin instance
+  const autoplayPlugin = useCallback(
+    () =>
+      Autoplay({
+        delay: 4000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    []
+  );
+
   return (
     <section
       id="blog"
@@ -66,19 +85,30 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ className }) => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <BlogCard
-              key={post.id}
-              title={t(post.titleKey)}
-              date={post.date}
-              imageSrc={post.imageSrc}
-              author={post.author}
-              href={post.href}
-              className="animate-on-scroll"
-            />
-          ))}
-        </div>
+        <Carousel
+          setApi={setApi}
+          className="w-full"
+          plugins={[autoplayPlugin()]}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselContent>
+            {blogPosts.map((post) => (
+              <CarouselItem key={post.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                <BlogCard
+                  title={t(post.titleKey)}
+                  date={post.date}
+                  imageSrc={post.imageSrc}
+                  author={post.author}
+                  href={post.href}
+                  className="animate-on-scroll"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
 
         <div className="text-center mt-12">
           <Button className="bg-kumru-navy hover:bg-kumru-navy/90 text-white" asChild>
