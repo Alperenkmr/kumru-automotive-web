@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ProductImage } from "../ProductImageGallery";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface ValveTimingGalleryProps {
   images: string[];
@@ -8,9 +9,27 @@ interface ValveTimingGalleryProps {
 }
 
 const ValveTimingGallery: React.FC<ValveTimingGalleryProps> = ({ images, productTitle }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   // Check if we have exactly 14 images as expected
   const imagesToDisplay = images.slice(0, 14);
   
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setLightboxOpen(false);
+  };
+
+  const handleNavigate = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+  
+  const imageAlts = imagesToDisplay.map((_, index) => `${productTitle} - Image ${index + 1}`);
+
   return (
     <div className="mb-8">
       {/* Desktop Layout - 4+4+4+2 */}
@@ -25,6 +44,7 @@ const ValveTimingGallery: React.FC<ValveTimingGalleryProps> = ({ images, product
               index={index}
               ratio={4/3}
               className="h-full"
+              onImageClick={handleImageClick}
             />
           ))}
         </div>
@@ -40,6 +60,7 @@ const ValveTimingGallery: React.FC<ValveTimingGalleryProps> = ({ images, product
               ratio={4/3}
               loading="lazy"
               className="h-full"
+              onImageClick={handleImageClick}
             />
           ))}
         </div>
@@ -55,6 +76,7 @@ const ValveTimingGallery: React.FC<ValveTimingGalleryProps> = ({ images, product
               ratio={4/3}
               loading="lazy"
               className="h-full"
+              onImageClick={handleImageClick}
             />
           ))}
         </div>
@@ -70,6 +92,7 @@ const ValveTimingGallery: React.FC<ValveTimingGalleryProps> = ({ images, product
                 ratio={4/3}
                 loading="lazy"
                 className="h-full"
+                onImageClick={handleImageClick}
               />
             </div>
           ))}
@@ -87,9 +110,20 @@ const ValveTimingGallery: React.FC<ValveTimingGalleryProps> = ({ images, product
             ratio={3/4}
             loading={index > 3 ? "lazy" : "eager"}
             className="h-full"
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
+
+      {/* Lightbox Component */}
+      <ImageLightbox 
+        images={imagesToDisplay}
+        alt={imageAlts}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleLightboxClose}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 };

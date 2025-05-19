@@ -1,6 +1,7 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface ProductImageProps {
   src: string;
@@ -9,6 +10,7 @@ interface ProductImageProps {
   ratio?: number;
   loading?: "lazy" | "eager";
   className?: string;
+  onImageClick?: (index: number) => void;
 }
 
 const ProductImage: React.FC<ProductImageProps> = ({ 
@@ -17,10 +19,14 @@ const ProductImage: React.FC<ProductImageProps> = ({
   index, 
   ratio = 1, 
   loading = "eager",
-  className = ""
+  className = "",
+  onImageClick
 }) => {
   return (
-    <div className={`overflow-hidden rounded-lg shadow-md ${className}`}>
+    <div 
+      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer`}
+      onClick={() => onImageClick && onImageClick(index)}
+    >
       <AspectRatio ratio={ratio}>
         <img 
           src={src} 
@@ -48,6 +54,24 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
   gridClassName = "grid grid-cols-1 md:grid-cols-3 gap-4",
   imageClassName = ""
 }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setLightboxOpen(false);
+  };
+
+  const handleNavigate = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+
+  const imageAlts = images.map((_, index) => `${productTitle} - Image ${index + 1}`);
+
   return (
     <div className="mb-8">
       <div className={gridClassName}>
@@ -59,9 +83,19 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
             index={index}
             ratio={aspectRatio}
             className={imageClassName}
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
+
+      <ImageLightbox 
+        images={images}
+        alt={imageAlts}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleLightboxClose}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 };

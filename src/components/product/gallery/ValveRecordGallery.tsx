@@ -1,6 +1,7 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { ProductImage } from "../ProductImageGallery";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface ValveRecordGalleryProps {
   images: string[];
@@ -8,6 +9,24 @@ interface ValveRecordGalleryProps {
 }
 
 const ValveRecordGallery: React.FC<ValveRecordGalleryProps> = ({ images, productTitle }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setLightboxOpen(false);
+  };
+
+  const handleNavigate = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+  
+  const imageAlts = images.map((_, index) => `${productTitle} - Image ${index + 1}`);
+
   return (
     <div className="mb-8">
       {/* Desktop Layout - 3x2 Grid */}
@@ -19,6 +38,7 @@ const ValveRecordGallery: React.FC<ValveRecordGalleryProps> = ({ images, product
             alt={`${productTitle} - Image ${index + 1}`}
             index={index}
             ratio={1}
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
@@ -32,9 +52,20 @@ const ValveRecordGallery: React.FC<ValveRecordGalleryProps> = ({ images, product
             alt={`${productTitle} - Image ${index + 1}`}
             index={index}
             ratio={1}
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
+
+      {/* Lightbox Component */}
+      <ImageLightbox 
+        images={images}
+        alt={imageAlts}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleLightboxClose}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 };

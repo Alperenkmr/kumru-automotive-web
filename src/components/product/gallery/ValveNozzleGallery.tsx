@@ -1,7 +1,8 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { ProductImage } from "../ProductImageGallery";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface ValveNozzleGalleryProps {
   images: string[];
@@ -9,6 +10,24 @@ interface ValveNozzleGalleryProps {
 }
 
 const ValveNozzleGallery: React.FC<ValveNozzleGalleryProps> = ({ images, productTitle }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setLightboxOpen(false);
+  };
+
+  const handleNavigate = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+  
+  const imageAlts = images.map((_, index) => `${productTitle} - Image ${index + 1}`);
+
   return (
     <div className="mb-8">
       {/* Desktop Layout - 5x4 Grid */}
@@ -21,6 +40,7 @@ const ValveNozzleGallery: React.FC<ValveNozzleGalleryProps> = ({ images, product
             index={index}
             ratio={1}
             loading={index > 9 ? "lazy" : "eager"}
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
@@ -35,9 +55,20 @@ const ValveNozzleGallery: React.FC<ValveNozzleGalleryProps> = ({ images, product
             index={index}
             ratio={1}
             loading={index > 4 ? "lazy" : "eager"}
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
+
+      {/* Lightbox Component */}
+      <ImageLightbox 
+        images={images}
+        alt={imageAlts}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleLightboxClose}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 };

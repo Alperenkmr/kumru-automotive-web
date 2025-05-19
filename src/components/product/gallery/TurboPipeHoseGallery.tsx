@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { ProductImage } from "../ProductImageGallery";
 import {
   Carousel,
@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface TurboPipeHoseGalleryProps {
   images: string[];
@@ -15,6 +16,24 @@ interface TurboPipeHoseGalleryProps {
 }
 
 const TurboPipeHoseGallery: React.FC<TurboPipeHoseGalleryProps> = ({ images, productTitle }) => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setLightboxOpen(false);
+  };
+
+  const handleNavigate = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+  
+  const imageAlts = images.map((_, index) => `${productTitle} - Image ${index + 1}`);
+
   return (
     <div className="mb-8">
       {/* Desktop Layout - 4x3 Grid */}
@@ -27,6 +46,7 @@ const TurboPipeHoseGallery: React.FC<TurboPipeHoseGalleryProps> = ({ images, pro
             index={index}
             ratio={3/4}
             loading={index > 7 ? "lazy" : "eager"}
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
@@ -46,6 +66,7 @@ const TurboPipeHoseGallery: React.FC<TurboPipeHoseGalleryProps> = ({ images, pro
                       ratio={3/4}
                       loading={index > 3 ? "lazy" : "eager"}
                       className="h-full"
+                      onImageClick={handleImageClick}
                     />
                   </div>
                 </div>
@@ -58,6 +79,16 @@ const TurboPipeHoseGallery: React.FC<TurboPipeHoseGalleryProps> = ({ images, pro
           </div>
         </Carousel>
       </div>
+
+      {/* Lightbox Component */}
+      <ImageLightbox 
+        images={images}
+        alt={imageAlts}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleLightboxClose}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 };

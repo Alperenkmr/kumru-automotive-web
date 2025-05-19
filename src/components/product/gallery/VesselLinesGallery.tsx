@@ -9,6 +9,7 @@ import {
   CarouselPrevious 
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface VesselLinesGalleryProps {
   images: string[];
@@ -17,6 +18,8 @@ interface VesselLinesGalleryProps {
 
 const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, productTitle }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -31,6 +34,21 @@ const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, product
     };
   }, []);
 
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setLightboxOpen(false);
+  };
+
+  const handleNavigate = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+  
+  const imageAlts = images.map((_, index) => `${productTitle} - Image ${index + 1}`);
+
   // For desktop: 3+3+1 layout (first 3 in top row, next 3 in middle row, last one full width at bottom)
   const renderDesktopGallery = () => (
     <div className="space-y-4">
@@ -44,6 +62,7 @@ const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, product
             index={index}
             ratio={4/3}
             className="h-full"
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
@@ -58,6 +77,7 @@ const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, product
             index={index + 3}
             ratio={4/3}
             className="h-full"
+            onImageClick={handleImageClick}
           />
         ))}
       </div>
@@ -76,6 +96,7 @@ const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, product
               index={index + 6}
               ratio={3/1}
               className="h-full"
+              onImageClick={handleImageClick}
             />
           ))}
         </div>
@@ -95,6 +116,7 @@ const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, product
                 alt={`${productTitle} - Image ${index + 1}`}
                 index={index}
                 ratio={1}
+                onImageClick={handleImageClick}
               />
             </div>
           </CarouselItem>
@@ -110,6 +132,15 @@ const VesselLinesGallery: React.FC<VesselLinesGalleryProps> = ({ images, product
   return (
     <div className="mb-8">
       {isMobile ? renderMobileGallery() : renderDesktopGallery()}
+      
+      <ImageLightbox 
+        images={images}
+        alt={imageAlts}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleLightboxClose}
+        onNavigate={handleNavigate}
+      />
     </div>
   );
 };
