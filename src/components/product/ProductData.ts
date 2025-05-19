@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -159,20 +160,20 @@ const productData = {
     title: "Valve Timing",
     description: "Precision valve timing components for optimal engine performance. Engineered for accuracy and durability to ensure consistent engine operation.",
     images: [
-      "/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png",
-      "/lovable-uploads/eb2bd161-4cc2-4a72-bd9f-df6bf8c0aa8e.png",
-      "/lovable-uploads/5cce672b-d449-4b9b-b7f7-61a60d320ab1.png",
-      "/lovable-uploads/262c96c5-42a3-42ad-9e4b-a55788f4eb38.png",
-      "/lovable-uploads/934d3952-78e9-432d-9141-bfe6f236fed8.png",
-      "/lovable-uploads/a8af4f60-154a-46f7-b075-c96ee01970e8.png",
-      "/lovable-uploads/4d5f70c8-9786-414f-b7a8-34ef36eb901a.png",
-      "/lovable-uploads/4310f644-cb07-4547-8b6f-20e9ee3ed8b1.png",
-      "/lovable-uploads/43288de8-e0e7-4b11-8ffd-210e0f67a571.png",
-      "/lovable-uploads/3716897e-2811-487b-a2c7-c4ffc7e62bf4.png",
-      "/lovable-uploads/34906f0a-010b-4390-b530-bff11faa75f4.png",
-      "/lovable-uploads/c42d9fdb-64c7-4345-9c1a-6f16b2878860.png",
-      "/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png",
-      "/lovable-uploads/fe351aa4-95dd-4aa9-b5af-9832055afe78.png",
+      "/lovable-uploads/006f0741-2dc9-44d8-bed0-9905092bba0d.png",
+      "/lovable-uploads/e8fa66c3-54dd-4d9e-8f43-533afaa938b2.png",
+      "/lovable-uploads/a5ee426f-0ebb-4f75-8cf2-6287b24e1ef8.png",
+      "/lovable-uploads/c227ccf5-97d3-40e7-8eea-9969800e2146.png",
+      "/lovable-uploads/d497a2a2-6975-400f-850e-f87dde3b928f.png",
+      "/lovable-uploads/86fe6b28-7efe-4158-9dca-7c1691359332.png",
+      "/lovable-uploads/a0ec6d85-87c1-4a84-942e-49dfc7d8a946.png",
+      "/lovable-uploads/b8485592-02b4-4374-916b-a424a2324745.png",
+      "/lovable-uploads/65f8b7cf-e02b-481f-acde-f1d2e40af8b7.png",
+      "/lovable-uploads/e2870aa8-041a-4160-b473-113a48c8a994.png",
+      "/lovable-uploads/a695c6aa-76e0-4b4c-9c1f-08645ff0fdf8.png",
+      "/lovable-uploads/34351790-b985-45b0-840c-6be67823f2e2.png",
+      "/lovable-uploads/5d2829cc-1d14-47ab-ac4b-2d74178133f9.png",
+      "/lovable-uploads/8bd3bc9a-ea00-478c-90d8-113e14c17ca3.png",
     ]
   },
   "vessel-lines": {
