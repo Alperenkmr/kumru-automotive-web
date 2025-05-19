@@ -6,12 +6,14 @@ import Footer from "@/components/layout/Footer";
 import CollapsibleSection from "@/components/sections/CollapsibleSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
   const location = useLocation();
   const whatWeDoRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
   const certificatesRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Check if there's a hash in the URL and scroll to the corresponding section
@@ -49,22 +51,22 @@ const About = () => {
         {/* Page Title */}
         <section className="section-padding">
           <div className="container mx-auto">
-            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">About RSS Kumru</h1>
+            <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">{t('about.title')}</h1>
             
             {/* What We Do - Collapsible Section */}
             <div ref={whatWeDoRef}>
-              <CollapsibleSection title="What We Do" defaultOpen={true}>
+              <CollapsibleSection title={t('whatWeDo.title')} defaultOpen={true}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="bg-white p-8 rounded-xl shadow-sm relative">
                     <div className="absolute -left-2 top-8 w-4 h-4 bg-white transform rotate-45"></div>
                     <p className="text-lg mb-4">
-                      Founded over two decades ago, RSS Kumru Automotive has established itself as a leader in precision hydraulic systems and custom-engineered lines for the automotive and industrial sectors.
+                      {t('about.paragraph1')}
                     </p>
                     <p className="text-lg mb-4">
-                      Our commitment to quality, innovation, and customer satisfaction has made us a trusted partner for manufacturers around the globe. We specialize in designing and producing high-performance hydraulic hoses, fittings, and complete line assemblies tailored to our clients' exact specifications.
+                      {t('about.paragraph2')}
                     </p>
                     <p className="text-lg">
-                      With ISO-certified manufacturing processes and a team of dedicated engineers, we deliver solutions that meet the highest standards of durability, reliability, and performance.
+                      {t('about.paragraph3')}
                     </p>
                   </div>
                   <div className="flex items-center justify-center">
@@ -80,23 +82,23 @@ const About = () => {
             
             {/* Values - Collapsible Section */}
             <div ref={valuesRef} id="values-collapsible">
-              <CollapsibleSection title="Team & Values">
+              <CollapsibleSection title={t('teamValues.title')}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="bg-white p-8 rounded-xl shadow-sm relative">
                     <div className="absolute -left-2 top-8 w-4 h-4 bg-white transform rotate-45"></div>
-                    <h3 className="text-xl font-bold mb-4 text-kumru-navy">Our Values</h3>
+                    <h3 className="text-xl font-bold mb-4 text-kumru-navy">{t('about.ourValues')}</h3>
                     <div className="space-y-6">
                       <div>
-                        <h4 className="text-xl font-bold mb-2 text-kumru-navy">Excellence</h4>
-                        <p>We are committed to excellence in every aspect of our business, from product design and manufacturing to customer service and support.</p>
+                        <h4 className="text-xl font-bold mb-2 text-kumru-navy">{t('about.values.excellence')}</h4>
+                        <p>{t('about.values.excellenceDesc')}</p>
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold mb-2 text-kumru-navy">Innovation</h4>
-                        <p>We continuously invest in research and development to create innovative solutions that address the evolving needs of our clients.</p>
+                        <h4 className="text-xl font-bold mb-2 text-kumru-navy">{t('about.values.innovation')}</h4>
+                        <p>{t('about.values.innovationDesc')}</p>
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold mb-2 text-kumru-navy">Integrity</h4>
-                        <p>We conduct our business with the highest standards of integrity, maintaining transparent relationships with our clients, partners, and employees.</p>
+                        <h4 className="text-xl font-bold mb-2 text-kumru-navy">{t('about.values.integrity')}</h4>
+                        <p>{t('about.values.integrityDesc')}</p>
                       </div>
                     </div>
                   </div>
@@ -113,24 +115,24 @@ const About = () => {
             
             {/* Certificates - New Collapsible Section */}
             <div ref={certificatesRef} id="certificates-collapsible">
-              <CollapsibleSection title="Quality Certificates">
+              <CollapsibleSection title={t('aboutSubmenu.certificates')}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="bg-white p-8 rounded-xl shadow-sm relative">
                     <div className="absolute -left-2 top-8 w-4 h-4 bg-white transform rotate-45"></div>
-                    <h3 className="text-xl font-bold mb-4 text-kumru-navy">Our Certifications</h3>
+                    <h3 className="text-xl font-bold mb-4 text-kumru-navy">{t('about.certificates.title')}</h3>
                     <p className="text-lg mb-4">
-                      At RSS Kumru Automotive, we maintain the highest standards of quality management across all our operations. Our commitment to excellence is validated by our ISO 9001:2015 certification.
+                      {t('about.certificates.paragraph1')}
                     </p>
                     <p className="text-lg mb-4">
-                      This international standard confirms our ability to consistently provide products and services that meet customer and regulatory requirements. Our certification covers:
+                      {t('about.certificates.paragraph2')}
                     </p>
                     <ul className="list-disc list-inside space-y-2 ml-4 text-lg">
-                      <li>Manufacturing and sales of steel and plastic pipes</li>
-                      <li>Rubber hydraulic hoses</li>
-                      <li>Spare parts for the automotive sector</li>
+                      <li>{t('about.certificates.item1')}</li>
+                      <li>{t('about.certificates.item2')}</li>
+                      <li>{t('about.certificates.item3')}</li>
                     </ul>
                     <p className="text-lg mt-4">
-                      Our ISO certification is regularly audited and renewed, ensuring continuous improvement in our quality management systems.
+                      {t('about.certificates.paragraph3')}
                     </p>
                   </div>
                   <div className="flex items-center justify-center">
