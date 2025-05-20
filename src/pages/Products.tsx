@@ -39,7 +39,7 @@ const Products = () => {
     {
       id: 6,
       title: "PTFE TEFLON HOSE",
-      imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
+      imageSrc: "/lovable-uploads/674e9aa2-f67e-4a64-a848-47c597a5c984.png",
       href: "/products/ptfe-teflon-hose"
     },
     {

@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -61,17 +60,17 @@ const productData = {
     title: "PTFE Teflon Hose",
     description: "Our PTFE hoses offer superior chemical resistance and exceptional performance at extreme temperatures. Ideal for applications requiring low friction and high purity, these lines are available in various configurations.",
     images: [
-      "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
-      "/lovable-uploads/da69821b-9f92-470a-943b-7ef7e6056815.png",
-      "/lovable-uploads/c8e142ce-26b4-4ee2-bbc2-7827ad360884.png",
-      "/lovable-uploads/ea78951e-2748-4ebe-b7ee-8f3d5a11e94b.png",
-      "/lovable-uploads/4b853838-ce11-4b64-b18e-2a3d4ffdb6cf.png",
-      "/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
-      "/lovable-uploads/c6197df8-7082-49a2-95bf-4c24d4b7458d.png",
-      "/lovable-uploads/57a851df-003a-4720-990b-5f587c5f1158.png",
-      "/lovable-uploads/478da5c4-268a-456b-99d8-5eeaf9f6804d.png",
-      "/lovable-uploads/31684c35-4b7c-4040-ab9d-8be4aeeaf2e1.png",
-      "/lovable-uploads/32076c81-ec8b-4a67-b691-615053e3d05f.png",
+      "/lovable-uploads/674e9aa2-f67e-4a64-a848-47c597a5c984.png",
+      "/lovable-uploads/e837e60e-dafc-4839-9b9a-c8be4a7e8e81.png",
+      "/lovable-uploads/1d8fba5c-3dd8-4c17-baab-945cabfb36da.png",
+      "/lovable-uploads/c733f818-f24d-490c-9b75-a00778d04863.png",
+      "/lovable-uploads/a30674b0-6abe-4bd1-9a19-b27ca45945c4.png",
+      "/lovable-uploads/e263826e-b650-405f-9382-03f9bf74fb3b.png",
+      "/lovable-uploads/029bd4c2-b011-45c6-9e30-7f2de629ae75.png",
+      "/lovable-uploads/eb9d7680-62f1-45bc-a66e-3a77816944ca.png",
+      "/lovable-uploads/3999f359-45a5-46fd-b42d-b2b9256d4e93.png",
+      "/lovable-uploads/0e519a24-4571-40b1-b4fd-83d5c788ccee.png",
+      "/lovable-uploads/bee1d19b-bf16-4798-8b41-f1f73f2bedaa.png",
     ]
   },
   "steering-hose": {
