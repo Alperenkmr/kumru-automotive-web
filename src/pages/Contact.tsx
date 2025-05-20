@@ -10,7 +10,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_ghv0fp8'; // EmailJS servis ID
+const SERVICE_ID = 'service_f9nhn0a'; // EmailJS servis ID - güncellenmiş değer
 const TEMPLATE_ID = 'template_tgb6f6f'; // EmailJS template ID
 const USER_ID = '1vj6bAt5G-O65rVgj'; // EmailJS public key (User ID)
 
