@@ -26,14 +26,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
         className
       )}
     >
-      <div
-        className="h-56 bg-gray-200 relative overflow-hidden"
-        style={{
-          backgroundImage: `url(${imageSrc})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="h-56 bg-gray-100 relative">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img 
+            src={imageSrc} 
+            alt={title}
+            className="w-full h-full object-contain" 
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
           <h3 className="text-xl font-bold p-4 text-white">{title}</h3>
         </div>
