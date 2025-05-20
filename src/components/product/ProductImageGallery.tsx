@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import ImageLightbox from "@/components/ui/ImageLightbox";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ProductTranslationKey } from "@/locales/types";
 
 interface ProductImageProps {
   src: string;
@@ -62,7 +61,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
 }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const handleImageClick = (index: number) => {
     setCurrentImageIndex(index);
@@ -79,7 +78,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
 
   // Use translated product title if available
   const translatedTitle = productId ? 
-    t(`products.${productId.replace(/-/g, '')}` as ProductTranslationKey) :
+    t(`products.${productId.replace(/-/g, '')}`) :
     productTitle;
   
   const imageAlts = images.map((_, index) => `${translatedTitle} - ${t('products.gallery.title')} ${index + 1}`);

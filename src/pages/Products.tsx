@@ -6,7 +6,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Products = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const productCategories = [
     {
@@ -131,7 +131,10 @@ const Products = () => {
           <div className="container mx-auto">
             <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-6 text-kumru-navy">{t('nav.products')}</h1>
             <p className="text-lg mb-12 max-w-3xl">
-              RSS Kumru Automotive specializes in designing and manufacturing high-quality hydraulic systems and custom-engineered lines for various applications. Explore our product categories below.
+              {language === 'tr' 
+                ? 'RSS Kumru Otomotiv, çeşitli uygulamalar için yüksek kaliteli hidrolik sistemler ve özel tasarlanmış hatlar üretmekte uzmanlaşmıştır. Aşağıdaki ürün kategorilerimizi keşfedin.'
+                : 'RSS Kumru Automotive specializes in designing and manufacturing high-quality hydraulic systems and custom-engineered lines for various applications. Explore our product categories below.'
+              }
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

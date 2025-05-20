@@ -2,7 +2,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ProductTranslationKey } from "@/locales/types";
 
 interface ProductCardProps {
   title: string;
@@ -26,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   
   // If a translationKey is provided, use it to get the translated title
   const displayTitle = translationKey ? 
-    t(translationKey as ProductTranslationKey) : 
+    t(translationKey) : 
     title;
   
   return (

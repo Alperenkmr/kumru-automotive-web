@@ -1,12 +1,12 @@
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { Language, TranslationKey, translations, getDefaultLanguage, ProductTranslationKey } from '@/locales';
+import { Language, TranslationKey, translations, getDefaultLanguage } from '@/locales';
 
 // Define context type
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: TranslationKey | ProductTranslationKey) => string;
+  t: (key: string) => string;
 };
 
 // Create the context
@@ -27,10 +27,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // Save language preference to localStorage when it changes
   useEffect(() => {
     localStorage.setItem('preferred-language', language);
+    console.info(`Switching language to: ${language}`);
   }, [language]);
 
   // Translation function
-  const t = (key: TranslationKey | ProductTranslationKey): string => {
+  const t = (key: string): string => {
     const currentTranslations = translations[language];
     return (currentTranslations as any)[key] || key;
   };

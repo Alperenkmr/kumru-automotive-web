@@ -5,7 +5,6 @@ import ProductDetailsLayout from "@/components/product/ProductDetailsLayout";
 import ProductNotFound from "@/components/product/ProductNotFound";
 import productData from "@/components/product/ProductData";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ProductTranslationKey } from "@/locales/types";
 
 // Import all gallery components
 import CabinLiftingHoseGallery from "@/components/product/gallery/CabinLiftingHoseGallery";
@@ -30,15 +29,15 @@ const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const { t, language } = useLanguage();
   
-  const product = productId && productData[productId as keyof typeof productData];
-
-  if (!product) {
+  if (!productId || !productData[productId as keyof typeof productData]) {
     return <ProductNotFound />;
   }
+  
+  const product = productData[productId as keyof typeof productData];
 
   // Get translated title and description
-  const translatedTitle = t(`products.${productId!.replace(/-/g, '')}` as ProductTranslationKey);
-  const translatedDescription = t(`products.${productId!.replace(/-/g, '')}.desc` as ProductTranslationKey);
+  const translatedTitle = t(`products.${productId.replace(/-/g, '')}`);
+  const translatedDescription = t(`products.${productId.replace(/-/g, '')}.desc`);
 
   // Render the appropriate gallery based on product ID
   const renderGallery = () => {
@@ -83,8 +82,8 @@ const ProductDetail = () => {
   return (
     <ProductDetailsLayout
       productId={productId}
-      productTitle={language === 'tr' ? translatedTitle : product.title}
-      productDescription={language === 'tr' ? translatedDescription : product.description}
+      productTitle={translatedTitle}
+      productDescription={translatedDescription}
     >
       {renderGallery()}
     </ProductDetailsLayout>
