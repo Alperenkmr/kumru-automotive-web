@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -35,14 +34,14 @@ const productData = {
     title: "Injection Lines",
     description: "Our high-precision injection lines are manufactured to exacting standards for fuel systems. These lines provide consistent flow and pressure stability, ensuring optimal engine performance and fuel efficiency.",
     images: [
-      "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
-      "/lovable-uploads/395071ba-a18c-4d9d-b4e6-aabc0fcf811d.png",
-      "/lovable-uploads/91afff90-ba4d-4b01-a817-bb9f8fa348d4.png",
-      "/lovable-uploads/98d12566-e15e-4399-be6c-fb0854c106df.png", 
-      "/lovable-uploads/4b10759c-eb86-484a-a6d1-695c97c3605f.png",
-      "/lovable-uploads/2b8878a7-ee7b-40c1-8709-f96e04bf7f76.png",
-      "/lovable-uploads/c8e142ce-26b4-4ee2-bbc2-7827ad360884.png",
-      "/lovable-uploads/387ef443-1ad6-45ed-be70-5f73274718d2.png"
+      "/lovable-uploads/9b32ad9b-b777-40e5-b3e5-ebd6d0453dd1.png",
+      "/lovable-uploads/a9bdd890-4555-45e4-a8b0-abfcc7628603.png",
+      "/lovable-uploads/c72c3135-3d72-45d8-8fd6-dcef95d7cc7a.png",
+      "/lovable-uploads/dba339be-3514-489f-a9b0-fd50ee94b8ed.png",
+      "/lovable-uploads/8f6d3529-4d72-4888-8496-e71fad9f5181.png",
+      "/lovable-uploads/4246bf3a-255f-4174-808a-2759a8ea280e.png",
+      "/lovable-uploads/57e85094-4867-49df-b9c4-f196d0bece5b.png",
+      "/lovable-uploads/e349c879-64bf-4b07-a568-5c0c5b276b44.png"
     ]
   },
   "leak-of-fuel-pipe": {
