@@ -35,12 +35,12 @@ const ProductDetail = () => {
   
   const product = productData[productId as keyof typeof productData];
   
-  // Normalize productId by removing hyphens for use in translation keys
-  const normalizedId = productId.replace(/-/g, '');
-
+  // Convert product ID to camelCase for translation keys
+  const productIdForKey = productId.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  
   // Get translated title and description
-  const translationKey = `products.${normalizedId}`;
-  const descriptionKey = `products.${normalizedId}.desc`;
+  const translationKey = `products.${productIdForKey}`;
+  const descriptionKey = `products.${productIdForKey}.desc`;
   
   const translatedTitle = t(translationKey);
   const translatedDescription = t(descriptionKey);

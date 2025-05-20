@@ -35,7 +35,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     if (!key) return '';
     
     const currentTranslations = translations[language];
-    const translatedText = currentTranslations[key];
+    
+    // Convert dash-case to camelCase for proper key lookup
+    const normalizedKey = key.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    
+    const translatedText = currentTranslations[normalizedKey];
     
     // If translation doesn't exist, return the key as fallback
     return translatedText || key;

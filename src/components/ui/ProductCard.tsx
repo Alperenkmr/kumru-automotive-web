@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const { t, language } = useLanguage();
   
   // If a translationKey is provided, use it to get the translated title
-  const displayTitle = translationKey ? 
+  const displayTitle = translationKey && t(translationKey) !== translationKey ? 
     t(translationKey) : 
     title;
   
