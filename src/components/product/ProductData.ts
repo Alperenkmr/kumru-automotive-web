@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -48,7 +49,7 @@ const productData = {
     title: "Leak of Fuel Pipe",
     description: "Specialized fuel pipe solutions designed to prevent leaks and ensure safe fuel transport. Engineered with premium materials for durability and chemical resistance.",
     images: [
-      "/lovable-uploads/35cc28ff-b5ca-441f-824d-b980213e7a24.png",
+      "/lovable-uploads/01712518-8600-401d-ac51-f4ba12a53980.png",
       "/lovable-uploads/04acc924-07a4-4cc4-851f-19cda4219f9c.png",
       "/lovable-uploads/7534c77e-f1b8-4257-8769-fb95f8923cce.png",
       "/lovable-uploads/01dedfa7-7055-4fe2-97a4-47818831e1a2.png",

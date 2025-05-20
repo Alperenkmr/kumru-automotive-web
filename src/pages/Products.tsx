@@ -33,7 +33,7 @@ const Products = () => {
     {
       id: 5,
       title: "LEAK OF FUEL PIPE",
-      imageSrc: "/lovable-uploads/35cc28ff-b5ca-441f-824d-b980213e7a24.png",
+      imageSrc: "/lovable-uploads/01712518-8600-401d-ac51-f4ba12a53980.png",
       href: "/products/leak-of-fuel-pipe"
     },
     {
