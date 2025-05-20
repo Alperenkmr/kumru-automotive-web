@@ -34,10 +34,16 @@ const ProductDetail = () => {
   }
   
   const product = productData[productId as keyof typeof productData];
+  
+  // Normalize productId by removing hyphens for use in translation keys
+  const normalizedId = productId.replace(/-/g, '');
 
   // Get translated title and description
-  const translatedTitle = t(`products.${productId.replace(/-/g, '')}`);
-  const translatedDescription = t(`products.${productId.replace(/-/g, '')}.desc`);
+  const translationKey = `products.${normalizedId}`;
+  const descriptionKey = `products.${normalizedId}.desc`;
+  
+  const translatedTitle = t(translationKey);
+  const translatedDescription = t(descriptionKey);
 
   // Render the appropriate gallery based on product ID
   const renderGallery = () => {

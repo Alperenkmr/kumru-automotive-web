@@ -32,8 +32,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   // Translation function
   const t = (key: string): string => {
+    if (!key) return '';
+    
     const currentTranslations = translations[language];
-    return (currentTranslations as any)[key] || key;
+    const translatedText = currentTranslations[key];
+    
+    // If translation doesn't exist, return the key as fallback
+    return translatedText || key;
   };
 
   return (

@@ -76,12 +76,10 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
     setCurrentImageIndex(index);
   };
 
-  // Use translated product title if available
-  const translatedTitle = productId ? 
-    t(`products.${productId.replace(/-/g, '')}`) :
-    productTitle;
+  // Get gallery title translation
+  const galleryTitle = t('products.gallery.title');
   
-  const imageAlts = images.map((_, index) => `${translatedTitle} - ${t('products.gallery.title')} ${index + 1}`);
+  const imageAlts = images.map((_, index) => `${productTitle} - ${galleryTitle} ${index + 1}`);
 
   return (
     <div className="mb-8">
@@ -90,7 +88,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
           <ProductImage
             key={index}
             src={image}
-            alt={`${translatedTitle} - ${t('products.gallery.title')} ${index + 1}`}
+            alt={`${productTitle} - ${galleryTitle} ${index + 1}`}
             index={index}
             ratio={aspectRatio}
             className={imageClassName}
