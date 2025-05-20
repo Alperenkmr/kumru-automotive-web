@@ -26,11 +26,11 @@ const ProductImage: React.FC<ProductImageProps> = ({
 }) => {
   return (
     <div 
-      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-gray-100`}
+      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00]`}
       onClick={() => onImageClick && onImageClick(index)}
     >
       <AspectRatio ratio={ratio}>
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center p-3">
           <img 
             src={src} 
             alt={alt} 

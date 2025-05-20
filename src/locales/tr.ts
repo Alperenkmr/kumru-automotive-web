@@ -1,4 +1,6 @@
-export const trTranslations = {
+import { TranslationsType } from "./types";
+
+export const trTranslations: TranslationsType = {
   'nav.home': 'Ana Sayfa',
   'nav.about': 'Hakkımızda',
   'nav.products': 'Ürünler',
@@ -12,15 +14,15 @@ export const trTranslations = {
   'aboutSubmenu.teamValues': 'Ekip & Değerler',
   'aboutSubmenu.certificates': 'Kalite Sertifikaları',
   'whatWeDo.title': 'Ne Yapıyoruz',
-  'whatWeDo.content': "RSS Kumru'da, otomotiv ve tarım makineleri endüstrilerinin taleplerine uygun yüksek performanslı hidrolik sistemler, hatlar ve bağlantı parçaları üretiminde uzmanlaşmış bulunuyoruz. Gelişmiş üretim yeteneklerimiz, derin teknik bilgimiz ve müşteri odaklı yaklaşımımız bizi farklı kılıyor. Sadece parça değil, güven, dayanıklılık ve performans sunuyoruz.",
+  'whatWeDo.content': 'RSS Kumru olarak, otomotiv ve tarım makineleri endüstrilerinin ihtiyaçlarına göre özelleştirilmiş yüksek performanslı hidrolik sistemler, hatlar ve bağlantı elemanları üretiminde uzmanlaşmış durumdayız. Gelişmiş üretim yeteneklerimiz, derin teknik bilgimiz ve müşteri odaklı yaklaşımımız bizi farklı kılıyor. Biz sadece parça sunmuyoruz; güven, dayanıklılık ve performans sağlıyoruz.',
   'teamValues.title': 'Ekip & Değerler',
-  'teamValues.content': 'Ekibimiz, mükemmelliğe ve yeniliğe adanmış deneyimli profesyonellerden oluşmaktadır. Her şeyden önce dürüstlük, kalite ve müşteri memnuniyetine değer veriyoruz.',
+  'teamValues.content': 'Ekibimiz, mükemmeliyete ve yeniliğe adanmış deneyimli profesyonellerden oluşmaktadır. Her şeyden önce dürüstlük, kalite ve müşteri memnuniyetine değer veriyoruz.',
   'featuredProducts.title': 'Öne Çıkan Ürünler',
   'featuredProducts.viewAll': 'Tüm Ürünleri Görüntüle',
   'products.backToProducts': 'Ürünlere Geri Dön',
-  'blog.latestArticles': 'En Son Makaleler',
+  'blog.latestArticles': 'Son Makaleler',
   'blog.viewAll': 'Tüm Makaleleri Görüntüle',
-  'blog.backToBlog': 'Bloga Geri Dön',
+  'blog.backToBlog': 'Blog\'a Geri Dön',
   'contact.title': 'Bize Ulaşın',
   'contact.name': 'İsim',
   'contact.message': 'Mesaj',
@@ -30,116 +32,107 @@ export const trTranslations = {
   'footer.location': 'Aksaray, Türkiye',
   'footer.privacyPolicy': 'Gizlilik Politikası',
   'footer.cookiePolicy': 'Çerez Politikası',
-  'whyChooseUs.title': 'Neden Bizi Seçmelisiniz',
+  'whyChooseUs.title': 'Neden Bizi Tercih Etmelisiniz',
   'whyChooseUs.expertise': '20+ Yıllık Uzmanlık',
-  'whyChooseUs.expertiseDesc': "2001'den beri, sektör liderleri tarafından güvenilen dayanıklı, hassas mühendislikle tasarlanmış hidrolik sistemler üretiyoruz.",
+  'whyChooseUs.expertiseDesc': '2001\'den beri, sektör liderlerinin güvendiği dayanıklı, hassas mühendislik ürünü hidrolik sistemler üretiyoruz.',
   'whyChooseUs.quality': 'ISO Sertifikalı Kalite',
-  'whyChooseUs.qualityDesc': 'Ürettiğimiz her bileşen, kalite ve güvenilirlik için global ISO standartlarını karşılamaktadır.',
+  'whyChooseUs.qualityDesc': 'Ürettiğimiz her bileşen, kalite ve güvenilirlik açısından global ISO standartlarını karşılar.',
   'whyChooseUs.delivery': 'Global Teslimat',
-  'whyChooseUs.deliveryDesc': 'Garantili teslimat süreleri ve tam lojistik desteğiyle uluslararası sevkiyat yapıyoruz.',
+  'whyChooseUs.deliveryDesc': 'Garanti edilmiş teslimat süreleri ve tam lojistik desteği ile uluslararası sevkiyat yapıyoruz.',
   'cta.ready': 'Bizimle Çalışmaya Hazır mısınız?',
-  'cta.description': 'Projenizi tartışalım ve ideal hidrolik çözümünüzü birlikte oluşturalım.',
+  'cta.description': 'Projenizi tartışalım ve ideal hidrolik çözümünüzü birlikte yaratalım.',
   'cta.button': 'İletişime Geçin',
-  
-  // About page translations
   'about.title': 'RSS Kumru Hakkında',
-  'about.paragraph1': 'Yirmi yılı aşkın bir süre önce kurulan RSS Kumru Automotive, otomotiv ve endüstriyel sektörler için hassas hidrolik sistemler ve özel mühendislik hatları alanında lider konuma gelmiştir.',
-  'about.paragraph2': 'Kalite, yenilikçilik ve müşteri memnuniyetine olan bağlılığımız, bizi dünya çapında üreticilerin güvenilir bir ortağı haline getirmiştir. Müşterilerimizin tam olarak gereksinimlerine göre yüksek performanslı hidrolik hortumlar, bağlantı parçaları ve komple hat montajları tasarlama ve üretme konusunda uzmanız.',
-  'about.paragraph3': 'ISO sertifikalı üretim süreçleri ve kendini adamış mühendislerden oluşan bir ekiple, dayanıklılık, güvenilirlik ve performans açısından en yüksek standartları karşılayan çözümler sunuyoruz.',
+  'about.paragraph1': 'Yirmi yılı aşkın bir süre önce kurulan RSS Kumru Automotive, otomotiv ve endüstriyel sektörler için hassas hidrolik sistemler ve özel tasarlanmış hatlar konusunda lider konumuna geldi.',
+  'about.paragraph2': 'Kalite, yenilik ve müşteri memnuniyetine olan bağlılığımız, bizi dünya çapındaki üreticiler için güvenilir bir ortak haline getirdi. Müşterilerimizin tam gereksinimlerine göre tasarlanmış yüksek performanslı hidrolik hortumlar, bağlantı parçaları ve komple hat tertibatları tasarlama ve üretme konusunda uzmanız.',
+  'about.paragraph3': 'ISO sertifikalı üretim süreçlerimiz ve adanmış mühendisler ekibimizle, dayanıklılık, güvenilirlik ve performans açısından en yüksek standartları karşılayan çözümler sunuyoruz.',
   'about.ourValues': 'Değerlerimiz',
   'about.values.excellence': 'Mükemmellik',
-  'about.values.excellenceDesc': 'İşimizin her yönünde, ürün tasarımı ve üretiminden müşteri hizmeti ve desteğine kadar mükemmelliğe karşı kararlıyız.',
+  'about.values.excellenceDesc': 'İşimizin her yönünde, ürün tasarımı ve üretiminden müşteri hizmeti ve desteğine kadar mükemmeliyete adanmış durumdayız.',
   'about.values.innovation': 'Yenilikçilik',
-  'about.values.innovationDesc': 'Müşterilerimizin gelişen ihtiyaçlarını karşılayan yenilikçi çözümler yaratmak için sürekli olarak araştırma ve geliştirmeye yatırım yapıyoruz.',
+  'about.values.innovationDesc': 'Müşterilerimizin gelişen ihtiyaçlarını karşılayacak yenilikçi çözümler yaratmak için araştırma ve geliştirmeye sürekli olarak yatırım yapıyoruz.',
   'about.values.integrity': 'Dürüstlük',
   'about.values.integrityDesc': 'İşimizi en yüksek dürüstlük standartlarıyla yürütüyor, müşterilerimiz, ortaklarımız ve çalışanlarımızla şeffaf ilişkiler sürdürüyoruz.',
   'about.certificates.title': 'Sertifikalarımız',
-  'about.certificates.paragraph1': 'RSS Kumru Automotive olarak, tüm operasyonlarımızda en yüksek kalite yönetimi standartlarını koruyoruz. Mükemmelliğe olan bağlılığımız, ISO 9001:2015 sertifikamızla doğrulanmıştır.',
-  'about.certificates.paragraph2': 'Bu uluslararası standart, müşteri ve yasal gereksinimleri karşılayan ürün ve hizmetleri tutarlı bir şekilde sağlama kabiliyetimizi doğrulamaktadır. Sertifikamız şunları kapsar:',
+  'about.certificates.paragraph1': 'RSS Kumru Automotive olarak, tüm operasyonlarımızda en yüksek kalite yönetimi standartlarını koruyoruz. Mükemmeliyete olan bağlılığımız, ISO 9001:2015 sertifikasyonumuzla doğrulanmaktadır.',
+  'about.certificates.paragraph2': 'Bu uluslararası standart, müşteri ve yasal gereklilikleri karşılayan ürün ve hizmetleri tutarlı bir şekilde sağlama yeteneğimizi onaylar. Sertifikamız şunları kapsar:',
   'about.certificates.item1': 'Çelik ve plastik boruların üretimi ve satışı',
   'about.certificates.item2': 'Kauçuk hidrolik hortumlar',
   'about.certificates.item3': 'Otomotiv sektörü için yedek parçalar',
-  'about.certificates.paragraph3': 'ISO sertifikamız düzenli olarak denetleniyor ve yenileniyor, böylece kalite yönetim sistemlerimizde sürekli iyileştirme sağlanıyor.',
-
+  'about.certificates.paragraph3': 'ISO sertifikamız düzenli olarak denetlenir ve yenilenir, böylece kalite yönetim sistemlerimizde sürekli iyileştirme sağlanır.',
   'contact.address': '2. Organize Sanayi Bölgesi, 68100, Aksaray, Türkiye',
   'contact.phone': '+90 382 266 57 90',
   'contact.emailAddress': 'info@rsskumru.com',
-  'contact.hours': 'Hafta içi 08:30 - 18:00',
-  
-  // Blog post related translations  
+  'contact.hours': 'Pazartesi-Cuma 08:30 - 18:00',
   'blog.category': 'Kategori',
   'blog.author': 'Yazar',
   'blog.date': 'Tarih',
   'blog.relatedImages': 'İlgili Görseller',
   'blog.readMore': 'Devamını Oku',
-  'blog.searchPlaceholder': 'Makaleleri ara',
+  'blog.searchPlaceholder': 'Makalelerde ara',
   'blog.allCategories': 'Tüm Kategoriler',
-  'blog.latestFirst': 'Önce En Yeniler',
+  'blog.latestFirst': 'En Yeniler Önce',
   'blog.noPostsFound': 'Aramanızla eşleşen blog yazısı bulunamadı.',
-  
-  // Services section
-  'services.title': 'Ana Hizmetlerimiz',
+  'services.title': 'Temel Hizmetlerimiz',
   'services.hoses': 'Hortumlar',
   'services.fittings': 'Bağlantı Parçaları',
-  'services.ptfeLines': 'PTFE Hatları',
+  'services.ptfeLines': 'PTFE Hatlar',
   'services.turboPipes': 'Turbo Boruları',
   'services.injectionLines': 'Enjeksiyon Hatları',
-  
-  // Individual service names
   'services.hoses.name': 'Hortumlar',
   'services.fittings.name': 'Bağlantı Parçaları',
-  'services.ptfeLines.name': 'PTFE Hatları',
+  'services.ptfeLines.name': 'PTFE Hatlar',
   'services.turboPipes.name': 'Turbo Boruları',
   'services.injectionLines.name': 'Enjeksiyon Hatları',
-  
-  // Product category translations - Updated with provided mappings
-  'products.cabinLiftingHose': 'KABİN KALDIRMA HORTUMU',
-  'products.hydraulicHose': 'HİDROLİK HORTUM',
-  'products.hydraulicSystem': 'HİDROLİK SİSTEM',
-  'products.injectionLines': 'ENJEKTÖR BORU SET',
-  'products.leakOfFuelPipe': 'GERİ DÖNÜŞÜM BORULARI',
-  'products.ptfeTeflonHose': 'PTFE TEFLON HORTUM',
+
+  // Product category names
   'products.steeringHose': 'DİREKSİYON HORTUMU',
+  'products.injectionLines': 'ENJEKTÖR BORU SET',
+  'products.vesselLines': 'GEMİ KAMÇILARI',
+  'products.leakOfFuelPipe': 'GERİ DÖNÜŞÜM BORULARI',
+  'products.hydraulicSystem': 'HİDROLİK HAT BORULARI',
+  'products.hydraulicHose': 'HİDROLİK HORTUM',
+  'products.cabinLiftingHose': 'KABİN KALDIRMA HORTUMU',
+  'products.valveTiming': 'VALF MEKANİZMA REKOR',
+  'products.valveNozzle': 'VALF REKOR NOZUL',
+  'products.valveRecord': 'VALF REKOR',
+  'products.specialItems': 'ÖZEL ÜRÜNLER',
+  'products.ptfeTeflonHose': 'PTFE TEFLON HORTUM',
   'products.transferPump': 'TRANSFER POMPASI',
   'products.turboPipeHose': 'TURBO BORU HORTUM',
   'products.turboTimingPipes': 'TURBO TAĞLAMA BORU VE HORTUMLARI',
-  'products.valveNozzle': 'VALF REKOR NOZUL',
-  'products.valveRecord': 'MAZOT HAVA ALMA POMPASI',
-  'products.valveTiming': 'VALF MEKANİZMA REKOR',
-  'products.vesselLines': 'GEMİ KAMÇILARI',
   'products.connectors': 'BAĞLANTILAR',
   'products.fittings': 'BAĞLANTI ELEMANLARI',
-  'products.specialItems': 'ÖZEL ÜRÜNLER',
   
   // Product descriptions
-  'products.cabinLiftingHose.desc': 'İnşaat ve madencilik ekipmanlarında ağır hizmet uygulamaları için tasarlanmış kabin kaldırma hortumlarımız. Zorlu koşullarda güvenilir performans ve dayanıklılık için üretilmiştir.',
-  'products.hydraulicHose.desc': 'Premium hidrolik hortumlarımız, çeşitli endüstriyel uygulamalarda maksimum dayanıklılık ve performans için tasarlanmıştır. Çeşitli basınç değerleri, boyutlar ve malzemelerle mevcuttur.',
-  'products.hydraulicSystem.desc': 'Verimlilik ve güvenilirlik için tasarlanmış tam hidrolik sistemler. Sistemlerimiz, çeşitli endüstri ve uygulamalardaki özel gereksinimleri karşılamak için özel olarak tasarlanmıştır.',
-  'products.injectionLines.desc': 'Yakıt sistemleri için hassas üretilmiş enjeksiyon hatlarımız çok yüksek standartlarda üretilmektedir. Bu hatlar, tutarlı akış ve basınç stabilitesi sağlayarak optimum motor performansı ve yakıt verimliliği sağlar.',
-  'products.leakOfFuelPipe.desc': 'Sızıntıları önlemek ve güvenli yakıt taşıması sağlamak için özel tasarlanmış yakıt boru çözümleri. Dayanıklılık ve kimyasal direnç için premium malzemelerle üretilmiştir.',
-  'products.ptfeTeflonHose.desc': 'PTFE hortumlarımız, üstün kimyasal direnç ve aşırı sıcaklıklarda olağanüstü performans sunar. Düşük sürtünme ve yüksek saflık gerektiren uygulamalar için ideal olan bu hatlar, çeşitli konfigürasyonlarda mevcuttur.',
-  'products.steeringHose.desc': 'Otomotiv ve ağır ekipman uygulamaları için yüksek kaliteli direksiyon hortumları. Değişken basınç koşulları altında hassas kontrol ve uzun hizmet ömrü için tasarlanmıştır.',
-  'products.transferPump.desc': 'Çeşitli uygulamalarda sıvıların taşınması için verimli transfer pompaları. Pompalarımız, endüstriyel ve otomotiv kullanımları için dayanıklı yapı ve güvenilir performans sunar.',
-  'products.turboPipeHose.desc': 'Turboşarj uygulamaları için özel hortumlar. Optimum turbo sistem performansı için yüksek sıcaklıklara ve basınç değişimlerine dayanacak şekilde tasarlanmıştır.',
-  'products.turboTimingPipes.desc': 'Turbo sistemler için hassas mühendislikle üretilmiş zamanlama boruları ve hortumları. Ürünlerimiz, zorlu motor ortamlarında doğru zamanlama ve güvenilir performans sağlar.',
-  'products.valveNozzle.desc': 'Kontrollü sıvı dağıtımı için yüksek hassasiyetli valf nozulları. Çeşitli endüstriyel uygulamalarda tutarlı performans ve dayanıklılık için tasarlanmıştır.',
-  'products.valveRecord.desc': 'Endüstriyel ve otomotiv sistemleri için premium valf rekorları. Ürünlerimiz, kritik uygulamalarda güvenilir performans için sıkı kalite standartlarını karşılar.',
-  'products.valveTiming.desc': 'Optimum motor performansı için hassas valf zamanlama bileşenleri. Tutarlı motor çalışmasını sağlamak için hassasiyet ve dayanıklılık için tasarlanmıştır.',
-  'products.vesselLines.desc': 'Deniz gemisi uygulamaları için özel hatlar. Güvenilir sıvı transferi ve sistem performansı sağlarken zorlu denizcilik koşullarına dayanacak şekilde tasarlanmıştır.',
-  'products.fittings.desc': 'Hidrolik sistemler için güvenilir, sızdırmaz bağlantılar sağlayan hassas üretilmiş bağlantı elemanlarımız. Belirli gereksinimlerinizi karşılamak için çelik, paslanmaz çelik ve pirinç dahil olmak üzere çeşitli malzemelerde mevcuttur.',
-  'products.connectors.desc': 'Çeşitli uygulamalarda güvenilir akışkan sistem bağlantıları için tasarlanmış yüksek performanslı konnektörler. Konnektörlerimiz zorlu ortamlarda sızıntısız çalışma sağlar.',
-  'products.specialItems.desc': 'Özel ihtiyaçlarınız için tasarlanmış özel çözümler. Benzersiz uygulamalara yönelik özel üretilmiş parçalar ve sistemler.',
+  'products.steeringHose.desc': 'Yönlendirme sistemlerinde kullanılan, yüksek basınç ve sıcaklığa dayanıklı hortumlardır.',
+  'products.injectionLines.desc': 'Motorlarda yakıt enjeksiyonu için yüksek hassasiyetle üretilmiş boru sistemleridir.',
+  'products.vesselLines.desc': 'Gemi ve denizcilik sektöründe sıvı taşıma sistemlerinde kullanılan dayanıklı hatlardır.',
+  'products.leakOfFuelPipe.desc': 'Yakıt sistemlerinde fazla yakıtı geri taşıyan özel boru sistemleridir.',
+  'products.hydraulicSystem.desc': 'Endüstriyel ve tarımsal makinelerde kullanılan dayanıklı hidrolik borulardır.',
+  'products.hydraulicHose.desc': 'Yüksek basınç altında çalışan sistemler için tasarlanmış esnek ve dayanıklı hortumlardır.',
+  'products.cabinLiftingHose.desc': 'Araç kabinlerini kaldırmak için kullanılan özel hidrolik hortumlardır.',
+  'products.valveRecord.desc': 'Motor içi valf mekanizmalarının bağlanmasında kullanılan bağlantı elemanlarıdır.',
+  'products.specialItems.desc': 'Özel ihtiyaçlarınız için tasarlanmış özel çözümler. Benzersiz uygulamalar için özel olarak hazırlanmış bileşenler ve sistemler.',
+  'products.ptfeTeflonHose.desc': 'Kimyasallara ve yüksek sıcaklığa dayanıklı, uzun ömürlü Teflon kaplı hortumlardır.',
+  'products.transferPump.desc': 'Sıvı veya yakıt transferini hızlı ve güvenli şekilde gerçekleştiren pompalardır.',
+  'products.turboPipeHose.desc': 'Turbo beslemeli motor sistemlerinde hava ve basınç dengesini sağlayan hortumlardır.',
+  'products.turboTimingPipes.desc': 'Turbo sistemlerinde zamanlama ve hava akışını düzenleyen özel boru ve hortumlardır.',
+  'products.valveTiming.desc': 'Motor performansını artırmak için valflerin açılış-kapanış zamanlamasını ayarlayan sistem elemanlarıdır.',
+  'products.valveNozzle.desc': 'Enjektör sistemlerinde yakıt püskürtmesini sağlayan hassas uçlu valf nozullarıdır.',
+  'products.fittings.desc': 'Hidrolik sistemler için güvenilir, sızdırmaz bağlantılar sağlayan hassas mühendislik ürünlerimiz çelik, paslanmaz çelik ve pirinç dahil olmak üzere çeşitli malzemelerden üretilmektedir.',
+  'products.connectors.desc': 'Çeşitli uygulamalarda güvenilir sıvı sistemi bağlantıları için tasarlanmış yüksek performanslı konnektörler. Konnektörlerimiz zorlu ortamlarda sızdırmaz çalışma sağlar.',
   
-  // Product gallery sections
+  // Gallery sections
   'products.gallery.title': 'Ürün Galerisi',
   'products.technical.info': 'Teknik Bilgiler',
-  'products.specifications': 'Özellikler',
-  'products.applications': 'Uygulamalar',
+  'products.specifications': 'Teknik Özellikler',
+  'products.applications': 'Uygulama Alanları',
   'products.certificates': 'Sertifikalar',
-
+  
   // Blog post content translations
   'blog.post.hydraulicHosePressure.title': 'Hidrolik Hortum Basınç Değerlerini Anlamak',
-  'blog.post.hydraulicHosePressure.excerpt': 'Hidrolik hortum basınç değerleri ve bunların sistem tasarımı ve güvenliğindeki önemi hakkında kapsamlı bir rehber.',
+  'blog.post.hydraulicHosePressure.excerpt': 'Hidrolik hortum basınç değerleri ve bunların sistem tasarımı ve güvenliği açısından önemine ilişkin kapsamlı bir rehber.',
   'blog.post.hydraulicHosePressure.content': `
     <h2>Basınç Değerlerini Anlamak</h2>
     <p>Hidrolik hortumlar, hidrolik bileşenler arasında yüksek basınçlı sıvı iletimi için tasarlanmış akışkan güç sistemlerinin kritik bileşenleridir. Basınç değerlerini anlamak, doğru seçim ve güvenli çalışma için gereklidir.</p>
@@ -177,9 +170,8 @@ export const trTranslations = {
       <li><strong>Yaşlanma:</strong> Zamanla, çevresel faktörlere maruz kalma hortum malzemelerini bozarak basınç kapasitelerini azaltabilir.</li>
     </ol>
   `,
-
   'blog.post.ptfeVsRubber.title': 'PTFE ve Kauçuk Hortumlar: Kapsamlı Bir Karşılaştırma',
-  'blog.post.ptfeVsRubber.excerpt': 'Endüstriyel ortamlarda PTFE ve kauçuk hortumların temel farklılıkları, avantajları ve uygulamalarının incelenmesi.',
+  'blog.post.ptfeVsRubber.excerpt': 'Endüstriyel uygulamalar için hortum seçerken, PTFE ve kauçuk hortumlar arasındaki temel farklar, avantajları ve uygulamalar inceleniyor.',
   'blog.post.ptfeVsRubber.content': `
     <h2>Malzeme Özellikleri: PTFE ve Kauçuk</h2>
     <p>Endüstriyel uygulamalar için hortum seçerken, PTFE (Politetrafloroetilen) ve kauçuk hortumlar arasındaki temel farklılıkları anlamak, özel ihtiyaçlarınız için doğru seçimi yapmak açısından çok önemlidir.</p>
@@ -228,7 +220,6 @@ export const trTranslations = {
       "PTFE ve kauçuk hortumlar arasındaki seçim, kimyasal uyumluluk, sıcaklık aralığı, basınç değerleri, esneklik ihtiyaçları ve bütçe kısıtlamaları dahil olmak üzere uygulama gereksinimlerinizin kapsamlı bir analizine dayanmalıdır."
     </blockquote>
   `,
-
   'blog.post.maintenance.title': 'Hidrolik Hortum Ömrünü Uzatmak İçin Bakım İpuçları',
   'blog.post.maintenance.excerpt': 'Hidrolik hortumlarınızın ömrünü en üst düzeye çıkarmak için en iyi uygulamalar ve önleyici bakım stratejileri.',
   'blog.post.maintenance.content': `
@@ -288,7 +279,6 @@ export const trTranslations = {
       "Proaktif hidrolik hortum bakımı, her zaman felaket bir arızanın sonuçlarıyla uğraşmaktan daha az maliyetlidir. Tek bir hortum arızası, ekipman çalışmama süresi, çevresel temizlik ve potansiyel güvenlik tehlikeleriyle sonuçlanabilir."
     </blockquote>
   `,
-
   'blog.post.turboOil.title': 'Turbo Yağ Borusu Tasarımında Yenilikler',
   'blog.post.turboOil.excerpt': 'Turbo yağ borusu teknolojisindeki son gelişmeler ve bunların motor performansını nasıl artırdığı.',
   'blog.post.turboOil.content': `
@@ -345,7 +335,6 @@ export const trTranslations = {
       "Turbo yağ borusu teknolojisinin evrimi küçük bir detay gibi görünebilir, ancak yakıt verimliliğini artırırken performansı korumak veya geliştirmek için turboşarjlı motorların yaygın olarak benimsenmesini sağlamada etkili olmuştur."
     </blockquote>
   `,
-
   'blog.post.fittings.title': 'Uygulamanız İçin Doğru Bağlantı Elemanlarını Seçme',
   'blog.post.fittings.excerpt': 'Basınç, sıcaklık ve uyumluluk gereksinimlerine dayalı olarak uygun bağlantı elemanlarını seçme konusunda temel kılavuzlar.',
   'blog.post.fittings.content': `
@@ -440,7 +429,6 @@ export const trTranslations = {
       "Standart ve premium bağlantı elemanları arasındaki maliyet farkı, bağlantı elemanı arızasından kaynaklanan potansiyel çalışmama süresi, sıvı kaybı veya sistem hasarı maliyetine kıyasla önemsizdir. Şüphe durumunda her zaman daha yüksek kaliteli seçeneği tercih edin."
     </blockquote>
   `,
-
   'blog.post.evHydraulics.title': 'Elektrikli Araçlarda Hidrolik Sistemlerin Geleceği',
   'blog.post.evHydraulics.excerpt': 'Hidrolik teknolojilerin elektrikli ve hibrit araç sistemlerinin benzersiz gereksinimlerini karşılamak için nasıl geliştiği.',
   'blog.post.evHydraulics.content': `
