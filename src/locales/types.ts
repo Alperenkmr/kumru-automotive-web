@@ -1,3 +1,4 @@
+
 export type Language = 'en' | 'tr';
 
 export type TranslationKey = 
@@ -146,6 +147,7 @@ export type TranslationKey =
   | 'blog.post.evHydraulics.excerpt'
   | 'blog.post.evHydraulics.content';
 
+export type ProductTranslationKey = keyof typeof import('./en').enTranslations & string;
 export type TranslationsType = {
   [key in TranslationKey]: string;
 };

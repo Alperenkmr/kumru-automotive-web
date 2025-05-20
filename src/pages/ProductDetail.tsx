@@ -5,6 +5,7 @@ import ProductDetailsLayout from "@/components/product/ProductDetailsLayout";
 import ProductNotFound from "@/components/product/ProductNotFound";
 import productData from "@/components/product/ProductData";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ProductTranslationKey } from "@/locales/types";
 
 // Import all gallery components
 import CabinLiftingHoseGallery from "@/components/product/gallery/CabinLiftingHoseGallery";
@@ -36,46 +37,46 @@ const ProductDetail = () => {
   }
 
   // Get translated title and description
-  const translatedTitle = t(`products.${productId!.replace(/-/g, '')}`);
-  const translatedDescription = t(`products.${productId!.replace(/-/g, '')}.desc`);
+  const translatedTitle = t(`products.${productId!.replace(/-/g, '')}` as ProductTranslationKey);
+  const translatedDescription = t(`products.${productId!.replace(/-/g, '')}.desc` as ProductTranslationKey);
 
   // Render the appropriate gallery based on product ID
   const renderGallery = () => {
     switch(productId) {
       case 'cabin-lifting-hose':
-        return <CabinLiftingHoseGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <CabinLiftingHoseGallery images={product.images} productTitle={translatedTitle} />;
       case 'hydraulic-hose':
-        return <HydraulicHoseGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <HydraulicHoseGallery images={product.images} productTitle={translatedTitle} />;
       case 'hydraulic-system':
-        return <HydraulicSystemGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <HydraulicSystemGallery images={product.images} productTitle={translatedTitle} />;
       case 'injection-lines':
-        return <InjectionLinesGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <InjectionLinesGallery images={product.images} productTitle={translatedTitle} />;
       case 'leak-of-fuel-pipe':
-        return <LeakOfFuelPipeGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <LeakOfFuelPipeGallery images={product.images} productTitle={translatedTitle} />;
       case 'ptfe-teflon-hose':
-        return <PtfeTeflonHoseGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <PtfeTeflonHoseGallery images={product.images} productTitle={translatedTitle} />;
       case 'steering-hose':
-        return <SteeringHoseGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <SteeringHoseGallery images={product.images} productTitle={translatedTitle} />;
       case 'transfer-pump':
-        return <TransferPumpGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <TransferPumpGallery images={product.images} productTitle={translatedTitle} />;
       case 'turbo-pipe-hose':
-        return <TurboPipeHoseGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <TurboPipeHoseGallery images={product.images} productTitle={translatedTitle} />;
       case 'turbo-timing-pipes':
-        return <TurboTimingPipesGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <TurboTimingPipesGallery images={product.images} productTitle={translatedTitle} />;
       case 'valve-nozzle':
-        return <ValveNozzleGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <ValveNozzleGallery images={product.images} productTitle={translatedTitle} />;
       case 'valve-record':
-        return <ValveRecordGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <ValveRecordGallery images={product.images} productTitle={translatedTitle} />;
       case 'valve-timing':
-        return <ValveTimingGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <ValveTimingGallery images={product.images} productTitle={translatedTitle} />;
       case 'vessel-lines':
-        return <VesselLinesGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <VesselLinesGallery images={product.images} productTitle={translatedTitle} />;
       case 'fittings':
-        return <FittingsGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <FittingsGallery images={product.images} productTitle={translatedTitle} />;
       case 'connectors':
-        return <ConnectorsGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <ConnectorsGallery images={product.images} productTitle={translatedTitle} />;
       default:
-        return <DefaultGallery images={product.images} productTitle={translatedTitle} productId={productId} />;
+        return <DefaultGallery images={product.images} productTitle={translatedTitle} />;
     }
   };
 

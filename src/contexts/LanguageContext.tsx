@@ -1,12 +1,12 @@
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { Language, TranslationKey, translations, getDefaultLanguage } from '@/locales';
+import { Language, TranslationKey, translations, getDefaultLanguage, ProductTranslationKey } from '@/locales';
 
 // Define context type
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: TranslationKey) => string;
+  t: (key: TranslationKey | ProductTranslationKey) => string;
 };
 
 // Create the context
@@ -30,9 +30,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   }, [language]);
 
   // Translation function
-  const t = (key: TranslationKey): string => {
+  const t = (key: TranslationKey | ProductTranslationKey): string => {
     const currentTranslations = translations[language];
-    return currentTranslations[key] || key;
+    return (currentTranslations as any)[key] || key;
   };
 
   return (
