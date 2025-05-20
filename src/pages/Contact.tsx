@@ -8,6 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser';
+
+const SERVICE_ID = 'service_ghv0fp8'; // EmailJS servis ID
+const TEMPLATE_ID = 'template_tgb6f6f'; // EmailJS template ID
+const USER_ID = '1vj6bAt5G-O65rVgj'; // EmailJS public key (User ID)
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -32,36 +37,43 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the form data to a server
-    console.log("Form submitted", formData);
     
-    // Here you would typically send the data to your backend
-    // For example with fetch:
-    // const response = await fetch('/api/contact', {
-    //   method: 'POST',
-    //   body: JSON.stringify(formData),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // });
-    
-    // Show success message
-    setIsSubmitted(true);
-    toast.success("Mesajınız başarıyla gönderildi!");
-    
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-      file: null
-    });
-    
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    try {
+      // EmailJS ile form verilerini gönder
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+          // Dosya ekini EmailJS free planda desteklemediği için gönderilmiyor
+        },
+        USER_ID
+      );
+      
+      // Başarılı mesaj göster
+      setIsSubmitted(true);
+      toast.success("Mesajınız başarıyla gönderildi!");
+      
+      // Form verilerini sıfırla
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        file: null
+      });
+      
+      // 5 saniye sonra başarı mesajını kaldır
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error("E-posta gönderme hatası:", error);
+      toast.error("Mesaj gönderilirken bir hata oluştu!");
+    }
   };
 
   return (
@@ -140,10 +152,11 @@ const Contact = () => {
                       type="file"
                       onChange={handleFileChange}
                     />
+                    <p className="text-xs text-gray-500">Not: Dosya ekleri şu an e-posta ile gönderilmemektedir.</p>
                   </div>
                   
                   <Button type="submit" className="bg-kumru-navy hover:bg-kumru-navy/90 text-white w-full py-6">
-                    Mesaj Gönder
+                    {isSubmitted ? "Gönderildi" : "Mesaj Gönder"}
                   </Button>
                 </form>
               </div>
