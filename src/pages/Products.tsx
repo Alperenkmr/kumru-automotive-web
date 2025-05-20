@@ -45,7 +45,7 @@ const Products = () => {
     {
       id: 7,
       title: "STEERING HOSE",
-      imageSrc: "/lovable-uploads/fd0c66ec-4343-42ab-92b7-800e73443d4f.png",
+      imageSrc: "/lovable-uploads/c047c254-d37b-4aae-9e5d-a4a080c7a832.png",
       href: "/products/steering-hose"
     },
     {

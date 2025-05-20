@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -77,9 +78,10 @@ const productData = {
     title: "Steering Hose",
     description: "High-quality steering hoses for automotive and heavy equipment applications. Designed for precise control and long service life under variable pressure conditions.",
     images: [
-      "/lovable-uploads/fd0c66ec-4343-42ab-92b7-800e73443d4f.png",
-      "/lovable-uploads/6b0b97d8-3cc9-4580-93d5-de07179e7445.png",
-      "/lovable-uploads/02613e90-5ff2-467c-9227-47c2c4867481.png",
+      "/lovable-uploads/c047c254-d37b-4aae-9e5d-a4a080c7a832.png",
+      "/lovable-uploads/b4a8c7e3-43bb-445d-b0ce-f07e771d6df6.png",
+      "/lovable-uploads/42090df0-8329-4747-8cbe-429e3cfdfbc8.png",
+      "/lovable-uploads/82da63e0-1abb-41e1-abc0-34acabebc1b0.png",
     ]
   },
   "transfer-pump": {
