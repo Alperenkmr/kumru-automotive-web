@@ -1,4 +1,3 @@
-
 export const trTranslations = {
   'nav.home': 'Ana Sayfa',
   'nav.about': 'Hakkımızda',
@@ -66,7 +65,8 @@ export const trTranslations = {
   'contact.phone': '+90 382 266 57 90',
   'contact.emailAddress': 'info@rsskumru.com',
   'contact.hours': 'Hafta içi 08:30 - 18:00',
-  // Adding the blog post related translations
+  
+  // Blog post related translations  
   'blog.category': 'Kategori',
   'blog.author': 'Yazar',
   'blog.date': 'Tarih',
@@ -76,6 +76,7 @@ export const trTranslations = {
   'blog.allCategories': 'Tüm Kategoriler',
   'blog.latestFirst': 'Önce En Yeniler',
   'blog.noPostsFound': 'Aramanızla eşleşen blog yazısı bulunamadı.',
+  
   // Services section
   'services.title': 'Ana Hizmetlerimiz',
   'services.hoses': 'Hortumlar',
@@ -83,29 +84,58 @@ export const trTranslations = {
   'services.ptfeLines': 'PTFE Hatları',
   'services.turboPipes': 'Turbo Boruları',
   'services.injectionLines': 'Enjeksiyon Hatları',
-  // Add individual service name keys - these were missing
+  
+  // Individual service names
   'services.hoses.name': 'Hortumlar',
   'services.fittings.name': 'Bağlantı Parçaları',
   'services.ptfeLines.name': 'PTFE Hatları',
   'services.turboPipes.name': 'Turbo Boruları',
   'services.injectionLines.name': 'Enjeksiyon Hatları',
-  // Adding product category names that might have been missed
+  
+  // Product category translations - Updated with provided mappings
   'products.cabinLiftingHose': 'KABİN KALDIRMA HORTUMU',
   'products.hydraulicHose': 'HİDROLİK HORTUM',
   'products.hydraulicSystem': 'HİDROLİK SİSTEM',
-  'products.injectionLines': 'ENJEKSİYON HATLARI',
-  'products.leakOfFuelPipe': 'YAKIT SIZINTI HATTI',
+  'products.injectionLines': 'ENJEKTÖR BORU SET',
+  'products.leakOfFuelPipe': 'GERİ DÖNÜŞÜM BORULARI',
   'products.ptfeTeflonHose': 'PTFE TEFLON HORTUM',
   'products.steeringHose': 'DİREKSİYON HORTUMU',
   'products.transferPump': 'TRANSFER POMPASI',
-  'products.turboPipeHose': 'TURBO BORU HORTUMU',
-  'products.turboTimingPipes': 'TURBO ZAMANLAMA BORULARI',
-  'products.valveNozzle': 'VALF NOZUL',
-  'products.valveRecord': 'VALF KAYDI',
-  'products.valveTiming': 'VALF ZAMANLAMA',
-  'products.vesselLines': 'KAZAN HATLARI',
+  'products.turboPipeHose': 'TURBO BORU HORTUM',
+  'products.turboTimingPipes': 'TURBO TAĞLAMA BORU VE HORTUMLARI',
+  'products.valveNozzle': 'VALF REKOR NOZUL',
+  'products.valveRecord': 'MAZOT HAVA ALMA POMPASI',
+  'products.valveTiming': 'VALF MEKANİZMA REKOR',
+  'products.vesselLines': 'GEMİ KAMÇILARI',
   'products.connectors': 'BAĞLANTILAR',
   'products.fittings': 'BAĞLANTI ELEMANLARI',
+  'products.specialItems': 'ÖZEL ÜRÜNLER',
+  
+  // Product descriptions
+  'products.cabinLiftingHose.desc': 'İnşaat ve madencilik ekipmanlarında ağır hizmet uygulamaları için tasarlanmış kabin kaldırma hortumlarımız. Zorlu koşullarda güvenilir performans ve dayanıklılık için üretilmiştir.',
+  'products.hydraulicHose.desc': 'Premium hidrolik hortumlarımız, çeşitli endüstriyel uygulamalarda maksimum dayanıklılık ve performans için tasarlanmıştır. Çeşitli basınç değerleri, boyutlar ve malzemelerle mevcuttur.',
+  'products.hydraulicSystem.desc': 'Verimlilik ve güvenilirlik için tasarlanmış tam hidrolik sistemler. Sistemlerimiz, çeşitli endüstri ve uygulamalardaki özel gereksinimleri karşılamak için özel olarak tasarlanmıştır.',
+  'products.injectionLines.desc': 'Yakıt sistemleri için hassas üretilmiş enjeksiyon hatlarımız çok yüksek standartlarda üretilmektedir. Bu hatlar, tutarlı akış ve basınç stabilitesi sağlayarak optimum motor performansı ve yakıt verimliliği sağlar.',
+  'products.leakOfFuelPipe.desc': 'Sızıntıları önlemek ve güvenli yakıt taşıması sağlamak için özel tasarlanmış yakıt boru çözümleri. Dayanıklılık ve kimyasal direnç için premium malzemelerle üretilmiştir.',
+  'products.ptfeTeflonHose.desc': 'PTFE hortumlarımız, üstün kimyasal direnç ve aşırı sıcaklıklarda olağanüstü performans sunar. Düşük sürtünme ve yüksek saflık gerektiren uygulamalar için ideal olan bu hatlar, çeşitli konfigürasyonlarda mevcuttur.',
+  'products.steeringHose.desc': 'Otomotiv ve ağır ekipman uygulamaları için yüksek kaliteli direksiyon hortumları. Değişken basınç koşulları altında hassas kontrol ve uzun hizmet ömrü için tasarlanmıştır.',
+  'products.transferPump.desc': 'Çeşitli uygulamalarda sıvıların taşınması için verimli transfer pompaları. Pompalarımız, endüstriyel ve otomotiv kullanımları için dayanıklı yapı ve güvenilir performans sunar.',
+  'products.turboPipeHose.desc': 'Turboşarj uygulamaları için özel hortumlar. Optimum turbo sistem performansı için yüksek sıcaklıklara ve basınç değişimlerine dayanacak şekilde tasarlanmıştır.',
+  'products.turboTimingPipes.desc': 'Turbo sistemler için hassas mühendislikle üretilmiş zamanlama boruları ve hortumları. Ürünlerimiz, zorlu motor ortamlarında doğru zamanlama ve güvenilir performans sağlar.',
+  'products.valveNozzle.desc': 'Kontrollü sıvı dağıtımı için yüksek hassasiyetli valf nozulları. Çeşitli endüstriyel uygulamalarda tutarlı performans ve dayanıklılık için tasarlanmıştır.',
+  'products.valveRecord.desc': 'Endüstriyel ve otomotiv sistemleri için premium valf rekorları. Ürünlerimiz, kritik uygulamalarda güvenilir performans için sıkı kalite standartlarını karşılar.',
+  'products.valveTiming.desc': 'Optimum motor performansı için hassas valf zamanlama bileşenleri. Tutarlı motor çalışmasını sağlamak için hassasiyet ve dayanıklılık için tasarlanmıştır.',
+  'products.vesselLines.desc': 'Deniz gemisi uygulamaları için özel hatlar. Güvenilir sıvı transferi ve sistem performansı sağlarken zorlu denizcilik koşullarına dayanacak şekilde tasarlanmıştır.',
+  'products.fittings.desc': 'Hidrolik sistemler için güvenilir, sızdırmaz bağlantılar sağlayan hassas üretilmiş bağlantı elemanlarımız. Belirli gereksinimlerinizi karşılamak için çelik, paslanmaz çelik ve pirinç dahil olmak üzere çeşitli malzemelerde mevcuttur.',
+  'products.connectors.desc': 'Çeşitli uygulamalarda güvenilir akışkan sistem bağlantıları için tasarlanmış yüksek performanslı konnektörler. Konnektörlerimiz zorlu ortamlarda sızıntısız çalışma sağlar.',
+  'products.specialItems.desc': 'Özel ihtiyaçlarınız için tasarlanmış özel çözümler. Benzersiz uygulamalara yönelik özel üretilmiş parçalar ve sistemler.',
+  
+  // Product gallery sections
+  'products.gallery.title': 'Ürün Galerisi',
+  'products.technical.info': 'Teknik Bilgiler',
+  'products.specifications': 'Özellikler',
+  'products.applications': 'Uygulamalar',
+  'products.certificates': 'Sertifikalar',
 
   // Blog post content translations
   'blog.post.hydraulicHosePressure.title': 'Hidrolik Hortum Basınç Değerlerini Anlamak',
@@ -232,7 +262,6 @@ export const trTranslations = {
     <ul>
       <li>Hortumları, bozulmayı hızlandırabilecek kir, yağ ve diğer kirleticilerden temiz tutun</li>
       <li>Yüksek aşınma alanlarında koruyucu kılıflar kullanın</li>
-      <li>Hortumları mümkün olduğunca UV maruziyetinden koruyun</li>
       <li>Hortumları sert kimyasallardan kaçınarak hafif sabun ve su ile temizleyin</li>
     </ul>
     
@@ -276,7 +305,7 @@ export const trTranslations = {
     </ul>
     
     <h3>Optimize Edilmiş Akış Dinamikleri</h3>
-    <p>Hesaplamalı akışkanlar dinamiği (CFD) analizi, turbo yağ borusu tasarımını devrimleştirerek şunları sağlamıştır:</p>
+    <p>Hesaplamalı akış kanalları dinamiği (CFD) analizi, turbo yağ borusu tasarımını devrimleştirerek şunları sağlamıştır:</p>
     <ul>
       <li>Basınç düşüşlerini en aza indiren hassas mühendislikle tasarlanmış iç geometriler</li>
       <li>Aşırı yağ tüketimi olmadan yeterli yağlama sağlayan optimize edilmiş yağ akış hızları</li>
@@ -297,7 +326,7 @@ export const trTranslations = {
     <p>Bağlantı tasarımındaki yenilikler şunları içerir:</p>
     <ul>
       <li>Termal genleşmeye uyum sağlayan kendinden ayarlı esnek bölümler</li>
-      <li>Değişen koşullar altında sızıntıları önleyen gelişmiş sızdırmazlık teknolojileri</li>
+      <li>Değişen koşullar altında sızdırmazlık teknolojileri</li>
       <li>Sızıntısız çalışmayı korurken servis verilebilirliği geliştiren hızlı bağlantı parçaları</li>
       <li>Stres yorgunluğunu azaltan titreşim sönümleme elemanları</li>
     </ul>
@@ -440,7 +469,7 @@ export const trTranslations = {
     </ul>
     
     <h3>2. Termal Yönetim Sistemleri</h3>
-    <p>Batarya sıcaklık yönetimi elektrikli araç performansı ve uzun ömürlülüğü için kritik öneme sahiptir:</p>
+    <p>Batarya sıcaklık yönetimi elektrikli araç performansı ve uzun ömürlükleri için kritik öneme sahiptir:</p>
     <ul>
       <li>Özellikle batarya termal düzenlemesi için tasarlanmış gelişmiş hidrolik soğutma devreleri</li>
       <li>Gerçek zamanlı termal ihtiyaçlara göre soğutucu sıvıyı batarya, motor veya güç elektroniğine yönlendiren akıllı hidrolik valfler</li>

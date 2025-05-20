@@ -1,6 +1,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProductCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface ProductCardProps {
   price?: string;
   className?: string;
   href?: string;
+  translationKey?: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -17,7 +19,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   imageSrc,
   className,
   href = "#",
+  translationKey,
 }) => {
+  const { t, language } = useLanguage();
+  
+  // If a translationKey is provided, use it to get the translated title
+  const displayTitle = translationKey ? t(translationKey) : title;
+  
   return (
     <a 
       href={href}
@@ -30,12 +38,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="absolute inset-0 flex items-center justify-center">
           <img 
             src={imageSrc} 
-            alt={title}
+            alt={displayTitle}
             className="w-full h-full object-contain" 
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <h3 className="text-xl font-bold p-4 text-white">{title}</h3>
+          <h3 className="text-xl font-bold p-4 text-white">{displayTitle}</h3>
         </div>
       </div>
       {description && (

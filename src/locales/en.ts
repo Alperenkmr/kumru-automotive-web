@@ -67,7 +67,7 @@ export const enTranslations = {
   'contact.emailAddress': 'info@rsskumru.com',
   'contact.hours': 'Monday-Friday 08:30 - 18:00',
 
-  // Adding the blog post related translations
+  // Blog post related translations
   'blog.category': 'Category',
   'blog.author': 'By',
   'blog.date': 'Date',
@@ -86,14 +86,14 @@ export const enTranslations = {
   'services.turboPipes': 'Turbo Pipes',
   'services.injectionLines': 'Injection Lines',
   
-  // Add individual service name keys - these were missing
+  // Individual service name keys
   'services.hoses.name': 'Hoses',
   'services.fittings.name': 'Fittings',
   'services.ptfeLines.name': 'PTFE Lines',
   'services.turboPipes.name': 'Turbo Pipes',
   'services.injectionLines.name': 'Injection Lines',
   
-  // Adding product category names
+  // Product category names
   'products.cabinLiftingHose': 'CABIN LIFTING HOSE',
   'products.hydraulicHose': 'HYDRAULIC HOSE',
   'products.hydraulicSystem': 'HYDRAULIC SYSTEM',
@@ -103,13 +103,40 @@ export const enTranslations = {
   'products.steeringHose': 'STEERING HOSE',
   'products.transferPump': 'TRANSFER PUMP',
   'products.turboPipeHose': 'TURBO PIPE HOSE',
-  'products.turboTimingPipes': 'TURBO TIMING PIPES',
+  'products.turboTimingPipes': 'TURBO TIMING PIPES AND HOSES',
   'products.valveNozzle': 'VALVE NOZZLE',
   'products.valveRecord': 'VALVE RECORD',
   'products.valveTiming': 'VALVE TIMING',
   'products.vesselLines': 'VESSEL LINES',
   'products.connectors': 'CONNECTORS',
   'products.fittings': 'FITTINGS',
+  'products.specialItems': 'SPECIAL ITEMS',
+  
+  // Product descriptions
+  'products.cabinLiftingHose.desc': 'Our cabin lifting hoses are designed for heavy-duty applications in construction and mining equipment. Engineered for reliable performance and durability in extreme conditions.',
+  'products.hydraulicHose.desc': 'Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.',
+  'products.hydraulicSystem.desc': 'Complete hydraulic systems designed for efficiency and reliability. Our systems are custom-engineered to meet specific requirements across various industries and applications.',
+  'products.injectionLines.desc': 'Our high-precision injection lines are manufactured to exacting standards for fuel systems. These lines provide consistent flow and pressure stability, ensuring optimal engine performance and fuel efficiency.',
+  'products.leakOfFuelPipe.desc': 'Specialized fuel pipe solutions designed to prevent leaks and ensure safe fuel transport. Engineered with premium materials for durability and chemical resistance.',
+  'products.ptfeTeflonHose.desc': 'Our PTFE hoses offer superior chemical resistance and exceptional performance at extreme temperatures. Ideal for applications requiring low friction and high purity, these lines are available in various configurations.',
+  'products.steeringHose.desc': 'High-quality steering hoses for automotive and heavy equipment applications. Designed for precise control and long service life under variable pressure conditions.',
+  'products.transferPump.desc': 'Efficient transfer pumps for moving fluids in various applications. Our pumps feature durable construction and reliable performance for industrial and automotive uses.',
+  'products.turboPipeHose.desc': 'Specialized hoses for turbocharger applications. Designed to withstand high temperatures and pressure variations for optimal turbo system performance.',
+  'products.turboTimingPipes.desc': 'Precision-engineered timing pipes and hoses for turbo systems. Our products ensure accurate timing and reliable performance in demanding engine environments.',
+  'products.valveNozzle.desc': 'High-precision valve nozzles for controlled fluid delivery. Engineered for consistent performance and durability across various industrial applications.',
+  'products.valveRecord.desc': 'Premium valve record components for industrial and automotive systems. Our products meet strict quality standards for reliable performance in critical applications.',
+  'products.valveTiming.desc': 'Precision valve timing components for optimal engine performance. Engineered for accuracy and durability to ensure consistent engine operation.',
+  'products.vesselLines.desc': 'Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.',
+  'products.fittings.desc': 'Our precision-engineered fittings provide reliable, leak-free connections for hydraulic systems. Available in various materials including steel, stainless steel, and brass to meet your specific requirements.',
+  'products.connectors.desc': 'High-performance connectors designed for reliable fluid system connections across various applications. Our connectors ensure leak-free operation in demanding environments.',
+  'products.specialItems.desc': 'Custom solutions designed for your unique needs. Specially crafted components and systems for distinctive applications.',
+  
+  // Gallery sections
+  'products.gallery.title': 'Product Gallery',
+  'products.technical.info': 'Technical Information',
+  'products.specifications': 'Specifications',
+  'products.applications': 'Applications',
+  'products.certificates': 'Certificates',
   
   // Blog post content translations
   'blog.post.hydraulicHosePressure.title': 'Understanding Hydraulic Hose Pressure Ratings',

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import ImageLightbox from "@/components/ui/ImageLightbox";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProductImageProps {
   src: string;
@@ -47,6 +48,7 @@ interface ProductImageGalleryProps {
   aspectRatio?: number;
   gridClassName?: string;
   imageClassName?: string;
+  productId?: string;
 }
 
 const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
@@ -54,10 +56,12 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
   productTitle,
   aspectRatio = 1,
   gridClassName = "grid grid-cols-1 md:grid-cols-3 gap-4",
-  imageClassName = ""
+  imageClassName = "",
+  productId = ""
 }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { t, language } = useLanguage();
 
   const handleImageClick = (index: number) => {
     setCurrentImageIndex(index);
@@ -72,7 +76,12 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
     setCurrentImageIndex(index);
   };
 
-  const imageAlts = images.map((_, index) => `${productTitle} - Image ${index + 1}`);
+  // Use translated product title if available
+  const translatedTitle = productId ? 
+    t(`products.${productId.replace(/-/g, '')}`) :
+    productTitle;
+  
+  const imageAlts = images.map((_, index) => `${translatedTitle} - ${t('products.gallery.title')} ${index + 1}`);
 
   return (
     <div className="mb-8">
@@ -81,7 +90,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
           <ProductImage
             key={index}
             src={image}
-            alt={`${productTitle} - Image ${index + 1}`}
+            alt={`${translatedTitle} - ${t('products.gallery.title')} ${index + 1}`}
             index={index}
             ratio={aspectRatio}
             className={imageClassName}

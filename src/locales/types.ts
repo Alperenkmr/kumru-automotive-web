@@ -1,4 +1,3 @@
-
 export type Language = 'en' | 'tr';
 
 export type TranslationKey = 
@@ -80,6 +79,12 @@ export type TranslationKey =
   | 'services.ptfeLines'
   | 'services.turboPipes'
   | 'services.injectionLines'
+  | 'services.hoses.name'
+  | 'services.fittings.name'
+  | 'services.ptfeLines.name'
+  | 'services.turboPipes.name'
+  | 'services.injectionLines.name'
+  // Product category names
   | 'products.cabinLiftingHose'
   | 'products.hydraulicHose'
   | 'products.hydraulicSystem'
@@ -96,7 +101,32 @@ export type TranslationKey =
   | 'products.vesselLines'
   | 'products.connectors'
   | 'products.fittings'
-  // Add blog post content translation keys
+  | 'products.specialItems'
+  // Product descriptions
+  | 'products.cabinLiftingHose.desc'
+  | 'products.hydraulicHose.desc'
+  | 'products.hydraulicSystem.desc'
+  | 'products.injectionLines.desc'
+  | 'products.leakOfFuelPipe.desc'
+  | 'products.ptfeTeflonHose.desc'
+  | 'products.steeringHose.desc'
+  | 'products.transferPump.desc'
+  | 'products.turboPipeHose.desc'
+  | 'products.turboTimingPipes.desc'
+  | 'products.valveNozzle.desc'
+  | 'products.valveRecord.desc'
+  | 'products.valveTiming.desc'
+  | 'products.vesselLines.desc'
+  | 'products.fittings.desc'
+  | 'products.connectors.desc'
+  | 'products.specialItems.desc'
+  // Gallery sections
+  | 'products.gallery.title'
+  | 'products.technical.info'
+  | 'products.specifications'
+  | 'products.applications'
+  | 'products.certificates'
+  // Add blog post content translation keys - keep existing
   | 'blog.post.hydraulicHosePressure.title'
   | 'blog.post.hydraulicHosePressure.excerpt'
   | 'blog.post.hydraulicHosePressure.content'
@@ -114,13 +144,7 @@ export type TranslationKey =
   | 'blog.post.fittings.content'
   | 'blog.post.evHydraulics.title'
   | 'blog.post.evHydraulics.excerpt'
-  | 'blog.post.evHydraulics.content'
-  // Fix WhatWeDo component service items
-  | 'services.hoses.name'
-  | 'services.fittings.name'
-  | 'services.ptfeLines.name'
-  | 'services.turboPipes.name'
-  | 'services.injectionLines.name';
+  | 'blog.post.evHydraulics.content';
 
 export type TranslationsType = {
   [key in TranslationKey]: string;
