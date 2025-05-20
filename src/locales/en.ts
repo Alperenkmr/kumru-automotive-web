@@ -6,7 +6,7 @@ export const enTranslations = {
   'nav.blog': 'Blog',
   'nav.contact': 'Contact',
   'header.contactUs': 'Contact Us',
-  'hero.title': 'Precision Hydraulic Systems and Custom Engineered Lines',
+  'hero.title': 'Fluid System Management and Custom Engineered Lines',
   'hero.subtitle': 'Discover our capabilities and industry expertise',
   'hero.cta': 'Explore Our Solutions',
   'aboutSubmenu.whatWeDo': 'What We Do',

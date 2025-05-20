@@ -1,3 +1,4 @@
+
 import { TranslationsType } from "./types";
 
 export const trTranslations: TranslationsType = {
@@ -7,7 +8,7 @@ export const trTranslations: TranslationsType = {
   'nav.blog': 'Blog',
   'nav.contact': 'İletişim',
   'header.contactUs': 'Bize Ulaşın',
-  'hero.title': 'Hassas Hidrolik Sistemler ve Özel Mühendislik Hatları',
+  'hero.title': 'Akışkan Sistem Yönetimi ve Özel Mühendislik Hatları',
   'hero.subtitle': 'Yeteneklerimizi ve sektör uzmanlığımızı keşfedin',
   'hero.cta': 'Çözümlerimizi Keşfedin',
   'aboutSubmenu.whatWeDo': 'Ne Yapıyoruz',
