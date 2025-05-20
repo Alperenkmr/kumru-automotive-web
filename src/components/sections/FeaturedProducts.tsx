@@ -3,6 +3,7 @@ import React from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/locales";
 
 interface FeaturedProductsProps {
   className?: string;
@@ -18,42 +19,42 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
       title: "CABIN LIFTING HOSE",
       imageSrc: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
       href: "/products/cabin-lifting-hose",
-      translationKey: "products.cabinLiftingHose"
+      translationKey: "products.cabinLiftingHose" as TranslationKey
     },
     {
       id: 2,
       title: "HYDRAULIC HOSE",
       imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       href: "/products/hydraulic-hose",
-      translationKey: "products.hydraulicHose"
+      translationKey: "products.hydraulicHose" as TranslationKey
     },
     {
       id: 3,
       title: "PTFE LINED HOSE ASSEMBLY",
       imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       href: "/products/ptfe-teflon-hose",
-      translationKey: "products.ptfeTeflonHose"
+      translationKey: "products.ptfeTeflonHose" as TranslationKey
     },
     {
       id: 4,
       title: "TURBO PIPE HOSE",
       imageSrc: "/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
       href: "/products/turbo-pipe-hose",
-      translationKey: "products.turboPipeHose"
+      translationKey: "products.turboPipeHose" as TranslationKey
     },
     {
       id: 5,
       title: "INJECTION LINES",
       imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
       href: "/products/injection-lines",
-      translationKey: "products.injectionLines"
+      translationKey: "products.injectionLines" as TranslationKey
     },
     {
       id: 6,
       title: "VESSEL LINES",
       imageSrc: "/lovable-uploads/74038727-0d72-411d-addb-cbc9d2a2f175.png",
       href: "/products/vessel-lines",
-      translationKey: "products.vesselLines"
+      translationKey: "products.vesselLines" as TranslationKey
     },
   ];
 
