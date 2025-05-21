@@ -16,42 +16,42 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     {
       id: 1,
       title: "CABIN LIFTING HOSE",
-      imageSrc: "/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
+      imageSrc: "./lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png",
       href: "/products/cabin-lifting-hose",
       translationKey: "products.cabinLiftingHose"
     },
     {
       id: 2,
       title: "HYDRAULIC HOSE",
-      imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
+      imageSrc: "./lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
       href: "/products/hydraulic-hose",
       translationKey: "products.hydraulicHose"
     },
     {
       id: 3,
       title: "PTFE LINED HOSE ASSEMBLY",
-      imageSrc: "/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
+      imageSrc: "./lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png",
       href: "/products/ptfe-teflon-hose",
       translationKey: "products.ptfeTeflonHose"
     },
     {
       id: 4,
       title: "TURBO PIPE HOSE",
-      imageSrc: "/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
+      imageSrc: "./lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
       href: "/products/turbo-pipe-hose",
       translationKey: "products.turboPipeHose"
     },
     {
       id: 5,
       title: "INJECTION LINES",
-      imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
+      imageSrc: "./lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
       href: "/products/injection-lines",
       translationKey: "products.injectionLines"
     },
     {
       id: 6,
       title: "VESSEL LINES",
-      imageSrc: "/lovable-uploads/74038727-0d72-411d-addb-cbc9d2a2f175.png",
+      imageSrc: "./lovable-uploads/74038727-0d72-411d-addb-cbc9d2a2f175.png",
       href: "/products/vessel-lines",
       translationKey: "products.vesselLines"
     },

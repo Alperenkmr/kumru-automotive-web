@@ -75,7 +75,7 @@ const Index = () => {
           {/* Robot Illustration - Subtle background */}
           <div className="absolute right-0 bottom-0 opacity-10 hidden lg:block">
             <img 
-              src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
+              src="./lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
               alt="RSS Kumru Robot" 
               className="h-64"
             />

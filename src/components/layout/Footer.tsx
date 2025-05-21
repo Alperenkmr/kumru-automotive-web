@@ -28,7 +28,7 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-montserrat font-bold mb-4 flex items-center">
                 <img 
-                  src="public/lovable-uploads/c42d9fdb-64c7-4345-9c1a-6f16b2878860.png" 
+                  src="./lovable-uploads/c42d9fdb-64c7-4345-9c1a-6f16b2878860.png" 
                   alt="RSS Kumru Logo" 
                   className="h-10 mr-2"
                 />
@@ -123,7 +123,7 @@ const Footer = () => {
         {/* Robot Illustration Watermark */}
         <div className="absolute right-8 bottom-8 opacity-10 hidden lg:block">
           <img 
-            src="public/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
+            src="./lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
             alt="RSS Kumru Robot" 
             className="h-24"
           />

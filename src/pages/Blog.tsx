@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/locales/types";
-import { getAllBlogPosts, BlogPost } from "@/services/BlogService";
+import { getAllBlogPosts } from "@/services/BlogService";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -93,7 +93,7 @@ const BlogPage: React.FC = () => {
                   key={index}
                   title={post.title}
                   date={post.date}
-                  imageSrc={post.imageSrc}
+                  imageSrc={post.imageSrc.startsWith('/') ? `.${post.imageSrc}` : post.imageSrc}
                   author={post.author}
                   href={post.href}
                 />
