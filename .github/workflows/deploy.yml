@@ -1,0 +1,42 @@
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Tetikleme için ana dal (main branch)
+
+# Concurrent işlemleri önle
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # GitHub Pages'e deploy için gerekli
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Node.js Kurulumu
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Bağımlılıkları Yükleme
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: CNAME Dosyasını Kopyala
+        run: cp CNAME dist/
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # Build çıktısının bulunduğu klasör
+          branch: gh-pages # Deploy edileceği branch
+          clean: true # Eski dosyaları temizle
