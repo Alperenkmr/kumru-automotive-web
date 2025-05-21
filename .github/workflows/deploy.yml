@@ -24,12 +24,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
 
       - name: Bağımlılıkları Yükleme
-        run: npm install
+        run: |
+          npm install
+          npm list embla-carousel embla-carousel-autoplay || true
 
       - name: Build
         run: npm run build
+        env:
+          CI: false
 
       - name: CNAME Dosyasını Kopyala
         run: cp CNAME dist/
