@@ -17,12 +17,17 @@ import "./index.css";
 
 const queryClient = new QueryClient();
 
+// Get the basename for GitHub Pages deployment
+const getBasename = () => {
+  return process.env.NODE_ENV === "production" ? "/kumru-automotive-web" : "";
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={getBasename()}>
         <FloatingWhatsApp phoneNumber="+905494262949" />
         <Routes>
           <Route path="/" element={<Index />} />
