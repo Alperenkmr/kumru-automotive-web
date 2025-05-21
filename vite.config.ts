@@ -34,6 +34,8 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       outDir: 'dist',
+      // Ensure proper MIME types for module scripts
+      assetsInlineLimit: 0,
       rollupOptions: {
         output: {
           manualChunks: {

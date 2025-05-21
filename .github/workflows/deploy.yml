@@ -37,6 +37,9 @@ jobs:
       - name: Copy CNAME to build output
         run: cp CNAME ./dist/ || echo "CNAME file not found"
         
+      - name: Ensure .nojekyll file exists in build output
+        run: touch ./dist/.nojekyll
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
