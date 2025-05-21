@@ -23,8 +23,23 @@
         const redirect = sessionStorage.getItem('redirect');
         if (redirect) {
           sessionStorage.removeItem('redirect');
-          const cleanPath = redirect.startsWith('/') ? redirect : '/' + redirect;
-          history.replaceState(null, null, cleanPath);
+          
+          // Handle GitHub Pages base path
+          let basePath = '/kumru-automotive-web';
+          let targetPath = redirect;
+          
+          // Remove base path from redirect if present
+          if (targetPath.startsWith(basePath)) {
+            targetPath = targetPath.substring(basePath.length);
+          }
+          
+          // Make sure path starts with slash
+          if (!targetPath.startsWith('/')) {
+            targetPath = '/' + targetPath;
+          }
+          
+          console.log('Redirecting to:', targetPath);
+          history.replaceState(null, '', targetPath);
         }
       })();
     </script>

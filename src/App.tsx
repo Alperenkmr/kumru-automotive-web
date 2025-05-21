@@ -19,7 +19,8 @@ const queryClient = new QueryClient();
 
 // Get the basename for GitHub Pages deployment
 const getBasename = () => {
-  return import.meta.env.MODE === "production" ? "/kumru-automotive-web" : "";
+  // Always use the hardcoded basename for GitHub Pages
+  return "/kumru-automotive-web";
 };
 
 const App = () => (
