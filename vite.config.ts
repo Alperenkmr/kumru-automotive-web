@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/kumru-automotive-web/",  // GitHub repo name
+  base: "/kumru-automotive-web/",  // Ensure GitHub repo name is correct
   server: {
     host: "::",
     port: 8080,
@@ -30,9 +30,10 @@ export default defineConfig(({ mode }) => ({
         main: path.resolve(__dirname, 'index.html')
       },
       output: {
-        entryFileNames: `assets/[name].[hash].js`,
-        chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`,
+        // Use a more consistent naming pattern without dots in the hash part
+        entryFileNames: `assets/[name]-[hash].js`,
+        chunkFileNames: `assets/[name]-[hash].js`,
+        assetFileNames: `assets/[name]-[hash].[ext]`,
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-vendor': ['lucide-react', '@radix-ui/react-tooltip', '@radix-ui/react-toast']
