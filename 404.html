@@ -20,16 +20,14 @@
     <script>
       // SPA GitHub Pages redirect script
       (function() {
-        // Save the complete path
-        const path = window.location.pathname;
-        const search = window.location.search;
-        const hash = window.location.hash;
+        // Save the complete path including hash and search params
+        const fullPath = window.location.pathname + window.location.search + window.location.hash;
         
         // Store the full path in sessionStorage for redirect after loading the main page
-        sessionStorage.setItem('redirect', path + search + hash);
+        sessionStorage.setItem('redirect', fullPath);
         
-        // Redirect to the root of the GitHub Pages site
-        window.location.replace('/kumru-automotive-web/');
+        // Redirect to the root of the GitHub Pages site with absolute path
+        window.location.href = '/kumru-automotive-web/';
       })();
     </script>
   </head>

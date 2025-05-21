@@ -24,16 +24,16 @@ export default defineConfig(({ mode }) => ({
     outDir: "dist",
     assetsDir: "assets",
     emptyOutDir: true,
-    sourcemap: true,
+    sourcemap: false, // Disable sourcemaps to reduce file size
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html')
       },
       output: {
-        // Use a more consistent naming pattern without dots in the hash part
-        entryFileNames: `assets/[name]-[hash].js`,
-        chunkFileNames: `assets/[name]-[hash].js`,
-        assetFileNames: `assets/[name]-[hash].[ext]`,
+        // Simplify asset name pattern to avoid problems with dots
+        entryFileNames: `assets/[name].[hash:8].js`,
+        chunkFileNames: `assets/[name].[hash:8].js`,
+        assetFileNames: `assets/[name].[hash:8].[ext]`,
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-vendor': ['lucide-react', '@radix-ui/react-tooltip', '@radix-ui/react-toast']
