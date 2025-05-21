@@ -3,9 +3,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -32,9 +32,24 @@ const useHandleGitHubPagesRedirect = () => {
   }, []);
 };
 
+// Helper function to determine if we're on custom domain
+const useBasename = () => {
+  return useMemo(() => {
+    // Check if we're on the custom domain
+    const hostname = window.location.hostname;
+    const isCustomDomain = hostname === 'rsskumru.com' || hostname === 'www.rsskumru.com';
+    
+    // Use appropriate base path
+    return isCustomDomain ? '/' : (import.meta.env.MODE === 'production' ? '/kumru-automotive-web' : '/');
+  }, []);
+};
+
 const App = () => {
   // Handle GitHub Pages SPA routing
   useHandleGitHubPagesRedirect();
+  
+  // Get appropriate basename for router
+  const basename = useBasename();
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -42,7 +57,7 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter basename={import.meta.env.MODE === 'production' ? '/kumru-automotive-web' : '/'}>
+          <BrowserRouter basename={basename}>
             <FloatingWhatsApp phoneNumber="+905494262949" />
             <Routes>
               <Route path="/" element={<Index />} />
