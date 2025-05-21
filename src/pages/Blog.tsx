@@ -95,7 +95,7 @@ const BlogPage: React.FC = () => {
                   date={post.date}
                   imageSrc={post.imageSrc.startsWith('/') ? `.${post.imageSrc}` : post.imageSrc}
                   author={post.author}
-                  href={post.href}
+                  href={post.href.startsWith('/') ? `#${post.href}` : post.href}
                 />
               ))}
             </div>
