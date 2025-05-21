@@ -1,8 +1,5 @@
-
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,23 +12,14 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header />
-      <div className="flex-grow flex items-center justify-center py-16">
-        <div className="text-center max-w-lg px-4">
-          <h1 className="text-5xl font-bold mb-4 text-kumru-navy">404</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Üzgünüz, aradığınız sayfa bulunamadı.
-          </p>
-          <Link 
-            to="/" 
-            className="inline-block bg-kumru-blue hover:bg-kumru-navy text-white px-6 py-3 rounded-md transition-colors"
-          >
-            Ana Sayfaya Dön
-          </Link>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">404</h1>
+        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
+        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+          Return to Home
+        </a>
       </div>
-      <Footer />
     </div>
   );
 };

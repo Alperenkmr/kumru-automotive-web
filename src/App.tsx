@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import { useEffect, useMemo } from "react";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -19,61 +18,28 @@ import "./index.css";
 
 const queryClient = new QueryClient();
 
-// Helper function to handle redirects from GitHub Pages 404.html
-const useHandleGitHubPagesRedirect = () => {
-  useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
-    const redirectPath = query.get('redirect');
-    
-    if (redirectPath) {
-      // Remove the query parameter and navigate to the intended path
-      window.history.replaceState(null, '', redirectPath);
-    }
-  }, []);
-};
-
-// Helper function to determine if we're on custom domain
-const useBasename = () => {
-  return useMemo(() => {
-    // Check if we're on the custom domain
-    const hostname = window.location.hostname;
-    const isCustomDomain = hostname === 'rsskumru.com' || hostname === 'www.rsskumru.com';
-    
-    // Use appropriate base path
-    return isCustomDomain ? '/' : (import.meta.env.MODE === 'production' ? '/kumru-automotive-web' : '/');
-  }, []);
-};
-
-const App = () => {
-  // Handle GitHub Pages SPA routing
-  useHandleGitHubPagesRedirect();
-  
-  // Get appropriate basename for router
-  const basename = useBasename();
-  
-  return (
-    <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter basename={basename}>
-            <FloatingWhatsApp phoneNumber="+905494262949" />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/:productId" element={<ProductDetail />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:blogId" element={<BlogPost />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
-    </QueryClientProvider>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <FloatingWhatsApp phoneNumber="+905494262949" />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:blogId" element={<BlogPost />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </LanguageProvider>
+  </QueryClientProvider>
+);
 
 export default App;
