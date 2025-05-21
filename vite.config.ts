@@ -30,6 +30,9 @@ export default defineConfig(({ mode }) => ({
         main: path.resolve(__dirname, 'index.html')
       },
       output: {
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`,
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-vendor': ['lucide-react', '@radix-ui/react-tooltip', '@radix-ui/react-toast']
