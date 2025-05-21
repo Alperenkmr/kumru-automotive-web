@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/kumru-automotive-web/",  // GitHub repo adınla aynı olmalı
+  base: "/kumru-automotive-web/",  // GitHub repo name
   server: {
     host: "::",
     port: 8080,
@@ -23,5 +23,10 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
   }
 }));
