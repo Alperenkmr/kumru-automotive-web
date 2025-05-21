@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'
@@ -29,19 +29,20 @@ jobs:
         
       - name: Set environment variable for custom domain
         run: echo "CUSTOM_DOMAIN=true" >> $GITHUB_ENV
-        if: ${{ github.ref == 'refs/heads/main' }}
         
       - name: Build
         run: npm run build
+        env:
+          CUSTOM_DOMAIN: 'true'
         
-      - name: Copy CNAME to build output
-        run: cp CNAME ./dist/ || echo "CNAME file not found"
+      - name: Create CNAME file
+        run: echo "rsskumru.com" > ./dist/CNAME
         
       - name: Ensure .nojekyll file exists in build output
         run: touch ./dist/.nojekyll
         
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./dist
 
@@ -54,4 +55,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2

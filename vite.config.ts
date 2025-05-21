@@ -6,16 +6,11 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Detect if we're running on custom domain or GitHub Pages
-  const isCustomDomain = process.env.CUSTOM_DOMAIN === 'true';
-  
-  // Use proper base path depending on deployment target
-  const basePath = mode === 'production' && !isCustomDomain 
-    ? '/kumru-automotive-web/' 
-    : '/';
+  // Always use root path with custom domain
+  const basePath = '/';
   
   return {
-    // Dynamic base path
+    // Use root path for base
     base: basePath,
     
     server: {
