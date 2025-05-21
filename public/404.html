@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Handle single page application routing on GitHub Pages
+    // Parse the URL path from the location
+    const path = window.location.pathname;
+    const repoName = '/kumru-automotive-web';
+    
+    // GitHub Pages URI format: /<repo-name>/<path>
+    // We need to handle this by redirecting to the root and letting the SPA router handle it
+    const redirectTo = window.location.origin + 
+                      repoName + 
+                      '/?redirect=' + 
+                      path.replace(repoName, '');
+                      
+    window.location.replace(redirectTo);
+  </script>
+</head>
+<body>
+  <p>If you are not redirected automatically, follow this <a href="/">link</a>.</p>
+</body>
+</html>
