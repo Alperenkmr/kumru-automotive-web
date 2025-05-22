@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -22,12 +23,18 @@ const productData = {
     title: "Hydraulic System",
     description: "Complete hydraulic systems designed for efficiency and reliability. Our systems are custom-engineered to meet specific requirements across various industries and applications.",
     images: [
-      "/lovable-uploads/b1a8a813-45c6-4ebe-a086-4399557903c0.png",
-      "/lovable-uploads/6e049ebd-b21b-495d-82cf-0fcdaf7e5050.png",
-      "/lovable-uploads/867624b9-6709-490a-83c1-03974aa13c11.png",
-      "/lovable-uploads/dfa28104-5721-4b0c-b195-649f86819784.png",
-      "/lovable-uploads/2b8159e8-7b12-4008-a3eb-eea36a55ac94.png",
-      "/lovable-uploads/d6229e80-8a15-4d6d-b8e3-fb9a52cfaaf5.png"
+      "/lovable-uploads/20e3f9c1-f1b5-45d0-a3eb-f3c40b2eea95.png",
+      "/lovable-uploads/ba4bad66-dc12-4913-8417-128a7d521807.png",
+      "/lovable-uploads/4fe4b29c-d544-4d04-948b-a342dd97ab87.png",
+      "/lovable-uploads/848aaff3-8c17-45b0-a753-dda6e9ad6f9f.png",
+      "/lovable-uploads/1a329d1e-f238-4240-a64c-0dc71da14504.png",
+      "/lovable-uploads/eaf52614-f0e2-467a-a4e5-baf0d72c6ed0.png",
+      "/lovable-uploads/ddb6fd8e-fa94-4f00-b03a-8bae9e1ee041.png",
+      "/lovable-uploads/bbdd835a-bf9c-497f-96a0-7cb5cabe4291.png",
+      "/lovable-uploads/759cdcce-84d1-4940-b362-e8a84d7e61da.png",
+      "/lovable-uploads/8eb91b9b-1568-49fa-8289-4b6f2de97de7.png",
+      "/lovable-uploads/9809f4b9-9b81-4609-a115-f7451ab9605f.png",
+      "/lovable-uploads/f9343852-4a9b-4286-ad47-ac8f092b2727.png"
     ]
   },
   "injection-lines": {
