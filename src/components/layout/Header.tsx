@@ -133,7 +133,7 @@ const Header = () => {
                 aria-label="Switch to English"
               >
                 <img 
-                  src="https://flagcdn.com/w20/us.png" 
+                  src="https://flagcdn.com/w20/gb.png" 
                   alt="English"
                   className="w-full h-full object-cover"
                 />
@@ -147,6 +147,7 @@ const Header = () => {
                   src="https://flagcdn.com/w20/tr.png" 
                   alt="Turkish" 
                   className="w-full h-full object-cover"
+                  style={{ filter: 'contrast(1.2) saturate(1.2)' }}
                 />
               </button>
             </div>
@@ -170,7 +171,7 @@ const Header = () => {
                 aria-label="Switch to English"
               >
                 <img 
-                  src="https://flagcdn.com/w20/us.png" 
+                  src="https://flagcdn.com/w20/gb.png" 
                   alt="English"
                   className="w-full h-full object-cover"
                 />
@@ -184,6 +185,7 @@ const Header = () => {
                   src="https://flagcdn.com/w20/tr.png" 
                   alt="Turkish" 
                   className="w-full h-full object-cover"
+                  style={{ filter: 'contrast(1.2) saturate(1.2)' }}
                 />
               </button>
             </div>

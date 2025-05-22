@@ -19,7 +19,7 @@ export const productsType = {
   'products.ptfeTeflonHose': 'PTFE TEFLON HORTUM',
   'products.transferPump': 'TRANSFER POMPASI',
   'products.turboPipeHose': 'TURBO BORU HORTUM',
-  'products.turboTimingPipes': 'TURBO TAĞLAMA BORU VE HORTUMLARI',
+  'products.turboTimingPipes': 'TURBO YAĞLAMA BORU VE HORTUMLARI',
   'products.connectors': 'BAĞLANTILAR',
   'products.fittings': 'BAĞLANTI ELEMANLARI',
   
