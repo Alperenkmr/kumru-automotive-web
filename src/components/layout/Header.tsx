@@ -69,10 +69,10 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo - Updated with new logo and adjusted size */}
-          <Link to="/" className="flex items-center">
+          {/* Logo - Absolute yolu kullanarak her sayfadan erişilebilir */}
+          <Link to="/" className="flex items-center z-10">
             <img 
-              src="./lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" 
+              src="/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" 
               alt="RSS Kumru Automotive Logo" 
               className="h-16 mr-2"
             />

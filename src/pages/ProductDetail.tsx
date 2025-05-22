@@ -1,6 +1,7 @@
 
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import SEO from "@/components/SEO";
 import ProductDetailsLayout from "@/components/product/ProductDetailsLayout";
 import ProductNotFound from "@/components/product/ProductNotFound";
@@ -184,6 +185,7 @@ const ProductDetail = () => {
         productId={productId}
         productTitle={translatedTitle}
         productDescription={translatedDescription}
+        showBackButton={true}
       >
         {renderGallery()}
       </ProductDetailsLayout>

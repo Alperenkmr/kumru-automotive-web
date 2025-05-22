@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -11,13 +12,15 @@ interface ProductDetailsLayoutProps {
   productTitle: string;
   productDescription: string;
   productId?: string;
+  showBackButton?: boolean;
 }
 
 const ProductDetailsLayout: React.FC<ProductDetailsLayoutProps> = ({
   children,
   productTitle,
   productDescription,
-  productId
+  productId,
+  showBackButton = false
 }) => {
   const { t } = useLanguage();
 
@@ -26,13 +29,19 @@ const ProductDetailsLayout: React.FC<ProductDetailsLayoutProps> = ({
       <Header />
       
       <main className="pt-24 pb-16">
-        <div className="container mx-auto">
-          {/* Breadcrumbs */}
-          <div className="mb-8">
-            <Link to="/products" className="text-kumru-blue hover:text-kumru-navy transition-colors">
-              {t('products.backToProducts')}
-            </Link>
-          </div>
+        <div className="container mx-auto px-4">
+          {/* Breadcrumbs ve Geri Butonu */}
+          {showBackButton && (
+            <div className="mb-8">
+              <Link 
+                to="/products" 
+                className="inline-flex items-center text-kumru-blue hover:text-kumru-navy transition-colors"
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                {t('products.backToProducts')}
+              </Link>
+            </div>
+          )}
           
           {/* Product Title and Description */}
           <div className="mb-8">
