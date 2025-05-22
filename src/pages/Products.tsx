@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useMemo } from "react";
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -124,35 +124,38 @@ const Products = () => {
     }
   ];
 
-  // Pre-process all translationKeys to get their string values
-  const getProductSchema = () => {
-    return {
+  // Create an array of translated products first, completely separate from any schema generation
+  const translatedProducts = useMemo(() => {
+    return productCategories.map(product => ({
+      ...product,
+      translatedTitle: t(product.translationKey) || product.title
+    }));
+  }, [productCategories, t]);
+  
+  // Use the pre-translated products to create the schema
+  const productsPageSchema = useMemo(() => {
+    const schema = {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "itemListElement": productCategories.map((product, index) => {
-        // Pre-fetch the translated title to avoid any Symbol issues
-        const translatedTitle = t(product.translationKey) || product.title;
-        
-        return {
-          "@type": "ListItem",
-          "position": index + 1,
+      "itemListElement": translatedProducts.map((product, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://rsskumru.com${product.href}`,
+        "item": {
+          "@type": "Product",
+          "name": product.translatedTitle,
+          "image": product.imageSrc.startsWith('/') 
+            ? `https://rsskumru.com${product.imageSrc}` 
+            : product.imageSrc,
           "url": `https://rsskumru.com${product.href}`,
-          "item": {
-            "@type": "Product",
-            "name": translatedTitle,
-            "image": product.imageSrc.startsWith('/') 
-              ? `https://rsskumru.com${product.imageSrc}` 
-              : product.imageSrc,
-            "url": `https://rsskumru.com${product.href}`,
-            "description": `RSS Kumru Automotive ${translatedTitle} - Yüksek kaliteli otomotiv çözümleri`
-          }
-        };
-      })
+          "description": `RSS Kumru Automotive ${product.translatedTitle} - Yüksek kaliteli otomotiv çözümleri`
+        }
+      }))
     };
-  };
-
-  // Generate the schema once
-  const productsPageSchema = getProductSchema();
+    
+    // Ensure the schema is directly serializable by creating a plain object
+    return JSON.parse(JSON.stringify(schema));
+  }, [translatedProducts]);
 
   return (
     <div className="min-h-screen bg-white">
