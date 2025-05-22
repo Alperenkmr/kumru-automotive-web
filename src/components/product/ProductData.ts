@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -230,7 +229,7 @@ const productData = {
   },
   "connectors": {
     title: "Connectors",
-    description: "RSS Kumru olarak farklı gruplar ve dallardan gelen çeşitli ürünler içeren özel bağlantı elemanları üretmekteyiz. Farklı endüstriyel uygulamalar için güvenilir ve dayanıklı bağlantı çözümleri sunuyoruz.",
+    description: "RSS Kumru olarak farklı gruplar ve dallardan gelen çeşitli ürünler içeren özel bağlantı elemanları üretmekteyiz. Farklı endüstriyel uygulamalar için güvenilir ve dayanıklı bağlantı çözümleri sunuyoruz. Standart parçalardan özel tasarımlara kadar geniş ürün yelpazemizle ihtiyaçlarınıza özel çözümler mümkündür.",
     images: [
       "/lovable-uploads/186b26a1-3a9b-46f8-b16d-db14890ba8a9.png",
       "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
@@ -239,6 +238,11 @@ const productData = {
       "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
       "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
       "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
+      "/lovable-uploads/c047c254-d37b-4aae-9e5d-a4a080c7a832.png",
+      "/lovable-uploads/bb54b55e-7381-484a-abc8-e47684f61b1f.png",
+      "/lovable-uploads/064966be-5844-45da-beeb-9232d5b36dbc.png",
+      "/lovable-uploads/59522ce7-066d-42fd-a1db-c3f8201e725d.png",
+      "/lovable-uploads/2c144c98-1cb5-4816-ab2a-a11b163e4366.png",
     ]
   },
 };

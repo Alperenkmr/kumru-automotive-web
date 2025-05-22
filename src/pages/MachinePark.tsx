@@ -12,8 +12,8 @@ const MachinePark = () => {
   const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
-  // Başlık çevirisi
-  const pageTitle = language === 'tr' ? 'Makine Parkımız' : 'Our Machine Park';
+  // Use translation keys for page title
+  const pageTitle = t('machinePark.title') || (language === 'tr' ? 'Makine Parkımız' : 'Our Machine Park');
   
   // Kategori çevirileri
   const categories = useMemo(() => {
