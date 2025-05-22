@@ -13,7 +13,7 @@ const ConnectorsGallery: React.FC<ConnectorsGalleryProps> = ({ images, productTi
       images={images}
       productTitle={productTitle}
       aspectRatio={1}
-      gridClassName="grid grid-cols-2 gap-4"
+      gridClassName="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
     />
   );
 };

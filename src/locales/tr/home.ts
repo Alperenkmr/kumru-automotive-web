@@ -1,7 +1,7 @@
 
-// Ana sayfa ile ilgili çeviriler
+// Ana sayfa çevirileri
 export const homeType = {
-  'hero.title': 'Akışkan Sistem Yönetimi ve Özel Mühendislik Hatları',
-  'hero.subtitle': 'Yeteneklerimizi ve endüstri uzmanlığımızı keşfedin',
-  'hero.cta': 'Çözümlerimizi Keşfedin',
+  'home.welcome': 'Hoş Geldiniz',
+  'home.description': 'RSS Kumru Automotive, otomotiv sektörü için yüksek kaliteli hidrolik hortumlar, boru sistemleri ve özel mühendislik hatları sunar.',
+  'home.learnMore': 'Daha Fazla Bilgi',
 };
