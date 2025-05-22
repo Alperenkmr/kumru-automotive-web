@@ -134,31 +134,31 @@ const Products = () => {
   
   // Create a plain object schema without any Symbol values
   const productsPageSchema = useMemo(() => {
-    // Create a plain object structure without any complex types
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": translatedProducts.map((product, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "url": `https://rsskumru.com${product.href}`,
-        "item": {
-          "@type": "Product",
-          "name": product.translatedTitle,
-          "image": product.imageSrc.startsWith('/') 
-            ? `https://rsskumru.com${product.imageSrc}` 
-            : product.imageSrc,
-          "url": `https://rsskumru.com${product.href}`,
-          "description": `RSS Kumru Automotive ${product.translatedTitle} - Yüksek kaliteli otomotiv çözümleri`
-        }
-      }))
-    };
-    
-    // Use JSON.parse(JSON.stringify()) to ensure we strip any non-serializable values
     try {
+      // Create a plain object structure without any complex types
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": translatedProducts.map((product, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "url": `https://rsskumru.com${product.href}`,
+          "item": {
+            "@type": "Product",
+            "name": product.translatedTitle,
+            "image": product.imageSrc.startsWith('/') 
+              ? `https://rsskumru.com${product.imageSrc}` 
+              : product.imageSrc,
+            "url": `https://rsskumru.com${product.href}`,
+            "description": `RSS Kumru Automotive ${product.translatedTitle} - Yüksek kaliteli otomotiv çözümleri`
+          }
+        }))
+      };
+      
+      // Use JSON.parse(JSON.stringify()) to ensure we strip any non-serializable values
       return JSON.parse(JSON.stringify(schema));
     } catch (e) {
-      console.error("Error serializing products schema:", e);
+      console.error("Error creating products schema:", e);
       return {
         "@context": "https://schema.org",
         "@type": "ItemList",
