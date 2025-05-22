@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -229,12 +230,15 @@ const productData = {
   },
   "connectors": {
     title: "Connectors",
-    description: "High-performance connectors designed for reliable fluid system connections across various applications. Our connectors ensure leak-free operation in demanding environments.",
+    description: "RSS Kumru olarak farklı gruplar ve dallardan gelen çeşitli ürünler içeren özel bağlantı elemanları üretmekteyiz. Farklı endüstriyel uygulamalar için güvenilir ve dayanıklı bağlantı çözümleri sunuyoruz.",
     images: [
       "/lovable-uploads/186b26a1-3a9b-46f8-b16d-db14890ba8a9.png",
       "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
       "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
       "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
+      "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
+      "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
+      "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
     ]
   },
 };
