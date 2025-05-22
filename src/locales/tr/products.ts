@@ -1,3 +1,4 @@
+
 // Ürünler sayfası çevirileri
 export const productsType = {
   'products.backToProducts': 'Ürünlere Geri Dön',
