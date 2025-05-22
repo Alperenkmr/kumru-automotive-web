@@ -49,6 +49,7 @@ const Header = () => {
       ]
     },
     { name: t('nav.products'), href: "/products" },
+    { name: t('nav.machinePark'), href: "/machine-park" },
     { name: t('nav.blog'), href: "/blog" },
     { name: t('nav.contact'), href: "/contact" },
   ];
