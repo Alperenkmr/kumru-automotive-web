@@ -124,7 +124,7 @@ const Products = () => {
     }
   ];
 
-  // Create an array of translated products first, completely separate from any schema generation
+  // Preprocess product data to get translated titles
   const translatedProducts = useMemo(() => {
     return productCategories.map(product => ({
       ...product,
@@ -132,9 +132,10 @@ const Products = () => {
     }));
   }, [productCategories, t]);
   
-  // Use the pre-translated products to create the schema
+  // Create a plain object schema without any Symbol values
   const productsPageSchema = useMemo(() => {
-    const schema = {
+    // Build the schema with pure JS objects and strings
+    const plainSchema = {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "itemListElement": translatedProducts.map((product, index) => ({
@@ -153,8 +154,7 @@ const Products = () => {
       }))
     };
     
-    // Ensure the schema is directly serializable by creating a plain object
-    return JSON.parse(JSON.stringify(schema));
+    return plainSchema;
   }, [translatedProducts]);
 
   return (

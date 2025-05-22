@@ -108,36 +108,19 @@ const SEO: React.FC<SEOProps> = ({
       "item": `${siteUrl}${item.url}`
     }))
   } : null;
+  
+  // Ensure structured data is properly serialized to avoid Symbol errors
+  const serializedStructuredData = structuredData ? 
+    JSON.stringify(structuredData) : null;
+  
+  const serializedBreadcrumbsSchema = breadcrumbsSchema ? 
+    JSON.stringify(breadcrumbsSchema) : null;
 
   // Sosyal medya meta etiketleri
   const twitterCardType = socialMedia?.twitter?.cardType || "summary_large_image";
   const twitterSite = socialMedia?.twitter?.site || "@RSSKumru";
   const twitterCreator = socialMedia?.twitter?.creator || "@RSSKumru";
   const facebookAppId = socialMedia?.facebook?.appId || "";
-  
-  // Stringify function that handles Symbol values properly
-  const safeStringify = (data: any): string => {
-    if (!data) return "";
-    
-    // Convert any potential Symbol values to strings
-    const replacer = (key: string, value: any) => {
-      if (typeof value === 'symbol') {
-        return value.toString();
-      }
-      return value;
-    };
-    
-    try {
-      return JSON.stringify(data, replacer);
-    } catch (e) {
-      console.error("Error stringifying data:", e);
-      return "{}";
-    }
-  };
-
-  // Create safe versions of structured data
-  const safeStructuredData = structuredData ? safeStringify(structuredData) : null;
-  const safeBreadcrumbsSchema = breadcrumbsSchema ? safeStringify(breadcrumbsSchema) : null;
 
   return (
     <Helmet>
@@ -220,16 +203,16 @@ const SEO: React.FC<SEOProps> = ({
       )}
       
       {/* Yapılandırılmış Veri (Schema.org) */}
-      {structuredData && safeStructuredData && (
+      {serializedStructuredData && (
         <script type="application/ld+json">
-          {safeStructuredData}
+          {serializedStructuredData}
         </script>
       )}
       
       {/* Ekmek kırıntıları için yapılandırılmış veri */}
-      {breadcrumbs && breadcrumbsSchema && safeBreadcrumbsSchema && (
+      {serializedBreadcrumbsSchema && (
         <script type="application/ld+json">
-          {safeBreadcrumbsSchema}
+          {serializedBreadcrumbsSchema}
         </script>
       )}
     </Helmet>
