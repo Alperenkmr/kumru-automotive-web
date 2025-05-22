@@ -1,14 +1,29 @@
+
+User-agent: *
+Allow: /
+
+# Ana arama motorları için özel izinler
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sosyal medya botları için izinler
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Sitemap bildirimi
+Sitemap: https://rsskumru.com/sitemap.xml
+
+# Gecikme parametresi (saniye cinsinden)
+Crawl-delay: 10

@@ -1,6 +1,7 @@
 
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -11,7 +12,43 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  // Ana sayfa için schema.org yapılandırılmış veri
+  const homePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "RSS Kumru Automotive - Hidrolik Sistemler ve Özel Mühendislik Hatları",
+    "description": "RSS Kumru Automotive, otomotiv sektörü için yüksek kaliteli hidrolik hortumlar, boru sistemleri ve özel mühendislik hatları sunar.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "RSS Kumru Automotive",
+      "url": "https://rsskumru.com"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hidrolik Hortumlar",
+          "url": "https://rsskumru.com/products/hydraulic-hose"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PTFE Teflon Hortumlar",
+          "url": "https://rsskumru.com/products/ptfe-teflon-hose"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Turbo Boru Hortumlar",
+          "url": "https://rsskumru.com/products/turbo-pipe-hose"
+        }
+      ]
+    }
+  };
 
   // Scroll efektini optimize ediyoruz - artık element gözükecek
   useEffect(() => {
@@ -40,6 +77,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={language === 'tr' ? "Akışkan Sistem Yönetimi ve Özel Mühendislik Hatları" : "Fluid System Management and Custom Engineering Lines"}
+        description={language === 'tr' 
+          ? "RSS Kumru Automotive, otomotiv sektörü için yüksek kaliteli hidrolik hortumlar, özel mühendislik hatları ve akışkan sistem yönetimi çözümleri sunar."
+          : "RSS Kumru Automotive offers high-quality hydraulic hoses, custom engineering lines, and fluid system management solutions for the automotive industry."
+        }
+        canonicalUrl="/"
+        structuredData={homePageSchema}
+      />
       <Header />
       <main className="pt-24"> {/* Padding top to account for fixed header */}
         <Hero />

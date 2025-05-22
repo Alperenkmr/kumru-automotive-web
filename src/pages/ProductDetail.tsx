@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useParams } from "react-router-dom";
+import SEO from "@/components/SEO";
 import ProductDetailsLayout from "@/components/product/ProductDetailsLayout";
 import ProductNotFound from "@/components/product/ProductNotFound";
 import productData from "@/components/product/ProductData";
@@ -45,6 +46,32 @@ const ProductDetail = () => {
   const translatedTitle = t(translationKey);
   const translatedDescription = t(descriptionKey);
 
+  // Ürün detay sayfası için schema.org yapılandırılmış veri
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": translatedTitle,
+    "description": translatedDescription,
+    "image": product.images.map(img => img.startsWith('/') 
+      ? `https://rsskumru.com${img}` 
+      : img),
+    "brand": {
+      "@type": "Brand",
+      "name": "RSS Kumru"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "RSS Kumru Automotive",
+      "logo": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "TRY",
+      "url": `https://rsskumru.com/products/${productId}`
+    }
+  };
+
   // Render the appropriate gallery based on product ID
   const renderGallery = () => {
     switch(productId) {
@@ -86,13 +113,23 @@ const ProductDetail = () => {
   };
 
   return (
-    <ProductDetailsLayout
-      productId={productId}
-      productTitle={translatedTitle}
-      productDescription={translatedDescription}
-    >
-      {renderGallery()}
-    </ProductDetailsLayout>
+    <>
+      <SEO 
+        title={translatedTitle}
+        description={translatedDescription}
+        canonicalUrl={`/products/${productId}`}
+        ogType="product"
+        ogImage={product.images[0].startsWith('/') ? product.images[0] : `/lovable-uploads/${product.images[0]}`}
+        structuredData={productSchema}
+      />
+      <ProductDetailsLayout
+        productId={productId}
+        productTitle={translatedTitle}
+        productDescription={translatedDescription}
+      >
+        {renderGallery()}
+      </ProductDetailsLayout>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CollapsibleSection from "@/components/sections/CollapsibleSection";
@@ -13,7 +14,7 @@ const About = () => {
   const whatWeDoRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
   const certificatesRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     // Check if there's a hash in the URL and scroll to the corresponding section
@@ -44,8 +45,40 @@ const About = () => {
     }
   }, [location]);
 
+  // Hakkımızda sayfası için schema.org yapılandırılmış veri
+  const aboutPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": language === 'tr' ? "Hakkımızda | RSS Kumru Automotive" : "About Us | RSS Kumru Automotive",
+    "description": language === 'tr' 
+      ? "RSS Kumru Automotive hakkında bilgi edinin. 30 yılı aşkın tecrübemiz, değerlerimiz ve kalite sertifikalarımız."
+      : "Learn about RSS Kumru Automotive. Our 30+ years of experience, values, and quality certifications.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RSS Kumru Automotive",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
+      },
+      "sameAs": [
+        "https://www.facebook.com/rsskumruautomotive",
+        "https://www.instagram.com/rsskumruautomotive",
+        "https://www.linkedin.com/company/rss-kumru"
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={language === 'tr' ? "Hakkımızda" : "About Us"} 
+        description={language === 'tr' 
+          ? "RSS Kumru Automotive hakkında bilgi edinin. 30 yılı aşkın tecrübemiz, değerlerimiz ve kalite sertifikalarımızla otomotiv sektörünün güvenilir tedarikçisiyiz."
+          : "Learn about RSS Kumru Automotive. With over 30 years of experience, we are a trusted supplier in the automotive sector with strong values and quality certifications."
+        }
+        canonicalUrl="/about"
+        structuredData={aboutPageSchema}
+      />
       <Header />
       <main className="pt-24">
         {/* Page Title */}
@@ -72,7 +105,7 @@ const About = () => {
                   <div className="flex items-center justify-center">
                     <img 
                       src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
-                      alt="RSS Kumru Robot Mascot" 
+                      alt="RSS Kumru Robot Maskotu" 
                       className="max-h-96 opacity-80"
                     />
                   </div>
@@ -105,7 +138,7 @@ const About = () => {
                   <div className="flex items-center justify-center">
                     <img 
                       src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
-                      alt="RSS Kumru Robot Mascot" 
+                      alt="RSS Kumru Robot Maskotu" 
                       className="max-h-96 opacity-80"
                     />
                   </div>
@@ -141,7 +174,7 @@ const About = () => {
                         <AspectRatio ratio={3/4} className="bg-muted">
                           <img 
                             src="/lovable-uploads/64ad2975-7b2b-414d-b67d-56dc0bcc8fab.png" 
-                            alt="RSS Kumru ISO 9001:2015 Certificate" 
+                            alt="RSS Kumru ISO 9001:2015 Sertifikası" 
                             className="object-contain h-full w-full"
                           />
                         </AspectRatio>

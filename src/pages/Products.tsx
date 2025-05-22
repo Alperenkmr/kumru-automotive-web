@@ -1,5 +1,6 @@
 
 import React from "react";
+import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ProductCard from "@/components/ui/ProductCard";
@@ -123,8 +124,46 @@ const Products = () => {
     }
   ];
 
+  // Ürünler sayfası için schema.org yapılandırılmış veri
+  const productsPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": productCategories.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": `https://rsskumru.com${product.href}`,
+      "item": {
+        "@type": "Product",
+        "name": t(product.translationKey as any) || product.title,
+        "image": product.imageSrc.startsWith('/') 
+          ? `https://rsskumru.com${product.imageSrc}` 
+          : product.imageSrc,
+        "url": `https://rsskumru.com${product.href}`,
+        "description": `RSS Kumru Automotive ${t(product.translationKey as any) || product.title} - Yüksek kaliteli otomotiv çözümleri`,
+        "brand": {
+          "@type": "Brand",
+          "name": "RSS Kumru"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "RSS Kumru Automotive"
+        }
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={language === 'tr' ? "Ürünler ve Çözümler" : "Products and Solutions"}
+        description={language === 'tr' 
+          ? "RSS Kumru Automotive'in sunduğu yüksek kaliteli hidrolik hortumlar, PTFE hatlar, enjeksiyon hatları ve diğer özel mühendislik çözümleri." 
+          : "Explore high-quality hydraulic hoses, PTFE lines, injection lines, and other specialized engineering solutions offered by RSS Kumru Automotive."
+        }
+        canonicalUrl="/products"
+        ogType="website"
+        structuredData={productsPageSchema}
+      />
       <Header />
       <main className="pt-24">
         <section className="section-padding">

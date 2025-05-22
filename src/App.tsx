@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { Helmet } from "react-helmet";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -22,6 +23,10 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <TooltipProvider>
+        <Helmet>
+          <html lang="tr" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Helmet>
         <Toaster />
         <Sonner />
         <BrowserRouter>
@@ -34,6 +39,20 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:blogId" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/sitemap.xml" element={
+              <iframe
+                title="Sitemap"
+                src="/sitemap.xml"
+                style={{ width: '100%', height: '100vh', border: 'none' }}
+              />
+            } />
+            <Route path="/robots.txt" element={
+              <iframe
+                title="Robots.txt"
+                src="/robots.txt"
+                style={{ width: '100%', height: '100vh', border: 'none' }}
+              />
+            } />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -16,7 +17,7 @@ import { useBlogService } from "@/services/BlogService";
 const BlogPost = () => {
   const { blogId } = useParams<{ blogId: string }>();
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { getBlogPost } = useBlogService();
   
   const { post, title, content } = getBlogPost(blogId);
@@ -31,8 +32,44 @@ const BlogPost = () => {
     );
   }
 
+  // Blog yazısı için schema.org yapılandırılmış veri
+  const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "image": post.banner,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "RSS Kumru Automotive",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
+      }
+    },
+    "description": post.excerpt || title,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://rsskumru.com/blog/${blogId}`
+    },
+    "articleBody": content.replace(/<[^>]*>/g, ' ').substring(0, 500) + "..."
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title={title}
+        description={post.excerpt || `${title} - RSS Kumru Automotive blog yazısı`}
+        canonicalUrl={`/blog/${blogId}`}
+        ogType="article"
+        ogImage={post.banner}
+        structuredData={blogPostSchema}
+      />
       <Header />
       <main className="pt-24">
         <BlogPostHeader 

@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
+import SEO from "@/components/SEO";
 import { Container } from "@/components/ui/container";
 import { Search } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
@@ -30,12 +30,62 @@ const BlogPage: React.FC = () => {
   
   // Get unique categories
   const categories = ["all", ...Array.from(new Set(allPosts.map(post => post.category)))];
+
+  // Blog sayfası için schema.org yapılandırılmış veri
+  const blogPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": language === 'tr' ? "RSS Kumru Automotive Blog" : "RSS Kumru Automotive Blog",
+    "description": language === 'tr' 
+      ? "Hidrolik sistemler, otomotiv parçaları ve endüstriyel çözümler hakkında en son haberler ve teknik makaleler"
+      : "Latest news and technical articles about hydraulic systems, automotive parts, and industrial solutions",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RSS Kumru Automotive",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
+      }
+    },
+    "blogPost": allPosts.slice(0, 5).map((post, index) => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://rsskumru.com${post.href}`
+      },
+      "image": post.imageSrc.startsWith('/') 
+        ? `https://rsskumru.com${post.imageSrc}` 
+        : post.imageSrc,
+      "author": {
+        "@type": "Person",
+        "name": post.author
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSS Kumru Automotive",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
+        }
+      }
+    }))
+  };
   
   return (
     <>
-      <Helmet>
-        <title>Blog | RSS Kumru</title>
-      </Helmet>
+      <SEO 
+        title={language === 'tr' ? "Blog ve Haberler" : "Blog and News"}
+        description={language === 'tr' 
+          ? "Hidrolik sistemler, otomotiv parçaları ve endüstriyel çözümler hakkında en son haberler, makaleler ve teknik bilgiler." 
+          : "Latest news, articles and technical information about hydraulic systems, automotive parts and industrial solutions."
+        }
+        canonicalUrl="/blog"
+        ogType="website"
+        structuredData={blogPageSchema}
+      />
       
       <Header />
       
@@ -55,8 +105,9 @@ const BlogPage: React.FC = () => {
                 placeholder={t('blog.searchPlaceholder' as TranslationKey)}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                aria-label={t('blog.searchPlaceholder' as TranslationKey)}
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" aria-hidden="true" />
             </div>
             
             {/* Category filter */}
@@ -65,6 +116,7 @@ const BlogPage: React.FC = () => {
                 className="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-kumru-navy"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
+                aria-label={t('blog.category' as TranslationKey)}
               >
                 {categories.map((category, index) => (
                   <option key={index} value={category}>
@@ -79,6 +131,7 @@ const BlogPage: React.FC = () => {
               <select
                 className="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-kumru-navy"
                 defaultValue="latest"
+                aria-label={t('blog.latestFirst' as TranslationKey)}
               >
                 <option value="latest">{t('blog.latestFirst' as TranslationKey)}</option>
               </select>
