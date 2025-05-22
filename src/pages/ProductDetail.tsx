@@ -150,7 +150,7 @@ const ProductDetail = () => {
   // Sosyal medya meta etiketleri için yapılandırma
   const socialMedia = {
     twitter: {
-      cardType: "summary_large_image",
+      cardType: "summary_large_image" as const,
       site: "@RSSKumru",
       creator: "@RSSKumru"
     },

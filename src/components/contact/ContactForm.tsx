@@ -11,7 +11,11 @@ const SERVICE_ID = 'service_f9nhn0a'; // EmailJS servis ID
 const TEMPLATE_ID = 'template_tgb6f6f'; // EmailJS template ID
 const USER_ID = '1vj6bAt5G-O65rVgj'; // EmailJS public key (User ID)
 
-const ContactForm = () => {
+interface ContactFormProps {
+  onSubmitSuccess?: () => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -53,6 +57,11 @@ const ContactForm = () => {
       // Başarılı mesaj göster
       setIsSubmitted(true);
       toast.success("Mesajınız başarıyla gönderildi!");
+      
+      // Call onSubmitSuccess callback if provided
+      if (onSubmitSuccess) {
+        onSubmitSuccess();
+      }
       
       // Form verilerini sıfırla
       setFormData({
