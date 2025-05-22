@@ -17,6 +17,9 @@ const Footer = () => {
     { name: "Cookie Policy", href: "/cookies" },
   ];
 
+  // Get current year for copyright
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer>
       {/* Navy bar above footer */}
@@ -113,10 +116,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Copyright */}
+          {/* Copyright - Updated to use dynamic current year */}
           <div className="border-t border-gray-700 pt-6 mt-6">
             <p className="text-sm text-gray-400 text-center">
-              © {new Date().getFullYear()} RSS Kumru Automotive. All rights reserved.
+              © {currentYear} RSS Kumru Automotive. All rights reserved.
             </p>
           </div>
         </div>

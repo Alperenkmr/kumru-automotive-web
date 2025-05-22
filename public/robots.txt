@@ -1,4 +1,6 @@
 
+# RSS Kumru Automotive - robots.txt
+
 User-agent: *
 Allow: /
 
@@ -22,8 +24,16 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-# Sitemap bildirimi
+# Site haritası bildirimi
 Sitemap: https://rsskumru.com/sitemap.xml
 
 # Gecikme parametresi (saniye cinsinden)
 Crawl-delay: 10
+
+# Belirli dizin ve dosya türleri için kısıtlamalar
+User-agent: *
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /*.pdf$
+Disallow: /*.doc$

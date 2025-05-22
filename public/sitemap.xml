@@ -1,70 +1,122 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- Ana Sayfa -->
   <url>
     <loc>https://rsskumru.com/</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png</image:loc>
+      <image:title>RSS Kumru Automotive Logo</image:title>
+      <image:caption>RSS Kumru Automotive - Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Hakkımızda Sayfası -->
   <url>
     <loc>https://rsskumru.com/about</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Ürünler Sayfası -->
   <url>
     <loc>https://rsskumru.com/products</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Blog Sayfası -->
   <url>
     <loc>https://rsskumru.com/blog</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- İletişim Sayfası -->
   <url>
     <loc>https://rsskumru.com/contact</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  
+  <!-- Ürün Detay Sayfaları -->
   <url>
     <loc>https://rsskumru.com/products/cabin-lifting-hose</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png</image:loc>
+      <image:title>Kabin Kaldırma Hortumu</image:title>
+    </image:image>
   </url>
+  
   <url>
     <loc>https://rsskumru.com/products/hydraulic-hose</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png</image:loc>
+      <image:title>Hidrolik Hortum</image:title>
+    </image:image>
   </url>
+  
   <url>
     <loc>https://rsskumru.com/products/ptfe-teflon-hose</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png</image:loc>
+      <image:title>PTFE Teflon Hortum</image:title>
+    </image:image>
   </url>
+  
   <url>
     <loc>https://rsskumru.com/products/turbo-pipe-hose</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png</image:loc>
+      <image:title>Turbo Boru Hortum</image:title>
+    </image:image>
   </url>
+  
   <url>
     <loc>https://rsskumru.com/products/injection-lines</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png</image:loc>
+      <image:title>Enjeksiyon Hatları</image:title>
+    </image:image>
   </url>
+  
   <url>
     <loc>https://rsskumru.com/products/vessel-lines</loc>
     <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/74038727-0d72-411d-addb-cbc9d2a2f175.png</image:loc>
+      <image:title>Depo Hatları</image:title>
+    </image:image>
   </url>
 </urlset>

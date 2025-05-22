@@ -39,20 +39,25 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:blogId" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/sitemap.xml" element={
-              <iframe
-                title="Sitemap"
-                src="/sitemap.xml"
-                style={{ width: '100%', height: '100vh', border: 'none' }}
-              />
-            } />
-            <Route path="/robots.txt" element={
-              <iframe
-                title="Robots.txt"
-                src="/robots.txt"
-                style={{ width: '100%', height: '100vh', border: 'none' }}
-              />
-            } />
+            {/* For better handling of robots.txt and sitemap.xml */}
+            <Route path="/robots.txt" 
+              element={
+                <iframe
+                  title="Robots.txt"
+                  src="/robots.txt"
+                  style={{ width: '100%', height: '100vh', border: 'none' }}
+                />
+              } 
+            />
+            <Route path="/sitemap.xml" 
+              element={
+                <iframe
+                  title="Sitemap"
+                  src="/sitemap.xml"
+                  style={{ width: '100%', height: '100vh', border: 'none' }}
+                />
+              } 
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
