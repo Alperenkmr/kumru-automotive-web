@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -227,16 +228,18 @@ const productData = {
       "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
     ]
   },
-  "connectors": {
-    title: "Connectors",
-    description: "High-performance connectors designed for reliable fluid system connections across various applications. Our connectors ensure leak-free operation in demanding environments.",
+  "special-items": {
+    title: "Special Items",
+    description: "Custom-engineered products designed for unique applications. Our special items feature tailored solutions to meet specific industrial and automotive requirements.",
     images: [
-      "/lovable-uploads/186b26a1-3a9b-46f8-b16d-db14890ba8a9.png",
-      "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
-      "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
-      "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
+      "/lovable-uploads/a14e2a65-67c6-4864-b98a-bc86af414aa4.png",
+      "/lovable-uploads/f2a47b83-609c-4cb5-af5f-1388dbe08843.png",
+      "/lovable-uploads/e95420ec-f4c0-4c05-9f5a-a5d5d823a16d.png",
+      "/lovable-uploads/59a0ac86-6696-4447-8a45-9ce598715cae.png",
+      "/lovable-uploads/a1804d23-ca70-4350-abca-6b3bbceaae0e.png",
+      "/lovable-uploads/05de3ed0-8ac9-44c8-83fe-70985c4e6c6a.png",
     ]
-  },
+  }
 };
 
 export default productData;

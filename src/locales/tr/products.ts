@@ -20,7 +20,6 @@ export const productsType = {
   'products.transferPump': 'TRANSFER POMPASI',
   'products.turboPipeHose': 'TURBO BORU HORTUM',
   'products.turboTimingPipes': 'TURBO YAĞLAMA BORU VE HORTUMLARI',
-  'products.connectors': 'BAĞLANTILAR',
   'products.fittings': 'BAĞLANTI ELEMANLARI',
   
   // Product descriptions
@@ -40,7 +39,6 @@ export const productsType = {
   'products.valveTiming.desc': 'Motor performansını artırmak için valflerin açılış-kapanış zamanlamasını ayarlayan sistem elemanlarıdır.',
   'products.valveNozzle.desc': 'Enjektör sistemlerinde yakıt püskürtmesini sağlayan hassas uçlu valf nozullarıdır.',
   'products.fittings.desc': 'Hidrolik sistemler için güvenilir, sızdırmaz bağlantılar sağlayan hassas mühendislik ürünlerimiz çelik, paslanmaz çelik ve pirinç dahil olmak üzere çeşitli malzemelerden üretilmektedir.',
-  'products.connectors.desc': 'RSS Kumru olarak farklı gruplar ve dallardan gelen çeşitli ürünler içeren özel bağlantı elemanları üretmekteyiz. Farklı endüstriyel uygulamalar için güvenilir ve dayanıklı bağlantı çözümleri sunuyoruz. Standart parçalardan özel tasarımlara kadar geniş ürün yelpazemizle ihtiyaçlarınıza özel çözümler mümkündür.',
   
   // Gallery sections
   'products.gallery.title': 'Ürün Galerisi',

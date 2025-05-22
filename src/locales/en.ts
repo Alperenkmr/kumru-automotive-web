@@ -111,7 +111,6 @@ export const enTranslations: TranslationsType = {
   'products.valveRecord': 'VALVE RECORD',
   'products.valveTiming': 'VALVE TIMING',
   'products.vesselLines': 'VESSEL LINES',
-  'products.connectors': 'CONNECTORS',
   'products.fittings': 'FITTINGS',
   'products.specialItems': 'SPECIAL ITEMS',
   
@@ -131,7 +130,6 @@ export const enTranslations: TranslationsType = {
   'products.valveTiming.desc': 'Precision valve timing components for optimal engine performance. Engineered for accuracy and durability to ensure consistent engine operation.',
   'products.vesselLines.desc': 'Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.',
   'products.fittings.desc': 'Our precision-engineered fittings provide reliable, leak-free connections for hydraulic systems. Available in various materials including steel, stainless steel, and brass to meet your specific requirements.',
-  'products.connectors.desc': 'High-performance connectors designed for reliable fluid system connections across various applications. Our connectors ensure leak-free operation in demanding environments.',
   'products.specialItems.desc': 'Custom solutions designed for your unique needs. Specially crafted components and systems for distinctive applications.',
   
   // Gallery sections
