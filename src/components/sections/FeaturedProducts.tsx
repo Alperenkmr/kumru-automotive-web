@@ -1,4 +1,3 @@
-
 import React from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import { cn } from "@/lib/utils";

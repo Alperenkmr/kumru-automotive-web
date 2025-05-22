@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -42,7 +41,7 @@ const Products = () => {
     {
       id: 5,
       title: "LEAK OF FUEL PIPE",
-      imageSrc: "/lovable-uploads/01712518-8600-401d-ac51-f4ba12a53980.png",
+      imageSrc: "/lovable-uploads/e2dba826-cd9d-4e38-b90e-f7bd5996fb58.png",
       href: "/products/leak-of-fuel-pipe",
       translationKey: "products.leakOfFuelPipe"
     },

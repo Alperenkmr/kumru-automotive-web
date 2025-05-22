@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -49,12 +48,16 @@ const productData = {
     title: "Leak of Fuel Pipe",
     description: "Specialized fuel pipe solutions designed to prevent leaks and ensure safe fuel transport. Engineered with premium materials for durability and chemical resistance.",
     images: [
-      "/lovable-uploads/01712518-8600-401d-ac51-f4ba12a53980.png",
-      "/lovable-uploads/04acc924-07a4-4cc4-851f-19cda4219f9c.png",
-      "/lovable-uploads/7534c77e-f1b8-4257-8769-fb95f8923cce.png",
-      "/lovable-uploads/01dedfa7-7055-4fe2-97a4-47818831e1a2.png",
-      "/lovable-uploads/aa75e716-e185-468f-a2bc-23f5233a6027.png",
-      "/lovable-uploads/28f917cf-44b4-4ec5-ad86-5c27137d13a1.png"
+      "/lovable-uploads/e2dba826-cd9d-4e38-b90e-f7bd5996fb58.png",
+      "/lovable-uploads/d09b7d82-93bf-43c0-ba33-6c4323cae11a.png",
+      "/lovable-uploads/bed6a5a8-9bf7-42da-9914-8cbd471aabea.png",
+      "/lovable-uploads/b6b3673b-0268-45b4-8889-bae3db5dc91f.png",
+      "/lovable-uploads/688e865f-98c3-44d2-ad2a-f015e0685c7a.png",
+      "/lovable-uploads/bf7d0e74-19af-4bba-9136-e3f791c6154a.png",
+      "/lovable-uploads/e0a71716-0545-431e-9dd0-65a0c34188e1.png",
+      "/lovable-uploads/7645a9ee-8ca6-4dd9-8631-140d31fbfed1.png",
+      "/lovable-uploads/043b54a4-0691-44f8-882e-7653dd8f9f42.png",
+      "/lovable-uploads/3a22dfff-d954-48f9-9da5-2f86a239072c.png"
     ]
   },
   "ptfe-teflon-hose": {
