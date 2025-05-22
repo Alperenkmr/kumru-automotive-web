@@ -53,7 +53,7 @@ interface SEOProps {
   publishedTime?: string;
   modifiedTime?: string;
   category?: string;
-  structuredData?: Record<string, any> | Record<string, any>[];
+  structuredData?: Record<string, any>;
   breadcrumbs?: Array<{name: string, url: string}>;
   noindex?: boolean;
   nofollow?: boolean;
@@ -109,28 +109,35 @@ const SEO: React.FC<SEOProps> = ({
     }))
   } : null;
 
-  // Ekmek kırıntısı yolunu oluşturan yardımcı işlev
-  const generateBreadcrumbsJSON = () => {
-    if (!breadcrumbs) return null;
-    return JSON.stringify(breadcrumbsSchema);
-  };
-
   // Sosyal medya meta etiketleri
   const twitterCardType = socialMedia?.twitter?.cardType || "summary_large_image";
   const twitterSite = socialMedia?.twitter?.site || "@RSSKumru";
   const twitterCreator = socialMedia?.twitter?.creator || "@RSSKumru";
   const facebookAppId = socialMedia?.facebook?.appId || "";
-
-  // Yapılandırılmış veriyi güvenli şekilde string'e dönüştürme
-  const safeStringifyStructuredData = (data: any) => {
-    if (!data) return null;
+  
+  // Stringify function that handles Symbol values properly
+  const safeStringify = (data: any): string => {
+    if (!data) return "";
+    
+    // Convert any potential Symbol values to strings
+    const replacer = (key: string, value: any) => {
+      if (typeof value === 'symbol') {
+        return value.toString();
+      }
+      return value;
+    };
+    
     try {
-      return JSON.stringify(data);
+      return JSON.stringify(data, replacer);
     } catch (e) {
-      console.error("Error stringifying structured data:", e);
-      return null;
+      console.error("Error stringifying data:", e);
+      return "{}";
     }
   };
+
+  // Create safe versions of structured data
+  const safeStructuredData = structuredData ? safeStringify(structuredData) : null;
+  const safeBreadcrumbsSchema = breadcrumbsSchema ? safeStringify(breadcrumbsSchema) : null;
 
   return (
     <Helmet>
@@ -213,16 +220,16 @@ const SEO: React.FC<SEOProps> = ({
       )}
       
       {/* Yapılandırılmış Veri (Schema.org) */}
-      {structuredData && safeStringifyStructuredData(structuredData) && (
+      {structuredData && safeStructuredData && (
         <script type="application/ld+json">
-          {safeStringifyStructuredData(structuredData)}
+          {safeStructuredData}
         </script>
       )}
       
       {/* Ekmek kırıntıları için yapılandırılmış veri */}
-      {breadcrumbs && breadcrumbsSchema && (
+      {breadcrumbs && breadcrumbsSchema && safeBreadcrumbsSchema && (
         <script type="application/ld+json">
-          {safeStringifyStructuredData(breadcrumbsSchema)}
+          {safeBreadcrumbsSchema}
         </script>
       )}
     </Helmet>

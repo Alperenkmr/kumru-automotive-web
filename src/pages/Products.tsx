@@ -124,14 +124,14 @@ const Products = () => {
     }
   ];
 
-  // Create a plain serializable object for structured data
-  const generateSerializableSchema = () => {
+  // Pre-process all translationKeys to get their string values
+  const getProductSchema = () => {
     return {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "itemListElement": productCategories.map((product, index) => {
-        // Get translated title directly first
-        const translatedTitle = t(product.translationKey as any) || product.title;
+        // Pre-fetch the translated title to avoid any Symbol issues
+        const translatedTitle = t(product.translationKey) || product.title;
         
         return {
           "@type": "ListItem",
@@ -151,8 +151,8 @@ const Products = () => {
     };
   };
 
-  // Generate the schema when the component renders
-  const productsPageSchema = generateSerializableSchema();
+  // Generate the schema once
+  const productsPageSchema = getProductSchema();
 
   return (
     <div className="min-h-screen bg-white">
