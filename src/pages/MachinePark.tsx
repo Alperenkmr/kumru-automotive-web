@@ -24,12 +24,6 @@ interface MachineItem {
 
 const machineItems: MachineItem[] = [
   {
-    id: 1,
-    image: "/lovable-uploads/4fae47ef-d433-43ca-afa2-478a16cd1e39.png",
-    titleTr: "CNC İşleme Merkezi",
-    titleEn: "CNC Machining Center"
-  },
-  {
     id: 3,
     image: "/lovable-uploads/b7ed632c-3b91-4c1f-a1aa-15d2256afe1f.png",
     titleTr: "Endüstriyel Robot Kolu",
