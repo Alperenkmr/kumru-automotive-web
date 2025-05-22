@@ -6,7 +6,7 @@ import { blogPostsType } from './blog-posts';
 import { blogPosts2Type } from './blog-posts2';
 import { aboutType } from './about';
 import { servicesType } from './services';
-import { navType } from './navigation';
+import { navigationType } from './navigation'; // Fixed import name from navType to navigationType
 import { whyChooseUsType } from './whyChooseUs';
 import { contactType } from './contact';
 import { ctaType } from './cta';
@@ -22,7 +22,7 @@ export const trTranslations = {
   ...blogPosts2Type,
   ...aboutType,
   ...servicesType,
-  ...navType,
+  ...navigationType, // Fixed reference to match the import name
   ...whyChooseUsType,
   ...contactType,
   ...ctaType,
