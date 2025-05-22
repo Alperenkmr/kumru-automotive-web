@@ -1,6 +1,4 @@
-
 import React, { useMemo } from "react";
-import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ProductCard from "@/components/ui/ProductCard";
@@ -132,53 +130,8 @@ const Products = () => {
     }));
   }, [productCategories, t]);
   
-  // Create a plain object schema without any Symbol values
-  const productsPageSchema = useMemo(() => {
-    try {
-      // Create a plain object structure without any complex types
-      const schema = {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": translatedProducts.map((product, index) => ({
-          "@type": "ListItem",
-          "position": index + 1,
-          "url": `https://rsskumru.com${product.href}`,
-          "item": {
-            "@type": "Product",
-            "name": product.translatedTitle,
-            "image": product.imageSrc.startsWith('/') 
-              ? `https://rsskumru.com${product.imageSrc}` 
-              : product.imageSrc,
-            "url": `https://rsskumru.com${product.href}`,
-            "description": `RSS Kumru Automotive ${product.translatedTitle} - Yüksek kaliteli otomotiv çözümleri`
-          }
-        }))
-      };
-      
-      // Use JSON.parse(JSON.stringify()) to ensure we strip any non-serializable values
-      return JSON.parse(JSON.stringify(schema));
-    } catch (e) {
-      console.error("Error creating products schema:", e);
-      return {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": []
-      };
-    }
-  }, [translatedProducts]);
-
   return (
     <div className="min-h-screen bg-white">
-      <SEO 
-        title={language === 'tr' ? "Ürünler ve Çözümler" : "Products and Solutions"}
-        description={language === 'tr' 
-          ? "RSS Kumru Automotive'in sunduğu yüksek kaliteli hidrolik hortumlar, PTFE hatlar, enjeksiyon hatları ve diğer özel mühendislik çözümleri." 
-          : "Explore high-quality hydraulic hoses, PTFE lines, injection lines, and other specialized engineering solutions offered by RSS Kumru Automotive."
-        }
-        canonicalUrl="/products"
-        ogType="website"
-        structuredData={productsPageSchema}
-      />
       <Header />
       <main className="pt-24">
         <section className="section-padding">
