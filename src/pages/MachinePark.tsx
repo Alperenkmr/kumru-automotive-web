@@ -90,10 +90,13 @@ const MachinePark: React.FC = () => {
     return undefined;
   }, [emblaApi]);
 
+  // Get the correct title based on language
+  const pageTitle = language === 'tr' ? "Makine Parkımız" : "Our Machine Park";
+
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title={language === 'tr' ? "Makine Parkımız" : "Our Machine Park"} 
+        title={pageTitle}
         description={language === 'tr' ? "RSS Kumru Automotive modern makine parkı ile yüksek kaliteli üretim yapmaktadır." : "RSS Kumru Automotive performs high-quality production with its modern machine park."} 
         canonicalUrl="/machine-park" 
       />
@@ -101,8 +104,8 @@ const MachinePark: React.FC = () => {
       <main className="pt-24 pb-16">
         <section className="section-padding">
           <Container>
-            <h1 className="section-title text-kumru-navy mb-16">
-              {language === 'tr' ? 'Makine Parkımız' : 'Our Machine Park'}
+            <h1 className="section-title text-kumru-navy mb-16" id="makine-parkimiz">
+              {pageTitle}
             </h1>
             
             <div className="relative mx-auto max-w-4xl">

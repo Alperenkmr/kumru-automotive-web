@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -94,9 +93,20 @@ const productData = {
     description: "High-quality steering hoses for automotive and heavy equipment applications. Designed for precise control and long service life under variable pressure conditions.",
     images: [
       "/lovable-uploads/c047c254-d37b-4aae-9e5d-a4a080c7a832.png",
-      "/lovable-uploads/b4a8c7e3-43bb-445d-b0ce-f07e771d6df6.png",
-      "/lovable-uploads/42090df0-8329-4747-8cbe-429e3cfdfbc8.png",
-      "/lovable-uploads/82da63e0-1abb-41e1-abc0-34acabebc1b0.png",
+      "/lovable-uploads/bb54b55e-7381-484a-abc8-e47684f61b1f.png",
+      "/lovable-uploads/064966be-5844-45da-beeb-9232d5b36dbc.png",
+      "/lovable-uploads/59522ce7-066d-42fd-a1db-c3f8201e725d.png",
+      "/lovable-uploads/2c144c98-1cb5-4816-ab2a-a11b163e4366.png",
+      "/lovable-uploads/c4c9aa29-0aa0-4650-8544-a2f5cc9bd9ea.png",
+      "/lovable-uploads/02ef6288-ce3d-4cfd-9a57-3db5d72934f4.png",
+      "/lovable-uploads/6087f57e-9995-4e99-b908-4ec664d50fb7.png",
+      "/lovable-uploads/e3d491db-8284-451e-afbf-94e825aecaa8.png",
+      "/lovable-uploads/36ca7eb5-f4e4-469f-bb5c-11a60872e0f4.png",
+      "/lovable-uploads/84db902c-75b9-4ff0-97cf-b42fdad6231f.png",
+      "/lovable-uploads/8dae5cb8-4f86-4aa6-b1c1-35221b009706.png",
+      "/lovable-uploads/ec2f9be3-01fe-46ff-b5fc-bc4654a7ed28.png",
+      "/lovable-uploads/fff4a1f2-8743-4202-8298-64eddd7fc5bc.png",
+      "/lovable-uploads/0b92d2ad-a05c-423f-877f-5a9f80ee9192.png",
     ]
   },
   "transfer-pump": {
