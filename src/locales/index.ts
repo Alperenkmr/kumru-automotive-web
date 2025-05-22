@@ -1,5 +1,5 @@
 
-import { enTranslations } from "./en";
+import { enTranslations } from "./en/index";
 import { trTranslations } from "./tr";
 import { Language, TranslationsType } from "./types";
 
