@@ -14,9 +14,14 @@ const productData = {
     title: "Hydraulic Hose",
     description: "Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.",
     images: [
-      "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
-      "/lovable-uploads/5c3fa32b-aab5-446d-a9ba-539f21f39547.png",
-      "/lovable-uploads/3f867c1f-5292-4c0b-86d2-8c9a7349577b.png"
+      "/lovable-uploads/cd49fab9-3563-4413-b336-8a691b158665.png",
+      "/lovable-uploads/6b952a6f-42c8-41a1-8ad6-7965c133af02.png",
+      "/lovable-uploads/b2dbd081-fe08-4ef7-899b-09f7661ca7de.png",
+      "/lovable-uploads/00a08b91-05cd-413b-b391-81669303e823.png",
+      "/lovable-uploads/adf1fc7c-7a8e-4cf5-9c05-feb3413bdf83.png",
+      "/lovable-uploads/b8ee655f-bbba-47c6-8cf2-5b290b832baa.png",
+      "/lovable-uploads/29894810-3f66-4c65-a33c-3a511c74954e.png",
+      "/lovable-uploads/809ca589-7f4e-4165-a1ec-19098cf7b556.png"
     ]
   },
   "hydraulic-system": {

@@ -21,7 +21,7 @@ const Products = () => {
     {
       id: 2,
       title: "HYDRAULIC HOSE",
-      imageSrc: "/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png",
+      imageSrc: "/lovable-uploads/cd49fab9-3563-4413-b336-8a691b158665.png",
       href: "/products/hydraulic-hose",
       translationKey: "products.hydraulicHose"
     },
