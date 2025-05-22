@@ -24,10 +24,24 @@
     <meta property="twitter:description" content="RSS Kumru Automotive - Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi. Kaliteli hizmet ve ürünlerimizle tanışın." />
     <meta property="twitter:image" content="./lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" />
     
-    <title>RSS Kumru Automotive | Yüksek Kaliteli Hidrolik Sistemler</title>
+    <!-- Mobil Cihazlar için Meta Etiketleri -->
+    <meta name="theme-color" content="#0A1F44" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
     
-    <!-- Favicon -->
+    <!-- Favicon ve Apple Touch Icon -->
     <link rel="icon" href="./lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" />
+    <link rel="apple-touch-icon" href="./lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Önden Bağlantı Optimizasyonları -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" />
+    
+    <title>RSS Kumru Automotive | Yüksek Kaliteli Hidrolik Sistemler</title>
     
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
@@ -38,15 +52,41 @@
         "url": "https://rsskumru.com",
         "logo": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
         "description": "Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+905494262949",
-          "contactType": "customer service"
+        "foundingDate": "2010",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Alperen Kumru"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3",
+          "addressLocality": "Gebze",
+          "addressRegion": "Kocaeli",
+          "postalCode": "41400",
+          "addressCountry": "TR"
         },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+902627248824",
+            "contactType": "customer service",
+            "areaServed": ["TR", "EU", "US"],
+            "availableLanguage": ["Turkish", "English"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+905494262949",
+            "contactType": "sales",
+            "areaServed": ["TR", "EU"],
+            "availableLanguage": ["Turkish", "English"]
+          }
+        ],
         "sameAs": [
-          "https://www.facebook.com/rsskumruautomotive",
-          "https://www.instagram.com/rsskumruautomotive",
-          "https://www.linkedin.com/company/rss-kumru"
+          "https://www.linkedin.com/in/alperen-kumru-519596307/",
+          "https://www.instagram.com/rss_kumru_automotive/",
+          "https://www.facebook.com/rsskumru"
         ]
       }
     </script>
@@ -61,7 +101,8 @@
           "@type": "SearchAction",
           "target": "https://rsskumru.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
-        }
+        },
+        "inLanguage": ["tr-TR", "en-US"]
       }
     </script>
   </head>

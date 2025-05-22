@@ -1,5 +1,6 @@
 
 # RSS Kumru Automotive - robots.txt
+# Son güncelleme: 2025-05-22
 
 User-agent: *
 Allow: /
@@ -7,15 +8,19 @@ Allow: /
 # Ana arama motorları için özel izinler
 User-agent: Googlebot
 Allow: /
+Allow: /sitemap.xml
 
 User-agent: Bingbot
 Allow: /
+Allow: /sitemap.xml
 
 User-agent: Yandex
 Allow: /
+Allow: /sitemap.xml
 
 User-agent: Baiduspider
 Allow: /
+Allow: /sitemap.xml
 
 # Sosyal medya botları için izinler
 User-agent: Twitterbot
@@ -23,6 +28,10 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+# Resim ve içerik indexleme
+User-agent: Googlebot-Image
+Allow: /lovable-uploads/
 
 # Site haritası bildirimi
 Sitemap: https://rsskumru.com/sitemap.xml
@@ -37,3 +46,14 @@ Disallow: /cgi-bin/
 Disallow: /wp-admin/
 Disallow: /*.pdf$
 Disallow: /*.doc$
+Disallow: /temp/
+Disallow: /private/
+Disallow: /*?*s=
+Disallow: /*?*search=
+Disallow: /*?*query=
+Disallow: /*?*print=
+Disallow: /*?*preview=
+
+# RSS Kumru Automotive - 2025
+# Adres: Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3, Gebze / KOCAELİ
+# Tel: +90(262) 724 88 24-28

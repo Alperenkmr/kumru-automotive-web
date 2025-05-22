@@ -54,7 +54,7 @@ const ProductDetail = () => {
     "description": translatedDescription,
     "image": product.images.map(img => img.startsWith('/') 
       ? `https://rsskumru.com${img}` 
-      : img),
+      : `https://rsskumru.com${img.startsWith('/') ? '' : '/'}${img}`),
     "brand": {
       "@type": "Brand",
       "name": "RSS Kumru"
@@ -62,14 +62,49 @@ const ProductDetail = () => {
     "manufacturer": {
       "@type": "Organization",
       "name": "RSS Kumru Automotive",
-      "logo": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
+      "logo": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3",
+        "addressLocality": "Gebze",
+        "addressRegion": "Kocaeli",
+        "postalCode": "41400",
+        "addressCountry": "TR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+902627248824",
+        "contactType": "customer service",
+        "availableLanguage": ["Turkish", "English"]
+      }
     },
     "offers": {
       "@type": "Offer",
       "availability": "https://schema.org/InStock",
       "priceCurrency": "TRY",
-      "url": `https://rsskumru.com/products/${productId}`
+      "url": `https://rsskumru.com/products/${productId}`,
+      "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
     }
+  };
+
+  // Ekmek kırıntısı yapısı oluştur
+  const breadcrumbs = [
+    { name: language === 'tr' ? 'Ana Sayfa' : 'Home', url: '/' },
+    { name: language === 'tr' ? 'Ürünler' : 'Products', url: '/products' },
+    { name: translatedTitle, url: `/products/${productId}` }
+  ];
+
+  // Alternatif dil URL'leri
+  const alternateLanguages = [
+    { locale: 'tr-TR', url: `/products/${productId}` },
+    { locale: 'en-US', url: `/en/products/${productId}` }
+  ];
+
+  // Coğrafi konum bilgisi - RSS Kumru merkez ofis
+  const geolocation = {
+    latitude: "40.8156",
+    longitude: "29.4398",
+    placeName: "Gebze, Kocaeli, Turkey"
   };
 
   // Render the appropriate gallery based on product ID
@@ -112,6 +147,22 @@ const ProductDetail = () => {
     }
   };
 
+  // Sosyal medya meta etiketleri için yapılandırma
+  const socialMedia = {
+    twitter: {
+      cardType: "summary_large_image",
+      site: "@RSSKumru",
+      creator: "@RSSKumru"
+    },
+    facebook: {
+      appId: "123456789012345"  // Varsayılan FB App ID
+    }
+  };
+
+  // Ana görseli ve ek görselleri belirle
+  const mainImage = product.images[0].startsWith('/') ? product.images[0] : `/lovable-uploads/${product.images[0]}`;
+  const additionalImages = product.images.slice(1).map(img => img.startsWith('/') ? img : `/lovable-uploads/${img}`);
+
   return (
     <>
       <SEO 
@@ -119,8 +170,15 @@ const ProductDetail = () => {
         description={translatedDescription}
         canonicalUrl={`/products/${productId}`}
         ogType="product"
-        ogImage={product.images[0].startsWith('/') ? product.images[0] : `/lovable-uploads/${product.images[0]}`}
+        ogImage={mainImage}
+        additionalImages={additionalImages}
+        keywords={[translatedTitle, "otomotiv", "hidrolik", "RSS Kumru", productId.replace(/-/g, ' ')]}
+        language={language === 'tr' ? 'tr-TR' : 'en-US'}
         structuredData={productSchema}
+        breadcrumbs={breadcrumbs}
+        alternateLanguages={alternateLanguages}
+        socialMedia={socialMedia}
+        geolocation={geolocation}
       />
       <ProductDetailsLayout
         productId={productId}

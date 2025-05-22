@@ -26,6 +26,11 @@ const App = () => (
         <Helmet>
           <html lang="tr" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="theme-color" content="#0A1F44" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="format-detection" content="telephone=no" />
+          <meta name="mobile-web-app-capable" content="yes" />
+          <link rel="apple-touch-icon" href="/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" />
         </Helmet>
         <Toaster />
         <Sonner />

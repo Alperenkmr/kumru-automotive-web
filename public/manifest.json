@@ -1,0 +1,29 @@
+
+{
+  "name": "RSS Kumru Automotive",
+  "short_name": "RSS Kumru",
+  "description": "RSS Kumru Automotive - Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0A1F44",
+  "icons": [
+    {
+      "src": "/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "lang": "tr-TR",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": ["business", "automotive", "engineering"]
+}
