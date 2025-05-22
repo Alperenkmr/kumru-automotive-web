@@ -20,50 +20,56 @@ interface MachineItem {
   image: string;
   titleTr: string;
   titleEn: string;
-  descTr: string;
-  descEn: string;
 }
 
 const machineItems: MachineItem[] = [
   {
     id: 1,
-    image: "/lovable-uploads/867624b9-6709-490a-83c1-03974aa13c11.png",
-    titleTr: "CNC Boru Bükme Makinası",
-    titleEn: "CNC Pipe Bending Machine",
-    descTr: "Modern CNC kontrollü boru bükme makinamız ile hassas açılarda ve ölçülerde bükümler gerçekleştirebiliyoruz.",
-    descEn: "With our modern CNC-controlled pipe bending machine, we can perform precise bends at accurate angles and measurements."
-  },
-  {
-    id: 2,
-    image: "/lovable-uploads/01712518-8600-401d-ac51-f4ba12a53980.png",
-    titleTr: "Hidrolik Test Ünitesi",
-    titleEn: "Hydraulic Testing Unit",
-    descTr: "Üretilen tüm hidrolik hatların kalite kontrolü için yüksek basınç test ünitesi ile test edilmektedir.",
-    descEn: "All produced hydraulic lines are tested with a high-pressure test unit for quality control."
+    image: "/lovable-uploads/4fae47ef-d433-43ca-afa2-478a16cd1e39.png",
+    titleTr: "CNC İşleme Merkezi",
+    titleEn: "CNC Machining Center"
   },
   {
     id: 3,
-    image: "/lovable-uploads/4246bf3a-255f-4174-808a-2759a8ea280e.png",
-    titleTr: "CNC Torna",
-    titleEn: "CNC Lathe",
-    descTr: "CNC torna makinamız ile hassas bağlantı parçaları üretimi yapabilmekteyiz.",
-    descEn: "With our CNC lathe machine, we can produce precision connection parts."
+    image: "/lovable-uploads/b7ed632c-3b91-4c1f-a1aa-15d2256afe1f.png",
+    titleTr: "Endüstriyel Robot Kolu",
+    titleEn: "Industrial Robot Arm"
   },
   {
     id: 4,
-    image: "/lovable-uploads/387ef443-1ad6-45ed-be70-5f73274718d2.png",
-    titleTr: "Otomat Tezgahı",
-    titleEn: "Automatic Lathe",
-    descTr: "Yüksek hızlı üretim için özel otomat tezgahlarımız ile seri üretim yapabilmekteyiz.",
-    descEn: "We can perform mass production with our special automatic lathes for high-speed production."
+    image: "/lovable-uploads/b5b5a004-e059-41c9-8d06-ad0fa567f24d.png",
+    titleTr: "Hassas Ölçüm Cihazı",
+    titleEn: "Precision Measuring Device"
   },
   {
     id: 5,
-    image: "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
-    titleTr: "Kalite Kontrol İstasyonu",
-    titleEn: "Quality Control Station",
-    descTr: "Her ürünümüz gönderilmeden önce kalite kontrol istasyonumuzda detaylı kontrollere tabi tutulmaktadır.",
-    descEn: "Before shipping, each of our products undergoes detailed inspections at our quality control station."
+    image: "/lovable-uploads/3ffea39c-0207-42ac-936a-87fd2b984ca7.png",
+    titleTr: "Ham Malzeme Depolama Sistemi",
+    titleEn: "Raw Material Storage System"
+  },
+  {
+    id: 6,
+    image: "/lovable-uploads/03bfd6fa-a2c0-43ae-ac1b-c8cb6bf817a3.png",
+    titleTr: "Boru Malzeme Stok Alanı",
+    titleEn: "Pipe Material Stock Area"
+  },
+  {
+    id: 7,
+    image: "/lovable-uploads/eb2d97fb-aacd-4b4b-b3be-4803469d57a3.png",
+    titleTr: "CNC Tezgah Üretim Hattı",
+    titleEn: "CNC Machine Production Line"
+  },
+  {
+    id: 9,
+    image: "/lovable-uploads/e71d2aa2-6c9d-4713-b7aa-48d69d4040b7.png",
+    titleTr: "Atölye Üretim Alanı",
+    titleEn: "Workshop Production Area"
+  },
+  {
+    id: 10,
+    image: "/lovable-uploads/46611d63-27b2-4d14-bf5e-c9d26320cdd9.png",
+    titleTr: "CNC Freze Makinası",
+    titleEn: "CNC Milling Machine"
   }
 ];
 
@@ -108,7 +114,7 @@ const MachinePark: React.FC = () => {
             <div className="relative mx-auto max-w-4xl">
               <Carousel ref={emblaRef} className="w-full" opts={{ loop: true, align: "center" }}>
                 <CarouselContent>
-                  {machineItems.map((item, index) => (
+                  {machineItems.map((item) => (
                     <CarouselItem key={item.id}>
                       <div className="p-2">
                         <div className="overflow-hidden rounded-xl shadow-lg">
@@ -127,18 +133,12 @@ const MachinePark: React.FC = () => {
               </Carousel>
               
               <div className="mt-6 bg-white rounded-lg shadow-md p-6 text-center">
-                <h3 className="text-xl font-bold text-kumru-navy mb-3">
+                <h3 className="text-2xl font-bold text-kumru-navy">
                   {language === 'tr' 
                     ? machineItems[activeSlide].titleTr 
                     : machineItems[activeSlide].titleEn
                   }
                 </h3>
-                <p className="text-gray-700">
-                  {language === 'tr' 
-                    ? machineItems[activeSlide].descTr 
-                    : machineItems[activeSlide].descEn
-                  }
-                </p>
               </div>
             </div>
             
