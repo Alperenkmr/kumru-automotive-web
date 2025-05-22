@@ -1,5 +1,6 @@
+import { TranslationsType } from './types';
 
-export const enTranslations = {
+export const enTranslations: TranslationsType = {
   'nav.home': 'Home',
   'nav.about': 'About',
   'nav.products': 'Products',
@@ -515,5 +516,8 @@ export const enTranslations = {
     <blockquote>
       "Rather than being replaced by electrification, hydraulic systems are undergoing a renaissance of innovation. The unique capabilities of hydraulic power—including high power density and robust force application—ensure its place in electric vehicles, albeit in more efficient, compact, and specialized forms."
     </blockquote>
-  `
+  `,
+
+  // Catalog translation
+  'products.catalog': 'Our 2025 Catalog',
 };

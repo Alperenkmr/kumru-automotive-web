@@ -2,6 +2,7 @@
 // Ürünler sayfası çevirileri
 export const productsType = {
   'products.backToProducts': 'Ürünlere Geri Dön',
+  'products.catalog': '2025 Kataloğumuz',
   
   // Product category names
   'products.steeringHose': 'DİREKSİYON HORTUMU',

@@ -10,6 +10,8 @@ import FeaturedProducts from "@/components/sections/FeaturedProducts";
 import BlogPreview from "@/components/sections/BlogPreview";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { FileText } from "lucide-react";
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -96,6 +98,18 @@ const Index = () => {
         
         <FeaturedProducts />
         <BlogPreview />
+        
+        {/* Catalog Download Button */}
+        <section className="section-padding bg-white text-center">
+          <div className="container mx-auto">
+            <a href="https://drive.google.com/file/d/1TcZasw69ZIQan0tQrSk9v0F6S_EcR2Hl/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="sm" className="border-kumru-navy text-kumru-navy hover:bg-kumru-navy hover:text-white">
+                <FileText className="mr-2 h-4 w-4" />
+                {language === 'tr' ? '2025 Kataloğumuz' : 'Our 2025 Catalog'}
+              </Button>
+            </a>
+          </div>
+        </section>
         
         {/* Call to Action Section - Enhanced */}
         <section className="section-padding bg-kumru-navy text-white relative overflow-hidden">

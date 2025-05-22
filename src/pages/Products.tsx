@@ -1,8 +1,11 @@
+
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ProductCard from "@/components/ui/ProductCard";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { FileText } from "lucide-react";
 
 const Products = () => {
   const { t, language } = useLanguage();
@@ -155,6 +158,16 @@ const Products = () => {
                   translationKey={category.translationKey}
                 />
               ))}
+            </div>
+            
+            {/* Catalog Download Button */}
+            <div className="mt-16 text-center">
+              <a href="https://drive.google.com/file/d/1TcZasw69ZIQan0tQrSk9v0F6S_EcR2Hl/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="sm" className="border-kumru-navy text-kumru-navy hover:bg-kumru-navy hover:text-white">
+                  <FileText className="mr-2 h-4 w-4" />
+                  {language === 'tr' ? '2025 Kataloğumuz' : 'Our 2025 Catalog'}
+                </Button>
+              </a>
             </div>
           </div>
         </section>
