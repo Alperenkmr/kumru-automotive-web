@@ -1,3 +1,4 @@
+
 import React from "react";
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
@@ -123,25 +124,35 @@ const Products = () => {
     }
   ];
 
-  // Ürünler sayfası için schema.org yapılandırılmış veri - Symbol'leri önlemek için düzeltme
-  const productsPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": productCategories.map((product, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "url": `https://rsskumru.com${product.href}`,
-      "item": {
-        "@type": "Product",
-        "name": t(product.translationKey as any) || product.title,
-        "image": product.imageSrc.startsWith('/') 
-          ? `https://rsskumru.com${product.imageSrc}` 
-          : product.imageSrc,
-        "url": `https://rsskumru.com${product.href}`,
-        "description": `RSS Kumru Automotive ${t(product.translationKey as any) || product.title} - Yüksek kaliteli otomotiv çözümleri`
-      }
-    }))
+  // Create a plain serializable object for structured data
+  const generateSerializableSchema = () => {
+    return {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": productCategories.map((product, index) => {
+        // Get translated title directly first
+        const translatedTitle = t(product.translationKey as any) || product.title;
+        
+        return {
+          "@type": "ListItem",
+          "position": index + 1,
+          "url": `https://rsskumru.com${product.href}`,
+          "item": {
+            "@type": "Product",
+            "name": translatedTitle,
+            "image": product.imageSrc.startsWith('/') 
+              ? `https://rsskumru.com${product.imageSrc}` 
+              : product.imageSrc,
+            "url": `https://rsskumru.com${product.href}`,
+            "description": `RSS Kumru Automotive ${translatedTitle} - Yüksek kaliteli otomotiv çözümleri`
+          }
+        };
+      })
+    };
   };
+
+  // Generate the schema when the component renders
+  const productsPageSchema = generateSerializableSchema();
 
   return (
     <div className="min-h-screen bg-white">
