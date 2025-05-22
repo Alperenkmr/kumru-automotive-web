@@ -104,7 +104,7 @@ const MachinePark: React.FC = () => {
       <main className="pt-24 pb-16">
         <section className="section-padding">
           <Container>
-            <h1 className="section-title text-kumru-navy mb-16" id="makine-parkimiz">
+            <h1 className="section-title text-kumru-navy mb-16">
               {pageTitle}
             </h1>
             

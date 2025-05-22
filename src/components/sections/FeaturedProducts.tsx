@@ -36,17 +36,17 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     },
     {
       id: 4,
-      title: "TURBO PIPE HOSE",
-      imageSrc: "/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png",
-      href: "/products/turbo-pipe-hose",
-      translationKey: "products.turboPipeHose"
+      title: "STEERING HOSE",
+      imageSrc: "/lovable-uploads/bb54b55e-7381-484a-abc8-e47684f61b1f.png",
+      href: "/products/steering-hose",
+      translationKey: "products.steeringHose"
     },
     {
       id: 5,
-      title: "INJECTION LINES",
-      imageSrc: "/lovable-uploads/c38ae389-bfe5-4cbb-a160-ae99086bd13e.png",
-      href: "/products/injection-lines",
-      translationKey: "products.injectionLines"
+      title: "CONNECTORS",
+      imageSrc: "/lovable-uploads/42c5e6c5-d549-447a-9bc1-8b9dff42847a.png",
+      href: "/products/connectors",
+      translationKey: "products.connectors"
     },
     {
       id: 6,
