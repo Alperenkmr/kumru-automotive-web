@@ -1,32 +1,27 @@
 
-import { heroType } from './hero';
-import { homeType } from './home';
-import { blogType } from './blog';
-import { blogPostsType } from './blog-posts';
-import { blogPosts2Type } from './blog-posts2';
-import { aboutType } from './about';
-import { servicesType } from './services';
-import { navigationType } from './navigation'; // Fixed import name from navType to navigationType
-import { whyChooseUsType } from './whyChooseUs';
-import { contactType } from './contact';
-import { ctaType } from './cta';
-import { footerType } from './footer';
-import { productsType } from './products';
-import { machineType } from './machine'; // Add the machine park translations
+// Ana türkçe çeviriler birleştirme dosyası
+import { TranslationsType } from "../types";
+import { navigationType } from "./navigation";
+import { aboutType } from "./about";
+import { blogType } from "./blog";
+import { contactType } from "./contact";
+import { footerType } from "./footer";
+import { heroType } from "./hero";
+import { productsType } from "./products";
+import { servicesType } from "./services";
+import { whyChooseUsType } from "./whyChooseUs";
+import { ctaType } from "./cta";
 
-export const trTranslations = {
-  ...heroType,
-  ...homeType,
-  ...blogType,
-  ...blogPostsType,
-  ...blogPosts2Type,
+// Tüm çevirileri birleştirme
+export const trTranslations: TranslationsType = {
+  ...navigationType,
   ...aboutType,
-  ...servicesType,
-  ...navigationType, // Fixed reference to match the import name
-  ...whyChooseUsType,
+  ...blogType,
   ...contactType,
-  ...ctaType,
   ...footerType,
+  ...heroType,
   ...productsType,
-  ...machineType, // Add the machine park translations
+  ...servicesType,
+  ...whyChooseUsType,
+  ...ctaType
 };
