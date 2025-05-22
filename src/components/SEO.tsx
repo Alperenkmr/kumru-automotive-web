@@ -6,7 +6,7 @@ interface SEOProps {
   title: string;
   description?: string;
   canonicalUrl?: string;
-  ogType?: 'website' | 'article';
+  ogType?: 'website' | 'article' | 'product';
   ogImage?: string;
   structuredData?: Record<string, any>;
 }
