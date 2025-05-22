@@ -1,9 +1,11 @@
+
 import { TranslationsType } from './types';
 
 export const enTranslations: TranslationsType = {
   'nav.home': 'Home',
   'nav.about': 'About',
   'nav.products': 'Products',
+  'nav.machinePark': 'Machine Park',
   'nav.blog': 'Blog',
   'nav.contact': 'Contact',
   'header.contactUs': 'Contact Us',
