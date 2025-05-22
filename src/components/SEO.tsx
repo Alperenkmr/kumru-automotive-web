@@ -121,6 +121,17 @@ const SEO: React.FC<SEOProps> = ({
   const twitterCreator = socialMedia?.twitter?.creator || "@RSSKumru";
   const facebookAppId = socialMedia?.facebook?.appId || "";
 
+  // Yapılandırılmış veriyi güvenli şekilde string'e dönüştürme
+  const safeStringifyStructuredData = (data: any) => {
+    if (!data) return null;
+    try {
+      return JSON.stringify(data);
+    } catch (e) {
+      console.error("Error stringifying structured data:", e);
+      return null;
+    }
+  };
+
   return (
     <Helmet>
       {/* Temel Meta Etiketleri */}
@@ -177,8 +188,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
-      <meta name="twitter:site" content={twitterSite} />
-      <meta name="twitter:creator" content={twitterCreator} />
+      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
       
       {/* Video ve Audio içeriği için meta etiketler */}
       {videoUrl && (
@@ -202,19 +213,16 @@ const SEO: React.FC<SEOProps> = ({
       )}
       
       {/* Yapılandırılmış Veri (Schema.org) */}
-      {structuredData && (
+      {structuredData && safeStringifyStructuredData(structuredData) && (
         <script type="application/ld+json">
-          {Array.isArray(structuredData) 
-            ? JSON.stringify(structuredData)
-            : JSON.stringify(structuredData)
-          }
+          {safeStringifyStructuredData(structuredData)}
         </script>
       )}
       
       {/* Ekmek kırıntıları için yapılandırılmış veri */}
-      {breadcrumbs && (
+      {breadcrumbs && breadcrumbsSchema && (
         <script type="application/ld+json">
-          {generateBreadcrumbsJSON()}
+          {safeStringifyStructuredData(breadcrumbsSchema)}
         </script>
       )}
     </Helmet>

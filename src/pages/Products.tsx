@@ -1,4 +1,3 @@
-
 import React from "react";
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
@@ -124,7 +123,7 @@ const Products = () => {
     }
   ];
 
-  // Ürünler sayfası için schema.org yapılandırılmış veri
+  // Ürünler sayfası için schema.org yapılandırılmış veri - Symbol'leri önlemek için düzeltme
   const productsPageSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -139,15 +138,7 @@ const Products = () => {
           ? `https://rsskumru.com${product.imageSrc}` 
           : product.imageSrc,
         "url": `https://rsskumru.com${product.href}`,
-        "description": `RSS Kumru Automotive ${t(product.translationKey as any) || product.title} - Yüksek kaliteli otomotiv çözümleri`,
-        "brand": {
-          "@type": "Brand",
-          "name": "RSS Kumru"
-        },
-        "manufacturer": {
-          "@type": "Organization",
-          "name": "RSS Kumru Automotive"
-        }
+        "description": `RSS Kumru Automotive ${t(product.translationKey as any) || product.title} - Yüksek kaliteli otomotiv çözümleri`
       }
     }))
   };

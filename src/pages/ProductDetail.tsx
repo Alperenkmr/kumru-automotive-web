@@ -53,7 +53,7 @@ const ProductDetail = () => {
     "@type": "Product",
     "name": translatedTitle,
     "description": translatedDescription,
-    "image": product.images.map(img => img.startsWith('/') 
+    "image": product.images.map((img: string) => img.startsWith('/') 
       ? `https://rsskumru.com${img}` 
       : `https://rsskumru.com${img.startsWith('/') ? '' : '/'}${img}`),
     "brand": {
@@ -151,7 +151,7 @@ const ProductDetail = () => {
   // Sosyal medya meta etiketleri için yapılandırma
   const socialMedia = {
     twitter: {
-      cardType: "summary_large_image" as const,
+      cardType: "summary_large_image" as "summary_large_image",
       site: "@RSSKumru",
       creator: "@RSSKumru"
     },
@@ -162,7 +162,7 @@ const ProductDetail = () => {
 
   // Ana görseli ve ek görselleri belirle
   const mainImage = product.images[0].startsWith('/') ? product.images[0] : `/lovable-uploads/${product.images[0]}`;
-  const additionalImages = product.images.slice(1).map(img => img.startsWith('/') ? img : `/lovable-uploads/${img}`);
+  const additionalImages = product.images.slice(1).map((img: string) => img.startsWith('/') ? img : `/lovable-uploads/${img}`);
 
   return (
     <>
