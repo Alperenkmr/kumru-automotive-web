@@ -134,8 +134,8 @@ const Products = () => {
   
   // Create a plain object schema without any Symbol values
   const productsPageSchema = useMemo(() => {
-    // Build the schema with pure JS objects and strings
-    const plainSchema = {
+    // Create a plain object structure without any complex types
+    const schema = {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "itemListElement": translatedProducts.map((product, index) => ({
@@ -154,7 +154,17 @@ const Products = () => {
       }))
     };
     
-    return plainSchema;
+    // Use JSON.parse(JSON.stringify()) to ensure we strip any non-serializable values
+    try {
+      return JSON.parse(JSON.stringify(schema));
+    } catch (e) {
+      console.error("Error serializing products schema:", e);
+      return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": []
+      };
+    }
   }, [translatedProducts]);
 
   return (

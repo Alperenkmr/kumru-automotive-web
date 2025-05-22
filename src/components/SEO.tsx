@@ -64,6 +64,36 @@ interface SEOProps {
   audioUrl?: string;
 }
 
+// Safe stringify function to handle potential Symbol values and circular references
+const safeStringify = (obj: any): string => {
+  try {
+    // Create a new object with all Symbol values converted to strings
+    const getCircularReplacer = () => {
+      const seen = new WeakSet();
+      return (key: string, value: any) => {
+        // Handle Symbol values
+        if (typeof value === 'symbol') {
+          return value.toString();
+        }
+        
+        // Handle circular references
+        if (typeof value === 'object' && value !== null) {
+          if (seen.has(value)) {
+            return '[Circular]';
+          }
+          seen.add(value);
+        }
+        return value;
+      };
+    };
+    
+    return JSON.stringify(obj, getCircularReplacer());
+  } catch (error) {
+    console.error('Error stringifying data:', error);
+    return '{}';
+  }
+};
+
 const SEO: React.FC<SEOProps> = ({ 
   title, 
   description = "RSS Kumru Automotive - Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi. Kaliteli hizmet ve ürünlerimizle tanışın.",
@@ -109,12 +139,9 @@ const SEO: React.FC<SEOProps> = ({
     }))
   } : null;
   
-  // Ensure structured data is properly serialized to avoid Symbol errors
-  const serializedStructuredData = structuredData ? 
-    JSON.stringify(structuredData) : null;
-  
-  const serializedBreadcrumbsSchema = breadcrumbsSchema ? 
-    JSON.stringify(breadcrumbsSchema) : null;
+  // Safely stringify structured data
+  const serializedStructuredData = structuredData ? safeStringify(structuredData) : null;
+  const serializedBreadcrumbsSchema = breadcrumbsSchema ? safeStringify(breadcrumbsSchema) : null;
 
   // Sosyal medya meta etiketleri
   const twitterCardType = socialMedia?.twitter?.cardType || "summary_large_image";

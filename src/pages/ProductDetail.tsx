@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import SEO from "@/components/SEO";
@@ -47,59 +47,74 @@ const ProductDetail = () => {
   const translatedTitle = t(translationKey);
   const translatedDescription = t(descriptionKey);
 
-  // Ürün detay sayfası için schema.org yapılandırılmış veri
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": translatedTitle,
-    "description": translatedDescription,
-    "image": product.images.map((img: string) => img.startsWith('/') 
-      ? `https://rsskumru.com${img}` 
-      : `https://rsskumru.com${img.startsWith('/') ? '' : '/'}${img}`),
-    "brand": {
-      "@type": "Brand",
-      "name": "RSS Kumru"
-    },
-    "manufacturer": {
-      "@type": "Organization",
-      "name": "RSS Kumru Automotive",
-      "logo": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3",
-        "addressLocality": "Gebze",
-        "addressRegion": "Kocaeli",
-        "postalCode": "41400",
-        "addressCountry": "TR"
+  // Create product schema using useMemo to avoid recreation on each render
+  const productSchema = useMemo(() => {
+    // Create a plain object structure for product schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": translatedTitle,
+      "description": translatedDescription,
+      "image": product.images.map((img: string) => img.startsWith('/') 
+        ? `https://rsskumru.com${img}` 
+        : `https://rsskumru.com${img.startsWith('/') ? '' : '/'}${img}`),
+      "brand": {
+        "@type": "Brand",
+        "name": "RSS Kumru"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+902627248824",
-        "contactType": "customer service",
-        "availableLanguage": ["Turkish", "English"]
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "RSS Kumru Automotive",
+        "logo": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3",
+          "addressLocality": "Gebze",
+          "addressRegion": "Kocaeli",
+          "postalCode": "41400",
+          "addressCountry": "TR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+902627248824",
+          "contactType": "customer service",
+          "availableLanguage": ["Turkish", "English"]
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "TRY",
+        "url": `https://rsskumru.com/products/${productId}`,
+        "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
       }
-    },
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/InStock",
-      "priceCurrency": "TRY",
-      "url": `https://rsskumru.com/products/${productId}`,
-      "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
+    };
+    
+    // Use JSON.parse(JSON.stringify()) to ensure we strip any non-serializable values
+    try {
+      return JSON.parse(JSON.stringify(schema));
+    } catch (e) {
+      console.error("Error serializing product schema:", e);
+      return {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": translatedTitle
+      };
     }
-  };
+  }, [translatedTitle, translatedDescription, product.images, productId]);
 
   // Ekmek kırıntısı yapısı oluştur
-  const breadcrumbs = [
+  const breadcrumbs = useMemo(() => ([
     { name: language === 'tr' ? 'Ana Sayfa' : 'Home', url: '/' },
     { name: language === 'tr' ? 'Ürünler' : 'Products', url: '/products' },
     { name: translatedTitle, url: `/products/${productId}` }
-  ];
+  ]), [language, translatedTitle, productId]);
 
   // Alternatif dil URL'leri
-  const alternateLanguages = [
+  const alternateLanguages = useMemo(() => ([
     { locale: 'tr-TR', url: `/products/${productId}` },
     { locale: 'en-US', url: `/en/products/${productId}` }
-  ];
+  ]), [productId]);
 
   // Coğrafi konum bilgisi - RSS Kumru merkez ofis
   const geolocation = {
