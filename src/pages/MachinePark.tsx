@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import useEmblaCarousel from "embla-carousel-react";
 
 // Machine park images and descriptions
 interface MachineItem {
@@ -69,10 +70,25 @@ const machineItems: MachineItem[] = [
 const MachinePark: React.FC = () => {
   const { t, language } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
 
-  const handleSlideChange = (index: number) => {
-    setActiveSlide(index);
-  };
+  // Update emblaApi event listeners to track active slide
+  React.useEffect(() => {
+    if (emblaApi) {
+      const onSelect = () => {
+        setActiveSlide(emblaApi.selectedScrollSnap());
+      };
+
+      emblaApi.on('select', onSelect);
+      // Initial call to set the starting slide
+      onSelect();
+      
+      return () => {
+        emblaApi.off('select', onSelect);
+      };
+    }
+    return undefined;
+  }, [emblaApi]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -90,17 +106,7 @@ const MachinePark: React.FC = () => {
             </h1>
             
             <div className="relative mx-auto max-w-4xl">
-              <Carousel
-                opts={{
-                  loop: true,
-                  align: "center"
-                }}
-                className="w-full"
-                onSlideChange={(api) => {
-                  const slideIndex = api?.selectedScrollSnap() || 0;
-                  handleSlideChange(slideIndex);
-                }}
-              >
+              <Carousel ref={emblaRef} className="w-full" opts={{ loop: true, align: "center" }}>
                 <CarouselContent>
                   {machineItems.map((item, index) => (
                     <CarouselItem key={item.id}>
