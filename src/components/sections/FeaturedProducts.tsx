@@ -44,7 +44,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     {
       id: 5,
       title: "INJECTION LINES",
-      imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
+      imageSrc: "/lovable-uploads/c38ae389-bfe5-4cbb-a160-ae99086bd13e.png",
       href: "/products/injection-lines",
       translationKey: "products.injectionLines"
     },

@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -35,7 +34,7 @@ const Products = () => {
     {
       id: 4,
       title: "INJECTION LINES",
-      imageSrc: "/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png",
+      imageSrc: "/lovable-uploads/c38ae389-bfe5-4cbb-a160-ae99086bd13e.png",
       href: "/products/injection-lines",
       translationKey: "products.injectionLines"
     },
