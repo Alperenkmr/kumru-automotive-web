@@ -13,36 +13,28 @@ const productData = {
     title: "Hydraulic Hose",
     description: "Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.",
     images: [
-      "/lovable-uploads/ab213c6a-f04b-4b0e-b847-f3bedda77422.png",
-      "/lovable-uploads/89e76c7d-d75c-45da-88bb-eab05c3ab735.png",
-      "/lovable-uploads/879d476a-75c4-4867-9599-c7505ff8ff88.png",
-      "/lovable-uploads/01980a91-74cc-4b68-a7b6-8bab803010e6.png",
-      "/lovable-uploads/f2f51d3e-7c6c-429a-b46f-aa45d1f52036.png",
-      "/lovable-uploads/442ffab6-7956-4f04-92ab-9c1ee5e55c20.png",
-      "/lovable-uploads/694b131e-ab62-4aa4-a124-38a8b313b1f9.png",
-      "/lovable-uploads/5fe9f11c-a686-4afa-8316-9279dfcb08cf.png",
-      "/lovable-uploads/4f0c2c09-cc18-415b-a98b-775a581c2cdb.png",
-      "/lovable-uploads/51d979b9-2f0e-48b7-bd20-bfa2d034f059.png",
-      "/lovable-uploads/8c8c4b22-5525-4ded-9102-6cb72a46fc2d.png",
-      "/lovable-uploads/04f20fab-39ad-49f1-8665-479acf68b741.png"
+      "/lovable-uploads/bbfd980f-5ee1-4021-b952-7a9b6bf1a3c8.png",
+      "/lovable-uploads/6511e468-139d-4106-88c0-82de78b55953.png",
+      "/lovable-uploads/b9a73193-1516-4e6b-9dc3-9ea21134c8fb.png",
+      "/lovable-uploads/b0b8eaf0-4c8d-4ab6-a7df-a684deafaa63.png",
+      "/lovable-uploads/05419d67-5277-4871-9821-cbbe8f0334d7.png",
+      "/lovable-uploads/9db6b6f4-9045-401f-a3f7-fbbc387b972b.png",
+      "/lovable-uploads/d2847570-1461-442d-b4c9-a82f36f26053.png",
+      "/lovable-uploads/37688227-3e7c-4727-9660-2ec6c8f9b548.png"
     ]
   },
   "hydraulic-system": {
     title: "Hydraulic System",
     description: "Complete hydraulic systems designed for efficiency and reliability. Our systems are custom-engineered to meet specific requirements across various industries and applications.",
     images: [
-      "/lovable-uploads/20e3f9c1-f1b5-45d0-a3eb-f3c40b2eea95.png",
-      "/lovable-uploads/ba4bad66-dc12-4913-8417-128a7d521807.png",
-      "/lovable-uploads/4fe4b29c-d544-4d04-948b-a342dd97ab87.png",
-      "/lovable-uploads/848aaff3-8c17-45b0-a753-dda6e9ad6f9f.png",
-      "/lovable-uploads/1a329d1e-f238-4240-a64c-0dc71da14504.png",
-      "/lovable-uploads/eaf52614-f0e2-467a-a4e5-baf0d72c6ed0.png",
-      "/lovable-uploads/ddb6fd8e-fa94-4f00-b03a-8bae9e1ee041.png",
-      "/lovable-uploads/bbdd835a-bf9c-497f-96a0-7cb5cabe4291.png",
-      "/lovable-uploads/759cdcce-84d1-4940-b362-e8a84d7e61da.png",
-      "/lovable-uploads/8eb91b9b-1568-49fa-8289-4b6f2de97de7.png",
-      "/lovable-uploads/9809f4b9-9b81-4609-a115-f7451ab9605f.png",
-      "/lovable-uploads/f9343852-4a9b-4286-ad47-ac8f092b2727.png"
+      "/lovable-uploads/bbfd980f-5ee1-4021-b952-7a9b6bf1a3c8.png",
+      "/lovable-uploads/6511e468-139d-4106-88c0-82de78b55953.png",
+      "/lovable-uploads/b9a73193-1516-4e6b-9dc3-9ea21134c8fb.png",
+      "/lovable-uploads/b0b8eaf0-4c8d-4ab6-a7df-a684deafaa63.png",
+      "/lovable-uploads/05419d67-5277-4871-9821-cbbe8f0334d7.png",
+      "/lovable-uploads/9db6b6f4-9045-401f-a3f7-fbbc387b972b.png",
+      "/lovable-uploads/d2847570-1461-442d-b4c9-a82f36f26053.png",
+      "/lovable-uploads/37688227-3e7c-4727-9660-2ec6c8f9b548.png"
     ]
   },
   "injection-lines": {
