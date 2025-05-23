@@ -82,10 +82,10 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Vimeo Video */}
+          {/* Right column - Vimeo Video - Enlarged */}
           <div className="relative hidden lg:block">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl h-full">
-              <div style={{padding: '56.25% 0 0 0', position: 'relative', height: '100%', width: '100%'}}>
+              <div style={{padding: '75% 0 0 0', position: 'relative', height: '100%', width: '100%'}}>
                 <iframe 
                   src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
                   frameBorder="0" 
