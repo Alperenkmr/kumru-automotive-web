@@ -212,4 +212,249 @@ export const blogPostsType = {
       "Standart ve premium bağlantı elemanları arasındaki maliyet farkı, bağlantı elemanı arızasından kaynaklanan potansiyel çalışmama süresi, sıvı kaybı veya sistem hasarı maliyetine kıyasla önemsizdir. Şüphe durumunda her zaman daha yüksek kaliteli seçeneği tercih edin."
     </blockquote>
   `,
+
+  'blog.post.evHydraulics.title': 'Elektrikli Araçlarda Hidrolik Sistemler',
+  'blog.post.evHydraulics.excerpt': 'Elektrikli araç teknolojisinde hidrolik sistemlerin rolü ve gelecekteki uygulamalar.',
+  'blog.post.evHydraulics.content': `
+    <h2>Elektrikli Araçlarda Hidrolik Teknolojinin Evrimi</h2>
+    <p>Otomotiv endüstrisi elektrikli araçlara (EV) geçiş yaparken, hidrolik sistemler geleneksel mekanik uygulamalardan öte yeni roller üstleniyor. Bu teknolojik dönüşüm, hidrolik mühendisliği alanında yenilik ve adaptasyon için benzersiz fırsatlar yaratıyor.</p>
+    
+    <h3>EV'lerde Hidrolik Uygulamaları</h3>
+    <p>Elektrikli araçlarda hidrolik sistemler çeşitli kritik fonksiyonlarda kullanılmaktadır:</p>
+    
+    <ul>
+      <li><strong>Fren Sistemleri:</strong> Regeneratif frenlerle entegre hidrolik fren sistemleri, optimal enerji geri kazanımı ve güvenlik sağlar</li>
+      <li><strong>Aktif Süspansiyon:</strong> Sürüş kalitesini ve yol tutuşunu artıran gelişmiş hidrolik süspansiyon sistemleri</li>
+      <li><strong>Direksiyon Sistemleri:</strong> Elektrik motorlarıyla optimize edilmiş hidrolik direksiyon desteği</li>
+      <li><strong>Batarya Soğutma:</strong> Yüksek performanslı batarya paketleri için hidrolik soğutma devreleri</li>
+      <li><strong>Kargo ve Yükleme Sistemleri:</strong> Ticari EV'ler için hidrolik kaldırma ve taşıma mekanizmaları</li>
+    </ul>
+    
+    <h3>Tasarım Zorluklarına Çözümler</h3>
+    <p>EV uygulamaları hidrolik sistemler için benzersiz zorluklar getirir:</p>
+    
+    <ul>
+      <li><strong>Enerji Verimliliği:</strong> EV'lerin sınırlı menzili nedeniyle, hidrolik sistemler maximum verimlilik için optimize edilmelidir</li>
+      <li><strong>Sessizlik:</strong> EV'lerin sessiz çalışması, hidrolik sistemlerin gürültü seviyelerinin minimize edilmesini gerektirir</li>
+      <li><strong>Kompakt Tasarım:</strong> Sınırlı alan gereksinimleri, daha kompakt ve hafif hidrolik bileşenlerin geliştirilmesini teşvik eder</li>
+      <li><strong>Çevresel Uyumluluk:</strong> Çevre dostu hidrolik sıvıları ve malzemelerin kullanımı</li>
+    </ul>
+    
+    <h3>Gelecek Teknolojileri</h3>
+    <p>EV teknolojisinin ilerlemesiyle hidrolik sistemlerde beklenen gelişmeler:</p>
+    
+    <ul>
+      <li><strong>Akıllı Hidrolik:</strong> Sensörler ve AI ile optimize edilen adaptif hidrolik sistemler</li>
+      <li><strong>Elektro-Hidrolik Entegrasyonu:</strong> Elektrik ve hidrolik güç sistemlerinin hibrit çözümleri</li>
+      <li><strong>Nano-akışkanlar:</strong> Gelişmiş ısı transfer özellikleri için nano-parçacık katkılı hidrolik sıvılar</li>
+      <li><strong>3D Baskı:</strong> Özelleştirilmiş hidrolik bileşenler için additive manufacturing teknolojileri</li>
+    </ul>
+    
+    <h2>Endüstri Etkisi</h2>
+    <p>Bu dönüşüm hidrolik endüstrisi için önemli fırsatlar yaratmaktadır:</p>
+    
+    <ul>
+      <li>Yeni pazar segmentleri ve uygulama alanları</li>
+      <li>Ar-Ge yatırımları ve teknolojik yenilik</li>
+      <li>Çevre dostu çözümlere odaklanma</li>
+      <li>Elektrik ve hidrolik mühendisliği arasında artan işbirliği</li>
+    </ul>
+    
+    <blockquote>
+      "Elektrikli araç devrimi, hidrolik teknolojisinin geleceğini şekillendiriyor. Adaptasyon yeteneği olan şirketler, bu yeni çağda liderlik konumunu koruyacaklar."
+    </blockquote>
+  `,
+
+  'blog.post.hydraulicHosePressure.title': 'Hidrolik Hortum Basınç Derecelendirmeleri Rehberi',
+  'blog.post.hydraulicHosePressure.excerpt': 'Hidrolik hortumların basınç derecelendirmelerini anlama ve uygulamanız için doğru hortumu seçme rehberi.',
+  'blog.post.hydraulicHosePressure.content': `
+    <h2>Hidrolik Hortum Basınç Derecelendirmelerini Anlamak</h2>
+    <p>Hidrolik hortum seçiminde en kritik faktörlerden biri, uygulamanızın basınç gereksinimlerine uygun derecelendirmeye sahip hortumu seçmektir. Yanlış basınç derecelendirmesi, erken arıza, güvenlik riskleri ve maliyetli çalışma duruşlarına neden olabilir.</p>
+    
+    <h3>Basınç Derecelendirme Temelleri</h3>
+    <p>Hidrolik hortumlar çeşitli basınç seviyelerine göre kategorize edilir:</p>
+    
+    <ul>
+      <li><strong>Düşük Basınç (0-300 PSI):</strong> Dönüş hatları, tank ventilasyonu ve yağ doldurma uygulamaları</li>
+      <li><strong>Orta Basınç (300-2000 PSI):</strong> Genel hidrolik uygulamalar, makine hidroliği</li>
+      <li><strong>Yüksek Basınç (2000-5000 PSI):</strong> Endüstriyel hidrolik sistemler, inşaat ekipmanları</li>
+      <li><strong>Çok Yüksek Basınç (5000+ PSI):</strong> Özel uygulamalar, test ekipmanları</li>
+    </ul>
+    
+    <h3>SAE ve DIN Standartları</h3>
+    <p>Hidrolik hortumlar uluslararası standartlara göre sınıflandırılır:</p>
+    
+    <table>
+      <tr>
+        <th>SAE Sınıfı</th>
+        <th>Çalışma Basıncı (PSI)</th>
+        <th>Tipik Uygulamalar</th>
+      </tr>
+      <tr>
+        <td>SAE 100R1</td>
+        <td>3000</td>
+        <td>Orta basınç hidrolik sistemler</td>
+      </tr>
+      <tr>
+        <td>SAE 100R2</td>
+        <td>4000</td>
+        <td>Yüksek basınç uygulamaları</td>
+      </tr>
+      <tr>
+        <td>SAE 100R3</td>
+        <td>2250</td>
+        <td>Dönüş ve emme hatları</td>
+      </tr>
+      <tr>
+        <td>SAE 100R4</td>
+        <td>1200</td>
+        <td>Düşük basınç, emme uygulamaları</td>
+      </tr>
+    </table>
+    
+    <h3>Güvenlik Faktörleri</h3>
+    <p>Hortum seçiminde güvenlik faktörünü dikkate almak kritiktir:</p>
+    
+    <ul>
+      <li><strong>4:1 Güvenlik Faktörü:</strong> Çalışma basıncının 4 katı patlama basıncı</li>
+      <li><strong>Basınç Artışları:</strong> Sistem basıncındaki ani artışları hesaba katın</li>
+      <li><strong>Sıcaklık Etkisi:</strong> Yüksek sıcaklıklarda basınç derecelendirmesi azalır</li>
+      <li><strong>Yaşlanma Etkisi:</strong> Hortum yaşlandıkça basınç kapasitesi azalabilir</li>
+    </ul>
+    
+    <h3>Seçim Kriterleri</h3>
+    <p>Doğru basınç derecelendirmesi için şu faktörleri değerlendirin:</p>
+    
+    <ol>
+      <li><strong>Maksimum Sistem Basıncı:</strong> Normal çalışma koşullarındaki en yüksek basınç</li>
+      <li><strong>Basınç Dalgalanmaları:</strong> Sistem çalışması sırasındaki basınç değişimleri</li>
+      <li><strong>Sıcaklık Aralığı:</strong> Çalışma sıcaklığının basınç kapasitesine etkisi</li>
+      <li><strong>Esneklik Gereksinimleri:</strong> Hortumun bükülme ve hareket etme ihtiyacı</li>
+      <li><strong>Kimyasal Uyumluluk:</strong> Hidrolik sıvısının hortum malzemesi ile uyumluluğu</li>
+    </ol>
+    
+    <h2>Test ve Doğrulama</h2>
+    <p>Hortum kurulumu sonrası şu testleri yapın:</p>
+    
+    <ul>
+      <li>Basınç testinde sistem basıncının 1.5 katında test yapın</li>
+      <li>Sızıntı kontrolü yapın</li>
+      <li>İlk çalışma saatlerinde yakın takip edin</li>
+      <li>Düzenli basınç kontrolü yapın</li>
+    </ul>
+    
+    <blockquote>
+      "Doğru basınç derecelendirmesi seçimi, hidrolik sistem güvenilirliğinin temelidir. Şüphe durumunda her zaman daha yüksek derecelendirme seçin."
+    </blockquote>
+  `,
+
+  'blog.post.ptfeVsRubber.title': 'PTFE ve Kauçuk Hortum Karşılaştırması',
+  'blog.post.ptfeVsRubber.excerpt': 'PTFE ve kauçuk hidrolik hortumlar arasındaki farklar, avantajlar ve doğru seçim kriterleri.',
+  'blog.post.ptfeVsRubber.content': `
+    <h2>PTFE vs Kauçuk Hortumlar: Detaylı Karşılaştırma</h2>
+    <p>Hidrolik hortum seçiminde malzeme türü, sistem performansını ve ekonomiyi doğrudan etkiler. PTFE (Politetrafloroetilen) ve kauçuk hortumlar, farklı uygulamalarda farklı avantajlar sunar.</p>
+    
+    <h3>PTFE Hortumların Avantajları</h3>
+    <ul>
+      <li><strong>Kimyasal Direnç:</strong> Neredeyse tüm kimyasallara karşı mükemmel direnç</li>
+      <li><strong>Sıcaklık Kapasitesi:</strong> -65°C ile +200°C arasında çalışabilir</li>
+      <li><strong>Düşük Sürtünme:</strong> Pürüzsüz iç yüzey, basınç düşüşünü minimize eder</li>
+      <li><strong>Kontaminasyon Direnci:</strong> Bakteriyel üreme ve kirlenmeye karşı direnç</li>
+      <li><strong>Elektriksel İzolasyon:</strong> Mükemmel dielektrik özellikler</li>
+      <li><strong>Yaşlanma Direnci:</strong> UV ışınları ve ozona karşı dayanıklı</li>
+    </ul>
+    
+    <h3>Kauçuk Hortumların Avantajları</h3>
+    <ul>
+      <li><strong>Maliyet Etkinliği:</strong> Genellikle PTFE'den daha ekonomik</li>
+      <li><strong>Esneklik:</strong> Daha fazla bükülme kapasitesi</li>
+      <li><strong>Kolay Kurulum:</strong> Standart bağlantı elemanlarıyla uyumluluk</li>
+      <li><strong>Çeşitlilik:</strong> Farklı kauçuk türleri ile çeşitli uygulamalar</li>
+      <li><strong>Titreşim Sönümleme:</strong> Doğal titreşim azaltma özelliği</li>
+      <li><strong>Geniş Kullanım:</strong> Genel amaçlı hidrolik uygulamalarda yaygın</li>
+    </ul>
+    
+    <h3>Uygulama Bazında Karşılaştırma</h3>
+    
+    <table>
+      <tr>
+        <th>Uygulama</th>
+        <th>PTFE</th>
+        <th>Kauçuk</th>
+        <th>Önerilen</th>
+      </tr>
+      <tr>
+        <td>Gıda İşleme</td>
+        <td>Mükemmel</td>
+        <td>Sınırlı</td>
+        <td>PTFE</td>
+      </tr>
+      <tr>
+        <td>Yüksek Sıcaklık</td>
+        <td>Mükemmel</td>
+        <td>Sınırlı</td>
+        <td>PTFE</td>
+      </tr>
+      <tr>
+        <td>Kimyasal İşleme</td>
+        <td>Mükemmel</td>
+        <td>Değişken</td>
+        <td>PTFE</td>
+      </tr>
+      <tr>
+        <td>Genel Hidrolik</td>
+        <td>İyi</td>
+        <td>Mükemmel</td>
+        <td>Kauçuk</td>
+      </tr>
+      <tr>
+        <td>Mobil Ekipman</td>
+        <td>İyi</td>
+        <td>Mükemmel</td>
+        <td>Kauçuk</td>
+      </tr>
+      <tr>
+        <td>Hassas Sistemler</td>
+        <td>Mükemmel</td>
+        <td>İyi</td>
+        <td>PTFE</td>
+      </tr>
+    </table>
+    
+    <h3>Maliyet Analizi</h3>
+    <p>İlk maliyet karşılaştırması:</p>
+    <ul>
+      <li><strong>PTFE:</strong> 3-5 kat daha pahalı ilk yatırım</li>
+      <li><strong>Kauçuk:</strong> Düşük ilk maliyet, yaygın bulunabilirlik</li>
+    </ul>
+    
+    <p>Toplam sahip olma maliyeti:</p>
+    <ul>
+      <li><strong>PTFE:</strong> Uzun ömür, az bakım, düşük değiştirme sıklığı</li>
+      <li><strong>Kauçuk:</strong> Daha sık değişim, olası kontaminasyon maliyetleri</li>
+    </ul>
+    
+    <h3>Seçim Kriterleri</h3>
+    <p>PTFE'yi tercih edin eğer:</p>
+    <ul>
+      <li>Yüksek saflık gerekli</li>
+      <li>Agresif kimyasallar mevcut</li>
+      <li>Aşırı sıcaklık koşulları var</li>
+      <li>Uzun vadeli güvenilirlik kritik</li>
+      <li>Kontaminasyon riski yüksek</li>
+    </ul>
+    
+    <p>Kauçuk tercih edin eğer:</p>
+    <ul>
+      <li>Maliyet ana faktör</li>
+      <li>Standart hidrolik uygulamalar</li>
+      <li>Yüksek esneklik gerekli</li>
+      <li>Kısa vadeli uygulamalar</li>
+      <li>Kolay bulunabilirlik önemli</li>
+    </ul>
+    
+    <blockquote>
+      "PTFE ve kauçuk hortumlar farklı güçlü yönlere sahiptir. Doğru seçim, uygulamanızın spesifik gereksinimlerini anlayarak yapılır."
+    </blockquote>
+  `
 };
