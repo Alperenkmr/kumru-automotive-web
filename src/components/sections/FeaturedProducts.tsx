@@ -44,7 +44,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     {
       id: 5,
       title: "SPECIAL ITEMS",
-      imageSrc: "/lovable-uploads/a14e2a65-67c6-4864-b98a-bc86af414aa4.png",
+      imageSrc: "/lovable-uploads/704024bb-d372-468e-b79f-31f8c4620a59.png",
       href: "/products/special-items",
       translationKey: "products.specialItems"
     },

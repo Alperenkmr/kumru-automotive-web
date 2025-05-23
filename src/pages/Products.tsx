@@ -1,3 +1,4 @@
+
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -111,14 +112,14 @@ const Products = () => {
     {
       id: 15,
       title: "PRIMING PUMP",
-      imageSrc: "/lovable-uploads/58f56706-3c9d-42ff-8437-ef0f1038f882.png",
+      imageSrc: "/lovable-uploads/2c745a67-f1b7-4fe3-9924-7e64f45b303e.png",
       href: "/products/priming-pump",
       translationKey: "products.primingPump"
     },
     {
       id: 16,
       title: "SPECIAL ITEMS",
-      imageSrc: "/lovable-uploads/a14e2a65-67c6-4864-b98a-bc86af414aa4.png",
+      imageSrc: "/lovable-uploads/704024bb-d372-468e-b79f-31f8c4620a59.png",
       href: "/products/special-items",
       translationKey: "products.specialItems"
     }

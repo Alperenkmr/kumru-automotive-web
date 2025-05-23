@@ -226,12 +226,12 @@ const productData = {
     title: "Special Items",
     description: "Custom-engineered products designed for unique applications. Our special items feature tailored solutions to meet specific industrial and automotive requirements.",
     images: [
-      "/lovable-uploads/a14e2a65-67c6-4864-b98a-bc86af414aa4.png",
-      "/lovable-uploads/f2a47b83-609c-4cb5-af5f-1388dbe08843.png",
-      "/lovable-uploads/e95420ec-f4c0-4c05-9f5a-a5d5d823a16d.png",
-      "/lovable-uploads/59a0ac86-6696-4447-8a45-9ce598715cae.png",
-      "/lovable-uploads/a1804d23-ca70-4350-abca-6b3bbceaae0e.png",
-      "/lovable-uploads/05de3ed0-8ac9-44c8-83fe-70985c4e6c6a.png",
+      "/lovable-uploads/704024bb-d372-468e-b79f-31f8c4620a59.png",
+      "/lovable-uploads/06d8adf6-996b-450e-8602-6fc9a789a507.png",
+      "/lovable-uploads/d8e612b9-8217-40b5-aeb5-a4e2ec42206c.png",
+      "/lovable-uploads/3e3a689d-8828-47fc-a0b3-99c89695e6b1.png",
+      "/lovable-uploads/1b75a49c-3141-49f9-b63c-5d9ce26ef5c2.png",
+      "/lovable-uploads/8a159268-c1f4-4e47-b4a1-a4ea0f4d62a5.png",
     ]
   },
   "priming-pump": {
