@@ -84,18 +84,16 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           
           {/* Right column - Vimeo Video - Enlarged */}
           <div className="relative hidden lg:block">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl h-full">
-              <div style={{padding: '75% 0 0 0', position: 'relative', height: '100%', width: '100%'}}>
-                <iframe 
-                  src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
-                  frameBorder="0" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
-                  style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} 
-                  title="RSS Kumru Video"
-                ></iframe>
-              </div>
-              <script src="https://player.vimeo.com/api/player.js"></script>
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl w-full h-[500px]">
+              <iframe 
+                src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
+                frameBorder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                className="absolute top-0 left-0 w-full h-full" 
+                title="RSS Kumru Video"
+              ></iframe>
             </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
             
             {/* Decorative elements around the video */}
             <div className="absolute -left-8 -bottom-8 w-48 h-48 bg-kumru-yellow/20 rounded-full z-0"></div>
