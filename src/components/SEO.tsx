@@ -67,16 +67,43 @@ interface SEOProps {
 // Safe stringify function to handle potential Symbol values and circular references
 const safeStringify = (obj: any): string => {
   try {
-    // Create a new object with all Symbol values converted to strings
+    // Create a new object without Symbol values to prevent conversion errors
+    const prepareForStringify = (value: any): any => {
+      if (value === null || value === undefined) {
+        return value;
+      }
+      
+      // Handle Symbol values by returning null instead
+      if (typeof value === 'symbol') {
+        return null;
+      }
+      
+      // Handle arrays
+      if (Array.isArray(value)) {
+        return value.map(item => prepareForStringify(item));
+      }
+      
+      // Handle objects (but not Date or RegExp etc.)
+      if (typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
+        const result: Record<string, any> = {};
+        for (const key in value) {
+          if (Object.prototype.hasOwnProperty.call(value, key)) {
+            result[key] = prepareForStringify(value[key]);
+          }
+        }
+        return result;
+      }
+      
+      return value;
+    };
+    
+    // Create a new object without Symbol values
+    const preparedObject = prepareForStringify(obj);
+    
+    // Handle circular references
     const getCircularReplacer = () => {
       const seen = new WeakSet();
       return (key: string, value: any) => {
-        // Handle Symbol values
-        if (typeof value === 'symbol') {
-          return value.toString();
-        }
-        
-        // Handle circular references
         if (typeof value === 'object' && value !== null) {
           if (seen.has(value)) {
             return '[Circular]';
@@ -87,7 +114,7 @@ const safeStringify = (obj: any): string => {
       };
     };
     
-    return JSON.stringify(obj, getCircularReplacer());
+    return JSON.stringify(preparedObject, getCircularReplacer());
   } catch (error) {
     console.error('Error stringifying data:', error);
     return '{}';
