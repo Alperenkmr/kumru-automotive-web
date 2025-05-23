@@ -102,35 +102,6 @@ const blogPostsData: Record<string, {
   }
 };
 
-// Function to get all blog posts with translations
-export const getAllBlogPosts = (language: string): BlogPost[] => {
-  const posts: BlogPost[] = [];
-  
-  // Get translations through a hook-compatible function
-  const { t } = useLanguage();
-  
-  // Transform data into BlogPost objects with translations
-  Object.entries(blogPostsData).forEach(([id, post]) => {
-    posts.push({
-      id,
-      title: t(post.titleKey as TranslationKey),
-      titleKey: post.titleKey,
-      excerpt: t(`${post.titleKey}.excerpt` as TranslationKey),
-      content: t(post.contentKey as TranslationKey),
-      contentKey: post.contentKey,
-      date: post.date,
-      author: post.author,
-      category: post.category,
-      imageSrc: post.banner,
-      banner: post.banner,
-      href: `/blog/${id}`,
-      relatedImages: post.relatedImages
-    });
-  });
-  
-  return posts;
-};
-
 export const useBlogService = () => {
   const { t } = useLanguage();
   
@@ -264,7 +235,12 @@ export const useBlogService = () => {
     return { post, title, content };
   };
 
+  const getAllPosts = (): BlogPost[] => {
+    return Object.values(blogPosts);
+  };
+
   return {
-    getBlogPost
+    getBlogPost,
+    getAllPosts
   };
 };

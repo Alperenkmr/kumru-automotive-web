@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/locales/types";
-import { getAllBlogPosts } from "@/services/BlogService";
+import { useBlogService } from "@/services/BlogService";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -15,8 +15,9 @@ const BlogPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   
-  // Get all blog posts
-  const allPosts = getAllBlogPosts(language);
+  // Use the hook-based blog service instead of the standalone function
+  const { getAllPosts } = useBlogService();
+  const allPosts = getAllPosts();
   
   // Filter posts based on search term and category
   const filteredPosts = allPosts.filter(post => {
@@ -31,49 +32,6 @@ const BlogPage: React.FC = () => {
   // Get unique categories
   const categories = ["all", ...Array.from(new Set(allPosts.map(post => post.category)))];
 
-  // Blog sayfası için schema.org yapılandırılmış veri
-  const blogPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": language === 'tr' ? "RSS Kumru Automotive Blog" : "RSS Kumru Automotive Blog",
-    "description": language === 'tr' 
-      ? "Hidrolik sistemler, otomotiv parçaları ve endüstriyel çözümler hakkında en son haberler ve teknik makaleler"
-      : "Latest news and technical articles about hydraulic systems, automotive parts, and industrial solutions",
-    "publisher": {
-      "@type": "Organization",
-      "name": "RSS Kumru Automotive",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
-      }
-    },
-    "blogPost": allPosts.slice(0, 5).map((post, index) => ({
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt,
-      "datePublished": post.date,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://rsskumru.com${post.href}`
-      },
-      "image": post.imageSrc.startsWith('/') 
-        ? `https://rsskumru.com${post.imageSrc}` 
-        : post.imageSrc,
-      "author": {
-        "@type": "Person",
-        "name": post.author
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "RSS Kumru Automotive",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://rsskumru.com/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
-        }
-      }
-    }))
-  };
-  
   return (
     <>
       <SEO 
@@ -83,8 +41,6 @@ const BlogPage: React.FC = () => {
           : "Latest news, articles and technical information about hydraulic systems, automotive parts and industrial solutions."
         }
         canonicalUrl="/blog"
-        ogType="website"
-        structuredData={blogPageSchema}
       />
       
       <Header />
@@ -146,9 +102,10 @@ const BlogPage: React.FC = () => {
                   key={index}
                   title={post.title}
                   date={post.date}
-                  imageSrc={post.imageSrc.startsWith('/') ? `.${post.imageSrc}` : post.imageSrc}
+                  imageSrc={post.imageSrc}
                   author={post.author}
-                  href={post.href.startsWith('/') ? `#${post.href}` : post.href}
+                  href={post.href}
+                  excerpt={post.excerpt}
                 />
               ))}
             </div>
