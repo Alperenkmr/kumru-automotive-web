@@ -27,7 +27,7 @@ const Products = () => {
     {
       id: 3,
       title: "HYDRAULIC SYSTEM",
-      imageSrc: "/lovable-uploads/02b1ce93-6964-4f30-b393-8c9afcfa2642.png",
+      imageSrc: "/lovable-uploads/8ba224ad-ba9b-4e72-bb83-d36c7da4ab4c.png",
       href: "/products/hydraulic-system",
       translationKey: "products.hydraulicSystem"
     },
