@@ -43,11 +43,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
       )}
     >
       <div className={cn(
-        "h-56 relative",
-        isHomeOrProducts ? "border-4 border-kumru-navy" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
+        "h-56 relative rounded-lg",
+        isHomeOrProducts ? "border-8 border-kumru-navy" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
       )}>
         {isHomeOrProducts ? (
-          <div className="absolute inset-0 flex items-center justify-center p-1 border-2 border-kumru-yellow">
+          <div className="absolute inset-0 flex items-center justify-center p-1 border-4 border-kumru-yellow rounded-lg">
             <div className="overflow-hidden w-full h-full flex items-center justify-center rounded-lg">
               <img 
                 src={imageSrc} 
