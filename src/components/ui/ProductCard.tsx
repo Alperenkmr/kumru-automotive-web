@@ -49,29 +49,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
     >
       <div className={cn(
         "h-56 relative",
-        isHomeOrProducts ? "" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
+        isHomeOrProducts ? "border-2 border-kumru-navy" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
       )}>
         {isHomeOrProducts ? (
-          <HoverCard>
-            <HoverCardTrigger asChild>
-              <div className="absolute inset-0 flex items-center justify-center p-4">
-                <img 
-                  src={imageSrc} 
-                  alt={displayTitle}
-                  className="max-w-full max-h-full object-contain transition-transform duration-200" 
-                />
-              </div>
-            </HoverCardTrigger>
-            <HoverCardContent className="w-80 p-0 border-none bg-transparent shadow-none">
-              <div className="w-full h-full flex items-center justify-center">
-                <img 
-                  src={imageSrc} 
-                  alt={displayTitle}
-                  className="max-w-full max-h-full object-contain scale-110" 
-                />
-              </div>
-            </HoverCardContent>
-          </HoverCard>
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <img 
+              src={imageSrc} 
+              alt={displayTitle}
+              className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300" 
+            />
+          </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center p-4">
             <img 
