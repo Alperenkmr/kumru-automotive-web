@@ -82,9 +82,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Vimeo Video */}
+          {/* Right column - Vimeo Video - Now larger and without decorative elements */}
           <div className="relative hidden lg:flex items-center justify-center h-full">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl w-full" style={{height: "400px"}}>
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl w-full" style={{height: "500px"}}>
               <iframe 
                 src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
                 frameBorder="0" 
@@ -93,10 +93,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                 title="RSS Kumru Video"
               ></iframe>
             </div>
-            
-            {/* Decorative elements around the video */}
-            <div className="absolute -left-8 -bottom-8 w-48 h-48 bg-kumru-yellow/20 rounded-full z-0"></div>
-            <div className="absolute -right-5 -top-5 w-24 h-24 bg-kumru-navy/10 rounded-lg z-0"></div>
           </div>
         </div>
       </div>
