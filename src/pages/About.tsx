@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import SEO from "@/components/SEO";
@@ -77,7 +76,6 @@ const About = () => {
           : "Learn about RSS Kumru Automotive. With over 30 years of experience, we are a trusted supplier in the automotive sector with strong values and quality certifications."
         }
         canonicalUrl="/about"
-        structuredData={aboutPageSchema}
       />
       <Header />
       <main className="pt-24">

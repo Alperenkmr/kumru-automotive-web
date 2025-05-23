@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
@@ -86,10 +85,9 @@ const Index = () => {
           : "RSS Kumru Automotive offers high-quality hydraulic hoses, custom engineering lines, and fluid system management solutions for the automotive industry."
         }
         canonicalUrl="/"
-        structuredData={homePageSchema}
       />
       <Header />
-      <main className="pt-24"> {/* Padding top to account for fixed header */}
+      <main className="pt-24">
         <Hero />
         <WhatWeDo />
         
