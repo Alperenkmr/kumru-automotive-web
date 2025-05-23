@@ -20,7 +20,7 @@ export const productsType = {
   'products.transferPump': 'TRANSFER POMPASI',
   'products.turboPipeHose': 'TURBO BORU HORTUM',
   'products.turboTimingPipes': 'TURBO YAĞLAMA BORU VE HORTUMLARI',
-  'products.fittings': 'BAĞLANTI ELEMANLARI',
+  'products.primingPump': 'MAZOT EL POMPALARI',
   
   // Product descriptions
   'products.steeringHose.desc': 'Yönlendirme sistemlerinde kullanılan, yüksek basınç ve sıcaklığa dayanıklı hortumlardır.',
@@ -38,7 +38,7 @@ export const productsType = {
   'products.turboTimingPipes.desc': 'Turbo sistemlerinde zamanlama ve hava akışını düzenleyen özel boru ve hortumlardır.',
   'products.valveTiming.desc': 'Motor performansını artırmak için valflerin açılış-kapanış zamanlamasını ayarlayan sistem elemanlarıdır.',
   'products.valveNozzle.desc': 'Enjektör sistemlerinde yakıt püskürtmesini sağlayan hassas uçlu valf nozullarıdır.',
-  'products.fittings.desc': 'Hidrolik sistemler için güvenilir, sızdırmaz bağlantılar sağlayan hassas mühendislik ürünlerimiz çelik, paslanmaz çelik ve pirinç dahil olmak üzere çeşitli malzemelerden üretilmektedir.',
+  'products.primingPump.desc': 'Yüksek kaliteli mazot el pompaları, dizel ve diğer yakıtları verimli bir şekilde transfer etmek için tasarlanmıştır. Çeşitli uygulamalarda güvenilir performans sağlamak için dayanıklı malzemelerden üretilmiştir.',
   
   // Gallery sections
   'products.gallery.title': 'Ürün Galerisi',

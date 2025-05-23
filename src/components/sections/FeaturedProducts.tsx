@@ -50,10 +50,10 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     },
     {
       id: 6,
-      title: "VESSEL LINES",
-      imageSrc: "/lovable-uploads/6d1621b4-7c01-49fc-b354-f8ed8dfee654.png",
-      href: "/products/vessel-lines",
-      translationKey: "products.vesselLines"
+      title: "PRIMING PUMP",
+      imageSrc: "/lovable-uploads/58f56706-3c9d-42ff-8437-ef0f1038f882.png",
+      href: "/products/priming-pump",
+      translationKey: "products.primingPump"
     },
   ];
 

@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -238,6 +237,18 @@ const productData = {
       "/lovable-uploads/59a0ac86-6696-4447-8a45-9ce598715cae.png",
       "/lovable-uploads/a1804d23-ca70-4350-abca-6b3bbceaae0e.png",
       "/lovable-uploads/05de3ed0-8ac9-44c8-83fe-70985c4e6c6a.png",
+    ]
+  },
+  "priming-pump": {
+    title: "Priming Pump",
+    description: "Our high-quality priming pumps are designed for efficiently transferring diesel and other fuels. Manufactured with durable materials to ensure reliable performance in various applications.",
+    images: [
+      "/lovable-uploads/58f56706-3c9d-42ff-8437-ef0f1038f882.png",
+      "/lovable-uploads/081a67a5-5ee6-4a4a-9e64-5e9c0fb57b4a.png",
+      "/lovable-uploads/3c05ed8f-91fb-4594-83cc-4702f27feb7c.png",
+      "/lovable-uploads/c5fb03aa-37d4-4cbb-bfb9-ce7d18042f06.png",
+      "/lovable-uploads/a75b1967-2af0-464c-b110-a93517a59865.png",
+      "/lovable-uploads/5cdc8ede-f950-4416-a8ad-ef5d6da774f3.png"
     ]
   }
 };

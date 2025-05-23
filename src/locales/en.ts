@@ -1,4 +1,3 @@
-
 import { TranslationsType } from './types';
 
 export const enTranslations: TranslationsType = {
@@ -111,7 +110,7 @@ export const enTranslations: TranslationsType = {
   'products.valveRecord': 'VALVE RECORD',
   'products.valveTiming': 'VALVE TIMING',
   'products.vesselLines': 'VESSEL LINES',
-  'products.fittings': 'FITTINGS',
+  'products.primingPump': 'PRIMING PUMP',
   'products.specialItems': 'SPECIAL ITEMS',
   
   // Product descriptions
@@ -130,6 +129,7 @@ export const enTranslations: TranslationsType = {
   'products.valveTiming.desc': 'Precision valve timing components for optimal engine performance. Engineered for accuracy and durability to ensure consistent engine operation.',
   'products.vesselLines.desc': 'Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.',
   'products.fittings.desc': 'Our precision-engineered fittings provide reliable, leak-free connections for hydraulic systems. Available in various materials including steel, stainless steel, and brass to meet your specific requirements.',
+  'products.primingPump.desc': 'Our high-quality priming pumps are designed for efficiently transferring diesel and other fuels. Manufactured with durable materials to ensure reliable performance in various applications.',
   'products.specialItems.desc': 'Custom solutions designed for your unique needs. Specially crafted components and systems for distinctive applications.',
   
   // Gallery sections

@@ -111,10 +111,10 @@ const Products = () => {
     },
     {
       id: 15,
-      title: "FITTINGS",
-      imageSrc: "/lovable-uploads/4369c6f1-28c4-434b-b45c-a8385a2b459b.png",
-      href: "/products/fittings",
-      translationKey: "products.fittings"
+      title: "PRIMING PUMP",
+      imageSrc: "/lovable-uploads/58f56706-3c9d-42ff-8437-ef0f1038f882.png",
+      href: "/products/priming-pump",
+      translationKey: "products.primingPump"
     },
     {
       id: 16,

@@ -21,7 +21,7 @@ import ValveNozzleGallery from "@/components/product/gallery/ValveNozzleGallery"
 import ValveRecordGallery from "@/components/product/gallery/ValveRecordGallery";
 import ValveTimingGallery from "@/components/product/gallery/ValveTimingGallery";
 import VesselLinesGallery from "@/components/product/gallery/VesselLinesGallery";
-import FittingsGallery from "@/components/product/gallery/FittingsGallery";
+import PrimingPumpGallery from "@/components/product/gallery/PrimingPumpGallery";
 import ConnectorsGallery from "@/components/product/gallery/ConnectorsGallery";
 import DefaultGallery from "@/components/product/gallery/DefaultGallery";
 
@@ -76,8 +76,8 @@ const ProductDetail = () => {
         return <ValveTimingGallery images={product.images} productTitle={translatedTitle} />;
       case 'vessel-lines':
         return <VesselLinesGallery images={product.images} productTitle={translatedTitle} />;
-      case 'fittings':
-        return <FittingsGallery images={product.images} productTitle={translatedTitle} />;
+      case 'priming-pump':
+        return <PrimingPumpGallery images={product.images} productTitle={translatedTitle} />;
       case 'connectors':
         return <ConnectorsGallery images={product.images} productTitle={translatedTitle} />;
       default:
