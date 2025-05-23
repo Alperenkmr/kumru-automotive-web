@@ -66,57 +66,71 @@ interface SEOProps {
 
 // Safe stringify function to handle potential Symbol values and circular references
 const safeStringify = (obj: any): string => {
+  if (!obj || typeof obj !== 'object') {
+    return '{}';
+  }
+
   try {
-    // Create a new object without Symbol values to prevent conversion errors
-    const prepareForStringify = (value: any): any => {
+    // Create a deep clone without Symbol values
+    const cleanObject = (value: any): any => {
       if (value === null || value === undefined) {
         return value;
       }
       
-      // Handle Symbol values by returning null instead
+      // Convert Symbol values to null
       if (typeof value === 'symbol') {
         return null;
       }
       
-      // Handle arrays
-      if (Array.isArray(value)) {
-        return value.map(item => prepareForStringify(item));
+      // Handle primitive types
+      if (typeof value !== 'object') {
+        return value;
       }
       
-      // Handle objects (but not Date or RegExp etc.)
-      if (typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
+      // Handle arrays
+      if (Array.isArray(value)) {
+        return value.map(item => cleanObject(item)).filter(item => item !== null);
+      }
+      
+      // Handle plain objects only
+      if (value.constructor === Object) {
         const result: Record<string, any> = {};
         for (const key in value) {
           if (Object.prototype.hasOwnProperty.call(value, key)) {
-            result[key] = prepareForStringify(value[key]);
+            const cleanedValue = cleanObject(value[key]);
+            if (cleanedValue !== null && cleanedValue !== undefined) {
+              result[key] = cleanedValue;
+            }
           }
         }
         return result;
       }
       
+      // For other object types (Date, RegExp, etc.), convert to string or return null
+      if (typeof value.toString === 'function') {
+        return value.toString();
+      }
+      
+      return null;
+    };
+    
+    const cleanedObject = cleanObject(obj);
+    
+    // Final safety check with replacer function
+    const replacer = (key: string, value: any) => {
+      if (typeof value === 'symbol') {
+        return null;
+      }
+      if (typeof value === 'function') {
+        return null;
+      }
       return value;
     };
     
-    // Create a new object without Symbol values
-    const preparedObject = prepareForStringify(obj);
-    
-    // Handle circular references
-    const getCircularReplacer = () => {
-      const seen = new WeakSet();
-      return (key: string, value: any) => {
-        if (typeof value === 'object' && value !== null) {
-          if (seen.has(value)) {
-            return '[Circular]';
-          }
-          seen.add(value);
-        }
-        return value;
-      };
-    };
-    
-    return JSON.stringify(preparedObject, getCircularReplacer());
+    const result = JSON.stringify(cleanedObject, replacer);
+    return result || '{}';
   } catch (error) {
-    console.error('Error stringifying data:', error);
+    console.error('Error stringifying structured data:', error);
     return '{}';
   }
 };
@@ -166,9 +180,20 @@ const SEO: React.FC<SEOProps> = ({
     }))
   } : null;
   
-  // Safely stringify structured data
+  // Safely stringify structured data with additional validation
   const serializedStructuredData = structuredData ? safeStringify(structuredData) : null;
   const serializedBreadcrumbsSchema = breadcrumbsSchema ? safeStringify(breadcrumbsSchema) : null;
+
+  // Additional validation to ensure we never pass invalid strings
+  const isValidJSONString = (str: string | null): boolean => {
+    if (!str || str === '{}' || str === 'null') return false;
+    try {
+      JSON.parse(str);
+      return true;
+    } catch {
+      return false;
+    }
+  };
 
   // Sosyal medya meta etiketleri
   const twitterCardType = socialMedia?.twitter?.cardType || "summary_large_image";
@@ -256,15 +281,15 @@ const SEO: React.FC<SEOProps> = ({
         </>
       )}
       
-      {/* Yapılandırılmış Veri (Schema.org) */}
-      {serializedStructuredData && (
+      {/* Yapılandırılmış Veri (Schema.org) - Only render if valid */}
+      {serializedStructuredData && isValidJSONString(serializedStructuredData) && (
         <script type="application/ld+json">
           {serializedStructuredData}
         </script>
       )}
       
-      {/* Ekmek kırıntıları için yapılandırılmış veri */}
-      {serializedBreadcrumbsSchema && (
+      {/* Ekmek kırıntıları için yapılandırılmış veri - Only render if valid */}
+      {serializedBreadcrumbsSchema && isValidJSONString(serializedBreadcrumbsSchema) && (
         <script type="application/ld+json">
           {serializedBreadcrumbsSchema}
         </script>
