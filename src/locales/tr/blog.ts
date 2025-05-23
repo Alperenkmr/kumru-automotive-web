@@ -105,4 +105,255 @@ export const blogType = {
       "PTFE ve kauçuk hortumlar arasındaki seçim, kimyasal uyumluluk, sıcaklık aralığı, basınç değerleri, esneklik ihtiyaçları ve bütçe kısıtlamaları dahil olmak üzere uygulama gereksinimlerinizin kapsamlı bir analizine dayanmalıdır."
     </blockquote>
   `,
+
+  'blog.post.maintenance.title': 'Hidrolik Hortum Bakım İpuçları',
+  'blog.post.maintenance.excerpt': 'Hidrolik hortumlarınızın ömrünü uzatmak için profesyonel bakım stratejileri ve önleyici yöntemler.',
+  'blog.post.maintenance.content': `
+    <h2>Hidrolik Hortum Bakımı: Temel Prensipler</h2>
+    <p>Hidrolik hortumların düzgün bakımı, sistem güvenilirliği ve maliyet kontrolü açısından kritik öneme sahiptir. Doğru bakım uygulamaları ile hortum ömrünü önemli ölçüde uzatabilirsiniz.</p>
+    
+    <h3>Düzenli İnceleme Kontrol Listesi</h3>
+    <ul>
+      <li><strong>Görsel İnceleme:</strong> Çatlaklar, kesikler ve aşınma belirtilerini kontrol edin</li>
+      <li><strong>Bağlantı Noktaları:</strong> Sızıntı ve gevşeme kontrolü yapın</li>
+      <li><strong>Bükülme Alanları:</strong> Aşırı bükülme ve kırışıklık kontrolü</li>
+      <li><strong>Dış Kaplama:</strong> Sertleşme, yumuşama veya şişme belirtileri</li>
+    </ul>
+    
+    <h3>Önleyici Bakım Stratejileri</h3>
+    <p>Etkili bir bakım programı şu unsurları içermelidir:</p>
+    
+    <ol>
+      <li><strong>Planlı Değişim:</strong> Hortumları arıza olmadan önce değiştirin</li>
+      <li><strong>Doğru Yönlendirme:</strong> Minimum bükülme yarıçaplarına uyun</li>
+      <li><strong>Temizlik:</strong> Kirletici maddeleri düzenli olarak temizleyin</li>
+      <li><strong>Koruma:</strong> Aşırı sıcaklık ve aşındırıcı maddelerden koruyun</li>
+    </ol>
+    
+    <h3>Yaygın Sorunlar ve Çözümleri</h3>
+    <table>
+      <tr>
+        <th>Sorun</th>
+        <th>Sebep</th>
+        <th>Çözüm</th>
+      </tr>
+      <tr>
+        <td>Erken Yaşlanma</td>
+        <td>Aşırı sıcaklık</td>
+        <td>Isı kalkanları kullanın</td>
+      </tr>
+      <tr>
+        <td>Dış Kaplama Hasarı</td>
+        <td>Aşınma</td>
+        <td>Koruyucu kılıflar takın</td>
+      </tr>
+      <tr>
+        <td>Bağlantı Sızıntısı</td>
+        <td>Yanlış tork</td>
+        <td>Spesifikasyonlara uyun</td>
+      </tr>
+    </table>
+    
+    <blockquote>
+      "Düzenli bakım, reaktif onarımdan her zaman daha ekonomiktir. Küçük bir yatırım, büyük maliyetleri önler."
+    </blockquote>
+  `,
+
+  'blog.post.turboOil.title': 'Turbo Yağ Borusu Yenilikleri',
+  'blog.post.turboOil.excerpt': 'Modern turbo yağ borusu teknolojilerindeki son gelişmeler ve performans artışları.',
+  'blog.post.turboOil.content': `
+    <h2>Turbo Yağ Sistemlerinde Teknolojik Gelişmeler</h2>
+    <p>Turboşarj teknolojisinin gelişmesiyle birlikte, yağ dağıtım sistemleri de sürekli olarak iyileştirilmektedir. Modern turbo yağ boruları, aşırı koşullarda bile güvenilir performans sağlamaktadır.</p>
+    
+    <h3>Malzeme İnovasyonları</h3>
+    <ul>
+      <li><strong>Yüksek Sıcaklık Alaşımları:</strong> 800°C'ye kadar dayanıklı özel alaşımlar</li>
+      <li><strong>Korozyon Direnci:</strong> Gelişmiş kaplama teknolojileri</li>
+      <li><strong>Hafif Yapı:</strong> Alüminyum ve kompozit malzeme kullanımı</li>
+      <li><strong>Esnek Bağlantılar:</strong> Termal genleşmeye uyum sağlayan tasarımlar</li>
+    </ul>
+    
+    <h3>Tasarım Optimizasyonları</h3>
+    <p>Modern turbo yağ boruları şu özellikleri içermektedir:</p>
+    
+    <ol>
+      <li><strong>Akış Dinamiği:</strong> CFD analizi ile optimize edilmiş iç geometri</li>
+      <li><strong>Basınç Düşüşü:</strong> Minimum kayıpla maksimum verimlilik</li>
+      <li><strong>Titreşim Sönümleme:</strong> Motor titreşimlerine karşı direnç</li>
+      <li><strong>Kolay Montaj:</strong> Hızlı ve güvenli kurulum sistemleri</li>
+    </ol>
+    
+    <h3>Performans Avantajları</h3>
+    <table>
+      <tr>
+        <th>Özellik</th>
+        <th>Geleneksel</th>
+        <th>Modern</th>
+      </tr>
+      <tr>
+        <td>Çalışma Sıcaklığı</td>
+        <td>400°C</td>
+        <td>800°C</td>
+      </tr>
+      <tr>
+        <td>Servis Ömrü</td>
+        <td>50.000 km</td>
+        <td>150.000 km</td>
+      </tr>
+      <tr>
+        <td>Basınç Kaybı</td>
+        <td>%15</td>
+        <td>%5</td>
+      </tr>
+    </table>
+    
+    <blockquote>
+      "Turbo yağ borusu teknolojisindeki her ilerleme, motor performansının artmasına ve yakıt ekonomisinin iyileşmesine doğrudan katkı sağlar."
+    </blockquote>
+  `,
+
+  'blog.post.fittings.title': 'Doğru Bağlantı Parçası Seçimi',
+  'blog.post.fittings.excerpt': 'Hidrolik sistemlerde güvenilir bağlantı için doğru fitting seçimi rehberi.',
+  'blog.post.fittings.content': `
+    <h2>Bağlantı Parçası Seçiminde Kritik Faktörler</h2>
+    <p>Hidrolik sistemlerde bağlantı parçalarının doğru seçimi, sistem güvenliği ve performansı açısından hayati önem taşır. Yanlış seçim, sızıntıdan sistem arızasına kadar ciddi sorunlara yol açabilir.</p>
+    
+    <h3>Temel Seçim Kriterleri</h3>
+    <ul>
+      <li><strong>Basınç Değeri:</strong> Sistem maksimum basıncının üzerinde olmalı</li>
+      <li><strong>Sıcaklık Aralığı:</strong> Çalışma koşullarına uygun malzeme</li>
+      <li><strong>Ortam Uyumluluğu:</strong> Hidrolik sıvısı ile uyumluluk</li>
+      <li><strong>Boyut Uyumu:</strong> Hortum ve sistem bağlantı boyutları</li>
+      <li><strong>Kurulum Kolaylığı:</strong> Montaj ve bakım gereksinimleri</li>
+    </ul>
+    
+    <h3>Bağlantı Tipi Karşılaştırması</h3>
+    <table>
+      <tr>
+        <th>Tip</th>
+        <th>Basınç Kapasitesi</th>
+        <th>Uygulama</th>
+        <th>Avantajlar</th>
+      </tr>
+      <tr>
+        <td>JIC 37°</td>
+        <td>Çok Yüksek</td>
+        <td>Hidrolik Sistemler</td>
+        <td>Güvenilir sızdırmazlık</td>
+      </tr>
+      <tr>
+        <td>NPT Dişli</td>
+        <td>Orta</td>
+        <td>Düşük Basınç</td>
+        <td>Ekonomik çözüm</td>
+      </tr>
+      <tr>
+        <td>Push-Lock</td>
+        <td>Düşük-Orta</td>
+        <td>Hızlı Montaj</td>
+        <td>Kolay kurulum</td>
+      </tr>
+      <tr>
+        <td>Crimp Fitting</td>
+        <td>Yüksek</td>
+        <td>Kalıcı Bağlantı</td>
+        <td>Maksimum güvenlik</td>
+      </tr>
+    </table>
+    
+    <h3>Malzeme Seçim Rehberi</h3>
+    <p>Farklı uygulamalar için önerilen malzemeler:</p>
+    
+    <ul>
+      <li><strong>Paslanmaz Çelik:</strong> Korozif ortamlar, yüksek sıcaklık</li>
+      <li><strong>Karbon Çelik:</strong> Standart hidrolik uygulamalar</li>
+      <li><strong>Pirinç:</strong> Düşük basınç, pnömatik sistemler</li>
+      <li><strong>Alüminyum:</strong> Hafiflik gerektiren mobil uygulamalar</li>
+    </ul>
+    
+    <h3>Kurulum En İyi Uygulamaları</h3>
+    <ol>
+      <li>Üretici tork değerlerine uyun</li>
+      <li>Uygun sızdırmazlık malzemesi kullanın</li>
+      <li>Temiz çalışma ortamı sağlayın</li>
+      <li>Kalibre edilmiş aletler kullanın</li>
+      <li>Kurulum sonrası test yapın</li>
+    </ol>
+    
+    <blockquote>
+      "Kaliteli bağlantı parçası yatırımı, sistemin genel güvenilirliğini artırır ve uzun vadede maliyet tasarrufu sağlar."
+    </blockquote>
+  `,
+
+  'blog.post.evHydraulics.title': 'Elektrikli Araçlarda Hidrolik Sistemler',
+  'blog.post.evHydraulics.excerpt': 'Elektrikli araç teknolojisinde hidrolik sistemlerin gelişen rolü ve gelecek potansiyeli.',
+  'blog.post.evHydraulics.content': `
+    <h2>Elektrikli Araçlarda Hidrolik Teknolojinin Evrimi</h2>
+    <p>Otomotiv endüstrisinin elektrikli araçlara geçişi, hidrolik sistemler için yeni fırsatlar ve zorluklar yaratmaktadır. Bu dönüşüm, hidrolik teknolojisinin yeniden tanımlanmasını gerektirmektedir.</p>
+    
+    <h3>EV'lerde Hidrolik Uygulamaları</h3>
+    <ul>
+      <li><strong>Regeneratif Fren Sistemleri:</strong> Enerji geri kazanımında kritik rol</li>
+      <li><strong>Aktif Süspansiyon:</strong> Sürüş konfortu ve performans optimizasyonu</li>
+      <li><strong>Termal Yönetim:</strong> Batarya soğutma sistemleri</li>
+      <li><strong>Yardımcı Sistemler:</strong> Direksiyon, fren desteği</li>
+      <li><strong>Ticari Araç Uygulamaları:</strong> Yükleme, kaldırma sistemleri</li>
+    </ul>
+    
+    <h3>Tasarım Zorluklarına Çözümler</h3>
+    <p>EV uygulamaları hidrolik sistemler için benzersiz gereksinimler yaratır:</p>
+    
+    <table>
+      <tr>
+        <th>Zorluk</th>
+        <th>Geleneksel Çözüm</th>
+        <th>EV Çözümü</th>
+      </tr>
+      <tr>
+        <td>Enerji Verimliliği</td>
+        <td>Standart pompalar</td>
+        <td>Değişken deplasmanlı pompalar</td>
+      </tr>
+      <tr>
+        <td>Gürültü Kontrolü</td>
+        <td>Sınırlı önem</td>
+        <td>Ultra sessiz tasarım</td>
+      </tr>
+      <tr>
+        <td>Ağırlık</td>
+        <td>Çelik bileşenler</td>
+        <td>Hafif alaşımlar, kompozitler</td>
+      </tr>
+      <tr>
+        <td>Kompaktlık</td>
+        <td>Standart boyutlar</td>
+        <td>Entegre, kompakt tasarım</td>
+      </tr>
+    </table>
+    
+    <h3>Gelecek Teknolojileri</h3>
+    <p>EV hidrolik sistemlerinde beklenen gelişmeler:</p>
+    
+    <ol>
+      <li><strong>Akıllı Hidrolik:</strong> IoT ve AI entegrasyonu</li>
+      <li><strong>Hibrit Güç Sistemleri:</strong> Elektrik-hidrolik kombinasyonu</li>
+      <li><strong>Nano-akışkanlar:</strong> Gelişmiş ısı transfer özellikleri</li>
+      <li><strong>3D Baskı Bileşenleri:</strong> Özelleştirilmiş parçalar</li>
+      <li><strong>Çevre Dostu Sıvılar:</strong> Biyobozunur hidrolik yağları</li>
+    </ol>
+    
+    <h3>Endüstri Etkisi ve Fırsatlar</h3>
+    <p>Bu dönüşüm hidrolik sektörü için önemli fırsatlar sunar:</p>
+    
+    <ul>
+      <li>Yeni pazar segmentleri ve büyüme alanları</li>
+      <li>Ar-Ge yatırımları ve teknolojik yenilik</li>
+      <li>Sürdürülebilirlik odaklı ürün geliştirme</li>
+      <li>Disiplinlerarası işbirliği fırsatları</li>
+    </ul>
+    
+    <blockquote>
+      "Elektrikli araç devrimi, hidrolik teknolojisinin geleceğini şekillendiriyor. Bu değişimi fırsata çevirebilen şirketler, sektörün liderleri olacak."
+    </blockquote>
+  `
 };
