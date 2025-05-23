@@ -2,21 +2,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-// Schema.org türleri için desteklenen türler
-type SchemaType = 
-  | 'WebPage' 
-  | 'Organization' 
-  | 'Product' 
-  | 'Article' 
-  | 'BlogPosting' 
-  | 'BreadcrumbList'
-  | 'FAQPage'
-  | 'LocalBusiness'
-  | 'WebSite'
-  | 'ContactPage'
-  | 'AboutPage'
-  | 'Person';
-
 interface SocialMediaProps {
   twitter?: {
     cardType?: 'summary' | 'summary_large_image' | 'app' | 'player';
@@ -26,18 +11,6 @@ interface SocialMediaProps {
   facebook?: {
     appId?: string;
   };
-  instagram?: {
-    username?: string;
-  };
-  linkedin?: {
-    companyName?: string;
-  };
-}
-
-interface GeoLocationProps {
-  latitude: string;
-  longitude: string;
-  placeName: string;
 }
 
 interface SEOProps {
@@ -46,94 +19,13 @@ interface SEOProps {
   canonicalUrl?: string;
   ogType?: 'website' | 'article' | 'product';
   ogImage?: string;
-  additionalImages?: string[];
   keywords?: string[];
   language?: string;
   author?: string;
-  publishedTime?: string;
-  modifiedTime?: string;
-  category?: string;
-  structuredData?: Record<string, any>;
-  breadcrumbs?: Array<{name: string, url: string}>;
   noindex?: boolean;
   nofollow?: boolean;
   socialMedia?: SocialMediaProps;
-  geolocation?: GeoLocationProps;
-  alternateLanguages?: Array<{locale: string, url: string}>;
-  videoUrl?: string;
-  audioUrl?: string;
 }
-
-// Safe stringify function to handle potential Symbol values and circular references
-const safeStringify = (obj: any): string => {
-  if (!obj || typeof obj !== 'object') {
-    return '{}';
-  }
-
-  try {
-    // Create a deep clone without Symbol values
-    const cleanObject = (value: any): any => {
-      if (value === null || value === undefined) {
-        return value;
-      }
-      
-      // Convert Symbol values to null
-      if (typeof value === 'symbol') {
-        return null;
-      }
-      
-      // Handle primitive types
-      if (typeof value !== 'object') {
-        return value;
-      }
-      
-      // Handle arrays
-      if (Array.isArray(value)) {
-        return value.map(item => cleanObject(item)).filter(item => item !== null);
-      }
-      
-      // Handle plain objects only
-      if (value.constructor === Object) {
-        const result: Record<string, any> = {};
-        for (const key in value) {
-          if (Object.prototype.hasOwnProperty.call(value, key)) {
-            const cleanedValue = cleanObject(value[key]);
-            if (cleanedValue !== null && cleanedValue !== undefined) {
-              result[key] = cleanedValue;
-            }
-          }
-        }
-        return result;
-      }
-      
-      // For other object types (Date, RegExp, etc.), convert to string or return null
-      if (typeof value.toString === 'function') {
-        return value.toString();
-      }
-      
-      return null;
-    };
-    
-    const cleanedObject = cleanObject(obj);
-    
-    // Final safety check with replacer function
-    const replacer = (key: string, value: any) => {
-      if (typeof value === 'symbol') {
-        return null;
-      }
-      if (typeof value === 'function') {
-        return null;
-      }
-      return value;
-    };
-    
-    const result = JSON.stringify(cleanedObject, replacer);
-    return result || '{}';
-  } catch (error) {
-    console.error('Error stringifying structured data:', error);
-    return '{}';
-  }
-};
 
 const SEO: React.FC<SEOProps> = ({ 
   title, 
@@ -141,22 +33,12 @@ const SEO: React.FC<SEOProps> = ({
   canonicalUrl,
   ogType = "website",
   ogImage = "/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png",
-  additionalImages = [],
   keywords = ["RSS Kumru", "Automotive", "hidrolik hortum", "otomotiv", "boru sistemleri"],
   language = "tr",
   author = "RSS Kumru Automotive",
-  publishedTime,
-  modifiedTime,
-  category,
-  structuredData,
-  breadcrumbs,
   noindex = false,
   nofollow = false,
   socialMedia,
-  geolocation,
-  alternateLanguages,
-  videoUrl,
-  audioUrl,
 }) => {
   // Site adı
   const siteName = "RSS Kumru Automotive";
@@ -167,39 +49,11 @@ const SEO: React.FC<SEOProps> = ({
   // Tam URL oluşturma
   const siteUrl = "https://rsskumru.com";
   const url = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
-  
-  // Breadcrumb schema.org yapılandırılmış veri oluşturma
-  const breadcrumbsSchema = breadcrumbs ? {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbs.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": `${siteUrl}${item.url}`
-    }))
-  } : null;
-  
-  // Safely stringify structured data with additional validation
-  const serializedStructuredData = structuredData ? safeStringify(structuredData) : null;
-  const serializedBreadcrumbsSchema = breadcrumbsSchema ? safeStringify(breadcrumbsSchema) : null;
-
-  // Additional validation to ensure we never pass invalid strings
-  const isValidJSONString = (str: string | null): boolean => {
-    if (!str || str === '{}' || str === 'null') return false;
-    try {
-      JSON.parse(str);
-      return true;
-    } catch {
-      return false;
-    }
-  };
 
   // Sosyal medya meta etiketleri
   const twitterCardType = socialMedia?.twitter?.cardType || "summary_large_image";
   const twitterSite = socialMedia?.twitter?.site || "@RSSKumru";
   const twitterCreator = socialMedia?.twitter?.creator || "@RSSKumru";
-  const facebookAppId = socialMedia?.facebook?.appId || "";
 
   return (
     <Helmet>
@@ -217,16 +71,6 @@ const SEO: React.FC<SEOProps> = ({
         content={`${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`} 
       />
       
-      {/* Hreflang Etiketleri - Çok dilli siteler için */}
-      {alternateLanguages && alternateLanguages.map(({ locale, url: langUrl }) => (
-        <link 
-          key={locale}
-          rel="alternate" 
-          hrefLang={locale} 
-          href={`${siteUrl}${langUrl}`}
-        />
-      ))}
-      
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={url} />
@@ -236,21 +80,6 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:locale" content={language === "tr" ? "tr_TR" : "en_US"} />
       <meta property="og:site_name" content={siteName} />
       
-      {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-      {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-      {category && <meta property="article:section" content={category} />}
-      
-      {/* Ek Görseller */}
-      {additionalImages.map((img, index) => (
-        <meta 
-          key={`og:image:${index}`} 
-          property="og:image" 
-          content={img.startsWith('http') ? img : `${siteUrl}${img}`} 
-        />
-      ))}
-      
-      {facebookAppId && <meta property="fb:app_id" content={facebookAppId} />}
-      
       {/* Twitter */}
       <meta name="twitter:card" content={twitterCardType} />
       <meta name="twitter:url" content={url} />
@@ -259,41 +88,6 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
       {twitterSite && <meta name="twitter:site" content={twitterSite} />}
       {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
-      
-      {/* Video ve Audio içeriği için meta etiketler */}
-      {videoUrl && (
-        <>
-          <meta property="og:video" content={videoUrl.startsWith('http') ? videoUrl : `${siteUrl}${videoUrl}`} />
-          <meta name="twitter:player" content={videoUrl.startsWith('http') ? videoUrl : `${siteUrl}${videoUrl}`} />
-        </>
-      )}
-      
-      {audioUrl && (
-        <meta property="og:audio" content={audioUrl.startsWith('http') ? audioUrl : `${siteUrl}${audioUrl}`} />
-      )}
-
-      {/* Coğrafi konum bilgisi */}
-      {geolocation && (
-        <>
-          <meta name="geo.position" content={`${geolocation.latitude};${geolocation.longitude}`} />
-          <meta name="geo.placename" content={geolocation.placeName} />
-          <meta name="geo.region" content="TR" />
-        </>
-      )}
-      
-      {/* Yapılandırılmış Veri (Schema.org) - Only render if valid */}
-      {serializedStructuredData && isValidJSONString(serializedStructuredData) && (
-        <script type="application/ld+json">
-          {serializedStructuredData}
-        </script>
-      )}
-      
-      {/* Ekmek kırıntıları için yapılandırılmış veri - Only render if valid */}
-      {serializedBreadcrumbsSchema && isValidJSONString(serializedBreadcrumbsSchema) && (
-        <script type="application/ld+json">
-          {serializedBreadcrumbsSchema}
-        </script>
-      )}
     </Helmet>
   );
 };
