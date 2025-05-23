@@ -13,19 +13,18 @@ const productData = {
     title: "Hydraulic Hose",
     description: "Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.",
     images: [
-      "/lovable-uploads/03bfd6fa-a2c0-43ae-ac1b-c8cb6bf817a3.png",
-      "/lovable-uploads/04acc924-07a4-4cc4-851f-19cda4219f9c.png",
-      "/lovable-uploads/28f917cf-44b4-4ec5-ad86-5c27137d13a1.png",
-      "/lovable-uploads/32076c81-ec8b-4a67-b691-615053e3d05f.png",
-      "/lovable-uploads/3716897e-2811-487b-a2c7-c4ffc7e62bf4.png",
-      "/lovable-uploads/395071ba-a18c-4d9d-b4e6-aabc0fcf811d.png",
-      "/lovable-uploads/4246bf3a-255f-4174-808a-2759a8ea280e.png",
-      "/lovable-uploads/4310f644-cb07-4547-8b6f-20e9ee3ed8b1.png",
-      "/lovable-uploads/43288de8-e0e7-4b11-8ffd-210e0f67a571.png",
-      "/lovable-uploads/4b10759c-eb86-484a-a6d1-695c97c3605f.png",
-      "/lovable-uploads/4b853838-ce11-4b64-b18e-2a3d4ffdb6cf.png",
-      "/lovable-uploads/64ad2975-7b2b-414d-b67d-56dc0bcc8fab.png",
-      "/lovable-uploads/6b0b97d8-3cc9-4580-93d5-de07179e7445.png"
+      "/lovable-uploads/ab213c6a-f04b-4b0e-b847-f3bedda77422.png",
+      "/lovable-uploads/89e76c7d-d75c-45da-88bb-eab05c3ab735.png",
+      "/lovable-uploads/879d476a-75c4-4867-9599-c7505ff8ff88.png",
+      "/lovable-uploads/01980a91-74cc-4b68-a7b6-8bab803010e6.png",
+      "/lovable-uploads/f2f51d3e-7c6c-429a-b46f-aa45d1f52036.png",
+      "/lovable-uploads/442ffab6-7956-4f04-92ab-9c1ee5e55c20.png",
+      "/lovable-uploads/694b131e-ab62-4aa4-a124-38a8b313b1f9.png",
+      "/lovable-uploads/5fe9f11c-a686-4afa-8316-9279dfcb08cf.png",
+      "/lovable-uploads/4f0c2c09-cc18-415b-a98b-775a581c2cdb.png",
+      "/lovable-uploads/51d979b9-2f0e-48b7-bd20-bfa2d034f059.png",
+      "/lovable-uploads/8c8c4b22-5525-4ded-9102-6cb72a46fc2d.png",
+      "/lovable-uploads/04f20fab-39ad-49f1-8665-479acf68b741.png"
     ]
   },
   "hydraulic-system": {
@@ -162,7 +161,6 @@ const productData = {
       "/lovable-uploads/71700aed-2cc8-4ca8-8b48-846006d57b3d.png",
       "/lovable-uploads/73eb6aec-4ef2-4a7b-8e6b-912441681058.png",
       "/lovable-uploads/1015817f-8154-40d8-964f-dbb6e6a83b3d.png",
-      // Removed images 10, 11, and 12
       "/lovable-uploads/479924de-3bbb-4739-8124-47695254d888.png",
       "/lovable-uploads/1d407d02-2643-462c-8ce2-1e0d0db81135.png",
       "/lovable-uploads/d38a0c6f-32f2-498e-8dbc-48033c01aa00.png",
