@@ -41,14 +41,14 @@ const productData = {
     title: "Injection Lines",
     description: "Our high-precision injection lines are manufactured to exacting standards for fuel systems. These lines provide consistent flow and pressure stability, ensuring optimal engine performance and fuel efficiency.",
     images: [
-      "/lovable-uploads/c38ae389-bfe5-4cbb-a160-ae99086bd13e.png",
-      "/lovable-uploads/9ba92b37-4403-4c2d-9519-2dfbde6ef5be.png",
-      "/lovable-uploads/1968f044-c68f-4204-a46e-24e35338ea93.png",
-      "/lovable-uploads/d930a225-85be-4052-98a2-ed0e4d65b645.png",
-      "/lovable-uploads/1241b7a9-961b-4ce0-8813-3d913527165e.png",
-      "/lovable-uploads/9871c810-4889-4573-8017-83089fc2a03c.png",
-      "/lovable-uploads/7cf68506-1254-4cc8-8ad4-59fb782ec88e.png",
-      "/lovable-uploads/3b23ab00-72c8-4662-956e-363cb9d440d9.png"
+      "/lovable-uploads/02b1ce93-6964-4f30-b393-8c9afcfa2642.png",
+      "/lovable-uploads/ed5f67d0-d961-4a03-bb88-202d2b11fb20.png",
+      "/lovable-uploads/7a88f530-30d5-4582-a636-7808856c4219.png",
+      "/lovable-uploads/bd8a88a5-164d-43a1-8d0f-6523aca1cb17.png",
+      "/lovable-uploads/339258ae-3b8e-495c-ab88-f1a718e1e845.png",
+      "/lovable-uploads/f5b7ecaf-ebbb-420f-b14c-19dd86eee0a8.png",
+      "/lovable-uploads/dc986762-23e9-41a9-8cb6-daac3d0ba8c5.png",
+      "/lovable-uploads/85d02203-62f8-4ed6-8b1c-b53e830f3bc7.png"
     ]
   },
   "leak-of-fuel-pipe": {

@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -28,14 +27,14 @@ const Products = () => {
     {
       id: 3,
       title: "HYDRAULIC SYSTEM",
-      imageSrc: "/lovable-uploads/20e3f9c1-f1b5-45d0-a3eb-f3c40b2eea95.png",
+      imageSrc: "/lovable-uploads/02b1ce93-6964-4f30-b393-8c9afcfa2642.png",
       href: "/products/hydraulic-system",
       translationKey: "products.hydraulicSystem"
     },
     {
       id: 4,
       title: "INJECTION LINES",
-      imageSrc: "/lovable-uploads/c38ae389-bfe5-4cbb-a160-ae99086bd13e.png",
+      imageSrc: "/lovable-uploads/ed5f67d0-d961-4a03-bb88-202d2b11fb20.png",
       href: "/products/injection-lines",
       translationKey: "products.injectionLines"
     },
