@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { ProductImage } from "../ProductImageGallery";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import ImageLightbox from "@/components/ui/ImageLightbox";
 
 interface ValveNozzleGalleryProps {
