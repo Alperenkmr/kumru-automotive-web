@@ -48,11 +48,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
       )}>
         {isHomeOrProducts ? (
           <div className="absolute inset-0 flex items-center justify-center p-4 border-2 border-kumru-yellow m-[2px]">
-            <div className="overflow-hidden w-full h-full flex items-center justify-center">
+            <div className="overflow-hidden w-full h-full flex items-center justify-center rounded-lg">
               <img 
                 src={imageSrc} 
                 alt={displayTitle}
-                className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110" 
+                className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-150" 
               />
             </div>
           </div>
