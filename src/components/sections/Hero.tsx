@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -81,18 +82,22 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Visual elements - Updated with robot mascot */}
+          {/* Right column - Vimeo Video */}
           <div className="relative hidden lg:block">
-            {/* Main image - Robot mascot */}
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl flex justify-center items-center p-6">
-              <img 
-                src="/lovable-uploads/a16f851c-ed52-4c30-a67a-e6c59c40e919.png" 
-                alt="RSS Kumru Robot Mascot" 
-                className="w-auto h-[500px] object-contain"
-              />
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl aspect-video">
+              <div style={{padding: '56.25% 0 0 0', position: 'relative', height: '100%', width: '100%'}}>
+                <iframe 
+                  src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
+                  frameBorder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}} 
+                  title="RSS Kumru Video"
+                ></iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
             </div>
             
-            {/* Decorative element */}
+            {/* Decorative elements around the video */}
             <div className="absolute -left-8 -bottom-8 w-48 h-48 bg-kumru-yellow/20 rounded-full z-0"></div>
             <div className="absolute -right-5 -top-5 w-24 h-24 bg-kumru-navy/10 rounded-lg z-0"></div>
           </div>

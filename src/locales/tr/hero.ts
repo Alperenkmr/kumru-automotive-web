@@ -13,4 +13,5 @@ export const heroType = {
   'teamValues.content': 'Ekibimiz, mükemmeliyete ve yeniliğe adanmış deneyimli profesyonellerden oluşmaktadır. Her şeyden önce dürüstlük, kalite ve müşteri memnuniyetine değer veriyoruz.',
   'featuredProducts.title': 'Öne Çıkan Ürünler',
   'featuredProducts.viewAll': 'Tüm Ürünleri Görüntüle',
+  'video.alt': 'RSS Kumru Tanıtım Videosu'
 };
