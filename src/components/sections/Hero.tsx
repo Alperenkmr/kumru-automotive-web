@@ -44,9 +44,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left column - Text content */}
-          <div className="animate-fade-in">
+          <div className="lg:col-span-5 animate-fade-in">
             <div className="bg-kumru-navy/5 inline-block px-4 py-2 rounded-full mb-6">
               <span className="text-kumru-navy font-semibold">RSS Kumru Automotive</span>
             </div>
@@ -83,8 +83,8 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           </div>
           
           {/* Right column - Vimeo Video - Enlarged */}
-          <div className="relative hidden lg:block">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl w-full h-[500px]">
+          <div className="relative hidden lg:block lg:col-span-7">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl w-full h-[600px]">
               <iframe 
                 src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
                 frameBorder="0" 
