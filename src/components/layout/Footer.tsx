@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import { Linkedin, MapPin, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -46,10 +46,6 @@ const Footer = () => {
                 <a href="https://www.linkedin.com/in/alperen-kumru-519596307/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-kumru-yellow">
                   <Linkedin className="h-6 w-6" />
                   <span className="sr-only">LinkedIn</span>
-                </a>
-                <a href="#" className="text-gray-300 hover:text-kumru-yellow">
-                  <Instagram className="h-6 w-6" />
-                  <span className="sr-only">Instagram</span>
                 </a>
               </div>
             </div>

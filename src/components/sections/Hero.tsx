@@ -82,14 +82,14 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Vimeo Video - Enlarged */}
+          {/* Right column - Vimeo Video - Fixed and Rounded */}
           <div className="relative hidden lg:block lg:col-span-7">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl w-full h-[600px]">
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full h-[600px] bg-black">
               <iframe 
                 src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
                 frameBorder="0" 
                 allow="autoplay; fullscreen; picture-in-picture" 
-                className="absolute top-0 left-0 w-full h-full" 
+                className="absolute inset-0 w-full h-full object-cover" 
                 title="RSS Kumru Video"
               ></iframe>
             </div>
