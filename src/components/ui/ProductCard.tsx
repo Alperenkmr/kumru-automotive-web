@@ -3,11 +3,6 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLocation } from "react-router-dom";
-import { 
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent 
-} from "@/components/ui/hover-card";
 
 interface ProductCardProps {
   title: string;
@@ -49,15 +44,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
     >
       <div className={cn(
         "h-56 relative",
-        isHomeOrProducts ? "border-2 border-kumru-navy" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
+        isHomeOrProducts ? "border-4 border-kumru-navy p-[2px]" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
       )}>
         {isHomeOrProducts ? (
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <img 
-              src={imageSrc} 
-              alt={displayTitle}
-              className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300" 
-            />
+          <div className="absolute inset-0 flex items-center justify-center p-4 border-2 border-kumru-yellow m-[2px]">
+            <div className="overflow-hidden w-full h-full flex items-center justify-center">
+              <img 
+                src={imageSrc} 
+                alt={displayTitle}
+                className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110" 
+              />
+            </div>
           </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center p-4">
