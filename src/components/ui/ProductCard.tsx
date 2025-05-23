@@ -2,6 +2,12 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocation } from "react-router-dom";
+import { 
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent 
+} from "@/components/ui/hover-card";
 
 interface ProductCardProps {
   title: string;
@@ -21,7 +27,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
   href = "#",
   translationKey,
 }) => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
+  const location = useLocation();
+  
+  // Check if we're on the home or products page
+  const isHomeOrProducts = location.pathname === "/" || location.pathname === "/products";
   
   // If a translationKey is provided, use it to get the translated title
   const displayTitle = translationKey && t(translationKey) !== translationKey ? 
@@ -32,20 +42,53 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <a 
       href={href}
       className={cn(
-        "block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
+        "block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
+        isHomeOrProducts ? "bg-white" : "bg-white",
         className
       )}
     >
-      <div className="h-56 bg-[#001F3F] relative border-t-4 border-[#FFCC00]">
-        <div className="absolute inset-0 flex items-center justify-center p-4">
-          <img 
-            src={imageSrc} 
-            alt={displayTitle}
-            className="max-w-full max-h-full object-contain" 
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <h3 className="text-xl font-bold p-4 text-white">{displayTitle}</h3>
+      <div className={cn(
+        "h-56 relative",
+        isHomeOrProducts ? "" : "bg-[#001F3F] border-t-4 border-[#FFCC00]"
+      )}>
+        {isHomeOrProducts ? (
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <img 
+                  src={imageSrc} 
+                  alt={displayTitle}
+                  className="max-w-full max-h-full object-contain transition-transform duration-200" 
+                />
+              </div>
+            </HoverCardTrigger>
+            <HoverCardContent className="w-80 p-0 border-none bg-transparent shadow-none">
+              <div className="w-full h-full flex items-center justify-center">
+                <img 
+                  src={imageSrc} 
+                  alt={displayTitle}
+                  className="max-w-full max-h-full object-contain scale-110" 
+                />
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <img 
+              src={imageSrc} 
+              alt={displayTitle}
+              className="max-w-full max-h-full object-contain" 
+            />
+          </div>
+        )}
+        <div className={cn(
+          "absolute inset-0 flex items-end",
+          isHomeOrProducts ? "" : "bg-gradient-to-t from-black/70 to-transparent"
+        )}>
+          <h3 className={cn(
+            "text-xl font-bold p-4",
+            isHomeOrProducts ? "text-kumru-navy" : "text-white"
+          )}>{displayTitle}</h3>
         </div>
       </div>
       {description && (
