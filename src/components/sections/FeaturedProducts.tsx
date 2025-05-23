@@ -1,3 +1,4 @@
+
 import React from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import { cn } from "@/lib/utils";
@@ -49,10 +50,10 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ className }) => {
     },
     {
       id: 6,
-      title: "PRIMING PUMP",
-      imageSrc: "/lovable-uploads/58f56706-3c9d-42ff-8437-ef0f1038f882.png",
-      href: "/products/priming-pump",
-      translationKey: "products.primingPump"
+      title: "VESSEL LINES",
+      imageSrc: "/lovable-uploads/e935a121-8959-42f0-843a-27e1e0d545fe.png",
+      href: "/products/vessel-lines",
+      translationKey: "products.vesselLines"
     },
   ];
 

@@ -104,7 +104,7 @@ const Products = () => {
     {
       id: 14,
       title: "VESSEL LINES",
-      imageSrc: "/lovable-uploads/6d1621b4-7c01-49fc-b354-f8ed8dfee654.png",
+      imageSrc: "/lovable-uploads/e935a121-8959-42f0-843a-27e1e0d545fe.png",
       href: "/products/vessel-lines",
       translationKey: "products.vesselLines"
     },

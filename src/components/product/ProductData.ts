@@ -1,3 +1,4 @@
+
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -200,13 +201,13 @@ const productData = {
     title: "Vessel Lines",
     description: "Specialized lines for marine vessel applications. Designed to withstand harsh maritime conditions while providing reliable fluid transfer and system performance.",
     images: [
-      "/lovable-uploads/6d1621b4-7c01-49fc-b354-f8ed8dfee654.png",
-      "/lovable-uploads/bd93c959-dd6b-4662-b7a3-d829a7858bf1.png",
-      "/lovable-uploads/995f6fcd-8e82-4243-b35e-50c12f4b2618.png",
-      "/lovable-uploads/25d61cde-281a-4867-bf41-59d1053cbb66.png",
-      "/lovable-uploads/b8c243b7-d4e0-4c91-acbc-b99738493987.png",
-      "/lovable-uploads/11ed95e3-dc62-4362-a5a6-12fc293fa3d8.png",
-      "/lovable-uploads/5cd3011f-d125-4aa2-9893-95cf98132c1c.png"
+      "/lovable-uploads/e935a121-8959-42f0-843a-27e1e0d545fe.png",
+      "/lovable-uploads/1c42ddea-7b89-4c75-bc4f-557af6318c03.png",
+      "/lovable-uploads/151eb1b4-4c7c-4535-b914-044fc814328d.png",
+      "/lovable-uploads/a7b15c5b-e1a6-4bec-ad42-667cfcef1c49.png",
+      "/lovable-uploads/ff7f8332-83d3-4e91-8344-71218c5ea5c0.png",
+      "/lovable-uploads/10cc4df3-cfef-4b19-80e1-bdd958295864.png",
+      "/lovable-uploads/58bced4d-f2a2-4f3b-9bfd-223ae91263b2.png"
     ]
   },
   "fittings": {
