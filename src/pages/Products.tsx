@@ -83,7 +83,7 @@ const Products = () => {
     {
       id: 11,
       title: "VALVE NOZZLE",
-      imageSrc: "/lovable-uploads/e3f5f737-9acf-4731-a3ea-b624ef57653b.png",
+      imageSrc: "/lovable-uploads/a4c0d917-95af-419d-a060-037e44da21d9.png",
       href: "/products/valve-nozzle",
       translationKey: "products.valveNozzle"
     },

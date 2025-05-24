@@ -149,12 +149,9 @@ const productData = {
     title: "Valve Nozzle",
     description: "High-precision valve nozzles for controlled fluid delivery. Engineered for consistent performance and durability across various industrial applications.",
     images: [
-      "/lovable-uploads/e3f5f737-9acf-4731-a3ea-b624ef57653b.png",
+      "/lovable-uploads/a4c0d917-95af-419d-a060-037e44da21d9.png",
       "/lovable-uploads/86b1fdf3-13df-4ee9-8282-3c75632621a1.png",
       "/lovable-uploads/27799ea9-fda8-4a60-bd22-90ac51a7b032.png",
-      "/lovable-uploads/f916fdad-a766-4a6f-bdc0-7c1a1f280825.png",
-      "/lovable-uploads/d830b31e-2b16-4ec2-a9ca-72eb911246eb.png",
-      "/lovable-uploads/4a4a7b86-7a20-4d2c-8303-b06eb2aff639.png",
       "/lovable-uploads/71700aed-2cc8-4ca8-8b48-846006d57b3d.png",
       "/lovable-uploads/73eb6aec-4ef2-4a7b-8e6b-912441681058.png",
       "/lovable-uploads/1015817f-8154-40d8-964f-dbb6e6a83b3d.png",
@@ -164,7 +161,6 @@ const productData = {
       "/lovable-uploads/acce4bd5-6045-435e-91b0-dfd191505c86.png",
       "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
       "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
-      "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
       "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
       "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
     ]
