@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -14,14 +13,19 @@ const productData = {
     title: "Hydraulic Hose",
     description: "Our premium hydraulic hoses are engineered for maximum durability and performance across a wide range of industrial applications. Available in various pressure ratings, sizes, and materials.",
     images: [
-      "/lovable-uploads/bbfd980f-5ee1-4021-b952-7a9b6bf1a3c8.png",
-      "/lovable-uploads/6511e468-139d-4106-88c0-82de78b55953.png",
-      "/lovable-uploads/b9a73193-1516-4e6b-9dc3-9ea21134c8fb.png",
-      "/lovable-uploads/b0b8eaf0-4c8d-4ab6-a7df-a684deafaa63.png",
-      "/lovable-uploads/05419d67-5277-4871-9821-cbbe8f0334d7.png",
-      "/lovable-uploads/9db6b6f4-9045-401f-a3f7-fbbc387b972b.png",
-      "/lovable-uploads/d2847570-1461-442d-b4c9-a82f36f26053.png",
-      "/lovable-uploads/37688227-3e7c-4727-9660-2ec6c8f9b548.png"
+      "/lovable-uploads/ea2b4212-989c-431b-a9c4-be22d4f4968f.png",
+      "/lovable-uploads/bac7c6ce-cad6-49b0-959c-160d609cf394.png",
+      "/lovable-uploads/9bbc8731-8708-4977-836a-fc54f8a38872.png",
+      "/lovable-uploads/d1ba17d3-8bc8-4fc3-b285-b1197fcce750.png",
+      "/lovable-uploads/3349d686-d1a9-49bd-b8d5-ee9505167cfc.png",
+      "/lovable-uploads/bd4e7434-78f7-43fa-a507-05d5c73891ab.png",
+      "/lovable-uploads/527b391f-39c8-4979-bccb-aa95d265abb9.png",
+      "/lovable-uploads/932fee3c-55d9-4fbc-a9db-0e022ea77766.png",
+      "/lovable-uploads/8e257d85-d39d-489f-bb00-0d03d7534e90.png",
+      "/lovable-uploads/837e274d-94a6-437d-9f38-6959341f8b18.png",
+      "/lovable-uploads/588c8d30-b75d-456d-908c-fb59685b0ceb.png",
+      "/lovable-uploads/63768cd3-1235-488b-aa55-fb1fc4f98ed9.png",
+      "/lovable-uploads/c20cb190-bc8b-4e59-a42b-dcdf38473656.png"
     ]
   },
   "hydraulic-system": {
