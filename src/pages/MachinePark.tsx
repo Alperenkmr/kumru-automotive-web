@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/layout/Header";
@@ -91,6 +92,18 @@ const laboratoryImages: MachineItem[] = [
     image: "/lovable-uploads/9d71a663-30f8-4eab-8713-8be3851b8fbf.png",
     titleTr: "Dijital Ölçüm Kalibre Sistemi",
     titleEn: "Digital Measurement Calibration System"
+  },
+  {
+    id: 6,
+    image: "/lovable-uploads/8e5ef222-aaaf-4dc3-bfeb-55c2242d32f4.png",
+    titleTr: "CNC İşleme ve Kalite Kontrol Sistemi",
+    titleEn: "CNC Machining and Quality Control System"
+  },
+  {
+    id: 7,
+    image: "/lovable-uploads/13dbe576-659c-4690-b2d2-180415fb6145.png",
+    titleTr: "3D Boyutsal Ölçüm ve Analiz Sistemi",
+    titleEn: "3D Dimensional Measurement and Analysis System"
   }
 ];
 
