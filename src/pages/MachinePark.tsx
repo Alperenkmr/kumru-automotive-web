@@ -136,7 +136,6 @@ const MachinePark: React.FC = () => {
   }, [labEmblaApi]);
 
   // Get the correct title based on language
-  const pageTitle = language === 'tr' ? "Fabrikamız" : "Our Factory";
   const framesTitle = language === 'tr' ? "Fabrikamızdan Kareler" : "Frames from Our Factory";
   const labTitle = language === 'tr' ? "Laboratuvarımız" : "Our Laboratory";
   const developmentTitle = language === 'tr' ? "Ürünlerimizi Nasıl Geliştiriyoruz" : "How We Develop Our Products";
@@ -144,7 +143,7 @@ const MachinePark: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title={pageTitle}
+        title={language === 'tr' ? "Fabrikamız" : "Our Factory"}
         description={language === 'tr' ? "RSS Kumru Automotive modern fabrikası ile yüksek kaliteli üretim yapmaktadır." : "RSS Kumru Automotive performs high-quality production with its modern factory."} 
         canonicalUrl="/machine-park" 
       />
@@ -152,15 +151,11 @@ const MachinePark: React.FC = () => {
       <main className="pt-24 pb-16">
         <section className="section-padding">
           <Container>
-            <h1 className="section-title text-kumru-navy mb-16">
-              {pageTitle}
-            </h1>
-            
             {/* Factory Images Section */}
             <div className="mb-20">
-              <h2 className="text-3xl font-montserrat font-bold text-kumru-navy mb-8 text-center">
+              <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-kumru-navy mb-8 text-center">
                 {framesTitle}
-              </h2>
+              </h1>
               
               <div className="relative mx-auto max-w-4xl">
                 <Carousel ref={emblaRef} className="w-full" opts={{ loop: true, align: "center" }}>
