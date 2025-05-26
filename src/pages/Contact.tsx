@@ -12,80 +12,32 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { language, t } = useLanguage();
 
-  // Contact sayfası için özel schema markup
+  // Basit schema markup
   const contactPageSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": language === 'tr' ? "İletişim - RSS Kumru Automotive" : "Contact - RSS Kumru Automotive",
     "description": language === 'tr' 
-      ? "RSS Kumru Automotive ile iletişime geçin. Hidrolik hortum, teflon hortum ve otomotiv parçaları için iletişim bilgileri, adres ve harita."
-      : "Contact RSS Kumru Automotive. Contact information, address and map for hydraulic hoses, teflon hoses and automotive parts.",
+      ? "RSS Kumru Automotive ile iletişime geçin."
+      : "Contact RSS Kumru Automotive.",
     "mainEntity": {
       "@type": "Organization",
       "name": "RSS Kumru Automotive",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3",
-        "addressLocality": "Gebze",
-        "addressRegion": "Kocaeli",
-        "postalCode": "41400",
-        "addressCountry": "TR"
-      },
       "telephone": "+902627248824",
-      "email": "info@rsskumru.com",
-      "url": "https://rsskumru.com",
-      "openingHours": [
-        "Mo-Fr 08:00-18:00",
-        "Sa 08:00-12:00"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+902627248824",
-          "contactType": "customer service",
-          "availableLanguage": ["Turkish", "English"],
-          "areaServed": ["TR", "EU", "US"]
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+905494262949",
-          "contactType": "sales",
-          "availableLanguage": ["Turkish", "English"],
-          "areaServed": ["TR", "EU"]
-        }
-      ]
+      "email": "info@rsskumru.com"
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title={language === 'tr' ? "İletişim - En Doğru Çözümler İçin Bizimle İletişime Geçin" : "Contact Us - Get In Touch For The Most Accurate Solutions"}
+        title={language === 'tr' ? "İletişim - RSS Kumru Automotive" : "Contact Us - RSS Kumru Automotive"}
         description={language === 'tr' 
-          ? "RSS Kumru Automotive ile iletişime geçin. Hidrolik hortum, PTFE teflon hortum, turbo hortum ve otomotiv parçaları için uzman desteği. Gebze/Kocaeli merkezli, Türkiye ve Avrupa'ya hizmet. Tel: +90 262 724 88 24"
-          : "Contact RSS Kumru Automotive for expert support on hydraulic hoses, PTFE teflon hoses, turbo hoses and automotive parts. Based in Gebze/Kocaeli, serving Turkey and Europe. Tel: +90 262 724 88 24"
+          ? "RSS Kumru Automotive ile iletişime geçin. Hidrolik hortum ve otomotiv parçaları için uzman desteği."
+          : "Contact RSS Kumru Automotive for expert support on hydraulic hoses and automotive parts."
         }
         canonicalUrl="/contact"
-        keywords={[
-          "RSS Kumru iletişim",
-          "RSS Kumru contact", 
-          "hidrolik hortum iletişim",
-          "otomotiv parçaları iletişim",
-          "Gebze otomotiv",
-          "Kocaeli hidrolik",
-          "RSS Kumru telefon",
-          "RSS Kumru adres",
-          "RSS Kumru email",
-          "otomotiv tedarikçi iletişim",
-          "hydraulic hose supplier contact",
-          "automotive parts Turkey",
-          "PTFE hose contact",
-          "turbo hose supplier"
-        ]}
-        language={language === 'tr' ? 'tr-TR' : 'en-US'}
         structuredData={contactPageSchema}
-        ogType="website"
-        ogImage="/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png"
       />
       <Header />
       <main className="pt-24">
