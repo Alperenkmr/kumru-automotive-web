@@ -18,7 +18,6 @@ import TransferPumpGallery from "@/components/product/gallery/TransferPumpGaller
 import TurboPipeHoseGallery from "@/components/product/gallery/TurboPipeHoseGallery";
 import TurboTimingPipesGallery from "@/components/product/gallery/TurboTimingPipesGallery";
 import ValveNozzleGallery from "@/components/product/gallery/ValveNozzleGallery";
-import ValveRecordGallery from "@/components/product/gallery/ValveRecordGallery";
 import ValveTimingGallery from "@/components/product/gallery/ValveTimingGallery";
 import VesselLinesGallery from "@/components/product/gallery/VesselLinesGallery";
 import PrimingPumpGallery from "@/components/product/gallery/PrimingPumpGallery";
@@ -34,6 +33,11 @@ const ProductDetail = () => {
   }
   
   const product = productData[productId as keyof typeof productData];
+  
+  // Check if this is a coming soon product
+  if (product.comingSoon) {
+    return <ProductNotFound />;
+  }
   
   // Convert product ID to camelCase for translation keys
   const productIdForKey = productId.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
@@ -70,8 +74,6 @@ const ProductDetail = () => {
         return <TurboTimingPipesGallery images={product.images} productTitle={translatedTitle} />;
       case 'valve-nozzle':
         return <ValveNozzleGallery images={product.images} productTitle={translatedTitle} />;
-      case 'valve-record':
-        return <ValveRecordGallery images={product.images} productTitle={translatedTitle} />;
       case 'valve-timing':
         return <ValveTimingGallery images={product.images} productTitle={translatedTitle} />;
       case 'vessel-lines':

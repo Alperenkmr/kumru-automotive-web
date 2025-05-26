@@ -82,8 +82,6 @@ const productData = {
       "/lovable-uploads/c733f818-f24d-490c-9b75-a00778d04863.png",
       "/lovable-uploads/a30674b0-6abe-4bd1-9a19-b27ca45945c4.png",
       "/lovable-uploads/e263826e-b650-405f-9382-03f9bf74fb3b.png",
-      "/lovable-uploads/029bd4c2-b011-45c6-9e30-7f2de629ae75.png",
-      "/lovable-uploads/eb9d7680-62f1-45bc-a66e-3a77816944ca.png",
       "/lovable-uploads/3999f359-45a5-46fd-b42d-b2b9256d4e93.png",
       "/lovable-uploads/0e519a24-4571-40b1-b4fd-83d5c788ccee.png",
       "/lovable-uploads/bee1d19b-bf16-4798-8b41-f1f73f2bedaa.png",
@@ -149,7 +147,6 @@ const productData = {
     title: "Valve Nozzle",
     description: "High-precision valve nozzles for controlled fluid delivery. Engineered for consistent performance and durability across various industrial applications.",
     images: [
-      "/lovable-uploads/a4c0d917-95af-419d-a060-037e44da21d9.png",
       "/lovable-uploads/86b1fdf3-13df-4ee9-8282-3c75632621a1.png",
       "/lovable-uploads/27799ea9-fda8-4a60-bd22-90ac51a7b032.png",
       "/lovable-uploads/71700aed-2cc8-4ca8-8b48-846006d57b3d.png",
@@ -159,22 +156,8 @@ const productData = {
       "/lovable-uploads/1d407d02-2643-462c-8ce2-1e0d0db81135.png",
       "/lovable-uploads/d38a0c6f-32f2-498e-8dbc-48033c01aa00.png",
       "/lovable-uploads/acce4bd5-6045-435e-91b0-dfd191505c86.png",
-      "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
       "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
-      "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
       "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
-    ]
-  },
-  "valve-record": {
-    title: "Valve Record",
-    description: "Premium valve record components for industrial and automotive systems. Our products meet strict quality standards for reliable performance in critical applications.",
-    images: [
-      "/lovable-uploads/3ee29511-87e1-4ee4-908e-fc6c2314b152.png", 
-      "/lovable-uploads/20a12b3d-8a64-494e-b7bf-d4971f0d48b9.png",
-      "/lovable-uploads/84b7ad2f-4278-4250-af05-08d40a6cde25.png",
-      "/lovable-uploads/77f868ce-b048-490e-b2ae-af1ec4a0bf01.png",
-      "/lovable-uploads/5a7fe645-e75d-4d2f-a616-8a439da408f6.png",
-      "/lovable-uploads/8d97854d-7817-42d1-aeb4-7f7e43e660b4.png",
     ]
   },
   "valve-timing": {
@@ -191,8 +174,6 @@ const productData = {
       "/lovable-uploads/b8485592-02b4-4374-916b-a424a2324745.png",
       "/lovable-uploads/65f8b7cf-e02b-481f-acde-f1d2e40af8b7.png",
       "/lovable-uploads/e2870aa8-041a-4160-b473-113a48c8a994.png",
-      "/lovable-uploads/a695c6aa-76e0-4b4c-9c1f-08645ff0fdf8.png",
-      "/lovable-uploads/34351790-b985-45b0-840c-6be67823f2e2.png",
       "/lovable-uploads/5d2829cc-1d14-47ab-ac4b-2d74178133f9.png",
       "/lovable-uploads/8bd3bc9a-ea00-478c-90d8-113e14c17ca3.png",
     ]
@@ -245,6 +226,12 @@ const productData = {
       "/lovable-uploads/964d3bf4-9d67-4487-9b05-59d0f170aeaa.png",
       "/lovable-uploads/8763d213-e822-4367-bc2b-6ca95e73010d.png"
     ]
+  },
+  "valve-record": {
+    title: "Valve Record - Coming Soon",
+    description: "This product category will be available soon. Stay tuned for updates!",
+    images: [],
+    comingSoon: true
   }
 };
 

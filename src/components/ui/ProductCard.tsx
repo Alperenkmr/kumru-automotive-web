@@ -12,6 +12,7 @@ interface ProductCardProps {
   className?: string;
   href?: string;
   translationKey?: string;
+  comingSoon?: boolean;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -21,8 +22,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   className,
   href = "#",
   translationKey,
+  comingSoon = false,
 }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const location = useLocation();
   
   // Check if we're on the home or products page
@@ -32,54 +34,79 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const displayTitle = translationKey && t(translationKey) !== translationKey ? 
     t(translationKey) : 
     title;
+
+  const comingSoonText = language === 'tr' ? 'YAKINDA' : 'COMING SOON';
   
-  return (
-    <a 
-      href={href}
-      className={cn(
-        "block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
-        isHomeOrProducts ? "bg-white" : "bg-white",
-        className
-      )}
-    >
+  const CardContent = () => (
+    <div className={cn(
+      "block rounded-xl overflow-hidden shadow-md transition-shadow duration-300 relative",
+      isHomeOrProducts ? "bg-white" : "bg-white",
+      comingSoon ? "cursor-not-allowed opacity-75" : "hover:shadow-xl",
+      className
+    )}>
       <div className={cn(
         "h-56 relative rounded-lg",
         "border-8 border-kumru-navy"
       )}>
-        {isHomeOrProducts ? (
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <div className="overflow-hidden w-full h-full flex items-center justify-center rounded-lg">
-              <img 
-                src={imageSrc} 
-                alt={displayTitle}
-                className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-150" 
-              />
+        {comingSoon ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-kumru-navy mb-2">{comingSoonText}</div>
+              <div className="text-lg font-semibold text-gray-600">{displayTitle}</div>
             </div>
           </div>
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <img 
-              src={imageSrc} 
-              alt={displayTitle}
-              className="max-w-full max-h-full object-contain" 
-            />
-          </div>
+          <>
+            {isHomeOrProducts ? (
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <div className="overflow-hidden w-full h-full flex items-center justify-center rounded-lg">
+                  <img 
+                    src={imageSrc} 
+                    alt={displayTitle}
+                    className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-150" 
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <img 
+                  src={imageSrc} 
+                  alt={displayTitle}
+                  className="max-w-full max-h-full object-contain" 
+                />
+              </div>
+            )}
+            <div className={cn(
+              "absolute inset-0 flex items-end",
+              isHomeOrProducts ? "" : "bg-gradient-to-t from-black/70 to-transparent"
+            )}>
+              <h3 className={cn(
+                "text-xl font-bold p-4",
+                isHomeOrProducts ? "text-kumru-navy" : "text-white"
+              )}>{displayTitle}</h3>
+            </div>
+          </>
         )}
-        <div className={cn(
-          "absolute inset-0 flex items-end",
-          isHomeOrProducts ? "" : "bg-gradient-to-t from-black/70 to-transparent"
-        )}>
-          <h3 className={cn(
-            "text-xl font-bold p-4",
-            isHomeOrProducts ? "text-kumru-navy" : "text-white"
-          )}>{displayTitle}</h3>
-        </div>
       </div>
-      {description && (
+      {description && !comingSoon && (
         <div className="p-4">
           <p className="text-gray-600">{description}</p>
         </div>
       )}
+    </div>
+  );
+  
+  if (comingSoon) {
+    return (
+      <div title={comingSoonText} className="relative group">
+        <CardContent />
+      </div>
+    );
+  }
+  
+  return (
+    <a href={href}>
+      <CardContent />
     </a>
   );
 };
