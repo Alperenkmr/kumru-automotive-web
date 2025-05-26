@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/layout/Header";
@@ -48,6 +49,12 @@ const machineItems: MachineItem[] = [
     titleEn: "CNC Machine Production Line"
   },
   {
+    id: 8,
+    image: "/lovable-uploads/8e5ef222-aaaf-4dc3-bfeb-55c2242d32f4.png",
+    titleTr: "CNC İşleme ve Kalite Kontrol Sistemi",
+    titleEn: "CNC Machining and Quality Control System"
+  },
+  {
     id: 9,
     image: "/lovable-uploads/e71d2aa2-6c9d-4713-b7aa-48d69d4040b7.png",
     titleTr: "Atölye Üretim Alanı",
@@ -65,45 +72,39 @@ const machineItems: MachineItem[] = [
 const laboratoryImages: MachineItem[] = [
   {
     id: 1,
+    image: "/lovable-uploads/13dbe576-659c-4690-b2d2-180415fb6145.png",
+    titleTr: "3D Boyutsal Ölçüm ve Analiz Sistemi",
+    titleEn: "3D Dimensional Measurement and Analysis System"
+  },
+  {
+    id: 2,
     image: "/lovable-uploads/34d2855c-48b9-4ba8-8c4c-ed83aab896a1.png",
     titleTr: "Hassas Ölçüm ve Test Cihazları",
     titleEn: "Precision Measurement and Testing Equipment"
   },
   {
-    id: 2,
+    id: 3,
     image: "/lovable-uploads/4fe5efe8-e261-4ddf-a50f-327fca78ec0c.png",
     titleTr: "Kalite Kontrol Ölçüm Cihazı",
     titleEn: "Quality Control Measurement Device"
   },
   {
-    id: 3,
+    id: 4,
     image: "/lovable-uploads/be0c7630-38bd-4126-bf83-f60033cedb18.png",
     titleTr: "Laboratuvar Analiz Sistemi",
     titleEn: "Laboratory Analysis System"
   },
   {
-    id: 4,
+    id: 5,
     image: "/lovable-uploads/0aa99fbc-33e1-436b-8bd9-62171f90f83a.png",
     titleTr: "Test ve Doğrulama Ekipmanı",
     titleEn: "Testing and Validation Equipment"
   },
   {
-    id: 5,
+    id: 6,
     image: "/lovable-uploads/9d71a663-30f8-4eab-8713-8be3851b8fbf.png",
     titleTr: "Dijital Ölçüm Kalibre Sistemi",
     titleEn: "Digital Measurement Calibration System"
-  },
-  {
-    id: 6,
-    image: "/lovable-uploads/8e5ef222-aaaf-4dc3-bfeb-55c2242d32f4.png",
-    titleTr: "CNC İşleme ve Kalite Kontrol Sistemi",
-    titleEn: "CNC Machining and Quality Control System"
-  },
-  {
-    id: 7,
-    image: "/lovable-uploads/13dbe576-659c-4690-b2d2-180415fb6145.png",
-    titleTr: "3D Boyutsal Ölçüm ve Analiz Sistemi",
-    titleEn: "3D Dimensional Measurement and Analysis System"
   }
 ];
 
@@ -226,7 +227,7 @@ const MachinePark: React.FC = () => {
                               <img
                                 src={item.image}
                                 alt={language === 'tr' ? item.titleTr : item.titleEn}
-                                className="w-full h-[350px] object-cover"
+                                className="w-full h-[350px] object-contain bg-white"
                               />
                             </div>
                           </div>
@@ -293,3 +294,4 @@ const MachinePark: React.FC = () => {
 };
 
 export default MachinePark;
+
