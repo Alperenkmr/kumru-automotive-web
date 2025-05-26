@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import ProductDetailsLayout from "@/components/product/ProductDetailsLayout";
 import ProductNotFound from "@/components/product/ProductNotFound";
 import productData from "@/components/product/ProductData";
@@ -34,6 +34,11 @@ const ProductDetail = () => {
   }
   
   const product = productData[productId as keyof typeof productData];
+  
+  // Check if product is coming soon and redirect to products page
+  if ('comingSoon' in product && product.comingSoon) {
+    return <Navigate to="/products" replace />;
+  }
   
   // Convert product ID to camelCase for translation keys
   const productIdForKey = productId.replace(/-([a-z])/g, (g) => g[1].toUpperCase());

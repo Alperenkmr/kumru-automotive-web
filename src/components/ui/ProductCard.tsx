@@ -12,6 +12,7 @@ interface ProductCardProps {
   className?: string;
   href?: string;
   translationKey?: string;
+  comingSoon?: boolean;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -21,8 +22,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   className,
   href = "#",
   translationKey,
+  comingSoon = false,
 }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const location = useLocation();
   
   // Check if we're on the home or products page
@@ -32,16 +34,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const displayTitle = translationKey && t(translationKey) !== translationKey ? 
     t(translationKey) : 
     title;
+
+  const comingSoonText = language === 'tr' ? 'YAKINDA' : 'COMING SOON';
   
-  return (
-    <a 
-      href={href}
-      className={cn(
-        "block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
+  const CardWrapper = comingSoon ? 'div' : 'a';
+  const cardProps = comingSoon 
+    ? { className: cn(
+        "block rounded-xl overflow-hidden shadow-md transition-shadow duration-300 relative group",
         isHomeOrProducts ? "bg-white" : "bg-white",
+        comingSoon ? "cursor-default" : "hover:shadow-xl",
         className
       )}
-    >
+    : { 
+        href,
+        className: cn(
+          "block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300",
+          isHomeOrProducts ? "bg-white" : "bg-white",
+          className
+        )
+      };
+  
+  return (
+    <CardWrapper {...cardProps}>
       <div className={cn(
         "h-56 relative rounded-lg",
         "border-8 border-kumru-navy"
@@ -52,7 +66,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
               <img 
                 src={imageSrc} 
                 alt={displayTitle}
-                className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-150" 
+                className={cn(
+                  "max-w-full max-h-full object-contain transition-all duration-300",
+                  !comingSoon && "hover:scale-150"
+                )} 
               />
             </div>
           </div>
@@ -74,13 +91,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
             isHomeOrProducts ? "text-kumru-navy" : "text-white"
           )}>{displayTitle}</h3>
         </div>
+        
+        {comingSoon && (
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="text-white text-2xl font-bold text-center px-4">
+              {comingSoonText}
+            </span>
+          </div>
+        )}
       </div>
-      {description && (
+      {description && !comingSoon && (
         <div className="p-4">
           <p className="text-gray-600">{description}</p>
         </div>
       )}
-    </a>
+    </CardWrapper>
   );
 };
 
