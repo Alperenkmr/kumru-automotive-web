@@ -24,7 +24,7 @@ export const productsType = {
   'products.turboTimingPipes': 'Turbo Timing Pipes and Hoses',
   'products.valveNozzle': 'Valve Nozzle',
   'products.valveRecord': 'Valve Record',
-  'products.valveTiming': 'Valve Timing',
+  'products.valveTiming': 'Union&Mechanism',
   'products.vesselLines': 'Vessel Lines',
   'products.primingPump': 'Priming Pump',
   'products.specialItems': 'Special Items',
