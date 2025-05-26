@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -40,6 +39,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(backgroundImages.length).fill(false));
+  const [videoError, setVideoError] = useState(false);
 
   // İlk resmi preload et
   useEffect(() => {
@@ -165,16 +165,40 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Vimeo iframe */}
+          {/* Right column - Video with fallback */}
           <div className="relative hidden lg:block lg:col-span-7">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full aspect-video">
-              <iframe
-                src="https://player.vimeo.com/video/1087026754?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
-                className="absolute inset-0 w-full h-full"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                title="RSS Kumru Automotive - Tanıtım Videosu"
-              />
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full aspect-video bg-gray-100">
+              {!videoError ? (
+                <iframe
+                  src="https://player.vimeo.com/video/1087026754?h=3d2a0b8a8f&autoplay=0&loop=0&title=0&byline=0&portrait=0&muted=0&controls=1"
+                  className="absolute inset-0 w-full h-full"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="RSS Kumru Automotive - Tanıtım Videosu"
+                  onError={() => {
+                    console.log('Video loading error, showing fallback');
+                    setVideoError(true);
+                  }}
+                />
+              ) : (
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-kumru-navy to-kumru-navy/80">
+                  <div className="text-center text-white">
+                    <Play className="w-16 h-16 mx-auto mb-4 opacity-70" />
+                    <h3 className="text-xl font-semibold mb-2">RSS Kumru Automotive</h3>
+                    <p className="text-white/80 mb-4">Tanıtım Videosu</p>
+                    <a 
+                      href="https://vimeo.com/1087026754" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-kumru-yellow text-kumru-black px-4 py-2 rounded-lg hover:bg-kumru-yellow/90 transition-colors"
+                    >
+                      <Play className="w-4 h-4" />
+                      Videoyu İzle
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
