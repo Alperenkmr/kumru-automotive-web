@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -115,14 +114,6 @@ const Products = () => {
       imageSrc: "/lovable-uploads/704024bb-d372-468e-b79f-31f8c4620a59.png",
       href: "/products/special-items",
       translationKey: "products.specialItems"
-    },
-    {
-      id: 16,
-      title: "VALVE RECORD",
-      imageSrc: "",
-      href: "/products/valve-record",
-      translationKey: "products.valveRecord",
-      comingSoon: true
     }
   ];
 
@@ -157,7 +148,6 @@ const Products = () => {
                   href={category.href}
                   className="h-full"
                   translationKey={category.translationKey}
-                  comingSoon={category.comingSoon}
                 />
               ))}
             </div>

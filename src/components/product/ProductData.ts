@@ -161,12 +161,6 @@ const productData = {
       "/lovable-uploads/528b4908-3b16-47d4-804f-69d795971c8e.png",
     ]
   },
-  "valve-record": {
-    title: "Valve Record",
-    description: "Premium valve record components for industrial and automotive systems. Our products meet strict quality standards for reliable performance in critical applications.",
-    comingSoon: true,
-    images: []
-  },
   "valve-timing": {
     title: "Valve Timing",
     description: "Precision valve timing components for optimal engine performance. Engineered for accuracy and durability to ensure consistent engine operation.",
@@ -226,12 +220,15 @@ const productData = {
     title: "Priming Pump",
     description: "Our high-quality priming pumps are designed for efficiently transferring diesel and other fuels. Manufactured with durable materials to ensure reliable performance in various applications.",
     images: [
-      "/lovable-uploads/95d24911-a516-4549-94bb-591b10f65d7a.png",
+      "/lovable-uploads/a9f30ca7-6cc2-4fb9-bf89-4d0865c6989b.png",
       "/lovable-uploads/2c745a67-f1b7-4fe3-9924-7e64f45b303e.png",
       "/lovable-uploads/ad043484-2af6-4f33-b036-7597cd32849b.png",
-      "/lovable-uploads/cabc151f-8639-40f1-9795-5602ef4a62fe.png", 
-      "/lovable-uploads/964d3bf4-9d67-4487-9b05-59d0f170aeaa.png",
-      "/lovable-uploads/8763d213-e822-4367-bc2b-6ca95e73010d.png"
+      "/lovable-uploads/3a9ead2c-5274-4e0f-8843-5d1000b21d59.png",
+      "/lovable-uploads/1fbc4445-8b79-4937-9a29-cbad0979f63d.png",
+      "/lovable-uploads/0d92afb2-c921-4849-8fe2-cc1078da2b61.png",
+      "/lovable-uploads/fa7134ea-b212-4f5e-9b0b-a4c4a8d61c53.png",
+      "/lovable-uploads/a3e5e0d2-cf8b-4d5e-b717-7774306ecd05.png",
+      "/lovable-uploads/384703c7-cae6-4d1a-a592-5cc3e96f800c.png"
     ]
   }
 };
