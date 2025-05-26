@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 interface HeroProps {
   className?: string;
@@ -45,6 +45,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(backgroundImages.length).fill(false));
+  const [videoError, setVideoError] = useState(false);
 
   // WebP desteği kontrolü
   const [supportsWebP, setSupportsWebP] = useState(false);
@@ -118,11 +119,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
-
-  const getCurrentImageSrc = useCallback((index: number) => {
-    const image = backgroundImages[index];
-    return supportsWebP ? image.webp : image.fallback;
-  }, [backgroundImages, supportsWebP]);
   
   return (
     <section
@@ -203,19 +199,32 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Optimized Vimeo Video */}
+          {/* Right column - Video with fallback */}
           <div className="relative hidden lg:block lg:col-span-7">
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full h-[600px] bg-black">
-              <iframe 
-                src="https://player.vimeo.com/video/1087026754?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" 
-                frameBorder="0" 
-                allow="autoplay; fullscreen; picture-in-picture" 
-                className="absolute inset-0 w-full h-full object-cover" 
-                title="RSS Kumru Video"
-                loading="lazy"
-              ></iframe>
+              {!videoError ? (
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={() => setVideoError(true)}
+                  poster="/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png"
+                >
+                  <source src="https://player.vimeo.com/external/1087026754.hd.mp4?s=3d2a0b8a8f9c4e8e7f6d5c4b3a2918e7&profile_id=175" type="video/mp4" />
+                  <source src="https://player.vimeo.com/external/1087026754.sd.mp4?s=3d2a0b8a8f9c4e8e7f6d5c4b3a2918e7&profile_id=164" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-kumru-navy to-kumru-blue">
+                  <div className="text-center text-white">
+                    <Play className="w-16 h-16 mx-auto mb-4 opacity-60" />
+                    <p className="text-lg opacity-80">RSS Kumru Video</p>
+                  </div>
+                </div>
+              )}
             </div>
-            <script src="https://player.vimeo.com/api/player.js" async></script>
           </div>
         </div>
       </div>

@@ -28,15 +28,6 @@ const ProductImage = memo<ProductImageProps>(({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  // WebP format desteği için image src optimizasyonu
-  const getOptimizedImageSrc = useCallback((originalSrc: string) => {
-    // Eğer resim .png ile bitiyorsa .webp versiyonunu dene
-    if (originalSrc.endsWith('.png')) {
-      return originalSrc.replace('.png', '.webp');
-    }
-    return originalSrc;
-  }, []);
-
   const handleImageLoad = useCallback(() => {
     setImageLoaded(true);
   }, []);
@@ -62,7 +53,7 @@ const ProductImage = memo<ProductImageProps>(({
 
   return (
     <div 
-      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00] transition-all duration-300 hover:scale-105 hover:shadow-lg focus-within:ring-2 focus-within:ring-kumru-blue focus-within:ring-offset-2`}
+      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-white border-2 border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg focus-within:ring-2 focus-within:ring-kumru-blue focus-within:ring-offset-2`}
       onClick={handleClick}
       role="button"
       tabIndex={0}
@@ -70,32 +61,26 @@ const ProductImage = memo<ProductImageProps>(({
       aria-label={`${optimizedAlt} - Resmi büyütmek için tıklayın`}
     >
       <AspectRatio ratio={ratio}>
-        <div className="w-full h-full flex items-center justify-center p-3">
+        <div className="w-full h-full flex items-center justify-center p-3 bg-white">
           {!imageLoaded && !imageError && (
             <div className="w-full h-full bg-gray-200 animate-pulse rounded flex items-center justify-center">
               <div className="text-gray-400 text-sm" aria-hidden="true">Yükleniyor...</div>
             </div>
           )}
           
-          <picture>
-            <source 
-              srcSet={getOptimizedImageSrc(src)} 
-              type="image/webp"
-              onError={handleImageError}
-            />
-            <img 
-              src={src} 
-              alt={optimizedAlt}
-              className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-              loading={index > 3 ? "lazy" : loading}
-              decoding={index > 3 ? "async" : "sync"}
-              fetchPriority={index < 3 ? "high" : "low"}
-              onLoad={handleImageLoad}
-              onError={handleImageError}
-              width="400"
-              height="400"
-            />
-          </picture>
+          <img 
+            src={src} 
+            alt={optimizedAlt}
+            className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            loading={index > 3 ? "lazy" : loading}
+            decoding={index > 3 ? "async" : "sync"}
+            fetchPriority={index < 3 ? "high" : "low"}
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+            width="400"
+            height="400"
+            style={{ display: 'block' }}
+          />
         </div>
       </AspectRatio>
     </div>
