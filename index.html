@@ -36,10 +36,17 @@
     <link rel="apple-touch-icon" href="./lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" />
     <link rel="manifest" href="/manifest.json" />
     
-    <!-- Önden Bağlantı Optimizasyonları -->
+    <!-- Font Preconnections - DNS lookup optimizasyonu -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" />
+    
+    <!-- Font Preloads - Kritik fontları önceden yükle -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" /></noscript>
+    
+    <!-- Kritik font dosyalarını doğrudan preload et -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVIGxA.woff2" as="font" type="font/woff2" crossorigin />
     
     <title>RSS Kumru Automotive | Yüksek Kaliteli Hidrolik Sistemler</title>
     
@@ -105,6 +112,23 @@
         "inLanguage": ["tr-TR", "en-US"]
       }
     </script>
+
+    <!-- Inline kritik CSS - Font loading fallback -->
+    <style>
+      /* Font loading optimization */
+      .font-montserrat { font-family: 'Montserrat', system-ui, -apple-system, sans-serif; }
+      .font-opensans { font-family: 'Open Sans', system-ui, -apple-system, sans-serif; }
+      
+      /* Font display swap fallback */
+      @font-face {
+        font-family: 'Montserrat';
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-display: swap;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
