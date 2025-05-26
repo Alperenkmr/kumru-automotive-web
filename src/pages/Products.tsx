@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -34,67 +33,66 @@ const Products = () => {
     },
     {
       id: 4,
-      title: "INJECTION LINES",
-      imageSrc: "/lovable-uploads/ed5f67d0-d961-4a03-bb88-202d2b11fb20.png",
-      href: "/products/injection-lines",
-      translationKey: "products.injectionLines"
-    },
-    {
-      id: 5,
-      title: "LEAK OF FUEL PIPE",
-      imageSrc: "/lovable-uploads/e2dba826-cd9d-4e38-b90e-f7bd5996fb58.png",
-      href: "/products/leak-of-fuel-pipe",
-      translationKey: "products.leakOfFuelPipe"
-    },
-    {
-      id: 6,
-      title: "PTFE TEFLON HOSE",
-      imageSrc: "/lovable-uploads/674e9aa2-f67e-4a64-a848-47c597a5c984.png",
-      href: "/products/ptfe-teflon-hose",
-      translationKey: "products.ptfeTeflonHose"
-    },
-    {
-      id: 7,
       title: "STEERING HOSE",
       imageSrc: "/lovable-uploads/bb54b55e-7381-484a-abc8-e47684f61b1f.png",
       href: "/products/steering-hose",
       translationKey: "products.steeringHose"
     },
     {
-      id: 8,
-      title: "TRANSFER PUMP",
-      imageSrc: "/lovable-uploads/41aa0121-afde-42ec-8f74-a34f6a546d99.png",
-      href: "/products/transfer-pump",
-      translationKey: "products.transferPump"
+      id: 5,
+      title: "PTFE TEFLON HOSE",
+      imageSrc: "/lovable-uploads/674e9aa2-f67e-4a64-a848-47c597a5c984.png",
+      href: "/products/ptfe-teflon-hose",
+      translationKey: "products.ptfeTeflonHose"
     },
     {
-      id: 9,
+      id: 6,
       title: "TURBO PIPE HOSE",
       imageSrc: "/lovable-uploads/275bf039-d45d-41de-a94e-f90172412ef8.png",
       href: "/products/turbo-pipe-hose",
       translationKey: "products.turboPipeHose"
     },
     {
-      id: 10,
+      id: 7,
       title: "TURBO TIMING PIPES AND HOSES",
       imageSrc: "/lovable-uploads/d126f5c5-9d5d-43f1-accc-6038b8d46deb.png",
       href: "/products/turbo-timing-pipes",
       translationKey: "products.turboTimingPipes"
     },
     {
+      id: 8,
+      title: "INJECTION LINES",
+      imageSrc: "/lovable-uploads/ed5f67d0-d961-4a03-bb88-202d2b11fb20.png",
+      href: "/products/injection-lines",
+      translationKey: "products.injectionLines"
+    },
+    {
+      id: 9,
+      title: "VESSEL LINES",
+      imageSrc: "/lovable-uploads/e935a121-8959-42f0-843a-27e1e0d545fe.png",
+      href: "/products/vessel-lines",
+      translationKey: "products.vesselLines"
+    },
+    {
+      id: 10,
+      title: "TRANSFER PUMP",
+      imageSrc: "/lovable-uploads/41aa0121-afde-42ec-8f74-a34f6a546d99.png",
+      href: "/products/transfer-pump",
+      translationKey: "products.transferPump"
+    },
+    {
       id: 11,
+      title: "PRIMING PUMP",
+      imageSrc: "/lovable-uploads/964d3bf4-9d67-4487-9b05-59d0f170aeaa.png",
+      href: "/products/priming-pump",
+      translationKey: "products.primingPump"
+    },
+    {
+      id: 12,
       title: "VALVE NOZZLE",
       imageSrc: "/lovable-uploads/a4c0d917-95af-419d-a060-037e44da21d9.png",
       href: "/products/valve-nozzle",
       translationKey: "products.valveNozzle"
-    },
-    {
-      id: 12,
-      title: "VALVE RECORD",
-      imageSrc: "/lovable-uploads/3ee29511-87e1-4ee4-908e-fc6c2314b152.png",
-      href: "/products/valve-record",
-      translationKey: "products.valveRecord",
-      comingSoon: true
     },
     {
       id: 13,
@@ -105,24 +103,18 @@ const Products = () => {
     },
     {
       id: 14,
-      title: "VESSEL LINES",
-      imageSrc: "/lovable-uploads/e935a121-8959-42f0-843a-27e1e0d545fe.png",
-      href: "/products/vessel-lines",
-      translationKey: "products.vesselLines"
-    },
-    {
-      id: 15,
-      title: "PRIMING PUMP",
-      imageSrc: "/lovable-uploads/964d3bf4-9d67-4487-9b05-59d0f170aeaa.png",
-      href: "/products/priming-pump",
-      translationKey: "products.primingPump"
-    },
-    {
-      id: 16,
       title: "SPECIAL ITEMS",
       imageSrc: "/lovable-uploads/704024bb-d372-468e-b79f-31f8c4620a59.png",
       href: "/products/special-items",
       translationKey: "products.specialItems"
+    },
+    {
+      id: 15,
+      title: "VALVE RECORD",
+      imageSrc: "/lovable-uploads/3ee29511-87e1-4ee4-908e-fc6c2314b152.png",
+      href: "/products/valve-record",
+      translationKey: "products.valveRecord",
+      comingSoon: true
     }
   ];
 
