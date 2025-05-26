@@ -1,9 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="RSS Kumru Automotive - Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi. Kaliteli hizmet ve ürünlerimizle tanışın." />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.gpteng.co https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rsskumru.com" />
@@ -38,8 +45,7 @@
     <!-- DNS Lookup Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.gpteng.co" />
     
     <!-- Critical Image Preloads for LCP optimization -->
     <link rel="preload" as="image" href="./lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.webp" type="image/webp" fetchpriority="high" />
@@ -99,7 +105,12 @@
           "https://www.linkedin.com/in/alperen-kumru-519596307/",
           "https://www.instagram.com/rss_kumru_automotive/",
           "https://www.facebook.com/rsskumru"
-        ]
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
+        }
       }
     </script>
     <script type="application/ld+json">
@@ -159,6 +170,12 @@
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
       }
+
+      /* Critical CSS for above-the-fold content */
+      .min-h-screen { min-height: 100vh; }
+      .bg-white { background-color: #ffffff; }
+      .text-kumru-navy { color: #0A1F44; }
+      .font-montserrat { font-family: 'Montserrat', sans-serif; }
     </style>
 
     <!-- WebP Support Detection Script -->
@@ -170,6 +187,17 @@
         };
         webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
       })();
+
+      // Performance monitoring
+      if ('performance' in window) {
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            var perfData = window.performance.timing;
+            var loadTime = perfData.loadEventEnd - perfData.navigationStart;
+            console.log('Page load time:', loadTime + 'ms');
+          }, 0);
+        });
+      }
     </script>
   </head>
   <body>

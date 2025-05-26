@@ -10,7 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   // Contact sayfası için özel schema markup
   const contactPageSchema = {
@@ -98,8 +98,8 @@ const Contact = () => {
             {/* Success Banner */}
             {isSubmitted && (
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6 animate-fade-in" role="alert">
-                <strong className="font-bold">Başarılı!</strong>
-                <span className="block sm:inline"> Mesajınız gönderildi. En kısa sürede size geri dönüş yapacağız.</span>
+                <strong className="font-bold">{language === 'tr' ? 'Başarılı!' : 'Success!'}</strong>
+                <span className="block sm:inline"> {t('contact.success')}</span>
               </div>
             )}
             

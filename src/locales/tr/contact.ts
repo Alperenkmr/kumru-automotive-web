@@ -5,7 +5,7 @@ export const contactType = {
   'contact.name': 'İsim',
   'contact.message': 'Mesaj',
   'contact.submit': 'Gönder',
-  'contact.success': 'Mesajınız başarıyla gönderildi!',
+  'contact.success': 'Mesajınız başarıyla gönderildi. En kısa sürede size geri dönüş yapacağız.',
   'contact.address': 'Adres',
   'contact.phone': 'Telefon',
   'contact.emailAddress': 'E-posta Adresi',

@@ -50,20 +50,23 @@ const ProductImage = memo<ProductImageProps>(({
     onImageClick?.(index);
   }, [onImageClick, index]);
 
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  }, [handleClick]);
+
   // Optimize edilmiş alt text
   const optimizedAlt = `${productTitle ? `${productTitle} - ` : ''}${alt} - RSS Kumru Automotive yüksek kaliteli otomotiv parçaları`;
 
   return (
     <div 
-      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00] transition-transform hover:scale-105`}
+      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00] transition-all duration-300 hover:scale-105 hover:shadow-lg focus-within:ring-2 focus-within:ring-kumru-blue focus-within:ring-offset-2`}
       onClick={handleClick}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          handleClick();
-        }
-      }}
+      onKeyDown={handleKeyDown}
       aria-label={`${optimizedAlt} - Resmi büyütmek için tıklayın`}
     >
       <AspectRatio ratio={ratio}>
@@ -153,7 +156,11 @@ const ProductImageGallery = memo<ProductImageGalleryProps>(({
 
   return (
     <div className="mb-8">
-      <div className={gridClassName} role="grid" aria-label={`${productTitle} ürün galerisi`}>
+      <div 
+        className={gridClassName} 
+        role="grid" 
+        aria-label={`${productTitle} ürün galerisi`}
+      >
         {images.map((image, index) => (
           <ProductImage
             key={`${productId}-${index}`}

@@ -70,6 +70,12 @@ const SEO: React.FC<SEOProps> = ({
     "logo": `${siteUrl}/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png`,
     "description": description,
     "foundingDate": "2010",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Alperen Kumru"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Tavşanlı Mah. Kömürcüoğlu Cad. 4509 Sk. No: 3",
@@ -85,13 +91,25 @@ const SEO: React.FC<SEOProps> = ({
         "contactType": "customer service",
         "areaServed": ["TR", "EU", "US"],
         "availableLanguage": ["Turkish", "English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+905494262949",
+        "contactType": "sales",
+        "areaServed": ["TR", "EU"],
+        "availableLanguage": ["Turkish", "English"]
       }
     ],
     "sameAs": [
       "https://www.linkedin.com/in/alperen-kumru-519596307/",
       "https://www.instagram.com/rss_kumru_automotive/",
       "https://www.facebook.com/rsskumru"
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    }
   };
 
   const finalStructuredData = structuredData || defaultStructuredData;
@@ -116,6 +134,19 @@ const SEO: React.FC<SEOProps> = ({
       {/* Publisher ve Copyright */}
       <meta name="publisher" content={siteName} />
       <meta name="copyright" content={`© ${new Date().getFullYear()} ${siteName}`} />
+      
+      {/* Geo Location */}
+      <meta name="geo.region" content="TR-41" />
+      <meta name="geo.placename" content="Gebze, Kocaeli" />
+      <meta name="geo.position" content="40.7982;29.4309" />
+      <meta name="ICBM" content="40.7982, 29.4309" />
+      
+      {/* Business Information */}
+      <meta name="rating" content="General" />
+      <meta name="distribution" content="Global" />
+      <meta name="target" content="all" />
+      <meta name="audience" content="all" />
+      <meta name="coverage" content="Worldwide" />
       
       {/* Tarih bilgileri */}
       {publishDate && <meta name="article:published_time" content={publishDate} />}

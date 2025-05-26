@@ -10,6 +10,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    headers: {
+      // Security headers
+      'X-Frame-Options': 'DENY',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+    },
   },
   plugins: [
     react(),
@@ -24,6 +31,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    sourcemap: mode === 'development',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -47,7 +55,7 @@ export default defineConfig(({ mode }) => ({
           }
           const info = assetInfo.name.split('.');
           const ext = info[info.length - 1];
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(ext)) {
             return `images/[name]-[hash].${ext}`;
           }
           if (/css/i.test(ext)) {
@@ -58,14 +66,13 @@ export default defineConfig(({ mode }) => ({
       },
     },
     // Optimize bundle size
-    minify: 'terser',
+    minify: mode === 'production' ? 'terser' : false,
     terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: mode === 'production',
         drop_debugger: true,
       },
     },
-    sourcemap: false,
     // Set chunk size warning limit
     chunkSizeWarningLimit: 1000,
   },
