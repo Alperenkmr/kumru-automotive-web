@@ -15,7 +15,7 @@
   <!-- Ana Sayfa -->
   <url>
     <loc>https://rsskumru.com/</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -23,7 +23,11 @@
       <image:title>RSS Kumru Automotive Logo</image:title>
       <image:caption>RSS Kumru Automotive - Otomotiv sektöründe lider, yüksek kaliteli hidrolik hortum ve boru sistemleri tedarikçisi</image:caption>
     </image:image>
-    <!-- Çoklu dil desteği -->
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png</image:loc>
+      <image:title>RSS Kumru Automotive Hero Image</image:title>
+      <image:caption>Akışkan sistem yönetimi ve özel mühendislik hatları - RSS Kumru Automotive</image:caption>
+    </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/" />
     <mobile:mobile/>
@@ -32,7 +36,7 @@
   <!-- Hakkımızda Sayfası -->
   <url>
     <loc>https://rsskumru.com/about</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/about" />
@@ -40,10 +44,10 @@
     <mobile:mobile/>
   </url>
   
-  <!-- Ürünler Sayfası -->
+  <!-- Ürünler Ana Sayfası -->
   <url>
     <loc>https://rsskumru.com/products</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products" />
@@ -51,10 +55,10 @@
     <mobile:mobile/>
   </url>
   
-  <!-- Blog Sayfası -->
+  <!-- Blog Ana Sayfası -->
   <url>
     <loc>https://rsskumru.com/blog</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/blog" />
@@ -65,7 +69,7 @@
   <!-- İletişim Sayfası -->
   <url>
     <loc>https://rsskumru.com/contact</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/contact" />
@@ -73,16 +77,27 @@
     <mobile:mobile/>
   </url>
   
+  <!-- Makine Parkı -->
+  <url>
+    <loc>https://rsskumru.com/machine-park</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/machine-park" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/machine-park" />
+    <mobile:mobile/>
+  </url>
+  
   <!-- Ürün Detay Sayfaları -->
   <url>
     <loc>https://rsskumru.com/products/cabin-lifting-hose</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://rsskumru.com/lovable-uploads/276c3c3f-5523-4672-b280-b673bb29c985.png</image:loc>
-      <image:title>Kabin Kaldırma Hortumu</image:title>
-      <image:caption>RSS Kumru Kabin Kaldırma Hortumu - Yüksek basınç dayanımlı hidrolik hortum çözümleri</image:caption>
+      <image:title>Kabin Kaldırma Hortumu - RSS Kumru Automotive</image:title>
+      <image:caption>Yüksek basınç dayanımlı kabin kaldırma hortumu - RSS Kumru Automotive kaliteli otomotiv parçaları</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/cabin-lifting-hose" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/cabin-lifting-hose" />
@@ -91,13 +106,13 @@
   
   <url>
     <loc>https://rsskumru.com/products/hydraulic-hose</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
     <image:image>
-      <image:loc>https://rsskumru.com/lovable-uploads/c67f11da-5f6e-4947-967b-561db5be6fbc.png</image:loc>
-      <image:title>Hidrolik Hortum</image:title>
-      <image:caption>RSS Kumru Hidrolik Hortum - Ağır hizmet uygulamaları için güçlendirilmiş hidrolik hortum sistemi</image:caption>
+      <image:loc>https://rsskumru.com/lovable-uploads/ab213c6a-f04b-4b0e-b847-f3bedda77422.png</image:loc>
+      <image:title>Hidrolik Hortum - RSS Kumru Automotive</image:title>
+      <image:caption>Ağır hizmet uygulamaları için güçlendirilmiş hidrolik hortum sistemi - RSS Kumru Automotive</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/hydraulic-hose" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/hydraulic-hose" />
@@ -106,13 +121,13 @@
   
   <url>
     <loc>https://rsskumru.com/products/ptfe-teflon-hose</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
     <image:image>
-      <image:loc>https://rsskumru.com/lovable-uploads/7fa516f9-9179-47be-a76b-bc95ff5fc8e3.png</image:loc>
-      <image:title>PTFE Teflon Hortum</image:title>
-      <image:caption>RSS Kumru PTFE Teflon Hortum - Kimyasal dayanımlı, yüksek ısıya dayanıklı teflon hortum çözümleri</image:caption>
+      <image:loc>https://rsskumru.com/lovable-uploads/674e9aa2-f67e-4a64-a848-47c597a5c984.png</image:loc>
+      <image:title>PTFE Teflon Hortum - RSS Kumru Automotive</image:title>
+      <image:caption>Kimyasal dayanımlı, yüksek ısıya dayanıklı teflon hortum çözümleri - RSS Kumru Automotive</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/ptfe-teflon-hose" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/ptfe-teflon-hose" />
@@ -121,13 +136,13 @@
   
   <url>
     <loc>https://rsskumru.com/products/turbo-pipe-hose</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
     <image:image>
-      <image:loc>https://rsskumru.com/lovable-uploads/463837ac-180d-4516-9b6d-58b38390a0bc.png</image:loc>
-      <image:title>Turbo Boru Hortum</image:title>
-      <image:caption>RSS Kumru Turbo Boru Hortum - Yüksek sıcaklığa dayanıklı, turbo sistemleri için özel tasarlanmış hortumlar</image:caption>
+      <image:loc>https://rsskumru.com/lovable-uploads/275bf039-d45d-41de-a94e-f90172412ef8.png</image:loc>
+      <image:title>Turbo Boru Hortum - RSS Kumru Automotive</image:title>
+      <image:caption>Yüksek sıcaklığa dayanıklı, turbo sistemleri için özel tasarlanmış hortumlar - RSS Kumru Automotive</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/turbo-pipe-hose" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/turbo-pipe-hose" />
@@ -136,13 +151,13 @@
   
   <url>
     <loc>https://rsskumru.com/products/injection-lines</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
     <image:image>
-      <image:loc>https://rsskumru.com/lovable-uploads/a346c74e-9889-4d7b-8cd9-86a0ff46b89d.png</image:loc>
-      <image:title>Enjeksiyon Hatları</image:title>
-      <image:caption>RSS Kumru Enjeksiyon Hatları - Hassas enjeksiyon sistemleri için özel üretilmiş hat çözümleri</image:caption>
+      <image:loc>https://rsskumru.com/lovable-uploads/ed5f67d0-d961-4a03-bb88-202d2b11fb20.png</image:loc>
+      <image:title>Enjeksiyon Hatları - RSS Kumru Automotive</image:title>
+      <image:caption>Hassas enjeksiyon sistemleri için özel üretilmiş hat çözümleri - RSS Kumru Automotive</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/injection-lines" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/injection-lines" />
@@ -151,34 +166,198 @@
   
   <url>
     <loc>https://rsskumru.com/products/vessel-lines</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
     <image:image>
-      <image:loc>https://rsskumru.com/lovable-uploads/74038727-0d72-411d-addb-cbc9d2a2f175.png</image:loc>
-      <image:title>Depo Hatları</image:title>
-      <image:caption>RSS Kumru Depo Hatları - Yakıt ve sıvı depoları için özel üretilmiş boru ve hortum sistemleri</image:caption>
+      <image:loc>https://rsskumru.com/lovable-uploads/e935a121-8959-42f0-843a-27e1e0d545fe.png</image:loc>
+      <image:title>Depo Hatları - RSS Kumru Automotive</image:title>
+      <image:caption>Yakıt ve sıvı depoları için özel üretilmiş boru ve hortum sistemleri - RSS Kumru Automotive</image:caption>
     </image:image>
     <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/vessel-lines" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/vessel-lines" />
     <mobile:mobile/>
   </url>
   
-  <!-- Video içeriği için örnek -->
   <url>
-    <loc>https://rsskumru.com/videos/manufacturing-process</loc>
-    <lastmod>2025-05-22</lastmod>
+    <loc>https://rsskumru.com/products/hydraulic-system</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/8ba224ad-ba9b-4e72-bb83-d36c7da4ab4c.png</image:loc>
+      <image:title>Hidrolik Sistem - RSS Kumru Automotive</image:title>
+      <image:caption>Komple hidrolik sistem çözümleri - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/hydraulic-system" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/hydraulic-system" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/steering-hose</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/bb54b55e-7381-484a-abc8-e47684f61b1f.png</image:loc>
+      <image:title>Direksiyon Hortumu - RSS Kumru Automotive</image:title>
+      <image:caption>Hidrolik direksiyon sistemi hortumları - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/steering-hose" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/steering-hose" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/leak-of-fuel-pipe</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/e2dba826-cd9d-4e38-b90e-f7bd5996fb58.png</image:loc>
+      <image:title>Yakıt Kaçak Borusu - RSS Kumru Automotive</image:title>
+      <image:caption>Yakıt sistem kaçak boruları - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/leak-of-fuel-pipe" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/leak-of-fuel-pipe" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/turbo-timing-pipes</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/d126f5c5-9d5d-43f1-accc-6038b8d46deb.png</image:loc>
+      <image:title>Turbo Zamanlama Boruları - RSS Kumru Automotive</image:title>
+      <image:caption>Turbo zamanlama boruları ve hortumları - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/turbo-timing-pipes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/turbo-timing-pipes" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/transfer-pump</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/41aa0121-afde-42ec-8f74-a34f6a546d99.png</image:loc>
+      <image:title>Transfer Pompası - RSS Kumru Automotive</image:title>
+      <image:caption>Yakıt transfer pompaları - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/transfer-pump" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/transfer-pump" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/priming-pump</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/964d3bf4-9d67-4487-9b05-59d0f170aeaa.png</image:loc>
+      <image:title>Şarj Pompası - RSS Kumru Automotive</image:title>
+      <image:caption>Yakıt sistem şarj pompaları - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/priming-pump" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/priming-pump" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/valve-nozzle</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/a4c0d917-95af-419d-a060-037e44da21d9.png</image:loc>
+      <image:title>Valf Nozulu - RSS Kumru Automotive</image:title>
+      <image:caption>Hassas valf nozul sistemleri - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/valve-nozzle" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/valve-nozzle" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/valve-timing</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/a985dbe1-61b1-49ec-9e77-1cd23ded2e96.png</image:loc>
+      <image:title>Valf Zamanlaması - RSS Kumru Automotive</image:title>
+      <image:caption>Motor valf zamanlama sistemleri - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/valve-timing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/valve-timing" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/connectors</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/connectors" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/connectors" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/products/special-items</loc>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <video:video>
-      <video:thumbnail_loc>https://rsskumru.com/video-thumbnails/manufacturing-thumbnail.jpg</video:thumbnail_loc>
-      <video:title>RSS Kumru Üretim Süreci</video:title>
-      <video:description>RSS Kumru Automotive'in modern üretim tesislerinde hidrolik hortum ve boru sistemlerinin üretim süreçleri.</video:description>
-      <video:content_loc>https://rsskumru.com/videos/manufacturing-process.mp4</video:content_loc>
-      <video:duration>180</video:duration>
-      <video:publication_date>2025-02-15T14:30:00+03:00</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:live>no</video:live>
-    </video:video>
+    <image:image>
+      <image:loc>https://rsskumru.com/lovable-uploads/704024bb-d372-468e-b79f-31f8c4620a59.png</image:loc>
+      <image:title>Özel Ürünler - RSS Kumru Automotive</image:title>
+      <image:caption>Müşteri özel tasarım ürünleri - RSS Kumru Automotive</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/products/special-items" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/products/special-items" />
+    <mobile:mobile/>
+  </url>
+  
+  <!-- Blog Post Örnekleri -->
+  <url>
+    <loc>https://rsskumru.com/blog/hydraulic-systems-future</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <news:news>
+      <news:publication>
+        <news:name>RSS Kumru Automotive Blog</news:name>
+        <news:language>tr</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-26</news:publication_date>
+      <news:title>Hidrolik Sistemlerin Geleceği ve Yenilikçi Çözümler</news:title>
+    </news:news>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/blog/hydraulic-systems-future" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/blog/hydraulic-systems-future" />
+    <mobile:mobile/>
+  </url>
+  
+  <url>
+    <loc>https://rsskumru.com/blog/automotive-industry-trends</loc>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <news:news>
+      <news:publication>
+        <news:name>RSS Kumru Automotive Blog</news:name>
+        <news:language>tr</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-26</news:publication_date>
+      <news:title>Otomotiv Endüstrisindeki Son Trendler</news:title>
+    </news:news>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://rsskumru.com/blog/automotive-industry-trends" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rsskumru.com/en/blog/automotive-industry-trends" />
+    <mobile:mobile/>
   </url>
 </urlset>

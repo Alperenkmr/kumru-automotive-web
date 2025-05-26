@@ -12,6 +12,7 @@ interface ProductImageProps {
   loading?: "lazy" | "eager";
   className?: string;
   onImageClick?: (index: number) => void;
+  productTitle?: string;
 }
 
 const ProductImage = memo<ProductImageProps>(({ 
@@ -21,7 +22,8 @@ const ProductImage = memo<ProductImageProps>(({
   ratio = 1, 
   loading = "lazy",
   className = "",
-  onImageClick
+  onImageClick,
+  productTitle = ""
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -48,16 +50,27 @@ const ProductImage = memo<ProductImageProps>(({
     onImageClick?.(index);
   }, [onImageClick, index]);
 
+  // Optimize edilmiş alt text
+  const optimizedAlt = `${productTitle ? `${productTitle} - ` : ''}${alt} - RSS Kumru Automotive yüksek kaliteli otomotiv parçaları`;
+
   return (
     <div 
       className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00] transition-transform hover:scale-105`}
       onClick={handleClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleClick();
+        }
+      }}
+      aria-label={`${optimizedAlt} - Resmi büyütmek için tıklayın`}
     >
       <AspectRatio ratio={ratio}>
         <div className="w-full h-full flex items-center justify-center p-3">
           {!imageLoaded && !imageError && (
             <div className="w-full h-full bg-gray-200 animate-pulse rounded flex items-center justify-center">
-              <div className="text-gray-400 text-sm">Yükleniyor...</div>
+              <div className="text-gray-400 text-sm" aria-hidden="true">Yükleniyor...</div>
             </div>
           )}
           
@@ -69,13 +82,15 @@ const ProductImage = memo<ProductImageProps>(({
             />
             <img 
               src={src} 
-              alt={alt} 
+              alt={optimizedAlt}
               className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               loading={index > 3 ? "lazy" : loading}
               decoding={index > 3 ? "async" : "sync"}
               fetchPriority={index < 3 ? "high" : "low"}
               onLoad={handleImageLoad}
               onError={handleImageError}
+              width="400"
+              height="400"
             />
           </picture>
         </div>
@@ -105,7 +120,7 @@ const ProductImageGallery = memo<ProductImageGalleryProps>(({
 }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleImageClick = useCallback((index: number) => {
     setCurrentImageIndex(index);
@@ -123,24 +138,33 @@ const ProductImageGallery = memo<ProductImageGalleryProps>(({
   // Get gallery title translation
   const galleryTitle = t('products.gallery.title');
   
+  // Optimize edilmiş alt text'ler
   const imageAlts = React.useMemo(() => 
-    images.map((_, index) => `${productTitle} - ${galleryTitle} ${index + 1}`),
+    images.map((_, index) => {
+      const baseAlt = `${productTitle} - ${galleryTitle} ${index + 1}`;
+      const detailDescription = index === 0 ? " - Ürün ana görsel" : 
+                               index === 1 ? " - Ürün detay görsel" :
+                               index === 2 ? " - Teknik özellikler" :
+                               ` - Görsel ${index + 1}`;
+      return `${baseAlt}${detailDescription} - RSS Kumru Automotive kaliteli otomotiv parçaları`;
+    }),
     [images, productTitle, galleryTitle]
   );
 
   return (
     <div className="mb-8">
-      <div className={gridClassName}>
+      <div className={gridClassName} role="grid" aria-label={`${productTitle} ürün galerisi`}>
         {images.map((image, index) => (
           <ProductImage
             key={`${productId}-${index}`}
             src={image}
-            alt={`${productTitle} - ${galleryTitle} ${index + 1}`}
+            alt={imageAlts[index]}
             index={index}
             ratio={aspectRatio}
             loading={index < 3 ? "eager" : "lazy"}
             className={imageClassName}
             onImageClick={handleImageClick}
+            productTitle={productTitle}
           />
         ))}
       </div>
