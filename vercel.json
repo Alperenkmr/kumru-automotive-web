@@ -29,6 +29,10 @@
       "dest": "/assets/$1"
     },
     {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
@@ -74,5 +78,11 @@
     "dist/assets/*.js": {
       "maxDuration": 30
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.json|lovable-uploads|assets).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
