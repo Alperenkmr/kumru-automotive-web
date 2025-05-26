@@ -9,16 +9,19 @@ import { Helmet } from "react-helmet";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
 import ErrorBoundary from "./components/ui/ErrorBoundary";
 import { checkMissingTranslations } from "./utils/translationChecker";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
-import MachinePark from "./pages/MachinePark";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { lazy, Suspense } from "react";
 import "./index.css";
+
+// Lazy load pages for better code splitting
+const Index = lazy(() => import("./pages/Index"));
+const About = lazy(() => import("./pages/About"));
+const Products = lazy(() => import("./pages/Products"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const MachinePark = lazy(() => import("./pages/MachinePark"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +42,13 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
+// Loading component for Suspense fallback
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kumru-navy"></div>
+  </div>
+);
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
@@ -58,36 +68,38 @@ const App = () => (
           <BrowserRouter>
             <ErrorBoundary>
               <FloatingWhatsApp phoneNumber="+905494262949" />
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:productId" element={<ProductDetail />} />
-                <Route path="/machine-park" element={<MachinePark />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:blogId" element={<BlogPost />} />
-                <Route path="/contact" element={<Contact />} />
-                {/* For better handling of robots.txt and sitemap.xml */}
-                <Route path="/robots.txt" 
-                  element={
-                    <iframe
-                      title="Robots.txt"
-                      src="/robots.txt"
-                      style={{ width: '100%', height: '100vh', border: 'none' }}
-                    />
-                  } 
-                />
-                <Route path="/sitemap.xml" 
-                  element={
-                    <iframe
-                      title="Sitemap"
-                      src="/sitemap.xml"
-                      style={{ width: '100%', height: '100vh', border: 'none' }}
-                    />
-                  } 
-                />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/:productId" element={<ProductDetail />} />
+                  <Route path="/machine-park" element={<MachinePark />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:blogId" element={<BlogPost />} />
+                  <Route path="/contact" element={<Contact />} />
+                  {/* For better handling of robots.txt and sitemap.xml */}
+                  <Route path="/robots.txt" 
+                    element={
+                      <iframe
+                        title="Robots.txt"
+                        src="/robots.txt"
+                        style={{ width: '100%', height: '100vh', border: 'none' }}
+                      />
+                    } 
+                  />
+                  <Route path="/sitemap.xml" 
+                    element={
+                      <iframe
+                        title="Sitemap"
+                        src="/sitemap.xml"
+                        style={{ width: '100%', height: '100vh', border: 'none' }}
+                      />
+                    } 
+                  />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
             </ErrorBoundary>
           </BrowserRouter>
         </TooltipProvider>

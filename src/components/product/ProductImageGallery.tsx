@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, memo } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import ImageLightbox from "@/components/ui/ImageLightbox";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -14,7 +14,7 @@ interface ProductImageProps {
   onImageClick?: (index: number) => void;
 }
 
-const ProductImage: React.FC<ProductImageProps> = ({ 
+const ProductImage = memo<ProductImageProps>(({ 
   src, 
   alt, 
   index, 
@@ -35,19 +35,23 @@ const ProductImage: React.FC<ProductImageProps> = ({
     return originalSrc;
   }, []);
 
-  const handleImageLoad = () => {
+  const handleImageLoad = useCallback(() => {
     setImageLoaded(true);
-  };
+  }, []);
 
-  const handleImageError = () => {
+  const handleImageError = useCallback(() => {
     setImageError(true);
     setImageLoaded(true);
-  };
+  }, []);
+
+  const handleClick = useCallback(() => {
+    onImageClick?.(index);
+  }, [onImageClick, index]);
 
   return (
     <div 
       className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00] transition-transform hover:scale-105`}
-      onClick={() => onImageClick && onImageClick(index)}
+      onClick={handleClick}
     >
       <AspectRatio ratio={ratio}>
         <div className="w-full h-full flex items-center justify-center p-3">
@@ -78,7 +82,9 @@ const ProductImage: React.FC<ProductImageProps> = ({
       </AspectRatio>
     </div>
   );
-};
+});
+
+ProductImage.displayName = 'ProductImage';
 
 interface ProductImageGalleryProps {
   images: string[];
@@ -89,7 +95,7 @@ interface ProductImageGalleryProps {
   productId?: string;
 }
 
-const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
+const ProductImageGallery = memo<ProductImageGalleryProps>(({
   images,
   productTitle,
   aspectRatio = 1,
@@ -117,7 +123,10 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
   // Get gallery title translation
   const galleryTitle = t('products.gallery.title');
   
-  const imageAlts = images.map((_, index) => `${productTitle} - ${galleryTitle} ${index + 1}`);
+  const imageAlts = React.useMemo(() => 
+    images.map((_, index) => `${productTitle} - ${galleryTitle} ${index + 1}`),
+    [images, productTitle, galleryTitle]
+  );
 
   return (
     <div className="mb-8">
@@ -146,6 +155,8 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
       />
     </div>
   );
-};
+});
+
+ProductImageGallery.displayName = 'ProductImageGallery';
 
 export { ProductImage, ProductImageGallery };

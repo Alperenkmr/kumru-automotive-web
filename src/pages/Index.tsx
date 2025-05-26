@@ -1,16 +1,26 @@
-import React, { useEffect } from "react";
+
+import React, { useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import WhatWeDo from "@/components/sections/WhatWeDo";
-import FeaturedProducts from "@/components/sections/FeaturedProducts";
-import BlogPreview from "@/components/sections/BlogPreview";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { FileText } from "lucide-react";
+
+// Lazy load components that are below the fold
+const FeaturedProducts = lazy(() => import("@/components/sections/FeaturedProducts"));
+const BlogPreview = lazy(() => import("@/components/sections/BlogPreview"));
+const WhyChooseUs = lazy(() => import("@/components/sections/WhyChooseUs"));
+
+// Loading component for sections
+const SectionLoader = () => (
+  <div className="section-padding bg-gray-50 flex justify-center items-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-kumru-navy"></div>
+  </div>
+);
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -91,11 +101,18 @@ const Index = () => {
         <Hero />
         <WhatWeDo />
         
-        {/* WhyChooseUs bileşenini kullan */}
-        <WhyChooseUs />
+        {/* Lazy loaded sections with Suspense */}
+        <Suspense fallback={<SectionLoader />}>
+          <WhyChooseUs />
+        </Suspense>
         
-        <FeaturedProducts />
-        <BlogPreview />
+        <Suspense fallback={<SectionLoader />}>
+          <FeaturedProducts />
+        </Suspense>
+        
+        <Suspense fallback={<SectionLoader />}>
+          <BlogPreview />
+        </Suspense>
         
         {/* Catalog Download Button */}
         <section className="section-padding bg-white text-center">
@@ -136,6 +153,7 @@ const Index = () => {
               src="./lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
               alt="RSS Kumru Robot" 
               className="h-64"
+              loading="lazy"
             />
           </div>
         </section>

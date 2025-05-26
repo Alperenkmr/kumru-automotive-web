@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useLanguage();
   
   // Arkaplan fotoğrafları array'i - WebP ve fallback versiyonları
-  const backgroundImages = [
+  const backgroundImages = useMemo(() => [
     {
       webp: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.webp",
       fallback: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png",
@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       fallback: "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.png",
       alt: "RSS Kumru Automotive - Hidrolik Sistem 5"
     }
-  ];
+  ], []);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -49,17 +49,17 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   // WebP desteği kontrolü
   const [supportsWebP, setSupportsWebP] = useState(false);
 
-  useEffect(() => {
-    // WebP desteği kontrolü
-    const checkWebPSupport = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 1;
-      canvas.height = 1;
-      return canvas.toDataURL('image/webp').indexOf('webp') > -1;
-    };
-    
-    setSupportsWebP(checkWebPSupport());
+  // WebP support check - memoized
+  const checkWebPSupport = useCallback(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    return canvas.toDataURL('image/webp').indexOf('webp') > -1;
   }, []);
+
+  useEffect(() => {
+    setSupportsWebP(checkWebPSupport());
+  }, [checkWebPSupport]);
 
   // İlk resmi preload et (LCP için kritik)
   useEffect(() => {
@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
     if (supportsWebP !== null) {
       preloadFirstImage();
     }
-  }, [supportsWebP]);
+  }, [supportsWebP, backgroundImages]);
 
   // Diğer resimleri lazy load et
   useEffect(() => {
@@ -103,9 +103,10 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
     // İlk resim yüklendikten sonra diğerlerini lazy load et
     if (isLoaded) {
-      setTimeout(loadRemainingImages, 100);
+      const timeoutId = setTimeout(loadRemainingImages, 100);
+      return () => clearTimeout(timeoutId);
     }
-  }, [isLoaded, supportsWebP]);
+  }, [isLoaded, supportsWebP, backgroundImages]);
 
   // Fotoğraf değişim efekti
   useEffect(() => {
@@ -118,10 +119,10 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
-  const getCurrentImageSrc = (index: number) => {
+  const getCurrentImageSrc = useCallback((index: number) => {
     const image = backgroundImages[index];
     return supportsWebP ? image.webp : image.fallback;
-  };
+  }, [backgroundImages, supportsWebP]);
   
   return (
     <section
@@ -214,7 +215,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                 loading="lazy"
               ></iframe>
             </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+            <script src="https://player.vimeo.com/api/player.js" async></script>
           </div>
         </div>
       </div>
