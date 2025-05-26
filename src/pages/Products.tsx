@@ -1,3 +1,4 @@
+
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +9,8 @@ import { FileText } from "lucide-react";
 
 const Products = () => {
   const { t, language } = useLanguage();
+  
+  console.log('Products page: Rendering products list');
   
   const productCategories = [
     {
@@ -119,10 +122,13 @@ const Products = () => {
 
   // Preprocess product data to get translated titles
   const translatedProducts = useMemo(() => {
-    return productCategories.map(product => ({
+    const products = productCategories.map(product => ({
       ...product,
       translatedTitle: t(product.translationKey) || product.title
     }));
+    
+    console.log('Products page: Generated product links:', products.map(p => p.href));
+    return products;
   }, [productCategories, t]);
   
   return (

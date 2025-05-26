@@ -31,10 +31,12 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/$1"
-    },
+    }
+  ],
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!api|assets|lovable-uploads|robots.txt|sitemap.xml|manifest.json|favicon.ico).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -79,10 +81,6 @@
       "maxDuration": 30
     }
   },
-  "rewrites": [
-    {
-      "source": "/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.json|lovable-uploads|assets).*)",
-      "destination": "/index.html"
-    }
-  ]
+  "trailingSlash": false,
+  "cleanUrls": true
 }

@@ -56,19 +56,59 @@
             height: auto;
             margin-bottom: 30px;
         }
+        .loading {
+            display: none;
+            margin-bottom: 20px;
+        }
     </style>
     <script>
-        // Client-side redirect for SPA
+        // Enhanced client-side redirect for SPA
         (function() {
-            var path = window.location.pathname;
-            if (path !== '/' && !path.includes('.')) {
-                window.location.replace('/#' + path);
+            try {
+                var path = window.location.pathname;
+                var search = window.location.search;
+                var hash = window.location.hash;
+                
+                // Log the attempted path for debugging
+                console.log('404 Page - Attempted path:', path);
+                
+                // Show loading indicator
+                var loadingEl = document.querySelector('.loading');
+                if (loadingEl) {
+                    loadingEl.style.display = 'block';
+                }
+                
+                // Only redirect if it's not a static file and not already the root
+                if (path !== '/' && !path.includes('.') && !path.startsWith('/assets/') && !path.startsWith('/lovable-uploads/')) {
+                    // Store the intended path in sessionStorage for the SPA to handle
+                    sessionStorage.setItem('redirectPath', path + search + hash);
+                    
+                    // Redirect to the root with the path as a parameter
+                    setTimeout(function() {
+                        window.location.replace('/?redirect=' + encodeURIComponent(path + search + hash));
+                    }, 500);
+                } else {
+                    // Hide loading indicator if we're not redirecting
+                    if (loadingEl) {
+                        loadingEl.style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error('404 redirect error:', error);
+                // Hide loading indicator on error
+                var loadingEl = document.querySelector('.loading');
+                if (loadingEl) {
+                    loadingEl.style.display = 'none';
+                }
             }
         })();
     </script>
 </head>
 <body>
     <div class="container">
+        <div class="loading">
+            <p>Sayfa yönlendiriliyor...</p>
+        </div>
         <img src="/lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" alt="RSS Kumru Logo" class="logo">
         <h1>404</h1>
         <h2>Sayfa Bulunamadı</h2>

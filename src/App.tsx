@@ -3,7 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { Helmet } from "react-helmet";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
@@ -28,6 +29,52 @@ const queryClient = new QueryClient({
   },
 });
 
+// Component to handle redirects from 404 page
+const RedirectHandler = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check for redirect parameter from 404 page
+    const urlParams = new URLSearchParams(location.search);
+    const redirectPath = urlParams.get('redirect');
+    
+    if (redirectPath && location.pathname === '/') {
+      console.log('Handling redirect to:', redirectPath);
+      navigate(redirectPath, { replace: true });
+      return;
+    }
+
+    // Check sessionStorage for redirect path
+    const storedRedirectPath = sessionStorage.getItem('redirectPath');
+    if (storedRedirectPath && location.pathname === '/') {
+      console.log('Handling stored redirect to:', storedRedirectPath);
+      sessionStorage.removeItem('redirectPath');
+      navigate(storedRedirectPath, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
+};
+
+const AppContent = () => (
+  <>
+    <RedirectHandler />
+    <FloatingWhatsApp phoneNumber="+905494262949" />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/products/:productId" element={<ProductDetail />} />
+      <Route path="/machine-park" element={<MachinePark />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:blogId" element={<BlogPost />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </>
+);
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
@@ -42,18 +89,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ErrorBoundary>
-              <FloatingWhatsApp phoneNumber="+905494262949" />
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:productId" element={<ProductDetail />} />
-                <Route path="/machine-park" element={<MachinePark />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:blogId" element={<BlogPost />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <AppContent />
             </ErrorBoundary>
           </BrowserRouter>
         </TooltipProvider>

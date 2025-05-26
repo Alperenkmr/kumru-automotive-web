@@ -29,7 +29,10 @@ const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const { t, language } = useLanguage();
   
-  // Enhanced validation
+  // Enhanced validation with logging
+  console.log('ProductDetail: Rendering with productId:', productId);
+  console.log('ProductDetail: Available products:', Object.keys(productData));
+  
   if (!productId) {
     console.error('ProductDetail: No productId provided in URL params');
     return <ProductNotFound />;
@@ -39,8 +42,11 @@ const ProductDetail = () => {
   
   if (!product) {
     console.error(`ProductDetail: Product not found for ID: ${productId}`);
+    console.log('ProductDetail: Available product IDs:', Object.keys(productData));
     return <ProductNotFound />;
   }
+  
+  console.log('ProductDetail: Product found:', product);
   
   // Check if product is coming soon and redirect to products page
   if ('comingSoon' in product && product.comingSoon) {
@@ -58,12 +64,17 @@ const ProductDetail = () => {
   const translatedTitle = t(translationKey);
   const translatedDescription = t(descriptionKey);
 
+  console.log('ProductDetail: Translation key:', translationKey);
+  console.log('ProductDetail: Translated title:', translatedTitle);
+
   // Canonical URL
   const canonicalUrl = `https://rsskumru.com/products/${productId}`;
 
   // Render the appropriate gallery based on product ID
   const renderGallery = () => {
     try {
+      console.log('ProductDetail: Rendering gallery for product:', productId);
+      
       switch(productId) {
         case 'cabin-lifting-hose':
           return <CabinLiftingHoseGallery images={product.images} productTitle={translatedTitle} />;
@@ -95,7 +106,10 @@ const ProductDetail = () => {
           return <PrimingPumpGallery images={product.images} productTitle={translatedTitle} />;
         case 'connectors':
           return <ConnectorsGallery images={product.images} productTitle={translatedTitle} />;
+        case 'special-items':
+          return <DefaultGallery images={product.images} productTitle={translatedTitle} />;
         default:
+          console.log('ProductDetail: Using default gallery for unknown product ID');
           return <DefaultGallery images={product.images} productTitle={translatedTitle} />;
       }
     } catch (error) {
