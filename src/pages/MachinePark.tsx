@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/layout/Header";
@@ -238,51 +237,40 @@ const MachinePark: React.FC = () => {
                   {developmentTitle}
                 </h3>
                 
-                <div className="space-y-4 text-gray-700">
+                <div className="space-y-6 text-gray-700">
                   {language === 'tr' ? (
                     <>
-                      <p>
-                        <strong>Ters Mühendislik Yaklaşımımız:</strong> Mevcut ürünleri detaylı olarak analiz ederek, 
-                        onların güçlü yönlerini koruyup zayıf noktalarını iyileştirerek daha üstün performans 
-                        gösteren ürünler geliştiriyoruz.
-                      </p>
-                      <p>
-                        <strong>Detaylı Kalite Kontrol Süreci:</strong> Laboratuvarımızda her ürün, üretim öncesi 
-                        ve sonrası olmak üzere çok aşamalı test süreçlerinden geçirilir. Hassas ölçüm cihazlarımız 
-                        ile mikrometrik toleranslar kontrol edilir.
-                      </p>
-                      <p>
-                        <strong>Uzman Kadromuz:</strong> Alanında deneyimli mühendis ve teknisyen kadromuz, 
-                        müşterilerimizin en karmaşık ihtiyaçlarını bile karşılayabilecek çözümler üretir. 
-                        Sürekli araştırma ve geliştirme faaliyetlerimizle sektörde öncü olmaya devam ediyoruz.
-                      </p>
-                      <p>
-                        <strong>İnovasyon ve Teknoloji:</strong> Modern test ekipmanlarımız ve dijital ölçüm 
-                        sistemlerimiz sayesinde, endüstri 4.0 standartlarında üretim yapabilmekteyiz.
-                      </p>
+                      <div>
+                        <h4 className="text-lg font-bold text-kumru-navy mb-3">
+                          Tersine Mühendislikte Uzmanlık, Kalitede Taviz Yok
+                        </h4>
+                        <p className="mb-4">
+                          RSS Kumru olarak, yıllara dayanan tecrübemiz ve yüksek mühendislik altyapımızla tersine mühendislik süreçlerinde fark yaratıyoruz. Elimizde yalnızca teknik bilgi ya da örnek çizim bulunsa bile, ürünü eksiksiz şekilde yeniden tasarlayıp üretebiliyoruz. Hatta, bazı durumlarda fiziksel numunesi dahi olmayan parçaları üretime kazandırma kabiliyetine sahibiz.
+                        </p>
+                        <p className="mb-4">
+                          Sürecin her aşamasında titizlikle yürüttüğümüz kalite kontrol uygulamalarımız, sektör standartlarının ötesine geçer. Malzeme analizinden ölçüsel doğrulamaya, dayanım testlerinden montaj uyumluluğuna kadar tüm kontroller, uzman mühendis ve teknisyen kadromuz tarafından hassasiyetle yürütülür.
+                        </p>
+                        <p>
+                          RSS Kumru olarak sadece ürün üretmiyor, güven inşa ediyoruz. Geniş bilgi birikimimiz, mühendislik gücümüz ve çözüm odaklı yaklaşımımızla; size özel, yüksek kaliteli çözümler sunmaya hazırız.
+                        </p>
+                      </div>
                     </>
                   ) : (
                     <>
-                      <p>
-                        <strong>Reverse Engineering Approach:</strong> We analyze existing products in detail, 
-                        preserving their strengths while improving their weaknesses to develop superior 
-                        performance products.
-                      </p>
-                      <p>
-                        <strong>Detailed Quality Control Process:</strong> In our laboratory, every product 
-                        undergoes multi-stage testing processes both before and after production. 
-                        Micrometric tolerances are controlled with our precision measuring instruments.
-                      </p>
-                      <p>
-                        <strong>Expert Team:</strong> Our experienced team of engineers and technicians 
-                        produces solutions that can meet even the most complex needs of our customers. 
-                        We continue to be pioneers in the industry with our continuous research and 
-                        development activities.
-                      </p>
-                      <p>
-                        <strong>Innovation and Technology:</strong> Thanks to our modern testing equipment 
-                        and digital measurement systems, we can produce according to Industry 4.0 standards.
-                      </p>
+                      <div>
+                        <h4 className="text-lg font-bold text-kumru-navy mb-3">
+                          Expertise in Reverse Engineering, Uncompromising in Quality
+                        </h4>
+                        <p className="mb-4">
+                          At RSS Kumru, we leverage years of experience and strong engineering capabilities to stand out in reverse engineering. Even with only technical data or drawings, we can fully redesign and manufacture a product from scratch. In some cases, we can even develop and produce components without a physical sample.
+                        </p>
+                        <p className="mb-4">
+                          Our rigorous quality control processes exceed industry standards at every stage. From material analysis to dimensional verification, durability testing to assembly compatibility checks, every step is handled with precision by our experienced engineers and technical team.
+                        </p>
+                        <p>
+                          At RSS Kumru, we don't just manufacture products — we build trust. With our extensive know-how, engineering strength, and solution-oriented mindset, we are ready to deliver high-quality, tailor-made solutions for your needs.
+                        </p>
+                      </div>
                     </>
                   )}
                 </div>
