@@ -30,19 +30,35 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     console.info(`Switching language to: ${language}`);
   }, [language]);
 
-  // Translation function
+  // Enhanced translation function with better fallback and debugging
   const t = (key: string): string => {
-    if (!key) return '';
+    if (!key) {
+      console.warn('Translation key is empty');
+      return '';
+    }
     
     const currentTranslations = translations[language];
+    const fallbackTranslations = translations[language === 'en' ? 'tr' : 'en'];
     
-    // Convert dash-case to camelCase for proper key lookup
-    const normalizedKey = key.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+    // Try to get translation for current language
+    let translatedText = currentTranslations[key];
     
-    const translatedText = currentTranslations[normalizedKey];
+    // If not found, try fallback language
+    if (!translatedText && fallbackTranslations) {
+      translatedText = fallbackTranslations[key];
+      if (translatedText) {
+        console.warn(`Translation missing for key "${key}" in ${language}, using fallback`);
+      }
+    }
     
-    // If translation doesn't exist, return the key as fallback
-    return translatedText || key;
+    // If still not found, return the key itself as fallback
+    if (!translatedText) {
+      console.warn(`Translation missing for key "${key}" in both languages`);
+      // Return a more user-friendly version of the key
+      return key.split('.').pop()?.replace(/([A-Z])/g, ' $1').trim() || key;
+    }
+    
+    return translatedText;
   };
 
   return (

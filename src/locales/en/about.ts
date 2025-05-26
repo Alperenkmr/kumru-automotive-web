@@ -1,0 +1,25 @@
+
+// About page translations
+export const aboutType = {
+  'about.title': 'About Us',
+  'about.paragraph1': 'RSS Kumru Automotive has been a leading manufacturer in the automotive industry for over 30 years. We specialize in hydraulic systems, custom engineering lines, and precision-manufactured automotive components.',
+  'about.paragraph2': 'Our state-of-the-art facility combines traditional craftsmanship with modern technology to deliver products that meet the highest industry standards. We serve both domestic and international markets with our comprehensive product range.',
+  'about.paragraph3': 'Quality, innovation, and customer satisfaction are the cornerstones of our business philosophy. We continuously invest in research and development to stay ahead of industry trends and provide cutting-edge solutions.',
+  'about.ourValues': 'Our Values',
+  'about.values.excellence': 'Excellence',
+  'about.values.excellenceDesc': 'We strive for excellence in everything we do, from design to delivery.',
+  'about.values.innovation': 'Innovation',
+  'about.values.innovationDesc': 'We continuously innovate to meet evolving industry needs and customer expectations.',
+  'about.values.integrity': 'Integrity',
+  'about.values.integrityDesc': 'We conduct business with honesty, transparency, and ethical practices.',
+  'about.certificates.title': 'Quality Certifications',
+  'about.certificates.paragraph1': 'RSS Kumru Automotive is committed to maintaining the highest quality standards in all our operations. Our quality management system is certified to ISO 9001:2015 standards.',
+  'about.certificates.paragraph2': 'This certification demonstrates our dedication to continuous improvement, customer satisfaction, and consistent delivery of high-quality products.',
+  'about.certificates.paragraph3': 'Our certifications are regularly audited and updated to ensure we maintain compliance with international standards and industry best practices.',
+  'about.certificates.item1': 'ISO 9001:2015 Quality Management System',
+  'about.certificates.item2': 'Automotive Industry Quality Standards',
+  'about.certificates.item3': 'Environmental Management Compliance',
+  'aboutPage.title': 'About Us',
+  'aboutPage.subtitle': 'RSS Kumru Automotive - Your reliable partner in automotive parts',
+  'aboutPage.description': 'With years of experience in the automotive industry, we produce high-quality and reliable automotive parts. Our expert team and advanced technology allow us to provide the best solutions for our customers.',
+};

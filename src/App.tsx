@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { Helmet } from "react-helmet";
 import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
+import { checkMissingTranslations } from "./utils/translationChecker";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -19,6 +20,11 @@ import NotFound from "./pages/NotFound";
 import "./index.css";
 
 const queryClient = new QueryClient();
+
+// Check translations in development
+if (process.env.NODE_ENV === 'development') {
+  checkMissingTranslations();
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
