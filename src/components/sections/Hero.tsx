@@ -176,15 +176,15 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Video with improved sizing */}
+          {/* Right column - Video with new Vimeo embed */}
           <div className="relative hidden lg:block lg:col-span-7">
             <div className="relative z-10 w-full">
               {/* Video Container */}
               <div className="relative w-full h-0 pb-[56.25%] rounded-3xl overflow-hidden shadow-2xl bg-gray-100">
                 <iframe
-                  src="https://player.vimeo.com/video/1087026754?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0&loop=0&title=0&byline=0&portrait=0&muted=0&controls=1&responsive=1"
+                  src="https://player.vimeo.com/video/1087708026?h=8a9294faa1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
                   className="absolute top-0 left-0 w-full h-full border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                   allowFullScreen
                   title="RSS Kumru Automotive - Tanıtım Videosu"
                   onLoad={() => {
@@ -205,19 +205,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     </div>
                   </div>
                 )}
-              </div>
-              
-              {/* Alternative link below video */}
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://vimeo.com/1087026754" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-kumru-navy hover:text-kumru-yellow transition-colors"
-                >
-                  <Play className="w-4 h-4" />
-                  <span className="text-sm">Videoyu Vimeo'da izle</span>
-                </a>
               </div>
             </div>
           </div>
