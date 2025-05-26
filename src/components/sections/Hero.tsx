@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
@@ -13,18 +13,58 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useLanguage();
   
+  // Arkaplan fotoğrafları array'i
+  const backgroundImages = [
+    "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png",
+    "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.png",
+    "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.png",
+    "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.png",
+    "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.png"
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Fotoğraf değişim efekti
+  useEffect(() => {
+    setIsLoaded(true);
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 7000); // 7 saniyede bir değişim
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+  
   return (
     <section
       className={cn(
-        "min-h-[90vh] relative flex items-center bg-white py-20",
+        "min-h-[90vh] relative flex items-center bg-white py-20 overflow-hidden",
         className
       )}
     >
-      {/* Enhanced background with dynamic pattern */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Base layer */}
-        <div className="absolute inset-0 bg-white"></div>
+      {/* Kayar arkaplan fotoğrafları */}
+      <div className="absolute inset-0 z-0">
+        {backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={cn(
+              "absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000",
+              index === currentImageIndex ? "opacity-30" : "opacity-0"
+            )}
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          />
+        ))}
         
+        {/* Overlay gradient for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/50"></div>
+      </div>
+
+      {/* Enhanced background with dynamic pattern */}
+      <div className="absolute inset-0 z-10 overflow-hidden">
         {/* Geometric patterns */}
         <div className="absolute inset-0" style={{ 
           backgroundImage: "linear-gradient(120deg, transparent 40%, rgba(10, 31, 68, 0.05) 70%)",
@@ -43,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 z-10">
+      <div className="container mx-auto px-4 z-20 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left column - Text content */}
           <div className="lg:col-span-5 animate-fade-in">
@@ -103,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       </div>
 
       {/* Robot Illustration - Semi-transparent behind the content */}
-      <div className="absolute right-0 bottom-0 z-0 opacity-5 hidden lg:block">
+      <div className="absolute right-0 bottom-0 z-5 opacity-5 hidden lg:block">
         <img 
           src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
           alt="RSS Kumru Robot" 
