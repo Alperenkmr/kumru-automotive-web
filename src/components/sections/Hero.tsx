@@ -13,31 +13,26 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useLanguage();
   
-  // Arkaplan fotoğrafları array'i - WebP ve fallback versiyonları
+  // Arkaplan fotoğrafları array'i
   const backgroundImages = useMemo(() => [
     {
-      webp: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.webp",
-      fallback: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png",
+      src: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png",
       alt: "RSS Kumru Automotive - Hidrolik Sistem 1"
     },
     {
-      webp: "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.webp", 
-      fallback: "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.png",
+      src: "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.png", 
       alt: "RSS Kumru Automotive - Hidrolik Sistem 2"
     },
     {
-      webp: "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.webp",
-      fallback: "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.png", 
+      src: "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.png", 
       alt: "RSS Kumru Automotive - Hidrolik Sistem 3"
     },
     {
-      webp: "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.webp",
-      fallback: "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.png",
+      src: "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.png",
       alt: "RSS Kumru Automotive - Hidrolik Sistem 4"
     },
     {
-      webp: "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.webp",
-      fallback: "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.png",
+      src: "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.png",
       alt: "RSS Kumru Automotive - Hidrolik Sistem 5"
     }
   ], []);
@@ -45,24 +40,8 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(backgroundImages.length).fill(false));
-  const [videoError, setVideoError] = useState(false);
 
-  // WebP desteği kontrolü
-  const [supportsWebP, setSupportsWebP] = useState(false);
-
-  // WebP support check - memoized
-  const checkWebPSupport = useCallback(() => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 1;
-    canvas.height = 1;
-    return canvas.toDataURL('image/webp').indexOf('webp') > -1;
-  }, []);
-
-  useEffect(() => {
-    setSupportsWebP(checkWebPSupport());
-  }, [checkWebPSupport]);
-
-  // İlk resmi preload et (LCP için kritik)
+  // İlk resmi preload et
   useEffect(() => {
     const preloadFirstImage = () => {
       const firstImage = backgroundImages[0];
@@ -77,14 +56,11 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         setIsLoaded(true);
       };
       
-      // WebP desteği varsa WebP, yoksa fallback kullan
-      img.src = supportsWebP ? firstImage.webp : firstImage.fallback;
+      img.src = firstImage.src;
     };
 
-    if (supportsWebP !== null) {
-      preloadFirstImage();
-    }
-  }, [supportsWebP, backgroundImages]);
+    preloadFirstImage();
+  }, [backgroundImages]);
 
   // Diğer resimleri lazy load et
   useEffect(() => {
@@ -98,16 +74,15 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             return newState;
           });
         };
-        img.src = supportsWebP ? image.webp : image.fallback;
+        img.src = image.src;
       });
     };
 
-    // İlk resim yüklendikten sonra diğerlerini lazy load et
     if (isLoaded) {
       const timeoutId = setTimeout(loadRemainingImages, 100);
       return () => clearTimeout(timeoutId);
     }
-  }, [isLoaded, supportsWebP, backgroundImages]);
+  }, [isLoaded, backgroundImages]);
 
   // Fotoğraf değişim efekti
   useEffect(() => {
@@ -115,7 +90,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % backgroundImages.length
       );
-    }, 7000); // 7 saniyede bir değişim
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
@@ -127,7 +102,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         className
       )}
     >
-      {/* Optimized background images with lazy loading */}
+      {/* Background images with proper loading */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((image, index) => (
           <div
@@ -137,21 +112,12 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
               index === currentImageIndex && imagesLoaded[index] ? "opacity-60" : "opacity-0"
             )}
           >
-            {/* WebP formatı destekliyorsa WebP, desteklemiyorsa PNG kullan */}
-            <picture>
-              <source 
-                srcSet={image.webp} 
-                type="image/webp"
-              />
-              <img
-                src={image.fallback}
-                alt={image.alt}
-                className="w-full h-full object-cover object-center"
-                loading={index === 0 ? "eager" : "lazy"}
-                decoding={index === 0 ? "sync" : "async"}
-                fetchPriority={index === 0 ? "high" : "low"}
-              />
-            </picture>
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-full object-cover object-center"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
           </div>
         ))}
         
@@ -199,51 +165,30 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Video with fallback */}
+          {/* Right column - Video iframe */}
           <div className="relative hidden lg:block lg:col-span-7">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full h-[600px] bg-black">
-              {!videoError ? (
-                <video 
-                  autoPlay 
-                  muted 
-                  loop 
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={() => setVideoError(true)}
-                  poster="/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png"
-                >
-                  <source src="https://player.vimeo.com/external/1087026754.hd.mp4?s=3d2a0b8a8f9c4e8e7f6d5c4b3a2918e7&profile_id=175" type="video/mp4" />
-                  <source src="https://player.vimeo.com/external/1087026754.sd.mp4?s=3d2a0b8a8f9c4e8e7f6d5c4b3a2918e7&profile_id=164" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-kumru-navy to-kumru-blue">
-                  <div className="text-center text-white">
-                    <Play className="w-16 h-16 mx-auto mb-4 opacity-60" />
-                    <p className="text-lg opacity-80">RSS Kumru Video</p>
-                  </div>
-                </div>
-              )}
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full h-[600px]">
+              <iframe
+                src="https://player.vimeo.com/video/1087026754?h=3d2a0b8a8f&background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+                className="absolute inset-0 w-full h-full"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="RSS Kumru Automotive Video"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Optimized Robot Illustration */}
+      {/* Robot Illustration */}
       <div className="absolute right-0 bottom-0 z-5 opacity-5 hidden lg:block">
-        <picture>
-          <source 
-            srcSet="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.webp" 
-            type="image/webp"
-          />
-          <img 
-            src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
-            alt="RSS Kumru Robot" 
-            className="h-[80vh] object-cover object-center"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
+        <img 
+          src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
+          alt="RSS Kumru Robot" 
+          className="h-[80vh] object-cover object-center"
+          loading="lazy"
+        />
       </div>
     </section>
   );
