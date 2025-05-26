@@ -1,4 +1,3 @@
-
 import React, { useMemo } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -6,7 +5,6 @@ import ProductCard from "@/components/ui/ProductCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { FileText } from "lucide-react";
-import productData from "@/components/product/ProductData";
 
 const Products = () => {
   const { t, language } = useLanguage();
@@ -93,9 +91,8 @@ const Products = () => {
       id: 12,
       title: "VALVE RECORD",
       imageSrc: "/lovable-uploads/3ee29511-87e1-4ee4-908e-fc6c2314b152.png",
-      href: "#",
-      translationKey: "products.valveRecord",
-      comingSoon: true
+      href: "/products/valve-record",
+      translationKey: "products.valveRecord"
     },
     {
       id: 13,
@@ -158,7 +155,6 @@ const Products = () => {
                   href={category.href}
                   className="h-full"
                   translationKey={category.translationKey}
-                  comingSoon={category.comingSoon}
                 />
               ))}
             </div>
