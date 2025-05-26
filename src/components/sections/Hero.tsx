@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ArrowRight, Play, ExternalLink } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 interface HeroProps {
   className?: string;
@@ -94,17 +95,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
-  
-  // Video yükleme kontrolü
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!videoError) {
-        console.log('Video yüklenemedi, fallback gösteriliyor');
-      }
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, [videoError]);
 
   return (
     <section
@@ -176,21 +166,18 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Video with fallback */}
+          {/* Right column - Clean Video */}
           <div className="relative hidden lg:block lg:col-span-7">
             <div className="relative z-10 w-full">
               {/* Video Container */}
               <div className="relative w-full h-0 pb-[56.25%] rounded-3xl overflow-hidden shadow-2xl bg-gray-100">
                 {!videoError ? (
                   <iframe
-                    src="https://player.vimeo.com/video/1087708026?h=8a9294faa1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&controls=1&transparent=0"
+                    src="https://player.vimeo.com/video/1087708026?h=8a9294faa1&autoplay=1&loop=1&title=0&byline=0&portrait=0&controls=0&muted=1&background=1"
                     className="absolute top-0 left-0 w-full h-full border-0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen
                     title="RSS Kumru Automotive - Tanıtım Videosu"
-                    onLoad={() => {
-                      console.log('Video iframe başarıyla yüklendi');
-                    }}
                     onError={(e) => {
                       console.log('Video iframe yüklenirken hata:', e);
                       setVideoError(true);
@@ -201,33 +188,11 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-kumru-navy to-kumru-navy/80 text-white">
                     <Play className="w-16 h-16 mb-4 text-kumru-yellow" />
                     <h3 className="text-xl font-semibold mb-2">Tanıtım Videomuz</h3>
-                    <p className="text-white/80 mb-4 text-center max-w-sm">
+                    <p className="text-white/80 text-center max-w-sm">
                       RSS Kumru Automotive'in üretim süreçlerini ve kalite standartlarını keşfedin.
                     </p>
-                    <a 
-                      href="https://vimeo.com/1087708026" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-kumru-yellow text-kumru-black px-6 py-3 rounded-lg font-medium hover:bg-kumru-yellow/90 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Videoyu Vimeo'da İzle
-                    </a>
                   </div>
                 )}
-              </div>
-              
-              {/* Direct link below video */}
-              <div className="mt-4 text-center">
-                <a 
-                  href="https://vimeo.com/1087708026" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-kumru-navy hover:text-kumru-yellow transition-colors text-sm"
-                >
-                  <Play className="w-4 h-4" />
-                  <span>Videoyu Vimeo'da izle</span>
-                </a>
               </div>
             </div>
           </div>
