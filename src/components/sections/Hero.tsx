@@ -13,21 +13,102 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useLanguage();
   
-  // Arkaplan fotoğrafları array'i
+  // Arkaplan fotoğrafları array'i - WebP ve fallback versiyonları
   const backgroundImages = [
-    "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png",
-    "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.png",
-    "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.png",
-    "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.png",
-    "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.png"
+    {
+      webp: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.webp",
+      fallback: "/lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png",
+      alt: "RSS Kumru Automotive - Hidrolik Sistem 1"
+    },
+    {
+      webp: "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.webp", 
+      fallback: "/lovable-uploads/f1cf3879-6f74-4643-9b6c-dbb6771ab4de.png",
+      alt: "RSS Kumru Automotive - Hidrolik Sistem 2"
+    },
+    {
+      webp: "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.webp",
+      fallback: "/lovable-uploads/320e43c7-3bd0-489e-b34e-0b60fa29a380.png", 
+      alt: "RSS Kumru Automotive - Hidrolik Sistem 3"
+    },
+    {
+      webp: "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.webp",
+      fallback: "/lovable-uploads/446c552f-ce2b-49a8-abf4-d82a271af886.png",
+      alt: "RSS Kumru Automotive - Hidrolik Sistem 4"
+    },
+    {
+      webp: "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.webp",
+      fallback: "/lovable-uploads/3ea5f5c8-b4f1-4be6-abe9-f4b269fcf2ec.png",
+      alt: "RSS Kumru Automotive - Hidrolik Sistem 5"
+    }
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(backgroundImages.length).fill(false));
+
+  // WebP desteği kontrolü
+  const [supportsWebP, setSupportsWebP] = useState(false);
+
+  useEffect(() => {
+    // WebP desteği kontrolü
+    const checkWebPSupport = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      return canvas.toDataURL('image/webp').indexOf('webp') > -1;
+    };
+    
+    setSupportsWebP(checkWebPSupport());
+  }, []);
+
+  // İlk resmi preload et (LCP için kritik)
+  useEffect(() => {
+    const preloadFirstImage = () => {
+      const firstImage = backgroundImages[0];
+      const img = new Image();
+      
+      img.onload = () => {
+        setImagesLoaded(prev => {
+          const newState = [...prev];
+          newState[0] = true;
+          return newState;
+        });
+        setIsLoaded(true);
+      };
+      
+      // WebP desteği varsa WebP, yoksa fallback kullan
+      img.src = supportsWebP ? firstImage.webp : firstImage.fallback;
+    };
+
+    if (supportsWebP !== null) {
+      preloadFirstImage();
+    }
+  }, [supportsWebP]);
+
+  // Diğer resimleri lazy load et
+  useEffect(() => {
+    const loadRemainingImages = () => {
+      backgroundImages.slice(1).forEach((image, index) => {
+        const img = new Image();
+        img.onload = () => {
+          setImagesLoaded(prev => {
+            const newState = [...prev];
+            newState[index + 1] = true;
+            return newState;
+          });
+        };
+        img.src = supportsWebP ? image.webp : image.fallback;
+      });
+    };
+
+    // İlk resim yüklendikten sonra diğerlerini lazy load et
+    if (isLoaded) {
+      setTimeout(loadRemainingImages, 100);
+    }
+  }, [isLoaded, supportsWebP]);
 
   // Fotoğraf değişim efekti
   useEffect(() => {
-    setIsLoaded(true);
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => 
         (prevIndex + 1) % backgroundImages.length
@@ -36,6 +117,11 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
+
+  const getCurrentImageSrc = (index: number) => {
+    const image = backgroundImages[index];
+    return supportsWebP ? image.webp : image.fallback;
+  };
   
   return (
     <section
@@ -44,19 +130,32 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         className
       )}
     >
-      {/* Kayar arkaplan fotoğrafları */}
+      {/* Optimized background images with lazy loading */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((image, index) => (
           <div
             key={index}
             className={cn(
-              "absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000",
-              index === currentImageIndex ? "opacity-60" : "opacity-0"
+              "absolute inset-0 transition-opacity duration-1000",
+              index === currentImageIndex && imagesLoaded[index] ? "opacity-60" : "opacity-0"
             )}
-            style={{
-              backgroundImage: `url(${image})`,
-            }}
-          />
+          >
+            {/* WebP formatı destekliyorsa WebP, desteklemiyorsa PNG kullan */}
+            <picture>
+              <source 
+                srcSet={image.webp} 
+                type="image/webp"
+              />
+              <img
+                src={image.fallback}
+                alt={image.alt}
+                className="w-full h-full object-cover object-center"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding={index === 0 ? "sync" : "async"}
+                fetchPriority={index === 0 ? "high" : "low"}
+              />
+            </picture>
+          </div>
         ))}
         
         {/* Overlay gradient for better text readability */}
@@ -103,7 +202,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Vimeo Video - Fixed and Rounded */}
+          {/* Right column - Optimized Vimeo Video */}
           <div className="relative hidden lg:block lg:col-span-7">
             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full h-[600px] bg-black">
               <iframe 
@@ -112,6 +211,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                 allow="autoplay; fullscreen; picture-in-picture" 
                 className="absolute inset-0 w-full h-full object-cover" 
                 title="RSS Kumru Video"
+                loading="lazy"
               ></iframe>
             </div>
             <script src="https://player.vimeo.com/api/player.js"></script>
@@ -119,13 +219,21 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         </div>
       </div>
 
-      {/* Robot Illustration - Semi-transparent behind the content */}
+      {/* Optimized Robot Illustration */}
       <div className="absolute right-0 bottom-0 z-5 opacity-5 hidden lg:block">
-        <img 
-          src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
-          alt="RSS Kumru Robot" 
-          className="h-[80vh] object-cover object-center"
-        />
+        <picture>
+          <source 
+            srcSet="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.webp" 
+            type="image/webp"
+          />
+          <img 
+            src="/lovable-uploads/2de732da-ae11-4fa3-914c-8973124fa5e5.png" 
+            alt="RSS Kumru Robot" 
+            className="h-[80vh] object-cover object-center"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
     </section>
   );

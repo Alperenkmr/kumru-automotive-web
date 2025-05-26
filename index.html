@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -36,9 +35,15 @@
     <link rel="apple-touch-icon" href="./lovable-uploads/645487c1-55b4-4e5a-8c11-6bdf630999a5.png" />
     <link rel="manifest" href="/manifest.json" />
     
-    <!-- Font Preconnections - DNS lookup optimizasyonu -->
+    <!-- DNS Lookup Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
+    
+    <!-- Critical Image Preloads for LCP optimization -->
+    <link rel="preload" as="image" href="./lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="./lovable-uploads/3d086b23-ba40-4aa7-b07a-82f7c4e57e4c.png" type="image/png" fetchpriority="high" />
     
     <!-- Font Preloads - Kritik fontları önceden yükle -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -113,7 +118,7 @@
       }
     </script>
 
-    <!-- Inline kritik CSS - Font loading fallback -->
+    <!-- Inline kritik CSS - Font loading fallback ve image optimization -->
     <style>
       /* Font loading optimization */
       .font-montserrat { font-family: 'Montserrat', system-ui, -apple-system, sans-serif; }
@@ -128,7 +133,44 @@
         font-family: 'Open Sans';
         font-display: swap;
       }
+
+      /* Image loading optimization */
+      img {
+        content-visibility: auto;
+      }
+      
+      /* WebP support detection */
+      .webp-support picture source[type="image/webp"] {
+        display: block;
+      }
+      
+      .no-webp-support picture source[type="image/webp"] {
+        display: none;
+      }
+
+      /* Loading placeholder styles */
+      .img-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
     </style>
+
+    <!-- WebP Support Detection Script -->
+    <script>
+      (function() {
+        var webP = new Image();
+        webP.onload = webP.onerror = function () {
+          document.documentElement.classList.add(webP.height === 2 ? 'webp-support' : 'no-webp-support');
+        };
+        webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

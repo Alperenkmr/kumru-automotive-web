@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import ImageLightbox from "@/components/ui/ImageLightbox";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -19,23 +19,61 @@ const ProductImage: React.FC<ProductImageProps> = ({
   alt, 
   index, 
   ratio = 1, 
-  loading = "eager",
+  loading = "lazy",
   className = "",
   onImageClick
 }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  // WebP format desteği için image src optimizasyonu
+  const getOptimizedImageSrc = useCallback((originalSrc: string) => {
+    // Eğer resim .png ile bitiyorsa .webp versiyonunu dene
+    if (originalSrc.endsWith('.png')) {
+      return originalSrc.replace('.png', '.webp');
+    }
+    return originalSrc;
+  }, []);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
+    setImageLoaded(true);
+  };
+
   return (
     <div 
-      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00]`}
+      className={`overflow-hidden rounded-lg shadow-md ${className} cursor-pointer bg-[#001F3F] border-2 border-[#FFCC00] transition-transform hover:scale-105`}
       onClick={() => onImageClick && onImageClick(index)}
     >
       <AspectRatio ratio={ratio}>
         <div className="w-full h-full flex items-center justify-center p-3">
-          <img 
-            src={src} 
-            alt={alt} 
-            className="max-h-full max-w-full object-contain" 
-            loading={index > 3 ? "lazy" : loading}
-          />
+          {!imageLoaded && !imageError && (
+            <div className="w-full h-full bg-gray-200 animate-pulse rounded flex items-center justify-center">
+              <div className="text-gray-400 text-sm">Yükleniyor...</div>
+            </div>
+          )}
+          
+          <picture>
+            <source 
+              srcSet={getOptimizedImageSrc(src)} 
+              type="image/webp"
+              onError={handleImageError}
+            />
+            <img 
+              src={src} 
+              alt={alt} 
+              className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              loading={index > 3 ? "lazy" : loading}
+              decoding={index > 3 ? "async" : "sync"}
+              fetchPriority={index < 3 ? "high" : "low"}
+              onLoad={handleImageLoad}
+              onError={handleImageError}
+            />
+          </picture>
         </div>
       </AspectRatio>
     </div>
@@ -63,18 +101,18 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { t } = useLanguage();
 
-  const handleImageClick = (index: number) => {
+  const handleImageClick = useCallback((index: number) => {
     setCurrentImageIndex(index);
     setLightboxOpen(true);
-  };
+  }, []);
 
-  const handleLightboxClose = () => {
+  const handleLightboxClose = useCallback(() => {
     setLightboxOpen(false);
-  };
+  }, []);
 
-  const handleNavigate = (index: number) => {
+  const handleNavigate = useCallback((index: number) => {
     setCurrentImageIndex(index);
-  };
+  }, []);
 
   // Get gallery title translation
   const galleryTitle = t('products.gallery.title');
@@ -86,11 +124,12 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
       <div className={gridClassName}>
         {images.map((image, index) => (
           <ProductImage
-            key={index}
+            key={`${productId}-${index}`}
             src={image}
             alt={`${productTitle} - ${galleryTitle} ${index + 1}`}
             index={index}
             ratio={aspectRatio}
+            loading={index < 3 ? "eager" : "lazy"}
             className={imageClassName}
             onImageClick={handleImageClick}
           />
