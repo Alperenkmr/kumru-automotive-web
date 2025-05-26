@@ -1,5 +1,4 @@
 
-
 import React, { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/layout/Header";
@@ -15,7 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
 
-// Machine park images and descriptions (removing b5b5a004 image)
+// Machine park images and descriptions
 interface MachineItem {
   id: number;
   image: string;
@@ -112,52 +111,78 @@ const MachinePark: React.FC = () => {
   const { t, language } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
   const [labActiveSlide, setLabActiveSlide] = useState(0);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
-  const [labEmblaRef, labEmblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: "center",
+    skipSnaps: false,
+    dragFree: false
+  });
+  const [labEmblaRef, labEmblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: "center",
+    skipSnaps: false,
+    dragFree: false
+  });
 
-  // Update emblaApi event listeners to track active slide
+  // Update emblaApi event listeners to track active slide with error handling
   React.useEffect(() => {
     if (emblaApi) {
       const onSelect = () => {
-        setActiveSlide(emblaApi.selectedScrollSnap());
+        try {
+          setActiveSlide(emblaApi.selectedScrollSnap());
+        } catch (error) {
+          console.warn('Error updating active slide:', error);
+        }
       };
 
       emblaApi.on('select', onSelect);
       onSelect();
       
       return () => {
-        emblaApi.off('select', onSelect);
+        try {
+          emblaApi.off('select', onSelect);
+        } catch (error) {
+          console.warn('Error removing embla event listener:', error);
+        }
       };
     }
     return undefined;
   }, [emblaApi]);
 
-  // Laboratory carousel event listeners
+  // Laboratory carousel event listeners with error handling
   React.useEffect(() => {
     if (labEmblaApi) {
       const onSelect = () => {
-        setLabActiveSlide(labEmblaApi.selectedScrollSnap());
+        try {
+          setLabActiveSlide(labEmblaApi.selectedScrollSnap());
+        } catch (error) {
+          console.warn('Error updating lab active slide:', error);
+        }
       };
 
       labEmblaApi.on('select', onSelect);
       onSelect();
       
       return () => {
-        labEmblaApi.off('select', onSelect);
+        try {
+          labEmblaApi.off('select', onSelect);
+        } catch (error) {
+          console.warn('Error removing lab embla event listener:', error);
+        }
       };
     }
     return undefined;
   }, [labEmblaApi]);
 
-  // Get the correct title based on language
-  const framesTitle = language === 'tr' ? "Fabrikamızdan Kareler" : "Frames from Our Factory";
-  const labTitle = language === 'tr' ? "Laboratuvarımız" : "Our Laboratory";
-  const developmentTitle = language === 'tr' ? "Ürünlerimizi Nasıl Geliştiriyoruz" : "How We Develop Our Products";
+  // Get the correct titles with fallbacks
+  const framesTitle = t('machinePark.framesTitle') || (language === 'tr' ? "Fabrikamızdan Kareler" : "Frames from Our Factory");
+  const labTitle = t('machinePark.labTitle') || (language === 'tr' ? "Laboratuvarımız" : "Our Laboratory");
+  const developmentTitle = t('machinePark.developmentTitle') || (language === 'tr' ? "Ürünlerimizi Nasıl Geliştiriyoruz" : "How We Develop Our Products");
 
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title={language === 'tr' ? "Fabrikamız" : "Our Factory"}
+        title={t('machinePark.title') || (language === 'tr' ? "Fabrikamız" : "Our Factory")}
         description={language === 'tr' ? "RSS Kumru Automotive modern fabrikası ile yüksek kaliteli üretim yapmaktadır." : "RSS Kumru Automotive performs high-quality production with its modern factory."} 
         canonicalUrl="/machine-park" 
       />
@@ -182,6 +207,11 @@ const MachinePark: React.FC = () => {
                               src={item.image}
                               alt={language === 'tr' ? item.titleTr : item.titleEn}
                               className="w-full h-[400px] object-cover"
+                              loading="lazy"
+                              onError={(e) => {
+                                console.warn(`Failed to load image: ${item.image}`);
+                                e.currentTarget.style.display = 'none';
+                              }}
                             />
                           </div>
                         </div>
@@ -195,16 +225,16 @@ const MachinePark: React.FC = () => {
               
               <div className="mt-12 text-center max-w-3xl mx-auto">
                 <p className="text-gray-700 mb-6">
-                  {language === 'tr' 
+                  {t('machinePark.factory.desc1') || (language === 'tr' 
                     ? 'Modern fabrikamız ile yüksek kaliteli ve hassas ürünler üretebilmekteyiz. Teknolojik altyapımız sayesinde müşterilerimizin özel ihtiyaçlarına uygun çözümler sunabiliyoruz.'
                     : 'With our modern factory, we can produce high-quality and precision products. Thanks to our technological infrastructure, we can provide solutions tailored to the specific needs of our customers.'
-                  }
+                  )}
                 </p>
                 <p className="text-gray-700">
-                  {language === 'tr'
+                  {t('machinePark.factory.desc2') || (language === 'tr'
                     ? 'Tüm makinelerimiz periyodik bakımlarla desteklenerek sürekli en yüksek verimlilikte çalışması sağlanmaktadır.'
                     : 'All our machines are supported by periodic maintenance to ensure they continuously operate at the highest efficiency.'
-                  }
+                  )}
                 </p>
               </div>
             </div>
@@ -228,6 +258,11 @@ const MachinePark: React.FC = () => {
                                 src={item.image}
                                 alt={language === 'tr' ? item.titleTr : item.titleEn}
                                 className="w-full h-[350px] object-contain bg-white"
+                                loading="lazy"
+                                onError={(e) => {
+                                  console.warn(`Failed to load lab image: ${item.image}`);
+                                  e.currentTarget.style.display = 'none';
+                                }}
                               />
                             </div>
                           </div>
@@ -251,16 +286,16 @@ const MachinePark: React.FC = () => {
                     <>
                       <div>
                         <h4 className="text-lg font-bold text-kumru-navy mb-3">
-                          Tersine Mühendislikte Uzmanlık, Kalitede Taviz Yok
+                          {t('machinePark.expertise.title') || 'Tersine Mühendislikte Uzmanlık, Kalitede Taviz Yok'}
                         </h4>
                         <p className="mb-4">
-                          RSS Kumru olarak, yıllara dayanan tecrübemiz ve yüksek mühendislik altyapımızla tersine mühendislik süreçlerinde fark yaratıyoruz. Elimizde yalnızca teknik bilgi ya da örnek çizim bulunsa bile, ürünü eksiksiz şekilde yeniden tasarlayıp üretebiliyoruz. Hatta, bazı durumlarda fiziksel numunesi dahi olmayan parçaları üretime kazandırma kabiliyetine sahibiz.
+                          {t('machinePark.expertise.desc1') || 'RSS Kumru olarak, yıllara dayanan tecrübemiz ve yüksek mühendislik altyapımızla tersine mühendislik süreçlerinde fark yaratıyoruz. Elimizde yalnızca teknik bilgi ya da örnek çizim bulunsa bile, ürünü eksiksiz şekilde yeniden tasarlayıp üretebiliyoruz. Hatta, bazı durumlarda fiziksel numunesi dahi olmayan parçaları üretime kazandırma kabiliyetine sahibiz.'}
                         </p>
                         <p className="mb-4">
-                          Sürecin her aşamasında titizlikle yürüttüğümüz kalite kontrol uygulamalarımız, sektör standartlarının ötesine geçer. Malzeme analizinden ölçüsel doğrulamaya, dayanım testlerinden montaj uyumluluğuna kadar tüm kontroller, uzman mühendis ve teknisyen kadromuz tarafından hassasiyetle yürütülür.
+                          {t('machinePark.expertise.desc2') || 'Sürecin her aşamasında titizlikle yürüttüğümüz kalite kontrol uygulamalarımız, sektör standartlarının ötesine geçer. Malzeme analizinden ölçüsel doğrulamaya, dayanım testlerinden montaj uyumluluğuna kadar tüm kontroller, uzman mühendis ve teknisyen kadromuz tarafından hassasiyetle yürütülür.'}
                         </p>
                         <p>
-                          RSS Kumru olarak sadece ürün üretmiyor, güven inşa ediyoruz. Geniş bilgi birikimimiz, mühendislik gücümüz ve çözüm odaklı yaklaşımımızla; size özel, yüksek kaliteli çözümler sunmaya hazırız.
+                          {t('machinePark.expertise.desc3') || 'RSS Kumru olarak sadece ürün üretmiyor, güven inşa ediyoruz. Geniş bilgi birikimimiz, mühendislik gücümüz ve çözüm odaklı yaklaşımımızla; size özel, yüksek kaliteli çözümler sunmaya hazırız.'}
                         </p>
                       </div>
                     </>
@@ -268,16 +303,16 @@ const MachinePark: React.FC = () => {
                     <>
                       <div>
                         <h4 className="text-lg font-bold text-kumru-navy mb-3">
-                          Expertise in Reverse Engineering, Uncompromising in Quality
+                          {t('machinePark.expertise.title') || 'Expertise in Reverse Engineering, Uncompromising in Quality'}
                         </h4>
                         <p className="mb-4">
-                          At RSS Kumru, we leverage years of experience and strong engineering capabilities to stand out in reverse engineering. Even with only technical data or drawings, we can fully redesign and manufacture a product from scratch. In some cases, we can even develop and produce components without a physical sample.
+                          {t('machinePark.expertise.desc1') || 'At RSS Kumru, we leverage years of experience and strong engineering capabilities to stand out in reverse engineering. Even with only technical data or drawings, we can fully redesign and manufacture a product from scratch. In some cases, we can even develop and produce components without a physical sample.'}
                         </p>
                         <p className="mb-4">
-                          Our rigorous quality control processes exceed industry standards at every stage. From material analysis to dimensional verification, durability testing to assembly compatibility checks, every step is handled with precision by our experienced engineers and technical team.
+                          {t('machinePark.expertise.desc2') || 'Our rigorous quality control processes exceed industry standards at every stage. From material analysis to dimensional verification, durability testing to assembly compatibility checks, every step is handled with precision by our experienced engineers and technical team.'}
                         </p>
                         <p>
-                          At RSS Kumru, we don't just manufacture products — we build trust. With our extensive know-how, engineering strength, and solution-oriented mindset, we are ready to deliver high-quality, tailor-made solutions for your needs.
+                          {t('machinePark.expertise.desc3') || 'At RSS Kumru, we don\'t just manufacture products — we build trust. With our extensive know-how, engineering strength, and solution-oriented mindset, we are ready to deliver high-quality, tailor-made solutions for your needs.'}
                         </p>
                       </div>
                     </>
@@ -294,4 +329,3 @@ const MachinePark: React.FC = () => {
 };
 
 export default MachinePark;
-
