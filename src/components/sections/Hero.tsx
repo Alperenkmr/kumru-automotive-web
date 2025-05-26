@@ -165,16 +165,15 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </div>
           </div>
           
-          {/* Right column - Video iframe */}
+          {/* Right column - Vimeo iframe */}
           <div className="relative hidden lg:block lg:col-span-7">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full h-[600px]">
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl w-full aspect-video">
               <iframe
-                src="https://player.vimeo.com/video/1087026754?h=3d2a0b8a8f&background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+                src="https://player.vimeo.com/video/1087026754?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="RSS Kumru Automotive Video"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                title="RSS Kumru Automotive - Tanıtım Videosu"
               />
             </div>
           </div>
