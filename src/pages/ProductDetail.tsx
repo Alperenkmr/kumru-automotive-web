@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ProductDetailsLayout from "@/components/product/ProductDetailsLayout";
@@ -28,29 +28,65 @@ import DefaultGallery from "@/components/product/gallery/DefaultGallery";
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
   const { t, language } = useLanguage();
+  const [isLoading, setIsLoading] = useState(true);
+  const [productExists, setProductExists] = useState(false);
   
-  // Enhanced validation with logging
-  console.log('ProductDetail: Rendering with productId:', productId);
-  console.log('ProductDetail: Available products:', Object.keys(productData));
+  // Enhanced validation with loading state management
+  useEffect(() => {
+    console.log('ProductDetail: Rendering with productId:', productId);
+    console.log('ProductDetail: Available products:', Object.keys(productData));
+    
+    if (!productId) {
+      console.error('ProductDetail: No productId provided in URL params');
+      setIsLoading(false);
+      setProductExists(false);
+      return;
+    }
+    
+    const product = productData[productId as keyof typeof productData];
+    
+    if (!product) {
+      console.error(`ProductDetail: Product not found for ID: ${productId}`);
+      console.log('ProductDetail: Available product IDs:', Object.keys(productData));
+      setIsLoading(false);
+      setProductExists(false);
+      return;
+    }
+    
+    console.log('ProductDetail: Product found:', product);
+    
+    // Check if product is coming soon
+    if ('comingSoon' in product && product.comingSoon) {
+      console.log(`ProductDetail: Product ${productId} is coming soon, redirecting to products`);
+      setIsLoading(false);
+      setProductExists(false);
+      return;
+    }
+    
+    setProductExists(true);
+    setIsLoading(false);
+  }, [productId]);
   
-  if (!productId) {
-    console.error('ProductDetail: No productId provided in URL params');
+  // Show loading state to prevent 404 flash
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kumru-navy mx-auto mb-4"></div>
+          <p className="text-gray-600">{language === 'tr' ? 'Yükleniyor...' : 'Loading...'}</p>
+        </div>
+      </div>
+    );
+  }
+  
+  if (!productId || !productExists) {
     return <ProductNotFound />;
   }
   
   const product = productData[productId as keyof typeof productData];
   
-  if (!product) {
-    console.error(`ProductDetail: Product not found for ID: ${productId}`);
-    console.log('ProductDetail: Available product IDs:', Object.keys(productData));
-    return <ProductNotFound />;
-  }
-  
-  console.log('ProductDetail: Product found:', product);
-  
   // Check if product is coming soon and redirect to products page
   if ('comingSoon' in product && product.comingSoon) {
-    console.log(`ProductDetail: Product ${productId} is coming soon, redirecting to products`);
     return <Navigate to="/products" replace />;
   }
   
