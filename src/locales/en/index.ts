@@ -1,19 +1,28 @@
-import { home } from './home';
-import { about } from './about';
-import { productsType } from './products';
-import { contact } from './contact';
-import { blog } from './blog';
-import { machinePark } from './machinePark';
-import { footer } from './footer';
-import { navigation } from './navigation';
 
-export const en = {
-  ...home,
-  ...about,
-  ...productsType,
-  ...contact,
-  ...blog,
-  ...machinePark,
-  ...footer,
+import { aboutType } from './about';
+import { blogType } from './blog';
+import { contactType } from './contact';
+import { footerType } from './footer';
+import { heroType } from './hero';
+import { machineParkType } from './machinePark';
+import { navigation } from './navigation';
+import { productsType } from './products';
+import { servicesType } from './services';
+import { whyChooseUsType } from './whyChooseUs';
+import { ctaType } from './cta';
+import { generalType } from './general';
+
+export const enTranslations = {
+  ...aboutType,
+  ...blogType,
+  ...contactType,
+  ...footerType,
+  ...heroType,
+  ...machineParkType,
   ...navigation,
+  ...productsType,
+  ...servicesType,
+  ...whyChooseUsType,
+  ...ctaType,
+  ...generalType,
 };
