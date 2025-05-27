@@ -7,28 +7,6 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "src": "/robots.txt",
-      "dest": "/robots.txt"
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "/lovable-uploads/(.*)",
-      "dest": "/lovable-uploads/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!assets|lovable-uploads|robots.txt|sitemap.xml|manifest.json|favicon.ico).*)",
