@@ -1,4 +1,3 @@
-
 const productData = {
   "cabin-lifting-hose": {
     title: "Cabin Lifting Hose",
@@ -25,8 +24,7 @@ const productData = {
       "/lovable-uploads/8e257d85-d39d-489f-bb00-0d03d7534e90.png",
       "/lovable-uploads/837e274d-94a6-437d-9f38-6959341f8b18.png",
       "/lovable-uploads/588c8d30-b75d-456d-908c-fb59685b0ceb.png",
-      "/lovable-uploads/63768cd3-1235-488b-aa55-fb1fc4f98ed9.png",
-      "/lovable-uploads/c20cb190-bc8b-4e59-a42b-dcdf38473656.png"
+      "/lovable-uploads/63768cd3-1235-488b-aa55-fb1fc4f98ed9.png"
     ]
   },
   "hydraulic-system": {

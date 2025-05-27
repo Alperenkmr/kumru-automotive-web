@@ -10,6 +10,7 @@ import { productsType } from './products';
 import { servicesType } from './services';
 import { whyChooseUsType } from './whyChooseUs';
 import { ctaType } from './cta';
+import { generalType } from './general';
 
 export const trTranslations = {
   ...aboutType,
@@ -23,4 +24,5 @@ export const trTranslations = {
   ...servicesType,
   ...whyChooseUsType,
   ...ctaType,
+  ...generalType,
 };
