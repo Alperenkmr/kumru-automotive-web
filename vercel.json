@@ -1,12 +1,8 @@
 
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "dist/**",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/((?!assets|lovable-uploads|robots.txt|sitemap.xml|manifest.json|favicon.ico).*)",

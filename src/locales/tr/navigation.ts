@@ -1,14 +1,11 @@
 
-// Ana navigasyon çevirileri
-export const navigationType = {
-  'nav.home': 'Ana Sayfa',
-  'nav.about': 'Hakkımızda',
-  'nav.products': 'Ürünler',
-  'nav.machinePark': 'Fabrikamız',
-  'nav.blog': 'Blog',
-  'nav.contact': 'İletişim',
-  'header.contactUs': 'Bizimle İletişime Geçin',
-  'aboutSubmenu.whatWeDo': 'Neler Yapıyoruz',
-  'aboutSubmenu.teamValues': 'Ekibimiz & Değerlerimiz',
-  'aboutSubmenu.certificates': 'Kalite Sertifikalarımız',
+export const navigation = {
+  'navigation.home': 'Ana Sayfa',
+  'navigation.about': 'Hakkımızda',
+  'navigation.products': 'Ürünler',
+  'navigation.machinePark': 'Makine Parkı',
+  'navigation.blog': 'Blog',
+  'navigation.contact': 'İletişim',
+  'navigation.language': 'Dil',
+  'navigation.menu': 'Menü'
 };

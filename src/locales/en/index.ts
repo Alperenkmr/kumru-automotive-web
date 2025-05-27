@@ -1,31 +1,19 @@
+import { home } from './home';
+import { about } from './about';
+import { productsType } from './products';
+import { contact } from './contact';
+import { blog } from './blog';
+import { machinePark } from './machinePark';
+import { footer } from './footer';
+import { navigation } from './navigation';
 
-// Main English translations merging file
-import { TranslationsType } from "../types";
-import { navigationType } from "./navigation";
-import { aboutType } from "./about";
-import { blogType } from "./blog";
-import { contactType } from "./contact";
-import { footerType } from "./footer";
-import { heroType } from "./hero";
-import { productsType } from "./products";
-import { servicesType } from "./services";
-import { whyChooseUsType } from "./whyChooseUs";
-import { ctaType } from "./cta";
-import { machineParkType } from "./machinePark";
-import { generalType } from "./general";
-
-// Merge all translations
-export const enTranslations: TranslationsType = {
-  ...navigationType,
-  ...aboutType,
-  ...blogType,
-  ...contactType,
-  ...footerType,
-  ...heroType,
+export const en = {
+  ...home,
+  ...about,
   ...productsType,
-  ...servicesType,
-  ...whyChooseUsType,
-  ...ctaType,
-  ...machineParkType,
-  ...generalType
+  ...contact,
+  ...blog,
+  ...machinePark,
+  ...footer,
+  ...navigation,
 };
