@@ -27,15 +27,11 @@
     {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!api|assets|lovable-uploads|robots.txt|sitemap.xml|manifest.json|favicon.ico).*)",
+      "source": "/((?!assets|lovable-uploads|robots.txt|sitemap.xml|manifest.json|favicon.ico).*)",
       "destination": "/index.html"
     }
   ],
@@ -76,11 +72,6 @@
       ]
     }
   ],
-  "functions": {
-    "dist/assets/*.js": {
-      "maxDuration": 30
-    }
-  },
   "trailingSlash": false,
   "cleanUrls": true
 }
